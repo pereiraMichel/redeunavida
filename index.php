@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>REDE UNA VIDA</title>
 
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -19,20 +20,20 @@
 				<div class="navbar-text-top">
 					<div class="col-sm-4">
 						<figure class="navbar-logo navbar-left hidden-xs">
-							<a href="index.html">
-								<img src="assets/images/cetas_min.png" alt="Coletivo CETAS de Pesquisadores">
+							<a href="index.php">
+								<img src="images/logoRUV50x51.png" title="Rede Una Vida">
 							</a>
 						</figure><!-- /figure -->
 					</div><!-- /col-sm-4 -->
 
 					<div class="col-sm-4">
-						<div class="hidden-sm"><span>REDE UNA VIDA</span></div>
-						<div class="visible-sm"><span>REDE UNA VIDA</span></div>
+						<div class="hidden-sm"><span>RUV</span></div>
+						<div class="visible-sm"><span>RUV</span></div>
 						<div class="navbar-subtext-top hidden-sm">
-							<!-- CENTRO DE ESTUDOS DO TRABALHO AMBIENTE E SA�DE -->
+							 REDE UNA VIDA 
 						</div><!-- /hidden-sm -->
 						<div class="navbar-subtextsm-top visible-sm">
-							<!-- CENTRO DE ESTUDOS DO TRABALHO AMBIENTE E SA�DE -->
+							 REDE UNA VIDA 
 						</div><!-- /visible-sm -->
 					</div><!-- /col-sm-4 -->
 
@@ -52,7 +53,7 @@
 							</a>-->
 							<a href="http://biblioteca.cetas.com.br" class="text-link">
                                                                 <button class="btn btn-warning">
-                                                                        <i class="fa fa-book"></i> Acesso ao Sistema
+                                                                        <i class="fa fa-th"></i> Acesso ao Sistema
                                                                 </button>
                                                         </a>
 						</div>
@@ -63,8 +64,13 @@
 		</nav>
 	</header><!-- /header -->
 
-	<div id="content">
-
+	<div id="content"> <!-- colocar o iframe aqui.  -->
+<!--              <iframe src="view/slide.php" width="1260" height="529" frameborder="0" scrolling="no" name="slide"></iframe>-->
+            <?php
+                
+            
+            ?>
+            
 	</div>
 
 	<footer id="footer">
@@ -76,56 +82,41 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">
-					<img src="assets/images/unesp.png" alt="UNESP" class="hidden-sm hidden-xs">
-					<img src="assets/images/unesp_sm.png" alt="UNESP" class="visible-sm visible-xs">
+				<a class="navbar-brand" href="index.php">
+<!--					<img src="assets/images/unesp.png" alt="UNESP" class="hidden-sm hidden-xs">
+					<img src="assets/images/unesp_sm.png" alt="UNESP" class="visible-sm visible-xs">-->
 				</a><!-- /navbar-brand -->
 			</div>
 			<div class="collapse navbar-collapse" id="example-navbar-collapse">
 				<ul class="nav navbar-nav navbar-right" id="menu">
 					<li class="active" id="home">
-						<a href="index.html">
-							<i class="fa fa-home"></i> Home
+						<a href="index.php">
+							<i class="fa icon-home"></i> Home
 						</a>
 					</li>
-					<li id="sobre">
+					<li id="quemsomos">
 						<a href="#">
-							<i class="fa fa-quote-left"></i> Programação
+							<i class="fa fa-book"></i> Quem Somos
 						</a>
 					</li>
-					<li id="laboratorios">
+					<li id="programacao">
 						<a href="#">
-							<i class="fa fa-puzzle-piece"></i> Agenda
+							<i class="fa fa-puzzle-piece"></i> Programação
 						</a>
 					</li>
-					<li id="pessoas">
+					<li id="galeria">
 						<a href="#">
-							<i class="fa fa-group"></i> Retiro
+							<i class="fa fa-ticket"></i> Galeria
 						</a>
 					</li>
-					<li id="pessoas">
+					<li id="sugestoes">
 						<a href="#">
-							<i class="fa fa-group"></i> Calendário
+							<i class="fa fa-comment"></i> Sugestões
 						</a>
 					</li>
-					<li id="pessoas">
+					<li id="sistema">
 						<a href="#">
-							<i class="fa fa-group"></i> Galeria
-						</a>
-					</li>
-					<li id="pessoas">
-						<a href="#">
-							<i class="fa fa-group"></i> Sugestões
-						</a>
-					</li>
-					<li id="pessoas">
-						<a href="#">
-							<i class="fa fa-group"></i> Quem Somos
-						</a>
-					</li>
-					<li id="pessoas">
-						<a href="#">
-							<i class="fa fa-group"></i> Sistema
+							<i class="fa fa-th"></i> Sistema
 						</a>
 					</li>
 					<li class="dropdown">
@@ -133,9 +124,21 @@
 							<i class="fa fa-globe"></i> Acompanhe
 						</a>
 					    <ul class="dropdown-menu">
-					    	<li><a href="noticias.html"><i class="fa fa-rss"></i>&nbsp; Not�cias</a></li>
-					    	<li><a href="eventos.html"><i class="fa fa-puzzle-piece"></i>&nbsp; Eventos</a></li>
-					    	<li><a href="publicacao.html"><i class="fa fa-book"></i>&nbsp; Publica��es</a></li>
+                                                <li id="agenda">
+                                                        <a href="#">
+                                                                <i class="fa fa-dashboard"></i> Agenda
+                                                        </a>
+                                                </li>
+                                                <li id="retiro">
+                                                        <a href="#">
+                                                                <i class="fa fa-group"></i> Retiro
+                                                        </a>
+                                                </li>
+                                                <li id="calendario">
+                                                        <a href="#">
+                                                                <i class="fa fa-calendar"></i> Calendário
+                                                        </a>
+                                                </li>
 					    </ul>
 					</li>
 					<li id="contato">
