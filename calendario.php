@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>REDE UNA VIDA</title>
 
+<?php
+    require_once './view/formulario.php';
+    require_once './controller/constantes.php';
+
+    $formulario = new formulario();
+
+?>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>REDE UNA VIDA</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="favicon.ico">
+        
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -18,8 +28,17 @@
                         $('body').addClass('images');
                 });
         </script>
-	<link rel="author" href="autor.txt">
-</head>
+
+<!--	<script type="text/javascript" src="./CETAS_files/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="./CETAS_files/back-to-top.js"></script>-->
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			scrolltotop.init();
+		});
+	</script>        
+        
+        <link rel="author" href="autor.txt">        
+    </head>
 <body>
 	<header id="header">
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -48,18 +67,17 @@
 					<br class="visible-xs">
 					<div class="col-sm-4">
 						<div class="navbar-text navbar-right">
-							<a href="https://mail.redeunavida.org.br:8443" class="text-link">
+							<!--<a href="https://mail.cetas.com.br:8443" class="text-link">
 								<button class="btn btn-primary">
 									<i class="fa fa-envelope-o"></i> WebMail
 								</button>
 							</a>
-                                                        <!--
 							<a href="https://cetas.com.br/redmine" class="text-link">
 								<button class="btn btn-danger">
 									<i class="fa fa-users"></i> Redmine
 								</button>
 							</a>-->
-							<a href="sistema/" class="text-link">
+							<a href="http://biblioteca.cetas.com.br" class="text-link">
                                                                 <button class="btn btn-warning">
                                                                         <i class="fa fa-th"></i> Acesso ao Sistema
                                                                 </button>
@@ -72,14 +90,28 @@
 		</nav>
 	</header><!-- /header -->
 
-        <!-- Meio da página -->
-        
 	<div id="content">
-            <iframe src="view/slide.php" width="1260" height="529" frameborder="0" scrolling="no" name="slide" style="margin-top: 70px; "></iframe>
+		<div class="bs-docs-header bs-docs-first">
+			<div class="container">
+				<h3 class="text-info"><i class="fa fa-calendar"></i> CALENDÁRIO</h3>
+				<small>
+                        <?php
+                        $filename = "texto/calendario.xml";
+                        
+                        @header("Content-Type: text/html; charset=utf-8");
+                        $xml = simplexml_load_file($filename);
+
+                        foreach($xml->texto as $texto)
+                        {
+                            echo $texto->calendario;
+                            echo "<br>";
+                        }                        
+                        ?>
+				</small>
+			</div>
+		</div>
         </div>
 
-
-<!-- Parte de baixo da página -->
 	<footer id="footer">
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 			<div class="navbar-header">
@@ -96,8 +128,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="example-navbar-collapse">
 				<ul class="nav navbar-nav navbar-right" id="menu">
-					<li class="active" id="home">
-						<a href="#">
+					<li id="home">
+						<a href="index.php">
 							<i class="fa icon-home"></i> Home
 						</a>
 					</li>
@@ -107,7 +139,7 @@
 						</a>
 					</li>
 					<li id="programacao">
-						<a href="programacao.php">
+                                            <a href="programacao.php">
 							<i class="fa fa-puzzle-piece"></i> Programação
 						</a>
 					</li>
@@ -141,8 +173,8 @@
                                                                 <i class="fa fa-group"></i> Retiro
                                                         </a>
                                                 </li>
-                                                <li id="calendario">
-                                                    <a href="calendario.php">
+                                                <li class="active" id="calendario">
+                                                    <a href="#">
                                                                 <i class="fa fa-calendar"></i> Calendário
                                                         </a>
                                                 </li>
@@ -158,13 +190,14 @@
 		</nav>
 	</footer>
 
-
+<!-- EOF -->
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="images/up.png" style="width:30px; height:30px"></div>
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="images/up.png" style="width:30px; height:30px">
 </div>
 
+
+
 </body>
 </html>
-<!-- EOF -->
