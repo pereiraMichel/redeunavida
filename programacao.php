@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="css/font-awesome.min.css">
         
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="icon/ruv.ico">
         
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">

@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>REDE UNA VIDA</title>
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="icon/ruv.ico">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -77,7 +77,7 @@
 									<i class="fa fa-users"></i> Redmine
 								</button>
 							</a>-->
-							<a href="http://biblioteca.cetas.com.br" class="text-link">
+                                                        <a href="sistema/" class="text-link">
                                                                 <button class="btn btn-warning">
                                                                         <i class="fa fa-th"></i> Acesso ao Sistema
                                                                 </button>
