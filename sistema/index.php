@@ -6,9 +6,10 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>SISTEMA</title>
+    <title>SISTEMA RUV</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" href="../icon/ruv.ico">
+        <link rel="icon" type="image/png" href="../images/ruvicon.png">
   </head>
 
   <body>

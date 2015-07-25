@@ -67,7 +67,7 @@ a [class^="icon-"],
 a [class*=" icon-"] {
   cursor: pointer;
 }
-.icon-glass {
+/*.icon-glass {
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf000;');
 }
 .icon-music {
@@ -1200,4 +1200,4 @@ a [class*=" icon-"] {
 }
 .icon-renren {
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf18b;');
-}
+}*/

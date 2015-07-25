@@ -12,10 +12,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>REDE UNA VIDA</title>
+        <title>REDE UNA VIVA</title>
 
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="shortcut icon" href="icon/ruv.ico">
+        <link rel="icon" type="image/png" href="images/ruvicon.png">
+
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
