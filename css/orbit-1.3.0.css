@@ -128,20 +128,26 @@ span.pause.active {
 
 .orbit-caption {
     display: none;
-    font-family: "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
+    font-family: "Arial", "Arial", Helvetica, Arial, sans-serif;}
+    /*font-family: "Baskerville Old Face", "Baskerville Old Face", Helvetica, Arial, sans-serif;}*/
+    /*font-family: "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }*/
 
 .orbit-wrapper .orbit-caption {
     background: #000;
     background: rgba(0,0,0,.6);
     z-index: 1000;
     color: #fff;
+	/*text-align: right;*/
 	text-align: center;
 	padding: 7px 0;
-    font-size: 13px;
+    font-size: 20px;
+    /*font-size: 13px;*/
     position: absolute;
     right: 0;
     bottom: 0;
     width: 100%; }
+
+
 
 
 /* DIRECTIONAL NAV

@@ -6,7 +6,7 @@ our demo gets from this sheet) */
 /*    padding: 100px;*/
 }
     
-.content { background: url(dummy-images/coffee.jpg); }
+.content { background: url(../view/dummy-images/foto1.jpg); }
 
 .content h1 {
 	font-size: 40px; 

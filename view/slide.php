@@ -40,21 +40,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="ten columns">
-<!--				<h4>ZURB's Orbit Slider</h4>
-				<a href="http://www.zurb.com/playground/orbit-jquery-image-slider">View Docs + Playground for Orbit</a>-->
-
 
 				<div id="responsive"> 
-					<div class="content" style="">
-						<h1>Orbit does content now.</h1>
-						<h3>Highlight me...I'm text.</h3>
-					</div>
+
                                     <!--2048x1536-->
-                                    
-                                    <img src="dummy-images/foto1.jpg" width="2048" height="1536" />
-                                    <img src="dummy-images/foto2.jpg" data-caption="#htmlCaption" width="2048" height="1536" />
-                                    <img src="dummy-images/foto3.jpg" width="2048" height="1536"  />
-                                    <img src="dummy-images/foto4.jpg" width="2048" height="1536"  />
+
+                                    <img src="dummy-images/foto1Texto.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                                    <img src="dummy-images/foto2Texto.png" data-caption="#textFoto2" title="Um caminho espiritual de prática individual diária e encontros semanais em grupo afim" />
+                                    <img src="dummy-images/foto3Texto.png" data-caption="#textFoto3" title="Grupos semanais prática e partilha"  />
+                                    <img src="dummy-images/foto4Texto.png" data-caption="#textFoto4" title="Lugar aprazível com natureza pródiga alimentação saúdavel durante 7 dias"  />
 				</div>
 
 		<!-- =======================================
@@ -63,7 +57,7 @@
 
 		======================================= -->
 <!--				<div id="featured"> 
-					<div class="content" style="">
+					<div class="content">
 						<h1>Orbit does content now.</h1>
 						<h3>Highlight me...I'm text.</h3>
 					</div>
@@ -72,7 +66,42 @@
 					<img src="dummy-images/features.jpg"  />
 				</div>-->
 				<!-- Captions for Orbit -->
-				<span class="orbit-caption" id="htmlCaption"><strong>I'm A Badass Caption:</strong> I can haz <a href="#">links</a>, <em>style</em> or anything that is valid markup :)</span>
+
+
+
+
+<!--                                    <div style="padding-right: 150px; text-align: right">Teste</div><br/>
+                                    <div style="padding-right: 70px; text-align: right">Teste</div>-->
+
+                                <!--<span  id="textFoto1">-->
+                                   
+                                    <span class="orbit-caption" id="textFoto1">
+                                        <div style="padding-right: 40px; text-align: right"> nova humanidade</div><br/>
+                                        <div style="padding-right: 150px; text-align: right">conspirada</div><br/>
+                                        <div style="padding-right: 70px; text-align: right">em silêncio</div>
+                                    </span>                                       
+
+                                <!--</span>-->
+                                
+<!--                                <span class="orbit-caption" id="textFoto1">
+                                    <div style="padding-right: 40px; text-align: right"> nova humanidade</div><br/>
+                                    <div style="padding-right: 150px; text-align: right">conspirada</div><br/>
+                                    <div style="padding-right: 70px; text-align: right">em silêncio</div>
+                                </span>-->
+                                <span class="orbit-caption" id="textFoto2">
+                                    <div style="text-align: left; padding-left: 10px;">um caminho espiritual</div>
+                                    <div style="text-align: left; padding-left: 10px;">de prática individual diária</div>
+                                    <div style="text-align: left; padding-left: 10px;">e encontros semanais em grupo afim</div>
+                                </span>
+				<span class="orbit-caption" id="textFoto3">
+                                    <div style="padding-right: 50px; text-align: right"> grupos semanais</div><br/>
+                                    <div style="padding-right: 30px; text-align: right; color: #FF0000">prática e partilha</div><br/>
+                                </span>
+                                <span class="orbit-caption" id="textFoto4">
+                                    <div style="text-align: right; padding-right: 10px;">lugar aprazível com natureza pródiga</div><br/>
+                                    <div style="text-align: right; padding-right: 10px;">alimentação saudável</div><br/>
+                                    <div style="text-align: right; padding-right: 10px;">durante 7 dias</div>
+                                </span>
 
 
 <!--				<div id="featured2"> 

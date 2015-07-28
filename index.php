@@ -69,23 +69,15 @@ require_once 'controller/metodos.php';
 					</div><!-- /col-sm-4 -->
                                         
                                         <div class="col-sm-2">
-                                            <ul class="nav navbar-nav navbar-right" id="menu">
-                                                <li id="agenda">
-                                                    <a href="agenda.php" class="dropdown-toggle" data-toggle="dropdown">
-                                                        <button class="btn btn-link">
-                                                            <i class="fa fa-dashboard"></i> Agenda
-                                                        </button>
-                                                    
-                                                    </a>
-<!--                                                    <ul class="dropdown-menu">
-                                                        <li id="agenda">
-                                                            <a href="agenda.php">
+                                            <!--<ul class="nav navbar-nav navbar-right" id="menu">-->
+                                                <!--<li id="agenda">-->
+						<div class="navbar-text navbar-right">
+                                                    <a href="agenda.php" class="text-link">
+                                                            <button class="btn btn-default">
                                                                 <i class="fa fa-dashboard"></i> Agenda
-                                                            </a>
-                                                        </li>
-                                                    </ul>-->
-                                                </li>
-                                            </ul>
+                                                            </button>
+                                                    </a>
+						</div>
                                         </div>
 
                                         <div class="col-sm-4">
@@ -134,9 +126,9 @@ require_once 'controller/metodos.php';
 
         <!-- Meio da página -->
         
-	<div id="content">
+        <div id="content">
 
-            <iframe src="view/slide.php" width="1260" height="529" frameborder="0" scrolling="no" name="slide" style="margin-top: 70px; "></iframe>
+            <iframe src="view/slide.php" width="1260" height="650" frameborder="0" scrolling="no" name="slide" style="margin-top: 30px; padding: 0px 0px 0px 150px;"></iframe>
         </div>
 
 
