@@ -34,13 +34,13 @@ $(function () {
     });
     $("#name").keyup(function () {
         var len = $('#name').val().length;
-        if (len > 13 || len == 0) {
+        if (len > 10 || len == 0) {
             $('#name').css('background', 'rgb(255, 214, 190)');
             blsp();
             if (len != 0) {
-                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login: Too long').fadeIn()
+                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login: Muito longo').fadeIn()
             } else {
-                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login: Null').fadeIn()
+                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login Vazio').fadeIn()
             }
             flg.name = 1
         } else {
@@ -56,9 +56,9 @@ $(function () {
             $('#pass').css('background', 'rgb(255, 214, 190)');
             blsp();
             if (len != 0) {
-                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha: Too long').fadeIn()
+                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha: Muito longa').fadeIn()
             } else {
-                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha: Null').fadeIn()
+                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha Vazia').fadeIn()
             }
             flg.pass = 1
         } else {

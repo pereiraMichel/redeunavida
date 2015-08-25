@@ -1,0 +1,41 @@
+** ERROS EM TABELAS/CLASSES
+
+CLASSES/ TABELAS
+
+conectaBanco.php			= E001
+modelEstadoCivil.php		= E002
+modelPerfil.php			= E003
+modelTelefone.php			= E004
+modelTipoUsuario.php		= E005
+modelUsuario.php			= E006
+modelTipoTelefone.php		= E019
+
+PÁGINAS WEB
+
+inicio.php				= E007
+primeiroUsuario.php		= E008
+telapadrao.php			= E009
+controlUsuario.php			= E010
+seguranca.php			= E011
+constante.php			= E012
+
+CSS
+
+daskboard.css			= E013
+style.css				= E014
+
+JS
+
+ie-emulation			= E015
+ie-10-viewport			= E016
+index.js				= E017
+jquery.min.js			= E018
+
+
+ERROS SEGUIDOS NO BANCO DE DADOS
+
+1 - CONSULTA
+2 - INCLUSÃO
+3 - ALTERAÇÃO
+4 - EXCLUSÃO
+5 - PARAM CONSULTA

@@ -8,6 +8,7 @@
 		<title>REDE UNA VIVA</title>
 		
 		<!-- Attach our CSS -->
+                <link rel="stylesheet" href="../css/font-awesome.min.css">
                 <link rel="stylesheet" href="../css/orbit-1.3.0.css">
                 <link rel="stylesheet" href="../css/globals.css">
                 <link rel="stylesheet" href="../css/grid.css">
@@ -34,23 +35,34 @@
 				$('#responsive').orbit({bullets: true, fluid: true});
 			});
 		</script>
+                
+                <style>
+                    html, body{
+//                        height: 100%;
+                        width: 100%; 
+/*                        padding-left: 100px; 
+                        padding-right: 100px;*/
+                    }
+
+                </style>
 		
 	</head>
-	<body>
+        <body>
 	<div class="container">
 		<div class="row">
-			<div class="ten columns">
+			<div class="ten columns" style="width: 100%; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
 
-				<div id="responsive"> 
+                            <div id="responsive"> 
 
-                                    <!--2048x1536-->
+                                <!--            <div id="telaToda">-->
+                                <!--2048x1536-->
 
-                                    <img src="dummy-images/foto1Texto.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
-                                    <img src="dummy-images/foto2Texto.png" data-caption="#textFoto2" title="Um caminho espiritual de prática individual diária e encontros semanais em grupo afim" />
-                                    <img src="dummy-images/foto3Texto.png" data-caption="#textFoto3" title="Grupos semanais prática e partilha"  />
-                                    <img src="dummy-images/foto4Texto.png" data-caption="#textFoto4" title="Lugar aprazível com natureza pródiga alimentação saúdavel durante 7 dias"  />
-				</div>
-
+                                <img src="dummy-images/foto1Texto.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                                <img src="dummy-images/foto2Texto.png" data-caption="#textFoto2" title="Um caminho espiritual de prática individual diária e encontros semanais em grupo afim" />
+                                <img src="dummy-images/foto3Texto.png" data-caption="#textFoto3" title="Grupos semanais prática e partilha"  />
+                                <img src="dummy-images/foto4Texto.png" data-caption="#textFoto4" title="Lugar aprazível com natureza pródiga alimentação saúdavel durante 7 dias" />
+                            </div>
+	<!--</div>-->
 		<!-- =======================================
 
 		THE ACTUAL ORBIT SLIDER CONTENT 
@@ -81,13 +93,7 @@
                                         <div style="padding-right: 70px; text-align: right">em silêncio</div>
                                     </span>                                       
 
-                                <!--</span>-->
-                                
-<!--                                <span class="orbit-caption" id="textFoto1">
-                                    <div style="padding-right: 40px; text-align: right"> nova humanidade</div><br/>
-                                    <div style="padding-right: 150px; text-align: right">conspirada</div><br/>
-                                    <div style="padding-right: 70px; text-align: right">em silêncio</div>
-                                </span>-->
+
                                 <span class="orbit-caption" id="textFoto2">
                                     <div style="text-align: left; padding-left: 10px;">um caminho espiritual</div>
                                     <div style="text-align: left; padding-left: 10px;">de prática individual diária</div>
@@ -120,6 +126,6 @@
 		
 	</div>	
 	
-	
+
 	</body>
 </html>

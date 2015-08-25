@@ -13,12 +13,12 @@ require_once 'controller/metodos.php';
 	<meta charset="UTF-8">
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         
-<!--  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <meta name="description" content="Bootstrap Sub-Menus">
-  <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-  <meta name="author" content="Vasily A.">
-  <meta name="robots" content="nofollow">
-  <meta name="google" content="notranslate">        -->
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="description" content="Bootstrap Sub-Menus">
+        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
+        <meta name="author" content="Vasily A.">
+        <meta name="robots" content="nofollow">
+        <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
 
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -40,6 +40,7 @@ require_once 'controller/metodos.php';
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
+        <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
             $('.dropdown-submenu > a').submenupicker();
@@ -49,18 +50,21 @@ require_once 'controller/metodos.php';
                 jQuery(document).ready(function($) {
                         $('body').addClass('images');
                 });
-        </script>-->
+        </script>
+        <style>
+            /*html, body, div, iframe {margin: 0px; padding: 0px}*/
+            iframe{width: 100%; border: none; position: absolute}
+            body{padding-top: 80px;}
+
+        </style>
         <link rel="author" href="autor.txt">
 </head>
-<body>
-
-
-
+<body id="frameSlide">
 	<header id="header">
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="text-center">
 				<div class="navbar-text-top">
-					<div class="col-sm-2">
+					<div class="col-sm-4" style='padding-left: 150px'>
 						<figure class="navbar-logo navbar-left hidden-xs">
 							<a href="index.php">
                                                             <img src="images/logoRedeUnaVida.png" title="<?php echo TITULORUVBAIXO; ?>" width="75" height="61">
@@ -68,9 +72,9 @@ require_once 'controller/metodos.php';
 						</figure><!-- /figure -->
 					</div><!-- /col-sm-4 -->
                                         
-                                        <div class="col-sm-2">
-                                            <!--<ul class="nav navbar-nav navbar-right" id="menu">-->
-                                                <!--<li id="agenda">-->
+<!--                                        <div class="col-sm-2">
+                                            <ul class="nav navbar-nav navbar-right" id="menu">
+                                                <li id="agenda">
 						<div class="navbar-text navbar-right">
                                                     <a href="agenda.php" class="text-link">
                                                             <button class="btn btn-default">
@@ -78,9 +82,9 @@ require_once 'controller/metodos.php';
                                                             </button>
                                                     </a>
 						</div>
-                                        </div>
+                                        </div>-->
 
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <div class="hidden-sm">
                                                 <span>
                                                     <a href="">
@@ -104,7 +108,7 @@ require_once 'controller/metodos.php';
 
 					<hr class="visible-xs"><!-- /hr -->
 					<br class="visible-xs">
-					<div class="col-sm-4">
+					<div class="col-sm-4" style="padding-right: 10px">
 						<div class="navbar-text navbar-right">
                                                     <a href="#" class="text-link">
                                                         <button class="btn btn-primary">
@@ -128,9 +132,10 @@ require_once 'controller/metodos.php';
         
         <div id="content">
 
-            <iframe src="view/slide.php" width="1260" height="650" frameborder="0" scrolling="no" name="slide" style="margin-top: 30px; padding: 0px 0px 0px 150px;"></iframe>
+            <iframe src="view/slide.php" style="width: 100%; height: 90%;" frameborder="1" scrolling="no"></iframe>
+            <!--<iframe src="view/slide.php" frameborder="0" scrolling="no" name="slide" style="margin-top: 30px; padding: 0px 0px 0px 150px; margin" id="frameSlide"></iframe>-->
         </div>
-
+<!--width="1260" height="650"--> 
 
 <!-- Parte de baixo da página -->
 	<footer id="footer">
@@ -145,10 +150,9 @@ require_once 'controller/metodos.php';
                             <a class="navbar-brand" href="contato.php" style="padding: 0px 0px 0px 10px;">
                                     <small>
                                         <h5>
-<!--                                            <div style="padding: 0px 0px 0px 10px;">-->
+
                                                 Rua Mário Pederneiras, 31 - Casa, Humaitá<br>
                                                 Telefones: (21) 2222-2222
-                                            <!--</div>-->
                                         </h5>
                                     </small>
 				</a>
@@ -174,63 +178,45 @@ require_once 'controller/metodos.php';
               <li><a tabindex="0">Verão</a></li>
               <li><a tabindex="0">Outono</a></li>
               <li><a tabindex="0">Inverno</a></li>
-<!--              <li class="dropdown-submenu">
-                <a tabindex="0" data-toggle="dropdown">Another sub action Program</a>
 
-                <ul class="dropdown-menu">
-                  <li><a tabindex="0">Sub action</a></li>
-                  <li><a tabindex="0">Another sub action</a></li>
-                  <li><a tabindex="0">Something else here</a></li>
-                </ul>
-              </li>-->
-
-<!--              <li class="dropdown-submenu">
-                <a tabindex="0" data-toggle="dropdown">Another action</a>
-
-                <ul class="dropdown-menu">
-                  <li><a tabindex="0">Sub action</a></li>
-                  <li><a tabindex="0">Another sub action</a></li>
-                  <li><a tabindex="0">Something else here</a></li>
-                </ul>
-              </li>-->
             </ul>
-          </li> <!-- Sub menus de programação -->
+          </li>
 
-          
-          <!-- menu de programação -->
-<!--          <li class="dropdown-submenu">
-            <a tabindex="0" data-toggle="dropdown">Programa Menu2</a>
-
-            <ul class="dropdown-menu">
-              <li><a tabindex="0">Sub action</a></li>
-              <li><a tabindex="0">Another sub action</a></li>
-              <li><a tabindex="0">Something else here</a></li>
-            </ul>
-          </li>-->
             <li><a tabindex="0">Meditação</a></li>
             <li><a tabindex="0">Meditação Cristã</a></li>
-            <li><a tabindex="0">Roda dos Sonhos</a></li>
-            <li><a tabindex="0">Yoga</a></li>
-<!--          <li><a tabindex="0">Programa Menu3</a></li>
-          <li class="divider"></li>
-          <li><a tabindex="0">Separated link</a></li>-->
+            <li><a tabindex="0">Retiro</a></li>
+
         </ul>
       </li>
-        <li id="retiro">
-            <a href="retiro.php">
-                        <i class="fa fa-group"></i> Retiro
-                </a>
-        </li>
-        <li id="calendario">
-            <a href="calendario.php">
-                        <i class="fa fa-calendar"></i> Calendário
-                </a>
-        </li>
-        <li id="galeria">
-            <a href="galeria.php">
-                        <i class="fa fa-comment"></i> Dicas
-                </a>
-        </li>
+      <li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Tempo<span class="caret"></span></a>
+
+        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+        <ul class="dropdown-menu" role="menu">
+            <li>
+              <a tabindex="0"><i class="fa fa-dashboard"></i> Agenda</a>
+            </li>
+            <li>
+                <a tabindex="0"><i class="fa fa-calendar"></i> Calendário</a>
+            </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-puzzle-piece"></i> Sugestões<span class="caret"></span></a>
+
+        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+        <ul class="dropdown-menu" role="menu">
+            <li>
+              <a tabindex="0"> Yoga</a>
+            </li>
+            <li>
+                <a tabindex="0"> Roda dos Sonhos</a>
+            </li>
+            <li>
+                <a tabindex="0"> Transpessoal</a>
+            </li>
+        </ul>
+      </li>
         <li id="galeria">
             <a href="galeria.php">
                         <i class="fa fa-ticket"></i> Galeria
@@ -244,6 +230,16 @@ require_once 'controller/metodos.php';
         <li id="contato">
                 <a href="contato.php">
                         <i class="fa fa-envelope-o"></i> Contato
+                </a>
+        </li>
+        <li id="blog">
+                <a href="#">
+                        <i class="fa fa-link"></i> Blog
+                </a>
+        </li>
+        <li id="">
+                <a href="#">
+                        <i class="fa fa-2x"></i> &nbsp;
                 </a>
         </li>
     </ul>
@@ -262,4 +258,4 @@ require_once 'controller/metodos.php';
 
 </body>
 </html>
-<!-- EOF -->
+

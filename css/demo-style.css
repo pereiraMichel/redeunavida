@@ -3,7 +3,7 @@ will still work like a champ (except any content block needs a background which
 our demo gets from this sheet) */
 
 .container {
-/*    padding: 100px;*/
+    /*padding: 100px;*/
 }
     
 .content { background: url(../view/dummy-images/foto1.jpg); }
