@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+@import url("../../webfonts/Aller/stylesheet.css");
+@import url("../../webfonts/Aller_Light/stylesheet.css");
+
+
+body {
+	/* [disabled]font-size: 0px; */
+	margin: 0px;
+
+}
+.icone_slider {
+	height: 529px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* [disabled]margin: 0px; */
+	background-position: center center;
+	/* [disabled]background-color: #FC0; */
+	padding: 0px;
+	/* [disabled]top: -20px; */
+}
+
+.banner_box{
+	/* [disabled]background-color: #0F0; */
+	/* [disabled]height: 400px; */
+	margin: 0px;
+	padding: 0px;
+}
+.banner{
+	/* [disabled]background-color: #FF0; */
+	margin: 0px;
+	padding: 0px;
+	/* [disabled]position: absolute; */
+	/* [disabled]top: 100px; */
+	/* [disabled]width: 100%; */
+}
+.banner ul{
+	list-style-type: none;
+	padding: 0px;
+	background-color: #999;
+	margin: 0px;
+}
+.banner ul li{
+	/* [disabled]background-color: #F9F; */
+}
+.banner_texto1{
+	font-size: 42px;
+	color: #FFF;
+	text-transform: none;
+	text-shadow: 2px 2px 12px #000000;
+	font-family: Aller;
+	padding-top: 100px;
+	padding-left: 76px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+.banner_texto2{
+	font-size: 30px;
+	color: #FFF;
+	padding-left: 76px;
+	padding-top: 20px;
+	text-shadow: 2px 2px 12px #000000;
+	max-width: 600px;
+}
+.banner_texto2 p{
+	font-family: Aller;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+	padding-left: 0px;
+}
+.banner_texto3{
+	font-size: 22px;
+	color: #FFF;
+	padding-left: 76px;
+	padding-top: 30px;
+	text-shadow: 2px 2px 12px #000000;
+	max-width: 500px;
+}
+
+.banner_botao a{
+	font-size: 16px;
+	color: #FFF;
+	margin-top: 40px;
+	margin-left: 100px;
+	text-transform: uppercase;
+	background-color: #F30;
+	display: inline;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	position: absolute;
+	text-decoration: none;
+}
+.banner_botao a:hover{
+	background-color: #F90;
+}
+@media only screen and (max-width : 1024px) {
+	.icone_slider {
+	height: 400px;
+	}
+	.banner_texto1{
+	font-size: 42px;
+	padding-top: 20px;
+
+}
+}
+@media only screen and (max-width : 640px) {
+	.icone_slider {
+	height: 350px;
+	}
+	.banner_texto1{
+	font-size: 30px;
+	padding-left: 20px;
+
+}
+.banner_texto2{
+	font-size: 20px;
+	padding-left: 20px;
+
+}
+.banner_texto3{
+	font-size: 16px;
+	padding-left: 20px;
+	/* [disabled]display: none; */
+}
+}

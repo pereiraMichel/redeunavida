@@ -30,8 +30,8 @@
 		<!-- Run the plugin -->
 		<script type="text/javascript">
 			$(window).load(function() {
-				$('#featured').orbit({bullets: true});
-				$('#featured2').orbit({bullets: true});
+//				$('#featured').orbit({bullets: false});
+//				$('#featured2').orbit({bullets: false});
 				$('#responsive').orbit({bullets: true, fluid: true});
 			});
 		</script>
@@ -48,19 +48,28 @@
 		
 	</head>
         <body>
-	<div class="container">
-		<div class="row">
-			<div class="ten columns" style="width: 100%; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+<!--	<div class="container">
+		<div class="row">-->
+			<div class="nine columns" style="width: 100%; margin: 0px 0px 0px 0px;">
 
                             <div id="responsive"> 
 
                                 <!--            <div id="telaToda">-->
                                 <!--2048x1536-->
+                     <!--<div class="bxslider " style="width: auto; position: relative;">-->
+                         <!--<div class="icone_slider" style="float: none; list-style: none; position: absolute; width: 1260px; z-index: 50; display: block;">-->
 
-                                <img src="dummy-images/foto1Texto.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
-                                <img src="dummy-images/foto2Texto.png" data-caption="#textFoto2" title="Um caminho espiritual de prática individual diária e encontros semanais em grupo afim" />
-                                <img src="dummy-images/foto3Texto.png" data-caption="#textFoto3" title="Grupos semanais prática e partilha"  />
-                                <img src="dummy-images/foto4Texto.png" data-caption="#textFoto4" title="Lugar aprazível com natureza pródiga alimentação saúdavel durante 7 dias" />
+                             <img src="dummy-images/foto1TextoNovo.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                             <img src="dummy-images/foto2TextoNovo.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                             <img src="dummy-images/foto3TextoNovo.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                             <img src="dummy-images/foto4TextoNovo.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+<!--                         </div>
+                     </div>-->
+
+<!--                                <img src="dummy-images/foto1TextoNovo.png" data-caption="#textFoto1" title="Nova comunidade conspirada em silêncio" />
+                                <img src="dummy-images/foto2TextoNovo.png" data-caption="#textFoto2" title="Um caminho espiritual de prática individual diária e encontros semanais em grupo afim" />
+                                <img src="dummy-images/foto3TextoNovo.png" data-caption="#textFoto3" title="Grupos semanais prática e partilha"  />
+                                <img src="dummy-images/foto4TextoNovo.png" data-caption="#textFoto4" title="Lugar aprazível com natureza pródiga alimentação saúdavel durante 7 dias" />-->
                             </div>
 	<!--</div>-->
 		<!-- =======================================
@@ -87,7 +96,7 @@
 
                                 <!--<span  id="textFoto1">-->
                                    
-                                    <span class="orbit-caption" id="textFoto1">
+<!--                                    <span class="orbit-caption" id="textFoto1">
                                         <div style="padding-right: 40px; text-align: right"> nova humanidade</div><br/>
                                         <div style="padding-right: 150px; text-align: right">conspirada</div><br/>
                                         <div style="padding-right: 70px; text-align: right">em silêncio</div>
@@ -107,7 +116,7 @@
                                     <div style="text-align: right; padding-right: 10px;">lugar aprazível com natureza pródiga</div><br/>
                                     <div style="text-align: right; padding-right: 10px;">alimentação saudável</div><br/>
                                     <div style="text-align: right; padding-right: 10px;">durante 7 dias</div>
-                                </span>
+                                </span>-->
 
 
 <!--				<div id="featured2"> 
@@ -119,8 +128,8 @@
 					<img src="dummy-images/captions.jpg" data-caption="#htmlCaption" />
 					<img src="dummy-images/features.jpg"  />
 				</div>-->
-			</div>
-		</div>
+<!--			</div>
+		</div>-->
 		
 		
 		

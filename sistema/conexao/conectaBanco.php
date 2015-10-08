@@ -2,10 +2,10 @@
 
 class conectaBanco {
 
-        private $usuario = "sec_login";
-        private $senha = "y9kwbLCk";
-//        private $usuario = "root";
-//        private $senha = "m1ch3l";
+//        private $usuario = "sec_login";
+//        private $senha = "y9kwbLCk";
+        private $usuario = "root";
+        private $senha = "m1ch3l";
         private $servidor = "localhost";
         private $database = "ruv";
     

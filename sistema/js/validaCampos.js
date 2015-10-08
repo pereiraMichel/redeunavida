@@ -10,7 +10,7 @@ function validaForm(campo){
 }
 
 function calculaIdade(nascimento){
-    
+
 var dataAtual = new Date();
 var anoAtual = dataAtual.getFullYear();
 var anoNascParts = nascimento.split('-');
@@ -43,7 +43,63 @@ var mesAtual = dataAtual.getMonth() + 1;
                 }
             }
         } 
-        document.getElementById("idade").innerHTML = idade + " anos";
+        document.getElementById("idade").value = idade; //Passo o valor calculado da idade para o campo input hidden
+        calculaSetenio(idade);
+//        document.getElementById("setenio").value = idade; //Passo o valor calculado da idade para o campo input hidden
+//        document.getElementById("idade").innerHTML = idade + " anos";
 //        window.location.href = "?menu=perfil&idadeAtual="+idade;
     }   
+}
+
+function calculaSetenio(idade){
+    if (idade >= 0 && idade <= 6){
+        document.getElementById("setenio").value = "1º";
+        document.getElementById("codSetenio").value = "1";
+    }else if(idade >= 7 && idade <= 13){
+        document.getElementById("setenio").value = "2º";
+        document.getElementById("codSetenio").value = "2";
+    }else if(idade >= 14 && idade <= 20){
+        document.getElementById("setenio").value = "3º";
+        document.getElementById("codSetenio").value = "3";
+    }else if(idade >= 21 && idade <= 27){
+        document.getElementById("setenio").value = "4º";
+        document.getElementById("codSetenio").value = "4";
+    }else if(idade >= 28 && idade <= 34){
+        document.getElementById("setenio").value = "5º";
+        document.getElementById("codSetenio").value = "5";
+    }else if(idade >= 35 && idade <= 41){
+        document.getElementById("setenio").value = "6º";
+        document.getElementById("codSetenio").value = "6";
+    }else if(idade >= 42 && idade <= 48){
+        document.getElementById("setenio").value = "7º";
+        document.getElementById("codSetenio").value = "7";
+    }else if(idade >= 49 && idade <= 55){
+        document.getElementById("setenio").value = "8º";
+        document.getElementById("codSetenio").value = "8";
+    }else if(idade >= 56 && idade <= 62){
+        document.getElementById("setenio").value = "9º";
+        document.getElementById("codSetenio").value = "9";
+    }else if(idade >= 63 && idade <= 69){
+        document.getElementById("setenio").value = "10º";
+        document.getElementById("codSetenio").value = "10";
+    }else if(idade >= 70 && idade <= 76){
+        document.getElementById("setenio").value = "11º";
+        document.getElementById("codSetenio").value = "11";
+    }else if(idade >= 77 && idade <= 83){
+        document.getElementById("setenio").value = "12º";
+        document.getElementById("codSetenio").value = "12";
+    }else if (idade > 83){
+        document.getElementById("setenio").value = "12º";
+        document.getElementById("codSetenio").value = "12";
+    }
+}
+
+function ativaSelecaoEstado(){
+    document.getElementById("selecionaEstado").style.display="block";
+}
+
+function emiteEstadoSelecionado(estado){
+
+    document.getElementByid("estado").value = estado;
+    document.getElementById("selecionaEstado").style.display="none";
 }

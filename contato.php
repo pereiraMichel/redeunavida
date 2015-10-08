@@ -3,6 +3,9 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
+    require_once './view/formAdesao.php';
+    require_once './view/slideShow.php';
+    
 
     $formulario = new formulario();
 
@@ -10,9 +13,19 @@
 
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>REDE UNA VIVA</title>
+	<meta charset="UTF-8">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="description" content="Bootstrap Sub-Menus">
+        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
+        <meta name="author" content="Vasily A.">
+        <meta name="robots" content="nofollow">
+        <meta name="google" content="notranslate">        
+	<title><?php echo TITULORUV;?></title>
+
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="shortcut icon" href="icon/ruv.ico">
@@ -21,7 +34,8 @@
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<!--<link rel="stylesheet" href="css/style.css">-->
+        <link rel="stylesheet" href="css/estilo.css">
 
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -35,64 +49,33 @@
                 });
         </script>
 
-<!--	<script type="text/javascript" src="./CETAS_files/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="./CETAS_files/back-to-top.js"></script>-->
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			scrolltotop.init();
 		});
 	</script>  
+        <style>
+            /*html, body, div, iframe {margin: 0px; padding: 0px}*/
+            /*iframe{width: 100%; border: none; position: absolute}*/
+            body{padding-top: 80px;}
 
+        </style>
        
         
         <link rel="author" href="autor.txt">        
     </head>
 <body>
 	<header id="header">
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="text-center">
 				<div class="navbar-text-top">
-					<div class="col-sm-4">
-						<figure class="navbar-logo navbar-left hidden-xs">
-							<a href="index.php">
-								<img src="images/logoRUV50x51.png" title="Rede Una Vida">
-							</a>
-						</figure><!-- /figure -->
-					</div><!-- /col-sm-4 -->
+                                            <?php
+                                                $titulo = new slideShow();
+                                                $titulo->telaTitulo();
+                                            
+                                            ?>
 
-					<div class="col-sm-4">
-						<div class="hidden-sm"><span>RUV</span></div>
-						<div class="visible-sm"><span>RUV</span></div>
-						<div class="navbar-subtext-top hidden-sm">
-							 REDE UNA VIDA 
-						</div><!-- /hidden-sm -->
-						<div class="navbar-subtextsm-top visible-sm">
-							 REDE UNA VIDA 
-						</div><!-- /visible-sm -->
-					</div><!-- /col-sm-4 -->
 
-					<hr class="visible-xs"><!-- /hr -->
-					<br class="visible-xs">
-					<div class="col-sm-4">
-						<div class="navbar-text navbar-right">
-							<!--<a href="https://mail.cetas.com.br:8443" class="text-link">
-								<button class="btn btn-primary">
-									<i class="fa fa-envelope-o"></i> WebMail
-								</button>
-							</a>
-							<a href="https://cetas.com.br/redmine" class="text-link">
-								<button class="btn btn-danger">
-									<i class="fa fa-users"></i> Redmine
-								</button>
-							</a>-->
-                                                        <a href="sistema/" class="text-link">
-                                                                <button class="btn btn-warning">
-                                                                        <i class="fa fa-th"></i> Acesso ao Sistema
-                                                                </button>
-                                                        </a>
-						</div>
-						<br class="visible-xs">
-					</div><!-- /col-sm-4 -->
 				</div>
 			</div>
 		</nav>
@@ -102,6 +85,8 @@
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
 				<h3 class="text-info"><i class="fa fa-envelope-o"></i> CONTATO</h3>
+                                <p style="height: 20px;"></p>
+
 				<small>
                         <?php
                         $filename = "texto/contato.xml";
@@ -112,7 +97,7 @@
                         foreach($xml->texto as $texto)
                         {
                             echo $texto->contato;
-                            echo "<br>";
+                            echo "<p style='height: 20px;'></p>";
                                               
                         ?>
 				</small>
@@ -158,16 +143,7 @@
                                                         </a>
 
                                                   
-                                                    
-<!--							Formulário:<br><br>
-							<small>
-								<strong>Rede Una Vida</strong><br>
-								Universidade Estadual Paulista "Júlio de Mesquita Filho"<br>
-								Rua Mário Pederneiras, 31 - Casa, Humaitá<br>
-								Rio de Janeiro, RJ - Brasil<br>
-								<abbr title="Phone">P:</abbr> (18) 3229-5388
-								<abbr title="Fax">F:</abbr> (18) 3221-4391
-							</small>-->
+
 						</h4>
 					</address>
 				</div>
@@ -177,7 +153,9 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9310742494995!2d-43.1981977!3d-22.9527654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fdeba3125c1%3A0x1f24ab34f8ff4226!2sR.+Mario+Pederneiras%2C+31+-+Humait%C3%A1%2C+Rio+de+Janeiro+-+RJ%2C+22261-020!5e0!3m2!1spt-BR!2sbr!4v1436276979892" width="960" height="600" frameborder="0" style="border:0" align="middle" allowfullscreen></iframe>
             </div>
         </div>
+            <p style="height: 150px;"></p>
 
+<!-- Parte de baixo da página -->
 	<footer id="footer">
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 			<div class="navbar-header">
@@ -187,74 +165,108 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-<!--				<a class="navbar-brand" href="index.php">
-					<img src="assets/images/unesp.png" alt="UNESP" class="hidden-sm hidden-xs">
-					<img src="assets/images/unesp_sm.png" alt="UNESP" class="visible-sm visible-xs">
-				</a> /navbar-brand -->
-			</div>
-			<div class="collapse navbar-collapse" id="example-navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" id="menu">
-					<li id="home">
-						<a href="index.php">
-							<i class="fa icon-home"></i> Home
-						</a>
-					</li>
-					<li id="quemsomos">
-                                            <a href="quemsomos.php">
-							<i class="fa fa-book"></i> Quem Somos
-						</a>
-					</li>
-					<li id="programacao">
-                                            <a href="programacao.php">
-							<i class="fa fa-puzzle-piece"></i> Programação
-						</a>
-					</li>
-					<li id="galeria">
-                                            <a href="galeria.php">
-							<i class="fa fa-ticket"></i> Galeria
-						</a>
-					</li>
-					<li id="sugestoes">
-                                            <a href="sugestoes.php">
-							<i class="fa fa-comment"></i> Sugestões
-						</a>
-					</li>
-					<li id="sistema">
-                                            <a href="sistema/">
-							<i class="fa fa-th"></i> Sistema
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-globe"></i> Acompanhe
-						</a>
-					    <ul class="dropdown-menu">
-                                                <li id="agenda">
-                                                    <a href="agenda.php">
-                                                                <i class="fa fa-dashboard"></i> Agenda
-                                                        </a>
-                                                </li>
-                                                <li id="retiro">
-                                                    <a href="retiro.php">
-                                                                <i class="fa fa-group"></i> Retiro
-                                                        </a>
-                                                </li>
-                                                <li id="calendario">
-                                                    <a href="calendario.php">
-                                                                <i class="fa fa-calendar"></i> Calendário
-                                                        </a>
-                                                </li>
-					    </ul>
-					</li>
-					<li class="active" id="contato">
-						<a href="#">
-							<i class="fa fa-envelope-o"></i> Contato
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+                            <a class="navbar-brand" href="contato.php" style="padding: 0px 0px 0px 10px;">
+                                    <small>
+                                        <h5>
+                                            <?php
+                                                echo ENDERECOORGAO;
+                                                echo "<br>".TELEFONEORGAO;
+                                            ?>
+
+                                        </h5>
+                                    </small>
+				</a>
+  </div>
+
+<div class="collapse navbar-collapse" style="padding-right: 10px;">
+    <ul class="nav navbar-nav navbar-right" id="menu">
+        <li id="home">
+                <a href="<?php echo HOMELINK;  ?>">
+                        <i class="fa icon-home"></i> Home
+                </a>
+        </li>
+      <li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-puzzle-piece"></i> Programação<span class="caret"></span></a>
+
+        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+        <ul class="dropdown-menu" role="menu">
+          <li>
+              <a tabindex="0" href="<?php echo JORNADAREALLINK; ?>" target="_self">Jornada Real</a>
+
+          </li>
+
+          <li><a tabindex="0" href="<?php echo MEDITACAOLINK;  ?>">Meditação</a></li>
+          <li><a tabindex="0" href="<?php echo MEDITCRISTALINK;  ?>">Meditação Cristã</a></li>
+          <li><a tabindex="0" href="<?php echo RETIROLINK;  ?>">Retiro</a></li>
+
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Tempo<span class="caret"></span></a>
+
+        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a tabindex="0" href="<?php echo AGENDALINK;  ?>" target="_self"><i class="fa fa-dashboard"></i> Agenda</a>
+            </li>
+            <li>
+                <a tabindex="0" href="<?php echo CALENDARIOLINK;  ?>" target="_self"><i class="fa fa-calendar"></i> Calendário</a>
+            </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+
+        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+        <ul class="dropdown-menu" role="menu">
+            <li>
+              <a tabindex="0" href="<?php echo YOGALINK;  ?>"> Yoga</a>
+            </li>
+            <li>
+                <a tabindex="0" href="<?php echo RODASONHOSLINK;  ?>"> Roda dos Sonhos</a>
+            </li>
+            <li>
+                <a tabindex="0" href="<?php echo TRANSPESSOALLINK;  ?>"> Transcurso Transpessoal</a>
+            </li>
+        </ul>
+      </li>
+        <li id="galeria">
+            <a href="<?php echo GALERIALINK;  ?>">
+                        <i class="fa fa-ticket"></i> Galeria
+                </a>
+        </li>
+        <li id="quemsomos">
+            <a href="<?php echo QUEMSOMOSLINK;  ?>" target="_self">
+                        <i class="fa fa-book"></i> Quem Somos
+                </a>
+        </li>
+        <li id="contato" class="active">
+                <a href="<?php echo "#";  ?>">
+                        <i class="fa fa-envelope-o"></i> Contato
+                </a>
+        </li>
+        <li id="blog">
+                <a href="<?php echo BLOGLINK;  ?>">
+                        <i class="fa fa-link"></i> Blog
+                </a>
+        </li>
+        <li id="">
+                <a href="#">
+                        <i class="fa fa-2x"></i> &nbsp;
+                </a>
+        </li>
+    </ul>
+  </div>
+</nav>
 	</footer>
+
+<?php
+    $formAdesao = new formAdesao();
+    
+    $formAdesao->telaFormAdesao();
+
+?>
+
 
 
 <!-- EOF -->

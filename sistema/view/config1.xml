@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<perfil>
+  <usuario>
+    <nome>teste</nome>
+    <datanascimento>teste</datanascimento>
+    <idade></idade>
+    <idade>1</idade>
+  </usuario>
+</perfil>

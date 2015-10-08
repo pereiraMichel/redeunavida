@@ -3,6 +3,8 @@ require_once '../../controller/constantes.php';
 require_once '../../controller/metodos.php';
 require_once '../model/modelUsuario.php';
 require_once '../model/modelPerfil.php';
+require_once '../model/modelTelefone.php';
+require_once '../model/modelEndereco.php';
 require_once '../conexao/conectaBanco.php';
 
 error_reporting(0);
@@ -19,6 +21,9 @@ $codAutoridade = (int) $_SESSION['codTipoUsuario'];
 //}
 
 $menu = $_GET['menu'];
+
+$codigoUsuario = base64_decode($_GET['usuario']);
+$codigoUsuarioCodificado = $_GET['usuario'];
 
 ?>
 
@@ -51,6 +56,14 @@ $menu = $_GET['menu'];
         <script src="../../js/bootstrap-submenu.js" defer=""></script>
         <script src="../../js/docs.js" defer=""></script>
         <script src="../js/validaCampos.js" defer=""></script>
+        <script src="../../js/modal.js" defer=""></script>
+
+        
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+ 
+<script src="http://malsup.github.io/jquery.blockUI.js" type="text/javascript"></script>        
 
         <script>
             $('.dropdown-submenu > a').submenupicker();
@@ -63,8 +76,16 @@ $menu = $_GET['menu'];
         </script>
         <link rel="author" href="../../autor.txt">
 
+        <script type="text/javascript">
+            function excluirTelefone(id, telefone){
+                $(open("inicio.php?id="+id+"&telefone="+telefone));
+
+            }        
+        </script>
+        
 </head>
 <body>
+
     <?php
 
         if($codAutoridade === 1 or $codAutoridade === 2 or $codAutoridade === 3){
@@ -73,7 +94,7 @@ $menu = $_GET['menu'];
             (boolean) $autoriza = false;
         }    
     ?>
-    <!--<input onmo-->
+
 	<header id="header">
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                     <div class="navbar-header navbar-text-top">
@@ -100,28 +121,22 @@ $menu = $_GET['menu'];
 <div class="collapse navbar-collapse" style="padding-right: 20px;">
     <ul  class="nav navbar-nav navbar-right" id="menu" style="font-size: 12px;">
         <li id="home">
-                <a href="inicio.php">
+                <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado;  ?>">
                         <i class="fa icon-home"></i> Início
                 </a>
         </li>
-        <li id="perfil">
-            <a href="inicio.php?menu=perfil">
-                        <i class="fa fa-user"></i> Perfil
-                </a>
-        </li>
-        <li class="dropdown" id="mensagem">
+        <li id="perfil" class="dropdown">
             <a tabindex="0" data-toggle="dropdown">
-            <i class="fa fa-envelope"></i> Mensagens
-            <span class="caret"></span>
-        </a>
+                <i class="fa fa-user"></i> Perfil
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfilsv">Sobre você</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfilend">Seu endereço</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfiltel">Telefones</a></li>
+            </ul>
+        </li>
 
-        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-        <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
-            <li><a tabindex="0" data-toggle="dropdown" href="inicio.php?menu=msgenviar"><i class="fa fa-keyboard-o"></i> Enviar mensagem</a></li>
-            <li><a tabindex="0" href="inicio.php?menu=msgenviada">Mensagens enviadas</a></li>
-            <li><a tabindex="0" href="inicio.php?menu=msgrecebida">Mensagens recebidas</a></li>
-        </ul>
-      </li>
       <li class="dropdown" id="atividade">
         <a tabindex="0" data-toggle="dropdown">
             <i class="fa fa-archive"></i> Atividades
@@ -130,10 +145,10 @@ $menu = $_GET['menu'];
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
-            <li><a tabindex="0" href="inicio.php?menu=bonus"><i class="fa fa-group"></i> Bônus</a></li>
-            <li><a tabindex="0" href="inicio.php?menu=tarefa"><i class="fa fa-clock-o"></i> Tarefas</a></li>
-            <li><a tabindex="0" href="inicio.php?menu=jornada"><i class="fa fa-flag"></i> Jornadas</a></li>
-            <li><a tabindex="0" href="inicio.php?menu=paragem"><i class="fa fa-share"></i> Paragem</a></li>
+            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=bonus"><i class="fa fa-group"></i> Bônus</a></li>
+            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=tarefa"><i class="fa fa-clock-o"></i> Tarefas</a></li>
+            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=jornada"><i class="fa fa-flag"></i> Jornadas</a></li>
+            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=paragem"><i class="fa fa-share"></i> Paragem</a></li>
 
         </ul>
       </li>
@@ -144,11 +159,11 @@ $menu = $_GET['menu'];
             </a>
             <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
                 <li class="dropdown-submenu">
-                <li><a tabindex="0" href="inicio.php?menu=relbonus">Bônus</a></li>
-                <li><a tabindex="0" href="inicio.php?menu=reltarefas">Tarefas</a></li>
-                <li><a tabindex="0" href="inicio.php?menu=reljornadas">Jornadas</a></li>
-                <li><a tabindex="0" href="inicio.php?menu=relparagem">Paragem</a></li>
-                <li><a tabindex="0" href="inicio.php?menu=relusuarios">Usuários</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relbonus">Bônus</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=reltarefas">Tarefas</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=reljornadas">Jornadas</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relparagem">Paragem</a></li>
+                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relusuarios">Usuários</a></li>
             </ul>
         </li>
 
@@ -159,7 +174,7 @@ $menu = $_GET['menu'];
             
             ?>
         <li id="relatorio">
-            <a href="inicio.php?menu=suporte">
+            <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=suporte">
                 <i class="fa fa-cloud"></i> Suporte
             </a>
         </li>
@@ -187,7 +202,8 @@ $menu = $_GET['menu'];
                             <li>E-mail: <?php echo $_SESSION['email']; ?></li>
                             <li>&nbsp;</li>
                                 <?php
-                                $modelUsuario->setIdUsuario($_SESSION['idusuario']);
+//                                echo "Código do Usuário: ".$codigoUsuario;
+                                $modelUsuario->setIdUsuario($codigoUsuario);
                                 $modelUsuario->consultaUsuarioPerfil();
                                 ?>
                         </ul>
@@ -195,15 +211,19 @@ $menu = $_GET['menu'];
                     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <?php
                         switch ($menu){
-                            case "": echo "<h3 class='page-header'>Acessos</h3>";
+                            case "": echo "<h3 class='page-header'><blockquote>Acessos</blockquote></h3>";
                                 break;
-                            case "perfil": echo "<h3 class='page-header'>".PERFIL."</h3>";
+                            case "perfilsv": echo "<h3 class='page-header'><blockquote>".PERFILSV."</blockquote></h3>";
                                 break;
-                            case "mensagem": echo "<h3 class='page-header'>".MENSAGENS."</h3>";
+                            case "perfilend": echo "<h3 class='page-header'><blockquote>".PERFILEND."</blockquote></h3>";
                                 break;
-                            case "bonus": echo "<h3 class='page-header'>".BONUS."</h3>";
+                            case "perfiltel": echo "<h3 class='page-header'><blockquote>".PERFILTEL."</blockquote></h3>";
                                 break;
-                            case "tarefa": echo "<h3 class='page-header'>".TAREFAS."</h3>";
+                            case "mensagem": echo "<h3 class='page-header'><blockquote>".MENSAGENS."</blockquote></h3>";
+                                break;
+                            case "bonus": echo "<h3 class='page-header'><blockquote>".BONUS."</blockquote></h3>";
+                                break;
+                            case "tarefa": echo "<h3 class='page-header'><blockquote>".TAREFAS."</blockquote></h3>";
                                 break;
                         }
                     ?>
@@ -220,19 +240,19 @@ $menu = $_GET['menu'];
                             ?>
                             
                             <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=perfil" class="acesso" target="_self">
+                                <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfil" class="acesso">
                                     <img src="../../images/usuario.png" title="Perfil" class="img-responsive" width="100" height="100">
                                     <h4>Perfil</h4>
                                     <span class="text-muted">Altere o seu perfil.</span>
                                 </a>
                             </div>
-                            <div class="col-xs-6 col-sm-3 placeholder">
+<!--                            <div class="col-xs-6 col-sm-3 placeholder">
                                 <a href="#" class="acesso">
                                     <img src="../../images/mail_logo.png" class="img-responsive" title="Mensagens" width="100" height="100">
                                     <h4>Mensagens</h4>
                                     <span class="text-muted">Verifique suas mensagens.</span>
                                 </a>
-                            </div>
+                            </div>-->
                             <div class="col-xs-6 col-sm-3 placeholder">
                                 <a href="#" class="acesso">
                                     <img src="../../images/tasks.png" class="img-responsive" title="Bônus" width="100" height="100">
@@ -249,8 +269,14 @@ $menu = $_GET['menu'];
                             </div>
                             <?php
                                         break;
-                                    case "perfil":  $perfil = new modelPerfil();
-                                                    $perfil->telaPerfil();
+                                    case "perfilsv":  $perfilsv = new modelPerfil();
+                                                    $perfilsv->telaPerfil();
+                                                    break;
+                                    case "perfilend":  $perfilend = new modelEndereco();
+                                                    $perfilend->telaEndereco();
+                                                    break;
+                                    case "perfiltel":  $perfiltel = new modelTelefone();
+                                                    $perfiltel->telaTelefone();
                                                     break;
                                         
                                     
@@ -326,6 +352,40 @@ $menu = $_GET['menu'];
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="../../images/up.png" style="width:30px; height:30px">
 </div>
+
+    <?php
+        if(filter_input(INPUT_GET, 'modal') === "sim"){
+//         echo "<h1 style='text-align: right;'>Contém o parâmetro</h1>";
+         $perfiltel->deletaTelefone(filter_input(INPUT_GET, 'idtelefone'), filter_input(INPUT_GET, 'telefone'));
+         
+    ?>
+
+        <!-- Modal -->
+<!--        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" arial-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação de exclusão</h4>
+              </div>
+              <div class="modal-body">
+                  <input type='hidden' value="">
+                      Deseja excluir o telefone <?php //echo $_GET['telefone'];  ?> ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary">Sim</button>
+              </div>
+            </div>
+         </div>
+       </div>-->
+        <?php
+        
+//        }else{
+//         echo "<h1 style='text-align: right;'>Não contém o parâmetro</h1>";
+        }
+        
+        ?>
 
 </body>
 </html>

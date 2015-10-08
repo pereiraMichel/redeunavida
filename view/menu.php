@@ -3,8 +3,8 @@
 
 class menu {
 
-    public function menuBaixo(){
-    
+    public function menuBaixo(){//recebeu 'home'
+        
     echo "	<footer id='footer'>";
     echo "		<nav class='navbar navbar-default navbar-fixed-bottom' role='navigation'>";
     echo "			<div class='navbar-header'>";

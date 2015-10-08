@@ -59,6 +59,7 @@ class modelUsuario {
             $sql = "SELECT * "
                     . "FROM tblloginsystems l "
                     . "INNER JOIN tblperfil p ON p.codUsuario = l.idUsuario "
+                    . "INNER JOIN tblsetenio s ON p.codSetenio = s.idsetenio "
                     . "WHERE l.idUsuario = ".$this->idUsuario;
             
             $resultado = mysql_query($sql);
@@ -70,7 +71,7 @@ class modelUsuario {
                 echo "<li style='font-size: 11px;'><a href='perfil.php'>Alterar</a></li>";
             }else{
                 echo "<li>Profissão: ".$dados['profissao']."</li>";
-                echo "<li>Data de Nascimento: ".$dados['dataNascimento']."</li>";
+                echo "<li>Data de Nascimento: ".date("d/m/Y", strtotime($dados['dataNascimento']))."</li>";
                 echo "<li>Setênio: ".$dados['setenio']."</li>";
                 echo "<li>Descrição: ".$dados['descricao']."</li>";
             }
@@ -96,13 +97,18 @@ class modelUsuario {
 
             if($dados > 0){
                 session_start();
+                $_SESSION['idusuario'] = $dados['idUsuario'];//Não está gravando
                 $_SESSION['usuario'] = $dados['nomeUsuario'];
-                $_SESSION['idusuario'] = $dados['idUsuario'];
                 $_SESSION['email'] = $dados['emailUsuario'];
                 $_SESSION['codTipoUsuario'] = $dados['codTipoUsuario'];
                 
-                header("Location: ../sistema/view/inicio.php");
-//                echo "<br>OK";
+                $identifUsuario = base64_encode($_SESSION['idusuario']);
+                
+                header("Location: ../sistema/view/inicio.php?usuario=".$identifUsuario);
+//                echo "<br>Sessão ID: ".$_SESSION['idusuario'];//Os campos estão OK
+//                echo "<br>Sessão Usuário: ".$_SESSION['usuario'];
+//                echo "<br>Sessão E-mail: ".$_SESSION['email'];
+//                echo "<br>Sessão Senha: ".$_SESSION['codTipoUsuario'];
             }else{
                 header("Location: ../sistema/index.php?erro=1");//Erro usuário
 

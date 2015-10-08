@@ -31,11 +31,11 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>SISTEMA RUV</title>
+    <title>Sistema RUV</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" href="../icon/ruv.ico">
         <link rel="icon" type="image/png" href="../images/ruvicon.png">
-        <link rel="stylesheet" href="slide.php" type="text/css" />
+        <!--<link rel="stylesheet" href="slide.php" type="text/css" />-->
 <?php
     if ($erro != ""){
         echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=index.php'>";

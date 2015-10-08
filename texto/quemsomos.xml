@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <textos>
     <texto>
-        <quemsomos>Página de Quem Somos.</quemsomos>
+        <quemsomos>
+		Página do quem somos.
+		</quemsomos>
     </texto>
 </textos>
