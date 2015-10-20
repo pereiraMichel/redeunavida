@@ -27,13 +27,31 @@
 .navbar-text-top > div > div > span
 {
         color: #31708f;
-        font-size: 18px;
+        font-size: 24px;
+/*        font-size: 29px;*/
+        letter-spacing: 8px;
+        /*letter-spacing: 14px;*/
+}  
+.navbar-text-top > div > div > div > a > span
+{
+        color: #31708f;
+        font-size: 24px;
 /*        font-size: 29px;*/
         letter-spacing: 8px;
         /*letter-spacing: 14px;*/
 }  
 
-
+.link-direita > div > a > h3,
+.link-direita > div > a > h3:hover,
+.link-direita > div > a > h3:focus
+{
+  color: #555;
+  background-color: #e7e7e7;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 10px;
+}
 //Caption Overlay Imagens slide
 
 .av-image-caption-overlay-center {
@@ -51,4 +69,60 @@
   position: absolute;
   left: 20px;
   bottom: 20px;
+}
+.navbar-header{
+    
+}
+@media screen and (max-width: 767px){
+    header .control-nav{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        display: block;
+        width: 30px;
+        padding: 5px 0;
+        border: solid #333;
+        border-width: 3px 0;
+        cursor: pointer;
+    }
+    
+    header .control-nav:before{
+        content: "";
+        display: block;
+        height: 3px;
+        background: #333;
+    }
+    
+    header .control-nav-close{
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        z-index: 1;
+        background: rgba(0,0,0,0.4);
+        -webkit-transition: all 500ms ease;
+        transition: all 500ms ease;
+        -web-transform: translate(100%,0);
+        -ms-transform: translate(100%,0);
+        transform: translate(100%,0);
+    }
+    
+    heaver nav{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 250px;
+        border-left: 1px solid #ccc;
+        background: #fff;
+        overflow-x: auto;
+        z-index: 2;
+        -webkit-transition: all 500ms ease;
+        transition: all 500ms ease;
+        -webkit-transform: translate(100%,0);
+        -ms-transform: translate(100%,0);
+        transform: translate(100%,0);
+    }
 }

@@ -118,12 +118,12 @@
 	padding-left: 20px;
 	color: #FF0000;
 					}
-						#nav > ul > li:not( :last-child ) > a
+						#nav > ul > li:last-child > a
 						{
 	/* [disabled]border-right: 1px solid #cc470d; */
 						}
 						#nav > ul > li:hover > a,
-						#nav > ul:not( :hover ) > li.active > a
+						#nav > ul:hover > li.active > a
 						{
 	background-color: #333333;
 	color: #FFF;
@@ -169,7 +169,7 @@
 						left: 0;
 						right: 0;
 					}
-						#nav li:not( :first-child ):hover ul
+						#nav li:first-child:hover ul
 						{
 							left: -1px;
 						}
@@ -193,7 +193,7 @@
 	border-top-color: #C6D9FF;
 						}
 							#nav li ul li a:hover,
-							#nav li ul:not( :hover ) li.active a
+							#nav li ul:hover li.active a
 							{
 	background-color: #333333;
 	color: #FFF;
@@ -362,7 +362,7 @@
 						top: 60%;
 					}
 
-				#nav:not( :target ) > a:first-of-type,
+				#nav:target > a:first-of-type,
 				#nav:target > a:last-of-type
 				{
 	display: block;
@@ -401,7 +401,7 @@
 	color: #FFF;
 	line-height: 40px;
 					}
-						#nav > ul > li:not( :last-child ) > a
+						#nav > ul > li:last-child > a
 						{
 	border-bottom-width: 1px;
 	border-right-style: none;
@@ -439,7 +439,7 @@
 	width: 100%;					
 				}
 				
-		#nav li ul li a:hover, #nav li ul:not( :hover ) li.active a
+		#nav li ul li a:hover, #nav li ul:hover li.active a
 						{
 	/* [disabled]background-color: #CCCCCC; */
 	/* [disabled]color: #FFF; */

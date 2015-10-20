@@ -131,8 +131,8 @@ require_once './view/slideShow.php';
 
             <div class="navbar-text-top">
             <?php
-            $titulo = new slideShow();
-            $titulo->telaTitulo();
+            $slide = new slideShow();
+            $slide->telaTitulo();
             ?>
 
 
@@ -160,7 +160,6 @@ require_once './view/slideShow.php';
                     <div class="col-xs-3 col-md-3">
 
                         <?php
-                        $slide = new slideShow();
                         $slide->telaLogoMarcas();
                         ?>
                     </div>
@@ -194,9 +193,6 @@ require_once './view/slideShow.php';
         
 <!-- Parte de baixo da página -->
 	<footer id="footer">
-            <!--<nav class="nav navbar-fixed-bottom navbar-header">-->
-
-            <!--</nav>-->
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

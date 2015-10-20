@@ -134,16 +134,19 @@ class modelEndereco {
             $consultaEstado->buscaEstado();
         echo "              <div class='col-sm-6'>";
 
-                echo "<input type='button' value='...' class='btn btn-default' onclick='javascript:ativaSelecaoEstado()'>";
+        echo "                  <input type='button' value='...' class='btn btn-default' onclick='javascript:ativaSelecaoEstado()'>";
 
                 echo "<div style='display:none' id='selecionaEstado'>";
+
                 echo "  <select class='form-control' id='estado' name='estado'>";
                     try{
                         $sqlEstado = "SELECT * FROM tblestado";
                         $resultadoEstado = mysql_query($sqlEstado) or die ("Problemas na consulta do estado. Erro: ".mysql_error());
 
                         while($dadosEstado = mysql_fetch_array($resultadoEstado)){
-                            echo "<option class='form-control' name=".$dadosEstado['idEstado']." required onclick='javascript:emiteEstadoSelecionado(this.value)'>".$dadosEstado['sigla']."</option>";
+                            echo "<option class='form-control' name=".$dadosEstado['idEstado']." required onclick='javascript:emiteEstadoSelecionado(this.value)' onkeyup='javascript:emiteEstadoSelecionado(this.value)' onmouseover='javascript:emiteEstadoSelecionado(this.value)'>".$dadosEstado['sigla']."</option>";
+                                        echo "Teste";
+
                         }
 
                     } catch (Exception $ex) {
@@ -158,7 +161,7 @@ class modelEndereco {
                     $resultadoEstado = mysql_query($sqlEstado) or die("Erro na consulta. Motivo: ".mysql_error());
 
                     while($dadosEstado = mysql_fetch_array($resultadoEstado)){
-                        echo "<option class='form-control' name=".$dadosEstado['idEstado']." required>".$dadosEstado['sigla']."</option>";
+                        echo "          <option class='form-control' name=".$dadosEstado['idEstado']." required>".$dadosEstado['sigla']."</option>";
                     }
 
                 } catch (Exception $ex) {

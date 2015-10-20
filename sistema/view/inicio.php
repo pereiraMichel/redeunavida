@@ -5,6 +5,7 @@ require_once '../model/modelUsuario.php';
 require_once '../model/modelPerfil.php';
 require_once '../model/modelTelefone.php';
 require_once '../model/modelEndereco.php';
+require_once '../model/modelConfig.php';
 require_once '../conexao/conectaBanco.php';
 
 error_reporting(0);
@@ -24,6 +25,7 @@ $menu = $_GET['menu'];
 
 $codigoUsuario = base64_decode($_GET['usuario']);
 $codigoUsuarioCodificado = $_GET['usuario'];
+
 
 ?>
 
@@ -169,7 +171,17 @@ $codigoUsuarioCodificado = $_GET['usuario'];
 
             <?php
                 if($autoriza){
-                    echo "<li><a tabindex='0' data-toggle='dropdown'><i class='fa fa-windows'></i> Configurações</a></li>";
+                    echo "<li id='configuracoes'>";
+                    echo "  <a tabindex='0' data-toggle='dropdown'>";
+                    echo "      <i class='fa fa-windows'></i> Configurações";
+                    echo "      <span class='caret'></span>";
+                    echo "  </a>";
+                    echo "          <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
+                    echo "              <li>";
+                    echo "                  <a href='inicio.php?usuario=$codigoUsuarioCodificado&menu=configUsuario'>Usuários</a>";
+                    echo "              </li>";
+                    echo "          </ul>";
+                    echo "</li>";
                 }
             
             ?>
@@ -225,6 +237,8 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                 break;
                             case "tarefa": echo "<h3 class='page-header'><blockquote>".TAREFAS."</blockquote></h3>";
                                 break;
+                            case "configUsuario": echo "<h3 class='page-header'><blockquote>".CONFIGUSUARIO."</blockquote></h3>";
+                                break;
                         }
                     ?>
                         
@@ -278,6 +292,9 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                     case "perfiltel":  $perfiltel = new modelTelefone();
                                                     $perfiltel->telaTelefone();
                                                     break;
+                                    case "configUsuario":   $configUsuario = new modelConfig();
+                                                            $configUsuario->telaNovoUsuario();
+                                                            break;
                                         
                                     
                                 }//fecha o switch

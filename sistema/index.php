@@ -78,7 +78,7 @@
         ?>
         <p id="nameal" style="display: none; opacity: 1;">LOGIN</p>
         <p id="passal" style="display: none; opacity: 1;">SENHA</p>
-        <button id="signupb" style="opacity: 0.2; cursor: default;">Acessar</button>
+        <button id="signupb" style="cursor: default;">Acessar</button>
     </div>
 </div>
 </form>    

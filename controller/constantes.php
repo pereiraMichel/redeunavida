@@ -10,6 +10,7 @@
     define('PARTETITULOEDE', 'EDE');
     define('PARTETITULONA', 'NA');
     define('PARTETITULOIVA', 'IVA');
+    define('SABERSETENIO', 'Saiba o seu Setênio');
 
 
     //Formulário contato
@@ -33,6 +34,10 @@
     define('ASSINATURA', 'Assinatura: ');
     define('MSGADESAO', '* O ano do nascimento serve para definir a idade e com isto relacioná-la com o setênio, o que será útil, posteriormente, na elaboração da sua Roda das Estações da Vida.  Mas se você não quiser revelar sua idade o ano do nascimento é dispensável.');
     
+    //Formulário Novo Usuário
+    define ('SENHA', 'Senha: ');
+    define ('ACESSO', 'Acesso: ');
+    
     //Menu
     define('HOME', 'Home');
     define('PROGRAMACAO', 'Programação');
@@ -44,6 +49,7 @@
     define('PERFILTEL', 'Perfil - Telefones');
     define('BONUS', 'Bônus');
     define('TAREFAS', 'Tarefas');
+    define('CONFIGUSUARIO', 'Configuração de Usuários');
 
     //Links
     define ('HOMELINK', 'index.php');
@@ -60,6 +66,7 @@
     define ('QUEMSOMOSLINK', 'quemsomos.php');
     define ('CONTATOLINK', 'contato.php');
     define ('BLOGLINK', 'http://www.blogspot.com');
+    define ('LINKHOME', 'http://redeunaviva.mapti.com.br');
     
     define('PRIMAVERALINK', 'primavera.php');
     define('VERAOLINK', 'verao.php');

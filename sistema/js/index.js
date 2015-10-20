@@ -37,17 +37,17 @@ $(function () {
         if (len > 10 || len == 0) {
             $('#name').css('background', 'rgb(255, 214, 190)');
             blsp();
-            if (len != 0) {
-                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login: Muito longo').fadeIn()
-            } else {
-                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login Vazio').fadeIn()
-            }
-            flg.name = 1
+//            if (len != 0) {
+//                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login: Muito longo').fadeIn()
+//            } else {
+//                $('#nameal').css('color', 'rgb(255, 57, 19)').text('Login Vazio').fadeIn()
+//            }
+            flg.name = 1;
         } else {
             $('#name').css('background', 'rgb(255, 255, 255)');
-            $('#nameal').css('color', 'rgb(17, 170, 42)').text('Login: Ok').fadeIn();
+//            $('#nameal').css('color', 'rgb(17, 170, 42)').text('Login: Ok').fadeIn();
             flg.name = 0;
-            tcheck()
+            tcheck();
         }
     });
     $("#pass").keyup(function () {
@@ -55,38 +55,38 @@ $(function () {
         if (len > 10 || len == 0) {
             $('#pass').css('background', 'rgb(255, 214, 190)');
             blsp();
-            if (len != 0) {
-                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha: Muito longa').fadeIn()
-            } else {
-                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha Vazia').fadeIn()
-            }
-            flg.pass = 1
+//            if (len != 0) {
+//                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha: Muito longa').fadeIn()
+//            } else {
+//                $('#passal').css('color', 'rgb(255, 57, 19)').text('Senha Vazia').fadeIn()
+//            }
+            flg.pass = 1;
         } else {
             $('#pass').css('background', 'rgb(255, 255, 255)');
-            $('#passal').css('color', 'rgb(17, 170, 42)').text('Senha: Ok').fadeIn();
+//            $('#passal').css('color', 'rgb(17, 170, 42)').text('Senha: Ok').fadeIn();
             flg.pass = 0;
-            tcheck()
+            tcheck();
         }
     });
 
     function tcheck() {
         if (flg.name == 0 && flg.pass == 0) {
-            $('#signupb').css('opacity', '1').css('cursor', 'pointer')
+            $('#signupb').css('opacity', '1').css('cursor', 'pointer');
         } else {
-            blsp()
+            blsp();
         }
     }
     $('#signupb').click(function () {
         if (flg.name == 0 && flg.pass == 0) {
             $('#sumsk').fadeIn();
             $('#name, #pass, #logint, #nameal, #passal, #signupb').css('opacity', '0.2');
-            $('#close').fadeIn()
+            $('#close').fadeIn();
         }
     });
     $('#close').click(function () {
         init();
         initub();
-        $('#close').hide()
+        $('#close').hide();
     });
 
     function init() {
@@ -99,19 +99,19 @@ $(function () {
         $('#sumsk').hide();
         $('#nameal').hide();
         $('#passal').hide();
-        $('#name, #pass, #logint, #nameal, #passal, #signupb').css('opacity', '1');
+//        $('#name, #pass, #logint, #nameal, #passal, #signupb').css('opacity', '1');
         $('#name').css('background', 'rgb(255, 255, 255)');
         $('#pass').css('background', 'rgb(255, 255, 255)');
         $('#signupb').css('opacity', '0.2').css('cursor', 'default');
-        $('#name, #pass').val('')
+        $('#name, #pass').val('');
     }
 
     function upd(button) {
         location.hash = button;
         if (flg.upd == 0) {
-            $('#drop').fadeIn()
+            $('#drop').fadeIn();
         } else {
-            $('#drop').fadeOut()
+            $('#drop').fadeOut();
         }
     }
 
@@ -120,16 +120,16 @@ $(function () {
             $('#signup').text('Acesso ao sistema').css('background', '#76ABDB');
             $('#signupb').text('Acessar');
             $('#logint').text('Esqueci minha senha');
-            $('#pass').show()
+            $('#pass').show();
         } else {
             $('#signup').text('Informe o seu e-mail').css('background', '#FFA622');
             $('#signupb').text('Enviar');
             $('#logint').text('Login com senha');//Entre com novo usuário
-            $('#pass').hide()
+            $('#pass').hide();
         }
     }
 
     function blsp() {
-        $('#signupb').css('opacity', '0.2').css('cursor', 'default')
+        $('#signupb').css('opacity', '0.2').css('cursor', 'default');
     }
 });
