@@ -42,14 +42,25 @@
     define('HOME', 'Home');
     define('PROGRAMACAO', 'Programação');
     define('RETIRO', 'Retiro');
+    define('MENU4', 'Indicações');
     
     //Títulos para Menu
+    define('PERFIL', 'Seu Perfil');
     define('PERFILSV', 'Perfil - Sobre você');
     define('PERFILEND', 'Perfil - Endereço');
     define('PERFILTEL', 'Perfil - Telefones');
+    define('PERFILTROCASENHA', 'Perfil - Troca de Senha');
     define('BONUS', 'Bônus');
     define('TAREFAS', 'Tarefas');
     define('CONFIGUSUARIO', 'Configuração de Usuários');
+    define('CONFIGUSUARIOSITE', 'Configuração de Usuários do Site');
+    define('RELATORIOBONUS', 'Relatório de Bônus');
+    define('RELATORIOTAREFAS', 'Relatório de Tarefas');
+    define('RELATORIOJORNADAS', 'Relatório de Jornadas');
+    define('RELATORIOPARAGEM', 'Relatório de Paragem');
+    define('RELATORIOUSUARIOS', 'Relatório de Usuários');
+    define('SUPORTE', 'Suporte');
+    define('RELATORIOS', 'Relatórios');
 
     //Links
     define ('HOMELINK', 'index.php');

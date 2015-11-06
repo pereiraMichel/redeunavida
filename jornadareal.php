@@ -4,7 +4,7 @@
 require_once './view/formulario.php';
 require_once './controller/constantes.php';
 require_once './view/slideShow.php';
-require_once './view/formAdesao.php';
+require_once './view/classFormAdesao.php';
 require_once './texto/classTexto.php';
 
 $formulario = new formulario();
@@ -79,25 +79,56 @@ $formulario = new formulario();
         <div id="content">
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
+
                     <h3 class="text-info"><i class="fa fa-book"></i> JORNADA REAL</h3>
                     <br/>
-                    <div class="col-md-6">
-                        <h3 style="font-size: 18px; padding-left: 10px">Texto Introdutório e Explicativo da Jornada Real</h3>
+
+                    <div class="col-md-12">
+                            
+                        <div class="table-responsive">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6 text-center">
+                                <table class="table">
+                                    <tr>
+                                        <td>Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
+                                        <td>Faça o seu cadastro, telefone ou envie um e-mail para marcar uma entrevista.</td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td colspan="2">
+                                            <a href="#textoIntrodutorio" style="text-decoration: none;">
+                                                <abbr title="Leia o texto abaixo">Mais detalhes, ler abaixo.</abbr>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-3"></div>
+
+                        </div>
                     </div>
-                    <div class="col-md-6 link-direita">
-                        <a href="#">
-                            <h3>
+
+
+                    <p style="height: 120px">&nbsp;</p>
+                    <div class="col-md-6">
+                        <h3 style="font-size: 18px; padding-left: 10px" id="textoIntrodutorio">Texto Introdutório e Explicativo da Jornada Real</h3>
+                    </div>
+                    <div class="col-md-6" style="text-align: right;">
+                        <a href="downloads.php" target="_self">
+                            <button class="btn btn-default">
+                                <!--<h3>-->
                                 Programa JR - Download
-                            </h3>
+                            </button>
+                            <!--</h3>-->
                         </a>
                     </div>
-                    <div class="page-header"></div>
+                    <div class="page-header">&nbsp;</div>
 
-                    <small style="text-align: justify;">
-                        <?php
-                        $textoJR = new classTexto();
+                    <div class="col-md-12">
+                        <small style="text-align: justify;">
+                            <?php
+                            $textoJR = new classTexto();
 
-                        $textoJR->textoJornadaReal();
+                            $textoJR->textoJornadaReal();
 //                        $filename = "texto/quemsomos.xml";
 //                        
 //                        @header("Content-Type: text/html; charset=utf-8");
@@ -108,8 +139,9 @@ $formulario = new formulario();
 //                            echo $texto->quemsomos;
 //                            echo "<br>";
 //                        }
-                        ?>
-                    </small>
+                            ?>
+                        </small>
+                    </div>
                     <!--</div>-->
                 </div>
             </div>
@@ -185,7 +217,7 @@ $formulario = new formulario();
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+                            <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
 
                             <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
                             <ul class="dropdown-menu" role="menu">
@@ -231,9 +263,9 @@ $formulario = new formulario();
         </footer>
 
         <?php
-        $formAdesao = new formAdesao();
-
-        $formAdesao->telaFormAdesao();
+//        $formAdesao = new formAdesao();
+//
+//        $formAdesao->telaFormAdesao();
         ?>
         <!-- EOF -->
         <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">

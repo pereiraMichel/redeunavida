@@ -1,7 +1,7 @@
 <?php
-define('__ROOT__', dirname(dirname(__FILE__)));
+//define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once (__ROOT__.'../conexao/conectaBanco.php');
+require_once '../conexao/conectaBanco.php';
 
 class modelTipoUsuario {
 

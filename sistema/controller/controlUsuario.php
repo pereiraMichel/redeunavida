@@ -24,14 +24,11 @@ class controlUsuario {
     public function validaUsuario(){
 
         try{
-        echo "<br>Validando ".  $this->usuario;
-        echo "<br>Validando ".  $this->senha;//Parou aqui.
-
-        if ($this->usuario != "" || $this->senha != ""){
-            return true;
-        }else{
-            return false;
-        }
+            if ($this->usuario != "" || $this->senha != ""){
+                return true;
+            }else{
+                return false;
+            }
         
         }  catch (Exception $ex){
             echo "Houve um erro: ".$ex->getMessage();

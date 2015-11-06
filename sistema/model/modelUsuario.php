@@ -1,7 +1,7 @@
 <?php
 define('__ROOT__', dirname(dirname(__FILE__)));
 
-require_once (__ROOT__.'../conexao/conectaBanco.php');
+require_once __ROOT__.'/conexao/conectaBanco.php';
 
 //use conectaBanco;
 
@@ -70,7 +70,7 @@ class modelUsuario {
                 echo "<li style='font-size: 11px;'>&nbsp;</li>";
                 echo "<li style='font-size: 11px;'><a href='perfil.php'>Alterar</a></li>";
             }else{
-                echo "<li>Profissão: ".$dados['profissao']."</li>";
+//                echo "<li>Profissão: ".$dados['profissao']."</li>";
                 echo "<li>Data de Nascimento: ".date("d/m/Y", strtotime($dados['dataNascimento']))."</li>";
                 echo "<li>Setênio: ".$dados['setenio']."</li>";
                 echo "<li>Descrição: ".$dados['descricao']."</li>";
@@ -80,7 +80,7 @@ class modelUsuario {
         }
     }
     
-    public function validaUser($usuario, $senha){ // função para validar o usuário e a senha
+    public function validaUser($usuario){ // função para validar o usuário e a senha
 
         $conecta = new conectaBanco();
         $conecta->conecta();
@@ -88,11 +88,11 @@ class modelUsuario {
         try{
             $sql = "SELECT * "
                     . "FROM tblloginsystems "
-                    . "WHERE nomeUsuario = '".$usuario."' "
-                    . "OR emailUsuario = '".$usuario."' "
-                    . "AND senha = '".$senha."'";
+                    . "WHERE (nomeUsuario = '".$usuario."' "
+                    . "OR emailUsuario = '".$usuario."') "
+                    . "AND senha = '".$this->senha."'";
 
-            $resultado = mysql_query($sql);
+            $resultado = mysql_query($sql) or die("||| Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
             $dados = mysql_fetch_array($resultado);
 
             if($dados > 0){
@@ -101,10 +101,11 @@ class modelUsuario {
                 $_SESSION['usuario'] = $dados['nomeUsuario'];
                 $_SESSION['email'] = $dados['emailUsuario'];
                 $_SESSION['codTipoUsuario'] = $dados['codTipoUsuario'];
+                $_SESSION['logado'] = true;
                 
                 $identifUsuario = base64_encode($_SESSION['idusuario']);
                 
-                header("Location: ../sistema/view/inicio.php?usuario=".$identifUsuario);
+                header("Location: ../sistema/view/inicio.php");//?usuario=".$identifUsuario
 //                echo "<br>Sessão ID: ".$_SESSION['idusuario'];//Os campos estão OK
 //                echo "<br>Sessão Usuário: ".$_SESSION['usuario'];
 //                echo "<br>Sessão E-mail: ".$_SESSION['email'];
@@ -180,7 +181,7 @@ class modelUsuario {
     
     public function formularioCadastro(){
         echo "<div class='tab-pane active' id='tab1'>";
-        echo "  <input type='hidden' name='dataSql' id='dataSql' value='" . date('Y/m/d') . "' size='10' readonly='readonly' />";
+        echo "  <input type='hidden' name='dataSql' id='dataSql' value='" . date('Y-m-d') . "' size='10' readonly='readonly' />";
 
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . NOME . "</label>";
@@ -241,6 +242,66 @@ class modelUsuario {
         echo "</div>";
         
     }
+    public function formularioCadastroSite(){
+        echo "<div class='tab-pane active' id='tab1'>";
+        echo "  <input type='hidden' name='dataSql' id='dataSql' value='" . date('Y-m-d') . "' size='10' readonly='readonly' />";
+
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . NOME . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='text' name='nome' id='nome'  placeholder='Nome' class='form-control' />";
+        echo "   </div>";
+        echo "</div>";
+        
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . SENHA . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='password' name='text' id='senha' class='form-control' maxlenght='8' />";
+        echo "   </div>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>&nbsp;</label>";
+        echo "   <div class='col-sm-10' style='color: red; text-align: left;'>";
+        echo "      <small>*No máximo 8 alfanuméricos</small>";
+        echo "   </div>";
+        echo "</div>";
+
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . EMAIL . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='email' name='email' id='email' placeholder='E-mail' class='form-control' />";
+        echo "   </div>";
+        echo "</div>";
+
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . NASCIMENTO . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='date' name='dataNascimento' id='dataNascimento'>";
+        echo "   </div>";
+        echo "</div>";
+
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . SETENIO . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='date' name='setenio' id='setenio'>";
+        echo "   </div>";
+        echo "</div>";
+
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . ESTCIVIL . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='date' name='dataNascimento' id='dataNascimento'>";
+        echo "   </div>";
+        echo "</div>";
+        
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . DATA . "</label>";
+        echo "   <div class='col-sm-10'>";
+        echo "      <input type='text' name='data' id='data' value='".date("d/m/Y")."' class='form-control' readonly />";
+        echo "   </div>";
+        echo "</div>";
+
+        echo "</div>";
+        
+    }
     
     
     public function mensagem($mensagem){
@@ -271,27 +332,22 @@ class modelUsuario {
         echo "            </div>";
         echo "        </div>";
         echo "    </div>";
-        
-//        echo "<script>";
-//        echo "  $('#mensagemErro').exec();";
-//        echo "</script>";
+
     }
     
-    function excluirUsuario($idusuario){
+    public function excluirUsuario($idUsuario){
         $conecta = new conectaBanco();
         $conecta->conecta();
         
         try{
-            $sql = "DELETE FROM tblloginsystems WHERE idUsuario = ".$idusuario;
-            echo $sql;
-//            $resultado = mysql_query($sql) or die ("<br>Erro: ".  mysql_error());
-            
-//            echo "<script> alert(".$resultado.")</script>";
+            $sql = "DELETE * FROM tblloginsystems WHERE idUsuario = ".$idUsuario;
+//            echo $sql;
+            $resultado = mysql_query($sql) or die ("<br>Erro na exclusão: ".  mysql_error());
             
             if($resultado){
-                $enviado = true;
+                return true;
             }else{
-                $enviado = false;
+                return false;
             }
             
         } catch (Exception $ex) {
@@ -299,5 +355,6 @@ class modelUsuario {
         }
         
     }
+    
     
 }

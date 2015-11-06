@@ -1,0 +1,25 @@
+[02-Nov-2015 13:02:00 UTC] PHP Warning:  require_once(../conexao/conectaBanco.php): failed to open stream: No such file or directory in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 4
+[02-Nov-2015 13:02:00 UTC] PHP Stack trace:
+[02-Nov-2015 13:02:00 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 13:02:00 UTC] PHP   2. require_once() C:\wamp\www\redeunaviva\sistema\index.php:14
+[02-Nov-2015 13:02:00 UTC] PHP Fatal error:  require_once(): Failed opening required '../conexao/conectaBanco.php' (include_path='.;C:\php\pear') in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 4
+[02-Nov-2015 13:02:00 UTC] PHP Stack trace:
+[02-Nov-2015 13:02:00 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 13:02:00 UTC] PHP   2. require_once() C:\wamp\www\redeunaviva\sistema\index.php:14
+[02-Nov-2015 15:01:49 UTC] PHP Notice:  Constant __ROOT__ already defined in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 2
+[02-Nov-2015 15:01:50 UTC] PHP Stack trace:
+[02-Nov-2015 15:01:50 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 15:01:50 UTC] PHP   2. require_once() C:\wamp\www\redeunaviva\sistema\index.php:15
+[02-Nov-2015 15:01:50 UTC] PHP   3. define() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:2
+[02-Nov-2015 15:01:50 UTC] PHP Warning:  require_once(C:\wamp\www\redeunaviva../conexao/conectaBanco.php): failed to open stream: No such file or directory in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 4
+[02-Nov-2015 15:01:50 UTC] PHP Stack trace:
+[02-Nov-2015 15:01:50 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 15:01:50 UTC] PHP   2. require_once() C:\wamp\www\redeunaviva\sistema\index.php:15
+[02-Nov-2015 15:01:50 UTC] PHP Fatal error:  require_once(): Failed opening required 'C:\wamp\www\redeunaviva../conexao/conectaBanco.php' (include_path='.;C:\php\pear') in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 4
+[02-Nov-2015 15:01:50 UTC] PHP Stack trace:
+[02-Nov-2015 15:01:50 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 15:01:50 UTC] PHP   2. require_once() C:\wamp\www\redeunaviva\sistema\index.php:15
+[02-Nov-2015 15:03:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\wamp\www\redeunaviva\sistema\index.php on line 35
+[02-Nov-2015 15:03:31 UTC] PHP Stack trace:
+[02-Nov-2015 15:03:31 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Nov-2015 15:03:31 UTC] PHP   2. session_destroy() C:\wamp\www\redeunaviva\sistema\index.php:35

@@ -3,7 +3,7 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
-    require_once './view/formAdesao.php';
+    require_once './view/classFormAdesao.php';
     require_once './view/slideShow.php';
     
 
@@ -150,7 +150,7 @@
 			</div>
 		</div>
             <div align="center">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9310742494995!2d-43.1981977!3d-22.9527654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fdeba3125c1%3A0x1f24ab34f8ff4226!2sR.+Mario+Pederneiras%2C+31+-+Humait%C3%A1%2C+Rio+de+Janeiro+-+RJ%2C+22261-020!5e0!3m2!1spt-BR!2sbr!4v1436276979892" width="960" height="600" frameborder="0" style="border:0" align="middle" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9310742494995!2d-43.1981977!3d-22.9527654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fdeba3125c1%3A0x1f24ab34f8ff4226!2sR.+Mario+Pederneiras%2C+31+-+Humait%C3%A1%2C+Rio+de+Janeiro+-+RJ%2C+22261-020!5e0!3m2!1spt-BR!2sbr!4v1436276979892" width="960" height="600" frameborder="0" style="border:0" align="middle" allowfullscreen id="mapa"></iframe>
             </div>
         </div>
             <p style="height: 150px;"></p>
@@ -215,7 +215,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu">
@@ -261,9 +261,9 @@
 	</footer>
 
 <?php
-    $formAdesao = new formAdesao();
-    
-    $formAdesao->telaFormAdesao();
+//    $formAdesao = new formAdesao();
+//    
+//    $formAdesao->telaFormAdesao();
 
 ?>
 

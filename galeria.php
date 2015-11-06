@@ -4,7 +4,7 @@
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
     require_once './view/slideShow.php';
-    require_once './view/formAdesao.php';
+    require_once './view/classFormAdesao.php';
 
     $formulario = new formulario();
 
@@ -101,7 +101,7 @@
 	<footer id="footer">
             <!--<nav class="nav navbar-fixed-bottom navbar-header">-->
                 <?php
-                    $titulo->telaLogoMarcasHorizontal();
+//                    $titulo->telaLogoMarcasHorizontal();
                 ?>
             <!--</nav>-->
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
@@ -162,7 +162,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu">
@@ -208,9 +208,9 @@
 	</footer>
 
 <?php
-    $formAdesao = new formAdesao();
-    
-    $formAdesao->telaFormAdesao();
+//    $formAdesao = new formAdesao();
+//    
+//    $formAdesao->telaFormAdesao();
 
 ?>
 <!-- EOF -->

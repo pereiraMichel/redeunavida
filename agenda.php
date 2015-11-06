@@ -236,7 +236,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a> <!-- Sugestões -> Indicações -->
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu">

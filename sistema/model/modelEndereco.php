@@ -96,7 +96,7 @@ class modelEndereco {
 //        }
         
         echo "<div class='col-xs-9 col-sm-9 placeholder'>";
-        echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfilend' action='".$PHP_SELF."'>";
+        echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfilend' action='inicio.php?menu=perfilend'>";
         echo "      <div class='form-group'>";
         echo "          <label for='endereco' class='col-sm-2 control-label'>Endereço:</label>";
         echo "              <div class='col-sm-10'>";
@@ -145,8 +145,6 @@ class modelEndereco {
 
                         while($dadosEstado = mysql_fetch_array($resultadoEstado)){
                             echo "<option class='form-control' name=".$dadosEstado['idEstado']." required onclick='javascript:emiteEstadoSelecionado(this.value)' onkeyup='javascript:emiteEstadoSelecionado(this.value)' onmouseover='javascript:emiteEstadoSelecionado(this.value)'>".$dadosEstado['sigla']."</option>";
-                                        echo "Teste";
-
                         }
 
                     } catch (Exception $ex) {
@@ -374,8 +372,7 @@ class modelEndereco {
         $conexao = new conectaBanco();
         $conexao->conecta();
         try{
-            $perfil = filter_input(INPUT_GET, 'usuario');
-            $sql = "SELECT * FROM tblendereco WHERE codPerfil=".base64_decode($perfil);
+            $sql = "SELECT * FROM tblendereco WHERE codPerfil=".$_SESSION['idusuario'];
             $resultado = mysql_query($sql) or die ("Não foi possível consultar o endereço. Erro: ".mysql_error());
             
             if($resultado){

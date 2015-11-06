@@ -1,30 +1,54 @@
 <?php
-require_once '../../controller/constantes.php';
-require_once '../../controller/metodos.php';
-require_once '../model/modelUsuario.php';
-require_once '../model/modelPerfil.php';
-require_once '../model/modelTelefone.php';
-require_once '../model/modelEndereco.php';
-require_once '../model/modelConfig.php';
-require_once '../conexao/conectaBanco.php';
 
-error_reporting(0);
+ini_set('display_errors', 1);
+
+include_once '../../controller/constantes.php';
+include_once '../../controller/metodos.php';
+include_once '../model/modelUsuario.php';
+include_once '../model/modelPerfil.php';
+include_once '../model/modelTelefone.php';
+include_once '../model/modelEndereco.php';
+include_once '../model/modelConfig.php';
+include_once '../model/modelSuporte.php';
+include_once '../erros/erros.php';
+include_once '../conexao/conectaBanco.php';
+require_once 'telas.php';
+
+//error_reporting(0);
+
+$modeloTelas = new telas();
 
 $modelUsuario = new modelUsuario();
 $conectaBanco = new conectaBanco();
-//session_cache_expire(30);//define o tempo para manter a sessão, em minutos
 $conectaBanco->iniciaSessao();
-
+//if(session_cache_expire(10)){//define o tempo para manter a sessão, em minutos
+//    $_SESSION['logado'] = false;
+//    session_destroy();
+//    header("Location: ../index.php");
+//    
+//}
 $codAutoridade = (int) $_SESSION['codTipoUsuario'];
 
-//if($_SESSION['idusuario'] === null){
-//    header("Location: ../");
-//}
+$saida = filter_input(INPUT_GET, 'saida');
 
-$menu = $_GET['menu'];
+if($saida == "sim"){
+    $_SESSION['logado'] = false;
+    unset($_SESSION['idusuario']);
+    unset($_SESSION['usuario']);
+    unset($_SESSION['email']);
+    unset($_SESSION['codTipoUsuario']);
+    session_destroy();
+    header("Location: ../index.php");
+}
 
-$codigoUsuario = base64_decode($_GET['usuario']);
-$codigoUsuarioCodificado = $_GET['usuario'];
+if($_SESSION['logado'] == false){
+    header("Location: ../index.php");
+}
+
+$menu = filter_input(INPUT_GET, 'menu');
+
+$codigoUsuario = base64_decode(filter_input(INPUT_GET, 'usuario'));
+$codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
 
 
 ?>
@@ -123,7 +147,7 @@ $codigoUsuarioCodificado = $_GET['usuario'];
 <div class="collapse navbar-collapse" style="padding-right: 20px;">
     <ul  class="nav navbar-nav navbar-right" id="menu" style="font-size: 12px;">
         <li id="home">
-                <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado;  ?>">
+                <a href="inicio.php">
                         <i class="fa icon-home"></i> Início
                 </a>
         </li>
@@ -133,9 +157,10 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfilsv">Sobre você</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfilend">Seu endereço</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfiltel">Telefones</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=perfilsv">Sobre você</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=perfilend">Seu endereço</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=perfiltel">Telefones</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=trocasenha">Troca de Senha</a></li>
             </ul>
         </li>
 
@@ -147,10 +172,10 @@ $codigoUsuarioCodificado = $_GET['usuario'];
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
-            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=bonus"><i class="fa fa-group"></i> Bônus</a></li>
-            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=tarefa"><i class="fa fa-clock-o"></i> Tarefas</a></li>
-            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=jornada"><i class="fa fa-flag"></i> Jornadas</a></li>
-            <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=paragem"><i class="fa fa-share"></i> Paragem</a></li>
+            <!--<li><a tabindex="0" href="inicio.php?menu=bonus"><i class="fa fa-group"></i> Bônus</a></li>-->
+            <li><a tabindex="0" href="inicio.php?menu=tarefa"><i class="fa fa-clock-o"></i> Tarefas</a></li>
+            <!--<li><a tabindex="0" href="inicio.php?menu=jornada"><i class="fa fa-flag"></i> Jornadas</a></li>-->
+            <!--<li><a tabindex="0" href="inicio.php?menu=paragem"><i class="fa fa-share"></i> Paragem</a></li>-->
 
         </ul>
       </li>
@@ -161,11 +186,12 @@ $codigoUsuarioCodificado = $_GET['usuario'];
             </a>
             <ul class="dropdown-menu" role="menu" style="font-size: 12px;">
                 <li class="dropdown-submenu">
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relbonus">Bônus</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=reltarefas">Tarefas</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=reljornadas">Jornadas</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relparagem">Paragem</a></li>
-                <li><a tabindex="0" href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=relusuarios">Usuários</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=relbonus">Bônus</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=reltarefas">Tarefas</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=reljornadas">Jornadas</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=relparagem">Paragem</a></li>
+                <li><a tabindex="0" href="inicio.php?menu=relusuarios">Usuários</a></li>
+                <!-- Apresentará usuários do sistema e do site -->
             </ul>
         </li>
 
@@ -178,7 +204,10 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                     echo "  </a>";
                     echo "          <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
                     echo "              <li>";
-                    echo "                  <a href='inicio.php?usuario=$codigoUsuarioCodificado&menu=configUsuario'>Usuários</a>";
+                    echo "                  <a href='inicio.php?menu=configUsuario'>Usuários</a>";
+                    echo "              </li>";
+                    echo "              <li>";
+                    echo "                  <a href='inicio.php?menu=configUsuarioSite'>Usuários do Site</a>";
                     echo "              </li>";
                     echo "          </ul>";
                     echo "</li>";
@@ -186,7 +215,7 @@ $codigoUsuarioCodificado = $_GET['usuario'];
             
             ?>
         <li id="relatorio">
-            <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=suporte">
+            <a href="inicio.php?menu=suporte">
                 <i class="fa fa-cloud"></i> Suporte
             </a>
         </li>
@@ -215,7 +244,7 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                             <li>&nbsp;</li>
                                 <?php
 //                                echo "Código do Usuário: ".$codigoUsuario;
-                                $modelUsuario->setIdUsuario($codigoUsuario);
+                                $modelUsuario->setIdUsuario($_SESSION['idusuario']);
                                 $modelUsuario->consultaUsuarioPerfil();
                                 ?>
                         </ul>
@@ -225,11 +254,15 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                         switch ($menu){
                             case "": echo "<h3 class='page-header'><blockquote>Acessos</blockquote></h3>";
                                 break;
+                            case "perfil": echo "<h3 class='page-header'><blockquote>".PERFIL."</blockquote></h3>";
+                                break;
                             case "perfilsv": echo "<h3 class='page-header'><blockquote>".PERFILSV."</blockquote></h3>";
                                 break;
                             case "perfilend": echo "<h3 class='page-header'><blockquote>".PERFILEND."</blockquote></h3>";
                                 break;
                             case "perfiltel": echo "<h3 class='page-header'><blockquote>".PERFILTEL."</blockquote></h3>";
+                                break;
+                            case "trocasenha": echo "<h3 class='page-header'><blockquote>".PERFILTROCASENHA."</blockquote></h3>";
                                 break;
                             case "mensagem": echo "<h3 class='page-header'><blockquote>".MENSAGENS."</blockquote></h3>";
                                 break;
@@ -239,9 +272,24 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                 break;
                             case "configUsuario": echo "<h3 class='page-header'><blockquote>".CONFIGUSUARIO."</blockquote></h3>";
                                 break;
+                            case "configUsuarioSite": echo "<h3 class='page-header'><blockquote>".CONFIGUSUARIOSITE."</blockquote></h3>";
+                                break;
+                            case "relbonus": echo "<h3 class='page-header'><blockquote>".RELATORIOBONUS."</blockquote></h3>";
+                                break;
+                            case "reltarefas": echo "<h3 class='page-header'><blockquote>".RELATORIOTAREFAS."</blockquote></h3>";
+                                break;
+                            case "reljornadas": echo "<h3 class='page-header'><blockquote>".RELATORIOJORNADAS."</blockquote></h3>";
+                                break;
+                            case "relparagem": echo "<h3 class='page-header'><blockquote>".RELATORIOPARAGEM."</blockquote></h3>";
+                                break;
+                            case "relusuarios": echo "<h3 class='page-header'><blockquote>".RELATORIOUSUARIOS."</blockquote></h3>";
+                                break;
+                            case "relatorios": echo "<h3 class='page-header'><blockquote>".RELATORIOS."</blockquote></h3>";
+                                break;
+                            case "suporte": echo "<h3 class='page-header'><blockquote>".SUPORTE."</blockquote></h3>";
+                                break;
                         }
                     ?>
-                        
 
                         <div class="row placeholders">
                             <!-- altere a parte de baixo em cada menu -->
@@ -254,7 +302,7 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                             ?>
                             
                             <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?usuario=<?php echo $codigoUsuarioCodificado; ?>&menu=perfil" class="acesso">
+                                <a href="inicio.php?menu=perfil" class="acesso">
                                     <img src="../../images/usuario.png" title="Perfil" class="img-responsive" width="100" height="100">
                                     <h4>Perfil</h4>
                                     <span class="text-muted">Altere o seu perfil.</span>
@@ -267,22 +315,39 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                     <span class="text-muted">Verifique suas mensagens.</span>
                                 </a>
                             </div>-->
-                            <div class="col-xs-6 col-sm-3 placeholder">
+<!--                            <div class="col-xs-6 col-sm-3 placeholder">
                                 <a href="#" class="acesso">
                                     <img src="../../images/tasks.png" class="img-responsive" title="Bônus" width="100" height="100">
                                     <h4>Bônus</h4>
                                     <span class="text-muted">Preencha seus bônus.</span>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="#" class="acesso">
+                                <a href="inicio.php?menu=tarefa" class="acesso">
                                     <img src="../../images/tarefas.png" class="img-responsive" title="Tarefas" width="100" height="100">
                                     <h4>Tarefas</h4>
                                     <span class="text-muted">Verifique suas tarefas.</span>
                                 </a>
                             </div>
+                            <div class="col-xs-6 col-sm-3 placeholder">
+                                <a href="inicio.php?menu=relatorios" class="acesso">
+                                    <img src="../../images/tarefa.png" class="img-responsive" title="Relatórios" width="100" height="100">
+                                    <h4>Relatórios</h4>
+                                    <span class="text-muted">Consulte os relatórios.</span>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 placeholder">
+                                <a href="inicio.php?menu=suporte" class="acesso">
+                                    <img src="../../images/logoMapTI.png" class="img-responsive" title="Relatórios" width="163" height="163">
+                                    <h4>Suporte</h4>
+                                    <span class="text-muted">Encaminhe uma mensagem.</span>
+                                </a>
+                            </div>
                             <?php
                                         break;
+                                    case "perfil":  $perfil = new modelPerfil();
+                                                    $perfil->telaPerfilPrincipal();
+                                                    break;
                                     case "perfilsv":  $perfilsv = new modelPerfil();
                                                     $perfilsv->telaPerfil();
                                                     break;
@@ -292,9 +357,42 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                     case "perfiltel":  $perfiltel = new modelTelefone();
                                                     $perfiltel->telaTelefone();
                                                     break;
+                                    case "trocasenha":  $trocaSenha = new modelConfig();
+                                                    $trocaSenha->telaTrocaSenha();
+                                                    break;
                                     case "configUsuario":   $configUsuario = new modelConfig();
                                                             $configUsuario->telaNovoUsuario();
                                                             break;
+                                    case "configUsuarioSite":   $configUsuario = new modelConfig();
+                                                            $configUsuario->telaNovoUsuarioSite();
+                                                            break;
+                                    case "tarefa":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "relatorios":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "relbonus":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "reltarefas":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "reljornadas":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "relparagem":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "relusuarios":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+                                    case "suporte":   $erro = new erros();
+                                                            $erro->error404();
+                                                            break;
+//                                    case "suporte":   $suporte = new modelSuporte();
+//                                                            $suporte->telaContato();
+//                                                            break;
                                         
                                     
                                 }//fecha o switch
@@ -349,10 +447,10 @@ $codigoUsuarioCodificado = $_GET['usuario'];
                                                             <i class="fa fa-user"></i> Cadastre-se
                                                         </button>
                                                     </a>-->
-                                                    <a href="../../sistema/" class="text-danger" style="padding-right: 15px;">
-                                                        <button class="btn btn-danger" onclick="<?php unset($_SESSION['idusuario']); ?>">
+                                                    <a href="inicio.php?saida=sim" class="text-danger" style="padding-right: 15px;">
+                                                        <button class="btn btn-danger">
                                                                     <i class="fa fa-power-off"></i> Sair
-                                                            </button>
+                                                        </button>
                                                     </a>
 						</div>
 						<br class="visible-xs">
@@ -371,36 +469,15 @@ $codigoUsuarioCodificado = $_GET['usuario'];
 </div>
 
     <?php
-        if(filter_input(INPUT_GET, 'modal') === "sim"){
-//         echo "<h1 style='text-align: right;'>Contém o parâmetro</h1>";
-         $perfiltel->deletaTelefone(filter_input(INPUT_GET, 'idtelefone'), filter_input(INPUT_GET, 'telefone'));
+//        if(filter_input(INPUT_GET, 'modal') === "sim"){
+////         echo "<h1 style='text-align: right;'>Contém o parâmetro</h1>";
+//         $perfiltel->deletaTelefone(filter_input(INPUT_GET, 'idtelefone'), filter_input(INPUT_GET, 'telefone'));
          
     ?>
 
-        <!-- Modal -->
-<!--        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" arial-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Confirmação de exclusão</h4>
-              </div>
-              <div class="modal-body">
-                  <input type='hidden' value="">
-                      Deseja excluir o telefone <?php //echo $_GET['telefone'];  ?> ?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary">Sim</button>
-              </div>
-            </div>
-         </div>
-       </div>-->
         <?php
         
-//        }else{
-//         echo "<h1 style='text-align: right;'>Não contém o parâmetro</h1>";
-        }
+//        }
         
         ?>
 

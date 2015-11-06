@@ -4,6 +4,12 @@ class conectaBanco {
 
 //        private $usuario = "sec_login";
 //        private $senha = "y9kwbLCk";
+    //Web
+//        private $usuario = "root_ruv";
+//        private $senha = "M1ch3l4p";
+//        private $servidor = "mysql524.umbler.com";
+//        private $database = "ruv";
+    // Internto
         private $usuario = "root";
         private $senha = "m1ch3l";
         private $servidor = "localhost";
@@ -14,9 +20,8 @@ class conectaBanco {
 
         try{
             $conecta = mysql_connect($this->servidor, $this->usuario, $this->senha);
-            mysql_set_charset('utf8', $conecta);
             mysql_select_db($this->database, $conecta);
-            
+            mysql_set_charset('utf8', $conecta);
 //            echo "<br>Conexão efetuada com sucesso.";
         }catch(Exception $e){
             throw new Exception("Problemas na conexão. Mensagem de erro: ".$e->getMessage());

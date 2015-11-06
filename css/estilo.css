@@ -2,6 +2,45 @@
 /*html, body, div, iframe {margin: 0px; padding: 0px}*/
 /*iframe{width: 100%; border: none; position: absolute}*/
 
+@media only screen and (max-width: 959px) {
+    span, a{
+        font-size: 10px;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    span, a{
+        font-size: 12px;
+    }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    span, a{
+        font-size: 14px;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    span, a{
+        font-size: 9px;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    span, a{
+        font-size: 7px;
+    }
+}
+
+.bodyColorYellow
+{
+    background-color: #fffadf;
+}
+
 // Top - Barra
 .navbar-subtext-top
 {
@@ -27,7 +66,7 @@
 .navbar-text-top > div > div > span
 {
         color: #31708f;
-        font-size: 24px;
+        font-size: 36px;
 /*        font-size: 29px;*/
         letter-spacing: 8px;
         /*letter-spacing: 14px;*/
@@ -41,6 +80,18 @@
         /*letter-spacing: 14px;*/
 }  
 
+@font-face{
+    font-family: Angelface;
+    src: url("../fonts/Angelface.otf");
+    src: url("../fonts/angelface.ttf");
+    
+}
+@font-face{
+    font-family: Backolives;
+    src: url("../fonts/backolives.ttf");
+
+}
+
 .link-direita > div > a > h3,
 .link-direita > div > a > h3:hover,
 .link-direita > div > a > h3:focus
@@ -48,7 +99,7 @@
   color: #555;
   background-color: #e7e7e7;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   text-align: right;
   padding-right: 10px;
 }

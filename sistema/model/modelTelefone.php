@@ -80,7 +80,7 @@ class modelTelefone {
                 try{
                     $sqlTelefone = "SELECT * FROM tbltelefone t "
                             . "INNER JOIN tbltipotelefone tp ON tp.idTipoTelefone = t.codTipoTelefone "
-                            . "WHERE t.codPerfil = ".base64_decode($_GET['usuario'])." "
+                            . "WHERE t.codPerfil = ".$_SESSION['idusuario']." "
                             . "ORDER BY t.idTelefone";
                     
                     $resultadoTelefone = mysql_query($sqlTelefone);
@@ -104,7 +104,7 @@ class modelTelefone {
 //                            echo "<a data-toggle='modal' data-target='#myModal' href='".$this->deletaTelefone($idTelefoneSelecionado, $telefoneSelecionado)."'>";
 //                            echo "<a data-toggle='modal' href='".$this->deletaTelefone(true, filter_input(INPUT_GET, 'usuario'), $idTelefoneSelecionado, $telefoneSelecionado)."'>";
 //                            echo "<a data-toggle='modal' data-target='#myModal' onclick='javascript:excluirTelefone(".$idTelefoneSelecionado.", \"$telefoneSelecionado\")'>";
-                            echo "<a data-toggle='modal' href='inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel&idtelefone=".$idTelefoneSelecionado."&telefone=".$telefoneSelecionado."&modal=sim'>";
+                            echo "<a data-toggle='modal' href='inicio.php?menu=perfiltel&idtelefone=".$idTelefoneSelecionado."&telefone=".$telefoneSelecionado."&modal=sim'>";
 
                             echo "  <img src='../../images/botaoexcluir.png' title='Excluir' data-target='#myModal'>";
                             
@@ -159,7 +159,7 @@ class modelTelefone {
 //        echo "<script src='../../js/validaCampos.js' defer=''></script>";
         
         echo "<div class='col-xs-9 col-sm-9 placeholder'>";
-        echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfil' action='".$PHP_SELF."'>";
+        echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfil' action='inicio.php?menu=perfiltel'>";
         echo "      <div class='form-group'>";
         echo "          <label for='telefone' class='col-sm-2 control-label'>Telefone:</label>";
         echo "              <div class='col-sm-3'>";
@@ -212,7 +212,7 @@ class modelTelefone {
             
                 $telefone = filter_input(INPUT_POST, 'telefone');
                 $tipoTelefone = filter_input(INPUT_POST, 'tipoTelefone');
-                $this->codPerfil = base64_decode($_GET['usuario']);
+                $this->codPerfil = $_SESSION['idusuario'];
                 
                 $sqlTipoTelefone = "SELECT * FROM tbltipotelefone WHERE nomeTipoTelefone = '".$tipoTelefone."'";
                 $resultadoTipoTelefone = mysql_query($sqlTipoTelefone);
@@ -239,11 +239,11 @@ class modelTelefone {
                 /* @var $resultado type */
                 if ($resultado) {
                     echo "<h1>Exclusão efetuada com sucesso!</h1>";
-                    header("Location: inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel");
+                    header("Location: inicio.php?menu=perfiltel");
                     echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".$PHP_SELF."'>";
 
                 } else {
-                    header("Location: inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel&erro=2");
+                    header("Location: inicio.php?menu=perfiltel&erro=2");
                 }
             } catch (Exception $ex) {
                 echo "Não foi possível excluir o telefone. Erro: ".$ex->getMessage();
@@ -261,7 +261,7 @@ class modelTelefone {
         
         echo "<!-- Modal -->";
 //        echo "<form name='formTelefone' method='post' action='".$PHP_SELF."'>";
-        echo "<form name='formTelefone' method='post' action='inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel'>";
+        echo "<form name='formTelefone' method='post' action='inicio.php?menu=perfiltel'>";
         echo "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
         echo "  <div class='modal-dialog' role='document'>";
         echo "    <div class='modal-content'>";
@@ -275,8 +275,8 @@ class modelTelefone {
 //        echo "              Deseja excluir o telefone ".$telefone." ?";
         echo "      </div>";
         echo "      <div class='modal-footer'>";
-        echo "        <a class='btn btn-default' href='inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel'>Não</a>";
-        echo "        <a class='btn btn-primary' href='inicio.php?usuario=".filter_input(INPUT_GET, 'usuario')."&menu=perfiltel&idtelefone=".$idTelefone."&telefone=".$telefone."&exclui=sim'>Sim</a>";
+        echo "        <a class='btn btn-default' href='inicio.php?menu=perfiltel'>Não</a>";
+        echo "        <a class='btn btn-primary' href='inicio.php?menu=perfiltel&idtelefone=".$idTelefone."&telefone=".$telefone."&exclui=sim'>Sim</a>";
         echo "      </div>";
         echo "    </div>";
         echo "  </div>";

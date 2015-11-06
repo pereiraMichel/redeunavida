@@ -3,8 +3,9 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
-    require_once './view/formAdesao.php';
+    require_once './view/classFormAdesao.php';
     require_once './view/slideShow.php';
+    require_once './texto/classTexto.php';
 
     $formulario = new formulario();
 
@@ -85,21 +86,26 @@
 				<h3 class="text-info"><i class="fa fa-book"></i> QUEM SOMOS</h3>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
-                                <msall style="text-align: justify">
+                                <p style="text-align: justify">
                         <?php
-                        $filename = "texto/quemsomos.xml";
                         
-                        @header("Content-Type: text/html; charset=utf-8");
-                        $xml = simplexml_load_file($filename);
-
-                        foreach($xml->texto as $texto)
-                        {
-                            echo $texto->quemsomos;
-                            echo "<br>";
-                        }
+                        $quemsomos = new classTexto();
+                        
+                        $quemsomos->textoQuemSomos();
+                        
+//                        $filename = "texto/quemsomos.xml";
+//                        
+//                        @header("Content-Type: text/html; charset=utf-8");
+//                        $xml = simplexml_load_file($filename);
+//
+//                        foreach($xml->texto as $texto)
+//                        {
+//                            echo $texto->quemsomos;
+//                            echo "<br>";
+//                        }
 
 ?>
-				</small>
+				</p>
 			</div>
 		</div>
         </div>
@@ -164,7 +170,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu">
@@ -210,9 +216,9 @@
 	</footer>
 
 <?php
-    $formAdesao = new formAdesao();
-    
-    $formAdesao->telaFormAdesao();
+//    $formAdesao = new formAdesao();
+//    
+//    $formAdesao->telaFormAdesao();
 
 ?>
 <!-- EOF -->

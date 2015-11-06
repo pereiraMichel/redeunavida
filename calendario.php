@@ -4,9 +4,13 @@
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
     require_once './view/slideShow.php';
-    require_once './view/formAdesao.php';
+    require_once './view/slideShow.php';
+    require_once './controller/calendarioRuv.php';
 
     $formulario = new formulario();
+    
+    $titulo = new slideShow();
+    $calendario = new calendarioRuv();
 
 ?>
 
@@ -39,6 +43,7 @@
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
+        <script src="sistema/js/validaCampos.js" defer=""></script>
         <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
@@ -50,6 +55,13 @@
                         $('body').addClass('images');
                 });
         </script>
+        
+        <script>
+            var tempo = "<?= time(); ?>";
+        </script>
+
+        
+        
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
             iframe{width: 100%; border: none; position: absolute}
@@ -58,13 +70,18 @@
         </style>
         <link rel="author" href="autor.txt">
     </head>
-<body>
+    <body onload="_hora()">
+        <script>
+            callerdate=new Date( <?php echo date("Y,m,d,H,i,s");?>);   
+//window.onload = _hora();
+        </script>
+        
+        
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
-                                                $titulo = new slideShow();
                                                 $titulo->telaTitulo();
                                             
                                             ?>
@@ -80,20 +97,28 @@
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
 				<h3 class="text-info"><i class="fa fa-calendar"></i> CALENDÁRIO</h3>
-				<small>
+                                <div style="height: 30px">&nbsp;</div>
+    <!--<small>-->
+                                <div class="text-center">
                         <?php
-                        $filename = "texto/calendario.xml";
                         
-                        @header("Content-Type: text/html; charset=utf-8");
-                        $xml = simplexml_load_file($filename);
-
-                        foreach($xml->texto as $texto)
-                        {
-                            echo $texto->calendario;
-                            echo "<br>";
-                        }                        
+//                        $titulo->calendario("&nbsp;");
+                        
+                        $calendario->configuracaoCalendario();
+                        
+//                        $filename = "texto/calendario.xml";
+//                        
+//                        @header("Content-Type: text/html; charset=utf-8");
+//                        $xml = simplexml_load_file($filename);
+//
+//                        foreach($xml->texto as $texto)
+//                        {
+//                            echo $texto->calendario;
+//                            echo "<br>";
+//                        }                        
                         ?>
-				</small>
+                                    </div>
+				<!--</small>-->
 			</div>
 		</div>
         </div>
@@ -158,7 +183,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> Sugestões<span class="caret"></span></a>
+        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
 
         <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
         <ul class="dropdown-menu" role="menu">
@@ -204,9 +229,9 @@
 	</footer>
 
 <?php
-    $formAdesao = new formAdesao();
-    
-    $formAdesao->telaFormAdesao();
+//    $formAdesao = new formAdesao();
+//    
+//    $formAdesao->telaFormAdesao();
 
 ?>
 <!-- EOF -->
