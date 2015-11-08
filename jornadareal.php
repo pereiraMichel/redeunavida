@@ -84,14 +84,13 @@ $formulario = new formulario();
                     <br/>
 
                     <div class="col-md-12">
-                            
+
                         <div class="table-responsive">
                             <div class="col-md-3"></div>
                             <div class="col-md-6 text-center">
                                 <table class="table">
-                                    <tr>
+                                    <tr colspan="2">
                                         <td>Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
-                                        <td>Faça o seu cadastro, telefone ou envie um e-mail para marcar uma entrevista.</td>
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="2">
@@ -142,7 +141,14 @@ $formulario = new formulario();
                             ?>
                         </small>
                     </div>
+
                     <!--</div>-->
+                </div>
+            </div>
+            <div style="height: 40px;">&nbsp;</div>
+            <div class="alert alert-info" role="alert">
+                <div class="text-center">
+                    Faça o seu cadastro, telefone ou envie um e-mail para marcar uma entrevista.
                 </div>
             </div>
         </div>
@@ -154,119 +160,14 @@ $formulario = new formulario();
             ?>
                         </nav>-->
             <p style="height: 150px;"></p>
-            <nav class="nav navbar-fixed-bottom navbar-header">
-                <?php
-//                    $titulo->telaLogoMarcasHorizontal();
-                ?>
-            </nav>
             <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="contato.php" style="padding: 0px 0px 0px 10px;">
-                        <small>
-                            <h5>
-                                <?php
-                                echo ENDERECOORGAO;
-                                echo "<br>" . TELEFONEORGAO;
-                                ?>
+                <?php
+                $titulo->preparaMenu("jornadaReal");
+                ?>
 
-                            </h5>
-                        </small>
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" style="padding-right: 10px;">
-                    <ul class="nav navbar-nav navbar-right" id="menu">
-                        <li id="home">
-                            <a href="<?php echo HOMELINK; ?>">
-                                <i class="fa icon-home"></i> Home
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown"><i class="fa fa-puzzle-piece"></i> Programação<span class="caret"></span></a>
-
-                            <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="active">
-                                    <a tabindex="0" href="<?php echo "#"; ?>" target="_self">Jornada Real</a>
-
-                                </li>
-
-                                <li><a tabindex="0" href="<?php echo MEDITACAOLINK; ?>">Meditação</a></li>
-                                <li><a tabindex="0" href="<?php echo MEDITCRISTALINK; ?>">Meditação Cristã</a></li>
-                                <li><a tabindex="0" href="<?php echo RETIROLINK; ?>">Retiro</a></li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Tempo<span class="caret"></span></a>
-
-                            <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a tabindex="0" href="<?php echo AGENDALINK; ?>" target="_self"><i class="fa fa-dashboard"></i> Agenda</a>
-                                </li>
-                                <li>
-                                    <a tabindex="0" href="<?php echo CALENDARIOLINK; ?>" target="_self"><i class="fa fa-calendar"></i> Calendário</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
-
-                            <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a tabindex="0" href="<?php echo YOGALINK; ?>"> Yoga</a>
-                                </li>
-                                <li>
-                                    <a tabindex="0" href="<?php echo RODASONHOSLINK; ?>"> Roda dos Sonhos</a>
-                                </li>
-                                <li>
-                                    <a tabindex="0" href="<?php echo TRANSPESSOALLINK; ?>"> Transcurso Transpessoal</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li id="galeria">
-                            <a href="<?php echo GALERIALINK; ?>">
-                                <i class="fa fa-ticket"></i> Galeria
-                            </a>
-                        </li>
-                        <li id="quemsomos">
-                            <a href="<?php echo QUEMSOMOSLINK; ?>" target="_self">
-                                <i class="fa fa-book"></i> Quem Somos
-                            </a>
-                        </li>
-                        <li id="contato">
-                            <a href="<?php echo CONTATOLINK; ?>">
-                                <i class="fa fa-envelope-o"></i> Contato
-                            </a>
-                        </li>
-                        <li id="blog">
-                            <a href="<?php echo BLOGLINK; ?>">
-                                <i class="fa fa-link"></i> Blog
-                            </a>
-                        </li>
-                        <li id="">
-                            <a href="#">
-                                <i class="fa fa-2x"></i> &nbsp;
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </nav>
         </footer>
 
-        <?php
-//        $formAdesao = new formAdesao();
-//
-//        $formAdesao->telaFormAdesao();
-        ?>
         <!-- EOF -->
         <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
             <img src="images/up.png" style="width:30px; height:30px"></div>

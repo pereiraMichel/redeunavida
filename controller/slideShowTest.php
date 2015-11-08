@@ -1,6 +1,6 @@
 <?php
 
-class slideShow {
+class slideShowTest {
 
 //TELAS
     // telaLogoMarcas()

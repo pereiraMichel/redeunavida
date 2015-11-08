@@ -138,7 +138,7 @@
 				<div class="col-sm-12 text-left">
 					<address class="well">
 						<h4>
-                                                        <a href='#enviarMensagem' role='button' data-toggle='modal' style="text-decoration: none;">
+                                                        <a href='#enviarMensagem' role='button' data-toggle='modal' style="text-decoration: none; color: #3F6CA1">
                                                             <b>Quero enviar uma mensagem</b>
                                                         </a>
 
@@ -157,116 +157,14 @@
 
 <!-- Parte de baixo da página -->
 	<footer id="footer">
-		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Menu</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-                            <a class="navbar-brand" href="contato.php" style="padding: 0px 0px 0px 10px;">
-                                    <small>
-                                        <h5>
-                                            <?php
-                                                echo ENDERECOORGAO;
-                                                echo "<br>".TELEFONEORGAO;
-                                            ?>
+            <p style="height: 150px;"></p>
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+                <?php
+                    $titulo->preparaMenu("contato");
+                ?>
 
-                                        </h5>
-                                    </small>
-				</a>
-  </div>
-
-<div class="collapse navbar-collapse" style="padding-right: 10px;">
-    <ul class="nav navbar-nav navbar-right" id="menu">
-        <li id="home">
-                <a href="<?php echo HOMELINK;  ?>">
-                        <i class="fa icon-home"></i> Home
-                </a>
-        </li>
-      <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-puzzle-piece"></i> Programação<span class="caret"></span></a>
-
-        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-        <ul class="dropdown-menu" role="menu">
-          <li>
-              <a tabindex="0" href="<?php echo JORNADAREALLINK; ?>" target="_self">Jornada Real</a>
-
-          </li>
-
-          <li><a tabindex="0" href="<?php echo MEDITACAOLINK;  ?>">Meditação</a></li>
-          <li><a tabindex="0" href="<?php echo MEDITCRISTALINK;  ?>">Meditação Cristã</a></li>
-          <li><a tabindex="0" href="<?php echo RETIROLINK;  ?>">Retiro</a></li>
-
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Tempo<span class="caret"></span></a>
-
-        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-        <ul class="dropdown-menu" role="menu">
-            <li>
-                <a tabindex="0" href="<?php echo AGENDALINK;  ?>" target="_self"><i class="fa fa-dashboard"></i> Agenda</a>
-            </li>
-            <li>
-                <a tabindex="0" href="<?php echo CALENDARIOLINK;  ?>" target="_self"><i class="fa fa-calendar"></i> Calendário</a>
-            </li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown"><i class="fa fa-ticket"></i> <?php echo MENU4; ?><span class="caret"></span></a>
-
-        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
-        <ul class="dropdown-menu" role="menu">
-            <li>
-              <a tabindex="0" href="<?php echo YOGALINK;  ?>"> Yoga</a>
-            </li>
-            <li>
-                <a tabindex="0" href="<?php echo RODASONHOSLINK;  ?>"> Roda dos Sonhos</a>
-            </li>
-            <li>
-                <a tabindex="0" href="<?php echo TRANSPESSOALLINK;  ?>"> Transcurso Transpessoal</a>
-            </li>
-        </ul>
-      </li>
-        <li id="galeria">
-            <a href="<?php echo GALERIALINK;  ?>">
-                        <i class="fa fa-ticket"></i> Galeria
-                </a>
-        </li>
-        <li id="quemsomos">
-            <a href="<?php echo QUEMSOMOSLINK;  ?>" target="_self">
-                        <i class="fa fa-book"></i> Quem Somos
-                </a>
-        </li>
-        <li id="contato" class="active">
-                <a href="<?php echo "#";  ?>">
-                        <i class="fa fa-envelope-o"></i> Contato
-                </a>
-        </li>
-        <li id="blog">
-                <a href="<?php echo BLOGLINK;  ?>">
-                        <i class="fa fa-link"></i> Blog
-                </a>
-        </li>
-        <li id="">
-                <a href="#">
-                        <i class="fa fa-2x"></i> &nbsp;
-                </a>
-        </li>
-    </ul>
-  </div>
-</nav>
+            </nav>
 	</footer>
-
-<?php
-//    $formAdesao = new formAdesao();
-//    
-//    $formAdesao->telaFormAdesao();
-
-?>
-
 
 
 <!-- EOF -->
@@ -285,7 +183,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel"><img src="images/logoRUV50x51.png"/> Rede Una Vida - <small>Enviar mensagem</small></h4>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #3F6CA1;"><img src="images/logoRUV50x51.png"/> Rede Una Vida - <small style="color: #3F6CA1;">Enviar mensagem</small></h4>
                 </div>
                 <div class="modal-body">
                     <?php

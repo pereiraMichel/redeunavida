@@ -7,6 +7,7 @@ class slideShow {
     // telaSlideShow()
     // telaTitulo()
     // telaNovaSlide()
+    // telaMenuBaixo
     
     public function telaLogoMarcas(){
         echo "<ul class='list-inline' style='padding-left: 30px; text-align: center;'>";
@@ -263,7 +264,7 @@ class slideShow {
         echo "              <span class='icon-bar'></span>";
         echo "          </button>";
         echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px; 
-        echo "                  <span><a href='index.php' style='text-decoration: none; color: #FF0000'>REDE UNA VIVA</a> </span><a style='font-family: Angelface, Cursive; font-size: 28px; text-decoration: none; color: #F2C700'>Por uma cultura de paz</a>";
+        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1'>REDE UNA VIVA</a> </span><a style='font-family: Angelface, Cursive; font-size: 28px; text-decoration: none; color: #F2C700'>Por uma cultura de paz</a>";
         echo "          </div>";
         echo "  </div>";
         echo "</div>";
@@ -338,6 +339,348 @@ class slideShow {
         echo "      </div>";
         echo "  </form>";
         echo "</div>";
+    }
+    
+    public function preparaMenu($pagina){
+        switch($pagina){
+            case "home":    
+                $marcaHome = "class='active'";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "jornadaReal": 
+                $marcaHome = "";
+                $marcaJR = "class='active'";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "meditacao": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "class='active'";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "meditacaoCrista": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "class='active'";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "retiro": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "class='active'";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "agenda": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "class='active'";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "calendario": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "class='active'";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "yoga": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "class='active'";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "rodaSonhos": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "class='active'";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "transcurso": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "class='active'";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "galeria": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "class='active'";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "quemSomos": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "class='active'";
+                $marcaContato = "";
+                break;
+            case "contato": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "class='active'";
+                break;
+            case "formAdesao" || "downloads" || "arqVerao" || "arqOutono" || "arqInverno" || "arqPrimavera" || "meditCrista" || "consultaSetenio": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+        }
+        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
+    }
+    
+    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
+        
+        echo "<div class='container-fluid'>";
+        echo "  <div class='navbar-header'>";
+        echo "      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#menuBaixo' aria-expanded='false'>";
+        echo "          <span class='sr-only'>Menu</span>";
+        echo "          <span class='icon-bar'></span>";
+        echo "          <span class='icon-bar'></span>";
+        echo "          <span class='icon-bar'></span>";
+        echo "      </button>";
+        echo "      <a class='navbar-brand' href='contato.php' style='padding: 0px 0px 0px 10px;'>";
+        echo "          <small>";
+        echo "              <h5>";
+        echo                    ENDERECOORGAO;
+        echo "              <br>" . TELEFONEORGAO;
+        echo "              </h5>";
+        echo "          </small>";
+        echo "      </a>";
+        echo "  </div>"; //Fecha o navbar-header
+        echo "  <div class='navbar-collapse collapse' id='menuBaixo' style='padding-right: 10px;'>";
+        echo "      <ul class='nav navbar-nav navbar-right'>";
+        echo "          <li id='home' ".$marcaHome.">";
+        echo "              <a href='".HOMELINK."'>";
+        echo "                  Home"; //<i class="fa icon-home"></i> Home
+        echo "              </a>";
+        echo "          </li>";
+        echo "          <li class='dropdown'>";
+        echo "              <a data-toggle='dropdown' class='dropdown-toggle'>";
+        echo "                  Programação";
+        echo "                  <span class='caret'></span>";
+        echo "              </a>"; //<i class="fa fa-puzzle-piece"></i> 
+        echo "              <ul class='dropdown-menu' role='menu'>";
+        echo "          <li ".$marcaJR.">";
+        echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self'>";
+        echo "                  Jornada Real";
+        echo "              </a>";
+        echo "          </li>";
+        echo "          <li ".$marcaMeditacao.">";
+        echo "              <a tabindex='0' href='".MEDITACAOLINK."'>";
+        echo "                  Meditação";
+        echo "              </a>";
+        echo "          </li>";
+        echo "          <li ".$marcaMeditacaoCrista.">";
+        echo "              <a tabindex='0' href='".MEDITCRISTALINK."'>";
+        echo "                  Meditação Cristã";
+        echo "              </a>";
+        echo "          </li>";
+        echo "          <li ".$marcaRetiro.">";
+        echo "              <a tabindex='0' href='".RETIROLINK."'>";
+        echo "                  Retiro";
+        echo "              </a>";
+        echo "          </li>";
+        echo "      </ul>";
+//        echo "  </li>";
+        echo "  <li class='dropdown'>";
+        echo "      <a tabindex='0' data-toggle='dropdown'>";
+        echo "          Tempo";
+        echo "          <span class='caret'></span>";
+        echo "      </a>"; //<i class="fa fa-clock-o"></i> 
+        echo "      <ul class='dropdown-menu' role='menu'>";
+        echo "          <li ".$marcaAgenda.">";
+        echo "              <a tabindex='0' href='".AGENDALINK."' target='_self'>";
+        echo "                  Agenda";
+        echo "              </a>"; // <i class="fa fa-dashboard"></i> 
+        echo "          </li>";
+        echo "          <li ".$marcaCalendario.">";
+        echo "              <a tabindex='0' href='".CALENDARIOLINK."' target='_self'>";
+        echo "                  Calendário";
+        echo "              </a>"; // <i class="fa fa-calendar"></i> 
+        echo "          </li>";
+        echo "      </ul>";
+        echo "  </li>";
+        echo "  <li class='dropdown'>";
+        echo "      <a tabindex='0' data-toggle='dropdown'>";
+        echo "          ".MENU4."<span class='caret'></span>";
+        echo "      </a>"; // <i class="fa fa-ticket"></i> 
+        echo "          <ul class='dropdown-menu' role='menu'>";
+        echo "              <li ".$marcaYoga.">";
+        echo "                  <a tabindex='0' href='".YOGALINK."'>";
+        echo "                      Yoga";
+        echo "                  </a>";
+        echo "              </li>";
+        echo "              <li ".$marcaRodaSonhos.">";
+        echo "                  <a tabindex='0' href='".RODASONHOSLINK."'>";
+        echo "                      Roda dos Sonhos";
+        echo "                  </a>";
+        echo "              </li>";
+        echo "              <li ".$marcaTranscurso.">";
+        echo "                  <a tabindex='0' href='".TRANSPESSOALLINK."'>";
+        echo "                      Transcurso Transpessoal";
+        echo "                  </a>";
+        echo "              </li>";
+        echo "          </ul>";
+        echo "  </li>";
+        echo "  <li id='galeria' ".$marcaGaleria.">";
+        echo "      <a href='".GALERIALINK."'>";
+        echo "          Galeria"; // <i class="fa fa-ticket"></i> 
+        echo "      </a>";
+        echo "  </li>";
+        echo "  <li id='quemsomos' ".$marcaQuemSomos.">";
+        echo "      <a href='".QUEMSOMOSLINK."' target='_self'>";
+        echo "          Quem Somos"; // <i class="fa fa-book"></i> 
+        echo "      </a>";
+        echo "  </li>";
+        echo "  <li id='contato' ".$marcaContato.">";
+        echo "      <a href='".CONTATOLINK."'>";
+        echo "          Contato"; // <i class="fa fa-envelope-o"></i> 
+        echo "      </a>";
+        echo "  </li>";
+        echo "  <li id='blog'>";
+        echo "      <a href='".BLOGLINK."'>";
+        echo "          Blog"; // <i class="fa fa-link"></i> 
+        echo "      </a>";
+        echo "  </li>";
+        echo "  <li id=''>";
+        echo "      <a href='#'>";
+        echo "          &nbsp"; // <i class="fa fa-link"></i> 
+        echo "      </a>";
+        echo "  </li>";
+        echo "</ul>";
+        echo "</div><!-- navbar-collapse -->";
+        echo "</div> <!-- container-fluid -->";
+        
+        
     }
     
 }
