@@ -303,11 +303,9 @@ class classTexto {
         echo "                  São todos convidados e bem vindos.";
         echo "              <br><br>";
         echo "                  <p style='color: red'><b>DOMINGO - 17 às 19h</b>.</p><br/>";
-        echo "                  <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'>Clique aqui</a> para ler o texto do Evangelho para a MC da semana.";
-        echo "              <br><br>";
-        echo "                  <a href='contato.php#mapa' target='_self'>Clique aqui</a> para visualização do mapa, indicando como chegar no endereço.";
+//        echo "                  <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'>Clique aqui</a> para ler o texto do Evangelho para a MC da semana.";
 //        echo "              <br><br>";
-//        echo "                  <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'><img src='images/icon-pdf.png' title='MeditacaoCristaConviteMC59.pdf'></a>";
+        echo "                  <a href='contato.php#mapa' target='_self'>Clique aqui</a> para visualização do mapa, indicando como chegar no endereço.";
         echo "              </li>";
         echo "          </ul>";
         echo "      </div>";
@@ -315,7 +313,6 @@ class classTexto {
         echo "      <img src='images/meditCrista.jpg' width='300' height='250' class='img-responsive'>";
         echo "  </div>";
         echo "</div>";//Fecha a div row
-        
         
         echo "<div class='row'>";
         echo "  <div style='height: 20px;'></div>";
@@ -327,16 +324,56 @@ class classTexto {
         echo "              <br><br>";
         echo "                  <a role='button' data-toggle='collapse' href='#leitura1' aria=expanded='false' aria-controls='collapseLeitura1'>Clique aqui</a> para ler nesta página.";// data-toggle='modal' COLLAPSE
         echo "              <br><br>";
-        echo "                  <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'>Clique aqui</a> para efetuar o download do arquivo.";
+        echo "                  <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads'>Clique aqui</a> para efetuar o download do arquivo ou ler o texto do Evangelho para a MC da semana.";
         echo "              <br><br>";
         echo "              </li>";
         echo "          </ul>";
         echo "      </div>";
         echo "  <div class='col-xs-6 col-sm-6' align='center'>";
-        echo "      <a href='downloads/meditacaocrista/MeditacaoCristaComposicaoMC58.pdf' target='_blank'>Download das Composições da MC</a><br>";
+        echo "      <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads'>Download das Composições da MC</a><br>";
         echo "      (Textos da MC do número 1 ao 59)";
         echo "  </div>";
         echo "</div>";//Fecha a div row
+        
+        echo "<div class='collapse' id='downloads'>";
+        echo "<div class='row'>";
+        echo "  <div class='col-xs-2 col-sm-2 col-md-2'>&nbsp;</div>";
+        echo "  <div class='col-xs-8 col-sm-8 col-md-8'>";
+        echo "  <div class='text-center'>";
+        echo "      <div class='table-responsive'>";
+        echo "          <table class='table small'>";
+        echo "              <tr class='warning'>";
+        echo "                  <td colspan='2'>";
+        echo "                      <b>Downloads</b>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "              <tr>";
+        echo "                  <td>";
+        echo "                      <b>Texto do Evangelho desta semana - 01/11/2015<br/>MC 59</b>";
+        echo "                  </td>";
+        echo "                  <td>";
+        echo "                      <b>Composições da MC<br/>(Textos da MC do número 1 ao 59)</b>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "              <tr>";
+        echo "                  <td>";
+        echo "                      <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'>";
+        echo "                          <img src='images/icon-pdf.png' title='MeditacaoCristaConviteMC59.pdf' alt='Download em arquivo PDF'>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td>";
+        echo "                      <a href='downloads/meditacaocrista/MeditacaoCristaComposicaoMC58.pdf' target='_blank'>";
+        echo "                          <img src='images/icon-pdf.png' title='MeditacaoCristaComposicaoMC58.pdf' alt='Download em arquivo PDF'>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "          </table>";
+        echo "      </div>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='col-xs-2 col-sm-2 col-md-2'>&nbsp;</div>";
+        echo "</div>";
+        echo "</div>";
         
         echo "<p style='height: 30px;'>&nbsp;</p>";
         

@@ -59,10 +59,7 @@ $texto = new classTexto();
             });
         </script>
         <style>
-            /*html, body, div, iframe {margin: 0px; padding: 0px}*/
-            /*iframe{width: 100%; border: none; position: absolute}*/
             body{padding-top: 80px;}
-
         </style>
         <link rel="author" href="autor.txt">      
     </head>
@@ -105,11 +102,6 @@ $texto = new classTexto();
             </nav>
         </footer>
 
-        <?php
-//        $formAdesao = new formAdesao();
-//
-//        $formAdesao->telaFormAdesao();
-        ?>
         <!-- EOF -->
         <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
             <img src="images/up.png" style="width:30px; height:30px"></div>
