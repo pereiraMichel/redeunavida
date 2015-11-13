@@ -14,7 +14,7 @@ class classes {
         echo "              <span class='icon-bar'></span>";
         echo "          </button>";
         echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px; 
-        echo "                  <span><a href='index.php' style='text-decoration: none; color: #FF0000'>REDE UNA VIVA</a> </span><a style='font-family: Angelface, Cursive; font-size: 28px; text-decoration: none; color: #F2C700'>Por uma cultura de paz</a>";
+        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1'>REDE UNA VIVA</a> </span><a style='font-family: Angelface, Cursive; font-size: 28px; text-decoration: none; color: #F2C700'>Por uma cultura de paz</a>";
         echo "          </div>";
         echo "  </div>";
         echo "</div>";

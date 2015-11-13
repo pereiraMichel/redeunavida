@@ -80,7 +80,7 @@ $formulario = new formulario();
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info"><i class="fa fa-book"></i> JORNADA REAL</h3>
+                    <h3 class="text-info"><img src="images/logoJrGraficoColor.png" width="32" height="32" title="Jornada Real"></i> JORNADA REAL</h3>
                     <br/>
 
                     <div class="col-md-12">
@@ -114,7 +114,7 @@ $formulario = new formulario();
                     <div class="col-md-6" style="text-align: right;">
                         <a href="downloads.php" target="_self">
                             <button class="btn btn-default">
-                                <!--<h3>-->
+                                <img src="images/logoJrGraficoColor.png" width="16" height="16" title="Jornada Real">
                                 Programa JR - Download
                             </button>
                             <!--</h3>-->

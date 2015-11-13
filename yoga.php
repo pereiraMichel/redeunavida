@@ -17,9 +17,9 @@
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Descrição do Yoga">
+        <meta name="keywords" content="yoga Yoga eduardo quintella heiko roscheke">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
@@ -83,7 +83,7 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info"><i class="fa fa-bullseye"></i> YOGA</h3>
+				<h3 style="color: #3F6CA1;"><i class="fa fa-bullseye"></i> YOGA</h3>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
                                 <p style="text-align: justify">

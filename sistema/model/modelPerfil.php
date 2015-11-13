@@ -367,10 +367,11 @@ class modelPerfil {
         $conecta->conecta();
 
         try {
-            $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento) AS dataNascimento FROM tblperfil p "
+            $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM tblperfil p "
                     . "INNER JOIN tblsetenio s ON s.idSetenio = p.codSetenio "
                     . " WHERE p.codUsuario = " . $_SESSION['idusuario'];
-            $resultadoConsulta = mysql_query($sqlConsultaPerfil);
+//            echo $sqlConsultaPerfil."<br>";
+            $resultadoConsulta = mysql_query($sqlConsultaPerfil) or die ("Não foi possível executar a ação devido ao erro de comando SQL. Erro: ".mysql_error());
 
             if ($resultadoConsulta > 0) {
                 $array = mysql_fetch_array($resultadoConsulta);
@@ -403,7 +404,7 @@ class modelPerfil {
         echo "          <label for='dataNascimento' class='col-sm-2 control-label'>Data de Nascimento:</label>";
         echo "              <div class='col-sm-3'>";
                             if($dataNascimento != ""){
-        echo "                  <input type='text' class='form-control' id='dataNascimento' name='dataNascimento' onmouseout='javascript:calculaIdade(this.value)' onkeyup='javascript:calculaIdade(this.value) value='" . $dataNascimento . "'>";
+        echo "                  <input type='text' class='form-control' id='dataNascimento' name='dataNascimento' value='" . $dataNascimento . "'>";
                             }else{
         echo "                  <input type='date' class='form-control' id='dataNascimento' name='dataNascimento' onmouseout='javascript:calculaIdade(this.value)' onkeyup='javascript:calculaIdade(this.value) value='" . $dataNascimento . "'>";
                             }

@@ -32,7 +32,7 @@ class classformAdesao {
         echo "<form name='form_adesao' action='formAdesao.php' method='post' class='form-horizontal'>";
 //        echo "  <span aria-hidden='true'>&times;</span>";
         echo "      <h3>";
-        echo "          <img src='images/logoJR50x51.png'/> JORNADA REAL - <small>FORMULÁRIO DE ADESÃO</small>";
+        echo "          <img src='images/logoJrGraficoColor.png' width='32' height='32'/> JORNADA REAL - <small>FORMULÁRIO DE ADESÃO</small>";
         echo "      </h3>";
         $this->formularioAdesao();
         echo "<div align='right'>";

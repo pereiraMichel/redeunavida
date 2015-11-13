@@ -423,7 +423,7 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
 						</figure><!-- /figure -->
                                                 <figure class="navbar-logo navbar-left hidden-xs" style="padding-left: 20px;">
                                                     <a href="inicio.php">
-                                                        <img src="../../jr/jrLogomarca.png" title="<?php echo TITULOJRBAIXO; ?>" width="75" height="61" />                                      
+                                                        <img src="../../images/logoJrColor.png" title="<?php echo TITULOJRBAIXO; ?>" width="75" height="61" />                                      
                                                     </a>
                                                 </figure>
                                             </div>

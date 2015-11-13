@@ -115,7 +115,7 @@ $loginSite = new classLoginSite();
                             <div class="col-md-8 text-center">
                                 <table class="table small">
                                     <tr>
-                                        <td colspan="4" style="background-color: #FFCCFF;"><h4>JORNADA REAL - Programa</h4></td>
+                                        <td colspan="4" style="background-color: #FFCCFF;"><h4><img src="images/logoJrGraficoColor.png" width="32" height="32" title="Jornada Real">JORNADA REAL - Programa</h4></td>
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="4">Se você já tem o programa, verifique a data de atualização para saber se está atualizado.</td>

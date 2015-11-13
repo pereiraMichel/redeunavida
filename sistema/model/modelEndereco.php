@@ -126,13 +126,14 @@ class modelEndereco {
         echo "      <div class='form-group'>";
         echo "          <label for='estado' class='col-sm-2 control-label'>Estado:</label>";
         echo "              <div class='col-sm-2'>";
+        
         include_once 'modelEstado.php';
         if($this->codEstado != ""){//verifica se o código do estado está vazio.
 
             $consultaEstado = new modelEstado();
             $consultaEstado->setIdEstado($this->codEstado);
             $consultaEstado->buscaEstado();
-        echo "              <div class='col-sm-6'>";
+        echo "              <div class='col-sm-3'>";
 
         echo "                  <input type='button' value='...' class='btn btn-default' onclick='javascript:ativaSelecaoEstado()'>";
 

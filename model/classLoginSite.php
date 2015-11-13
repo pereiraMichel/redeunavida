@@ -225,7 +225,7 @@ class classLoginSite {
         echo "                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
         echo "                        <span aria-hidden='true'>&times;</span>";
         echo "                    </button>";
-        echo "                    <h4 class='modal-title' id='modalSite'><img src='images/logoRUV50x51.png'/> Jornada Real - <small>Login</small></h4>";
+        echo "                    <h4 class='modal-title' id='modalSite'><img src='images/logoJrGraficoColor.png' width='32' height='32'/> Jornada Real - <small>Login</small></h4>";
         echo "                </div>";
         echo "                <div class='modal-body'>";
                                 $this->formLogin();
