@@ -290,3 +290,16 @@ function calculaCalendario(){
     
     
 }
+
+function direcionaBonus(){
+    var automatico = document.getElementById("automatico").checked;
+    var manual = document.getElementById("manual").checked;
+    
+    if(automatico){
+//        alert("Chamou a função automatico");
+        window.location.href="inicio.php?menu=bonus&tarefa=registros&metodo=automatico";
+    }else if(manual){
+//        alert("Chamou a função manual");
+        window.location.href="inicio.php?menu=bonus&tarefa=registros&metodo=manual";
+    }
+}

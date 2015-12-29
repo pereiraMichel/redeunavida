@@ -59,13 +59,17 @@ $texto = new classTexto();
             });
         </script>
         <style>
-            body{padding-top: 80px;}
+            body
+            {
+                padding-top: 80px;
+                background-color: <?php echo AMARELOCLARO; ?>
+            }
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body>
+    <body id="corAzulInfo">
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="text-center">
                     <div class="navbar-text-top">
                         <?php
@@ -81,7 +85,7 @@ $texto = new classTexto();
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info"><i class="fa fa-asterisk"></i> MEDITAÇÃO CRISTÃ</h3>
+                    <h3 class="text-info"> MEDITAÇÃO CRISTÃ</h3>
                     <br/>
 
                     <?php
@@ -94,9 +98,9 @@ $texto = new classTexto();
         <!-- Parte de baixo da página -->
         <footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
-                    $titulo->preparaMenu("meditCrista");
+                    $titulo->preparaMenu("meditacaoCrista");
                 ?>
 
             </nav>

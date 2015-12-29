@@ -59,14 +59,18 @@ require_once './texto/classTexto.php';
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
             /*iframe{width: 100%; border: none; position: absolute}*/
-            body{padding-top: 80px;}
+            body
+            {
+                padding-top: 80px;
+                background-color: <?php echo VERDESUCCESS; ?>
+            }
 
         </style>
         <link rel="author" href="autor.txt">      
     </head>
     <body>
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAmareloTransparente">
                 <div class="text-center">
                     <div class="navbar-text-top">
                         <?php
@@ -92,7 +96,7 @@ require_once './texto/classTexto.php';
                             <div class="col-md-8 text-center">
                                 <table class="table small">
                                     <tr>
-                                        <td colspan="3" style="background-color: #FFCCFF;"><h4>JORNADA REAL - Programa</h4></td>
+                                        <td colspan="3" style="background-color: #FFCCFF;"><h4><img src="images/logoJrGraficoColor.png" width="32" height="32" title="Jornada Real">JORNADA REAL - Programa</h4></td>
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="3">Se você já tem o programa, verifique a data de atualização para saber se está atualizado.</td>
@@ -143,7 +147,7 @@ require_once './texto/classTexto.php';
         <!-- Parte de baixo da página -->
         <footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAmareloTransparente">
                 <?php
                     $titulo->preparaMenu("arqOutono");
                 ?>

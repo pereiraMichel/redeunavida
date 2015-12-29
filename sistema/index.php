@@ -108,7 +108,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
         <!--    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #D9EDF7;">
                 <?php
                 $titulo = new classes();
                 $titulo->telaSuperior();
@@ -133,8 +133,8 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 
 
                 </div>
-            </div>
-            <div class="row">
+<!--            </div>
+            <div class="row">-->
                 <div class="col-sm-12 col-xs-12 col-md-12">
                     <div class="text-center">
                         <a href="../" target="_self" style="text-decoration: none;">
@@ -150,7 +150,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 
         <footer>
 
-            <p style="height: 90px"></p>
+            <p style="height: 40px"></p>
             <hr/>
             <div class="col-sm-12 col-xs-12 col-md-12">
                 <div class="text-center">

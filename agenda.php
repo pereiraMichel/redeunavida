@@ -56,10 +56,6 @@
                         $('body').addClass('images');
                 });
         </script>
-        <style>
-            body{padding-top: 80px;}
-
-        </style>
     
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="view/dist/css/bootstrap-select.css">
@@ -87,12 +83,20 @@
 			scrolltotop.init();
 		});
 	</script>        
+        <style>
+            body
+            {
+                padding-top: 80px;
+                background-color: <?php echo AMARELOCLARO; ?>
+            }
+
+        </style>
         
         <link rel="author" href="autor.txt">        
     </head>
-<body>
+<body id="corAzulInfo">
 	<header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
@@ -179,7 +183,7 @@
 
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
                     $titulo->preparaMenu("agenda");
                 ?>

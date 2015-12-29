@@ -83,7 +83,7 @@
 @font-face{
     font-family: Angelface;
     src: url("../fonts/Angelface.otf");
-    src: url("../fonts/angelface.ttf");
+    /*src: url("../fonts/angelface.ttf");*/
     
 }
 @font-face{
@@ -91,6 +91,121 @@
     src: url("../fonts/backolives.ttf");
 
 }
+//Fontes escolhidas
+
+@font-face{
+    font-family: Malayalam;
+    src: url("../fonts/Malayalam.otf");
+}
+@font-face{
+    font-family: Kannada;
+    src: url("../fonts/Kannada.otf");
+}
+
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;
+	mso-font-src:0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1073743103 0 0 415 0;
+	mso-font-src:1;}
+@font-face
+	{font-family:"Malayalam MN";
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;
+	mso-font-src:2;}
+@font-face
+	{font-family:"Baskerville SemiBold Italic";
+	mso-font-alt:"Plantagenet Cherokee";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;
+	mso-font-src:3;}
+@font-face
+	{font-family:"Oriya MN";
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;
+	mso-font-src:4;}
+@font-face
+	{font-family:"Kannada MN";
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;
+	mso-font-src:5;}
+@font-face
+	{font-family:"Bangla Sangam MN";
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;
+	mso-font-src:6;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Cambria;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:12.0pt;
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Cambria;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:595.0pt 842.0pt;
+	margin:89.85pt 72.0pt 89.85pt 72.0pt;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+
+
+//Fim das fontes escolhidas
 
 .link-direita > div > a > h3,
 .link-direita > div > a > h3:hover,
@@ -124,6 +239,72 @@
 .navbar-header{
     
 }
+
+/* =============================================== responsive =============== */
+
+/* Smartphones portrait and landscape */
+@media only screen and(min-device-width: 320px) and (max-device-width: 480px)
+{
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    display: none;
+  }
+}
+/* Smartphones landscape */
+@media only screen and(min-width: 321px)
+{
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    display: none;
+  }
+}
+/* Smartphones portrait */
+@media only screen and(max-width: 320px)
+{
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    display: none;
+  }
+}
+/* iPads (portrait and landscape) */
+@media only screen and(min-device-width: 768px) and(max-device-width: 1024px)
+{
+    /*Styles*/
+}
+/* iPads (landscape) ———– */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+/* iPads (portrait) ———– */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+/* Desktops and laptops ———– */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+/* Large screens ———– */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+/* iPhone 4 ———– */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+/* ========================================= final responsive =============== */
+
+
 @media screen and (max-width: 767px){
     header .control-nav{
         position: absolute;
@@ -176,4 +357,69 @@
         -ms-transform: translate(100%,0);
         transform: translate(100%,0);
     }
+}
+
+#corAzulTransparente
+{
+    background-color: #CCFFFF;
+}
+#corAmareloTransparente
+{
+    background-color: #FFFFCC;
+}
+#corAmarelo
+{
+    background-color: #FFFF00;
+}
+#corAzulMarinho
+{
+    background-color: #66FFFF;
+}
+#corVerdeSucesso
+{
+    background-color: #DFF0D8;
+}
+#corAzulInfo
+{
+    background-color: #D9EDF7;
+}
+#corBodyLaranja
+{
+    background-color: #FFA500;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #FFF;
+  background-color: #38B0DE;
+}
+
+#imagem1
+{
+    background-image: url('../view/dummy-images/foto1TextoPuro.png');
+}
+
+#imagem2
+{
+    background-image: url('../view/dummy-images/foto2TextoPuro.png');
+}
+
+#imagem3
+{
+    background-image: url('../view/dummy-images/foto3TextoPuro.png');
+}
+
+#imagem4
+{
+    background-image: url('../view/dummy-images/foto4TextoPuro.png');
+}
+
+#imagemRUV
+{
+    /*background-image: url('../images/logoRUV700x500.png');*/
+    max-width: 700px;
+    max-height: 500px;
+    margin: 0px 230px 0px 230px;
+    /*background-color: #D9EDF7;*/
 }

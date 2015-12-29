@@ -723,6 +723,38 @@ class modelConfig {
         
         
     }
+    
+    public function telaInicialConfig(){
+        echo "<div class='row' id='telaEscolha'>";
+        echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?menu=configuracoes&tarefa=usersistema' target='_self'>";
+        echo "              <img src='../img/groupIcon2.png' title='Usuários do Sistema' width='90' height='90' class='img-rounded'>";
+        echo "              <h5>Usuários do Sistema</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?menu=configuracoes&tarefa=usersite' target='_self'>";
+        echo "              <img src='../img/groupIcon1.png' title='Usuários do Site' width='90' height='90' class='img-rounded'>";
+        echo "              <h5>Usuários do Site</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "</div>";
+        echo "<br/><br/>";
+        echo "<div class='row'>";
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
+        echo "      <a href='inicio.php' target='_self'>";
+        echo "          <button class='btn btn-default'>";
+        echo "              Sair";
+        echo "          </button>";
+        echo "      </a>";
+        echo "  </div>";
+        echo "</div>";
+        
+    }
 
     
 

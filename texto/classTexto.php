@@ -292,7 +292,7 @@ class classTexto {
         echo "      Método de yoga baseado no sistema Iyengar com o professor Heiko Roschke<br/>";
         echo "  </p>";
         echo "  <p style='text-align: justify;'>";
-        echo "      Agreguei meus conhecimentos como fisioterapeuta e como professor de artes marciais ao método de yoga baseado no sistea Iyengar. Este método prioriza o alongamento e o alinhamento propiciando ao praticante forte consciência corporal, tornando perceptíveis os seus vícios posturais e possibilitando a sua correção.";
+        echo "      Agreguei meus conhecimentos como fisioterapeuta e como professor de artes marciais ao método de yoga baseado no sistema Iyengar. Este método prioriza o alongamento e o alinhamento propiciando ao praticante forte consciência corporal, tornando perceptíveis os seus vícios posturais e possibilitando a sua correção.";
         echo "  </p>";
         echo "</div>";
         echo "<div class='col-md-2'>";
@@ -799,7 +799,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          </span>";
         echo "          <br/><br/>";
         echo "          <span style='font-size: 14px; text-align: justify;'>";
-        echo "              Fazemos isto, na expectativa de que qualquer pessoa naquele momento pode veicular, como instrumento, a palavra inspirada e até iluminada, aquela que a maioria ou até mesmo uma única precisa ouvir. E também que a palavra verbalizada precisa ser ouvida, pelo menos por quem a diz.";
+        echo "              Fazemos isto, no entendimento de que qualquer pessoa naquele momento pode veicular, como instrumento, a palavra inspirada e até iluminada, aquela que a maioria ou até mesmo uma única precisa ouvir. E também que a palavra verbalizada precisa ser ouvida, pelo menos por quem a diz.";
         echo "          </span>";
         echo "          <br/><br/>";
         echo "          <span style='font-size: 14px; text-align: justify;'>";
@@ -901,6 +901,56 @@ O valor pode ser divido em 10 parcelas a serem pagas de março a dezembro, ou em
         echo "</span>";
         
         
+    }
+    
+    public function textoJornadaMeditacao(){
+    
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div class='text-center' style='font-family: garamond;'>";
+        echo "      <span style='color: #3F6CA1; font-size: 30px;'>";
+        echo "          <b>Jornada de Meditação</b><br>";
+        echo "      </span>";
+        echo "      <span style='color: #3F6CA1;'>";
+        echo "          <b>Primavera e Outono</b><br><br>";
+        echo "      </span>";
+        echo "      <span>";
+        echo "          12 encontros para habilitar um modo especial <br>";
+        echo "          de funcionamento da mente<br><br>";
+        echo "          toque com delicadeza e agilidade o despertar da essência esquecida<br><br>";
+        echo "          cultive sua fonte de bem estar <br>";
+        echo "          e comprove a experiência da felicidade<br><br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 14px;'>";
+        echo "          A meditação compõe com a Jornada Real o projeto de ação da RedeUnaViva. Favorece o desenvolvimento espiritual e habilita cada pessoa a disponibilizar sua oferta de benefícios, em prol de um mundo melhor. Contribui sutil e efetivamente para a instalação da já vislumbrada cultura de paz. Embutida na Jornada Real, ela se entrelaça com o processo de autoconhecimento, em prática estendida ao longo de um ano.<br><br>";
+        echo "          Como Jornada de Meditação, disposta em uma estação, é oferecida em 12 encontros semanais. Ao proporcionar, por excelência, o encontro com o mestre interior, incrementa o labor da transformação de si mesmo, a caminho da factível auto-realização. Desta fusão, entre buscador e mestre, emergem sua riqueza em forma de sabedoria e de amor, potencialidade e dádiva de todo ser humano.<br><br>";
+        echo "          Esta Jornada, disponibilizada duas vezes por ano, na primavera e no outono, apresenta sua filosofia e compartilha, em grupo afim, cinco preciosas conduções para este especial estado de consciência.<br><br>";
+        echo "          Se você já apreendeu que sua natureza espiritual almeja vivências que ultrapassam o funcionamento ordinário da mente, se você já pressentiu que há um despertar interior à espera do seu investimento, é possível que tenhamos uma experiência singular a ser permutada nestes encontros.<br><br>";
+        echo "          Para participar é preciso preencher a ficha de inscrição (<a href='formAdesao.php' target='_self'>clique aqui</a>).<br><br>";
+        echo "      </span>";
+        echo "<hr style='border-color: #3F6CA1;'>";
+        echo "      <span style='font-size: 14px;'>";
+        echo "          Informações:<br><br>";
+        echo "          Início da próxima Jornada de Meditação, em <b>21 de março de 2016</b>.<br><br>";
+        echo "          Dia e horário: <b>2as feiras, de 19 às 20h30</b>.<br><br>";
+        echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a> (ver à esquerda da barra horizontal, na base desta página ou no mapa, na aba “Contato”).<br><br>";
+        echo "          Somos um grupo de voluntários que não recebe por qualquer serviço prestado. A cobrança visa unicamente a cobrir as despesas de aluguel da sala e gastos para o nosso desenvolvimento.<br><br>";
+        echo "          Investimento: <b>R$ 120,00 </b>(por mês, a cada 4 semanas) ou <b>R$ 240,00</b>, a ser pago juntamente, com a sua inscrição.<br><br>";
+        echo "          Contamos com sua compreensão e contribuição para o desenvolvimento desta Rede espiritual – a <b>RedeUnaViva</b>. Caso aja interesse em participar, mas dificuldade em arcar com o investimento financeiro, as portas estão abertas para encontrarmos a solução.";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+
+
+
+
+
+
+
+
     }
     
 }

@@ -4,8 +4,9 @@
 
 require_once 'controller/constantes.php';
 require_once 'controller/metodos.php';
-require_once './view/formAdesao.php';
-require_once './view/slideShow.php';
+//require_once './view/formAdesao.php';
+require_once 'view/slideShow.php';
+//require_once './formAdesao.php';
 
 ?>
 

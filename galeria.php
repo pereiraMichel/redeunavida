@@ -52,14 +52,18 @@
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
             iframe{width: 100%; border: none; position: absolute}
-            body{padding-top: 80px;}
+            body
+            {
+                padding-top: 80px;
+                background-color: <?php echo AZULMARINHO; ?>
+            }
 
         </style>
         <link rel="author" href="autor.txt">
     </head>
-<body>
+<body id="corAzulInfo">
 	<header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
@@ -100,7 +104,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
                     $titulo->preparaMenu("galeria");
                 ?>

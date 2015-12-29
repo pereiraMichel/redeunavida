@@ -58,14 +58,18 @@
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
             iframe{width: 100%; border: none; position: absolute}
-            body{padding-top: 80px;}
+            body
+            {
+                padding-top: 80px;
+                background-color: <?php echo AMARELOCLARO; ?>
+            }
 
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-<body>
+<body id="corAzulInfo">
 	<header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
@@ -83,7 +87,7 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 style="color: #3F6CA1;"><i class="fa fa-bullseye"></i> YOGA</h3>
+				<h3 style="color: #3F6CA1;"> YOGA</h3>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
                                 <p style="text-align: justify">
@@ -113,7 +117,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
                     $titulo->preparaMenu("yoga");
                 ?>

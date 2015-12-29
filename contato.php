@@ -5,10 +5,9 @@
     require_once './controller/constantes.php';
     require_once './view/classFormAdesao.php';
     require_once './view/slideShow.php';
-    
 
     $formulario = new formulario();
-
+    
 ?>
 
 <html lang="pt-br">
@@ -34,7 +33,6 @@
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!--<link rel="stylesheet" href="css/style.css">-->
         <link rel="stylesheet" href="css/estilo.css">
 
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -55,10 +53,11 @@
 		});
 	</script>  
         <style>
-            /*html, body, div, iframe {margin: 0px; padding: 0px}*/
-            /*iframe{width: 100%; border: none; position: absolute}*/
-            body{padding-top: 80px;}
-
+            body
+            {
+                padding-top: 70px;
+                background-color: <?php echo AZULINFO; ?>;
+            }
         </style>
        
         
@@ -66,17 +65,14 @@
     </head>
 <body>
 	<header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 			<div class="text-center">
-				<div class="navbar-text-top">
                                             <?php
                                                 $titulo = new slideShow();
                                                 $titulo->telaTitulo();
                                             
                                             ?>
 
-
-				</div>
 			</div>
 		</nav>
 	</header><!-- /header -->
@@ -149,7 +145,7 @@
 				</div>
 			</div>
 		</div>
-            <div align="center">
+            <div align="center" id="mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9310742494995!2d-43.1981977!3d-22.9527654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fdeba3125c1%3A0x1f24ab34f8ff4226!2sR.+Mario+Pederneiras%2C+31+-+Humait%C3%A1%2C+Rio+de+Janeiro+-+RJ%2C+22261-020!5e0!3m2!1spt-BR!2sbr!4v1436276979892" width="960" height="600" frameborder="0" style="border:0" align="middle" allowfullscreen id="mapa"></iframe>
             </div>
         </div>
@@ -158,7 +154,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
                     $titulo->preparaMenu("contato");
                 ?>

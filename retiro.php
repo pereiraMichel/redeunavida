@@ -60,9 +60,9 @@ require_once './texto/classTexto.php';
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body class="bodyColorYellow">
+    <body id="corAzulInfo">
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="text-center">
                     <div class="navbar-text-top">
                         <?php
@@ -78,8 +78,8 @@ require_once './texto/classTexto.php';
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info"><i class="fa fa-group"></i> RETIRO</h3>
-                    <br/>
+                    <!--<h3 class="text-info"> RETIRO</h3>-->
+                    <!--<br/>-->
                     <div class="col-md-6 text-center">
                         <h2>
                             <b>
@@ -106,7 +106,7 @@ require_once './texto/classTexto.php';
         <!-- Parte de baixo da página -->
         <footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
                 <?php
                     $titulo->preparaMenu("retiro");
                 ?>

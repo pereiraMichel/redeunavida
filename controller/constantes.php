@@ -2,8 +2,8 @@
 
 //Constantes - Rede Una Viva
 
-    define('TITULORUV', 'REDE UNA VIVA');
-    define('TITULORUVBAIXO', 'Rede Una Viva');
+    define('TITULORUV', 'RedeUnaViva');
+    define('TITULORUVBAIXO', 'RedeUnaViva');
     define('TITULOJR', 'JORNADA REAL');
     define('TITULOJRBAIXO', 'Jornada Real');
     define('TITULOSISTEMA', 'Sistema RUV');
@@ -42,7 +42,7 @@
     define('HOME', 'Home');
     define('PROGRAMACAO', 'Programação');
     define('RETIRO', 'Retiro');
-    define('MENU4', 'Indicações');
+    define('MENU4', 'Mais');
     
     //Títulos para Menu
     define('PERFIL', 'Seu Perfil');
@@ -50,6 +50,8 @@
     define('PERFILEND', 'Perfil - Endereço');
     define('PERFILTEL', 'Perfil - Telefones');
     define('PERFILTROCASENHA', 'Perfil - Troca de Senha');
+    define('ATIVIDADES', 'Atividades');
+    define('CONFIGURACAO', 'Configurações');
     define('BONUS', 'Bônus');
     define('TAREFAS', 'Tarefas');
     define('CONFIGUSUARIO', 'Configuração de Usuários');
@@ -85,3 +87,14 @@
     define('INVERNOLINK', 'inverno.php');
     
     define('FORMADESAO', 'formAdesao.php');
+    
+    //Cores Body
+    
+    define('AZULMARINHO','#66FFFF');
+    define('AZULCLARO','#CCFFFF');
+    define('AMARELO','#FFFF00');
+    define('AMARELOCLARO','#FFFFCC');
+    
+    define('VERDESUCCESS','#DFF0D8');
+    define('AZULINFO','#D9EDF7');
+    define('BODYLARANJA','#FFA500');
