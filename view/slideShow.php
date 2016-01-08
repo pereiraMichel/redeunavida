@@ -254,7 +254,10 @@ class slideShow {
 //        echo "      <li class='icone_slider' id='imagemRUV'>";
 //        echo "      </li>";
         echo "      <li class='icone_slider' id='imagemRUV'>";
-        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px;'>"; // superior, direito, inferior, esquerdo
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "          <img src='images/logoRedeUnaViva.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center;'>";
+//        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center; max-width: 500px; max-height: 300px;'>";
+        // superior, direito, inferior, esquerdo
 //        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' width='400' height='550' style='padding: 80px 0px 0px 150px'>"; // superior, direito, inferior, esquerdo
 //        echo "          <div class='banner_texto1'>";
 //        echo "              <p style='text-align: center;'>RedeUnaViva</p>";

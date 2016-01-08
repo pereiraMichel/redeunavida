@@ -398,6 +398,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 #imagem1
 {
     background-image: url('../view/dummy-images/foto1TextoPuro.png');
+
 }
 
 #imagem2
@@ -417,9 +418,25 @@ only screen and (min-device-pixel-ratio : 1.5) {
 
 #imagemRUV
 {
-    /*background-image: url('../images/logoRUV700x500.png');*/
-    max-width: 700px;
+    background: #D9EDF7 url('../images/logoRUV550x430.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+/*    background-image: url('../images/logoRedeUnaViva.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 600px;
     max-height: 500px;
-    margin: 0px 230px 0px 230px;
+    margin: 0px 230px 0px 230px;// superior, direito, inferior, esquerdo
+    padding-left: 230px;
+    padding-top: 100px;*/
     /*background-color: #D9EDF7;*/
+}
+
+#imagemRUVCentro
+{
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border: 1px solid;
 }
