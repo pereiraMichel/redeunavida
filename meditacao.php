@@ -65,16 +65,12 @@
 <body id="corAzulInfo">
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-			<div class="text-center">
-				<div class="navbar-text-top">
+			<div class="navbar-text-top">
                                             <?php
                                                 $titulo = new slideShow();
                                                 $titulo->telaTitulo();
                                             
                                             ?>
-
-
-				</div>
 			</div>
 		</nav>
 	</header><!-- /header -->

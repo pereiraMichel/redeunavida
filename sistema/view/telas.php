@@ -36,11 +36,11 @@ class telas {
     echo "                          Sobre você";
     echo "                      </a>";
     echo "                  </li>";
-    echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfilend'>";
-    echo "                          Seu endereço";
-    echo "                      </a>";
-    echo "                  </li>";
+//    echo "                  <li>";
+//    echo "                      <a tabindex='0' href='inicio.php?menu=perfilend'>";
+//    echo "                          Seu endereço";
+//    echo "                      </a>";
+//    echo "                  </li>";
     echo "                  <li>";
     echo "                      <a tabindex='0' href='inicio.php?menu=perfiltel'>";
     echo "                          Telefones";

@@ -97,7 +97,6 @@
 <body id="corAzulInfo">
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
                                                 $titulo = new slideShow();
@@ -107,7 +106,6 @@
 
 
 				</div>
-			</div>
 		</nav>
 	</header><!-- /header -->
 
@@ -116,8 +114,11 @@
 			<div class="container">
 				
                             <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
-                                <tr class="danger">
-                                    <td colspan="2"><h3 class="text-info"><i class="fa fa-dashboard"></i> AGENDA</h3></td>
+                                <tr style="background-color: #f1cd8b">
+                                <!--<tr style="background-color: #d2ac67">-->
+                                <!--<tr class="warning">-->
+                                    <td colspan="2"><h3 style="color: #fff;">AGENDA</h3></td>
+                                    <!--<td colspan="2"><h3 class="text-info"><i class="fa fa-dashboard"></i> AGENDA</h3></td>-->
                                 </tr>
                                 <tr>
                                     <td colspan="2">&nbsp;</td>

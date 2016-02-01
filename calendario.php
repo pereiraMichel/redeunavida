@@ -4,7 +4,7 @@
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
     require_once './view/slideShow.php';
-    require_once './view/slideShow.php';
+//    require_once './view/slideShow.php';
     require_once './controller/calendarioRuv.php';
 
     $formulario = new formulario();
@@ -83,7 +83,6 @@
         
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
                                                 $titulo->telaTitulo();
@@ -92,7 +91,6 @@
 
 
 				</div>
-			</div>
 		</nav>
 	</header><!-- /header -->
 
@@ -100,7 +98,7 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info"><i class="fa fa-calendar"></i> CALENDÁRIO</h3>
+				<h3 class="text-info">CALENDÁRIO</h3>
                                 <div style="height: 30px">&nbsp;</div>
     <!--<small>-->
                                 <div class="text-center">

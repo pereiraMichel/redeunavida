@@ -63,14 +63,12 @@ require_once './texto/classTexto.php';
     <body id="corAzulInfo">
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-                <div class="text-center">
                     <div class="navbar-text-top">
                         <?php
                         $titulo = new slideShow();
                         $titulo->telaTitulo();
                         ?>
                     </div>
-                </div>
             </nav>
         </header><!-- /header -->
 
@@ -80,7 +78,7 @@ require_once './texto/classTexto.php';
 
                     <!--<h3 class="text-info"> RETIRO</h3>-->
                     <!--<br/>-->
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6 text-center" style="color: #3F6CA1;">
                         <h2>
                             <b>
                                 Retiro Anual<br>

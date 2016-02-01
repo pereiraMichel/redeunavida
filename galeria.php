@@ -64,7 +64,6 @@
 <body id="corAzulInfo">
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-			<div class="text-center">
 				<div class="navbar-text-top">
                                             <?php
                                                 $titulo = new slideShow();
@@ -74,14 +73,13 @@
 
 
 				</div>
-			</div>
 		</nav>
 	</header><!-- /header -->
 
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info"><i class="fa fa-ticket"></i> GALERIA</h3>
+				<h3 class="text-info">GALERIA</h3>
 				<small>
                         <?php
                         $filename = "texto/galeria.xml";

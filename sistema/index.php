@@ -9,6 +9,8 @@ error_reporting(E_ALL);
 
 require_once 'classes/classes.php';
 require_once 'model/modelUsuario.php';
+require_once '../controller/constantes.php';
+
 
 
 //error_reporting(0);
@@ -43,115 +45,96 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
         <link rel="shortcut icon" href="../icon/ruv.ico">
         <link rel="icon" type="image/png" href="../images/ruvicon.png">
 
-        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/animate.min.css" rel="stylesheet"> 
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/lightbox.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/presets/preset1.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
 
-        <link rel="shortcut icon" href="../icon/ruv.ico">
-        <link rel="icon" type="image/png" href="../images/ruvicon.png">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="../css/bootstrap-submenu.css">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="../css/estilo.css">
-
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.js"></script>
-        <script src="../js/bootstrap-submenu.js"></script>
-        <script src="../js/jquery-migrate.min.js"></script>
         <script src="js/validaCampos.js"></script>        
 
         <!--<link rel="stylesheet" href="slide.php" type="text/css" />-->
         <?php
         if ($erro != "") {
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=index.php'>";
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=index.php'>";
         }
         ?>
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
         <style type="text/css">
             body {
-                padding-top: 40px;
-                padding-bottom: 40px;
-                background-color: #f5f5f5;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background-color: <?php echo AZULINFO; ?>;
+                background-image: url(img/quantum.jpg);
+                background-repeat: no-repeat;
             }
 
-            .form-signin {
-                max-width: 400px;
-                padding: 19px 29px 29px;
-                margin: 0 auto 20px;
-                background-color: #fff;
-                border: 1px solid #e5e5e5;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            }
-            .form-signin .form-signin-heading,
-            .form-signin .checkbox {
-                margin-bottom: 10px;
-            }
-            .form-signin input[type="text"],
-            .form-signin input[type="password"] {
-                font-size: 16px;
-                height: auto;
-                margin-bottom: 15px;
-                padding: 7px 9px;
-            }
         </style>        
 
     </head>
 
     <body>
-        <!--    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-        <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #D9EDF7;">
+
                 <?php
                 $titulo = new classes();
-                $titulo->telaSuperior();
                 ?>
 
-            </nav>
-        </header><!-- /header -->
-        <div id="content">
+        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
-                <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="text-center">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-4">
 
-                    <?php
-                    $titulo->telaLogin();
-                    ?>
-                    <br/>
-                    <?php
-                    switch ($erro) {
-                        case 1: echo "<div class='text-center'><br><p id='logint'><font color='red'>Usuário e/ou senha inválido</font></p></div>";
-                            break;
-                    }
-                    ?>
+                        <!--<p style="height: 125px;">&nbsp;</p>-->
+<!--                        <div style="background-image: url('../images/acessoRestritoMAPTI.png'); background-repeat: no-repeat; width: 250px;">&nbsp;</div>-->
+<img src="../images/logoRUV350x250.png" width="290" height="210">
+                        <!--<div style="color: #fff;">ACESSO RESTRITO</div>-->
+                        <p style="height: 20px;">&nbsp;</p>
+                        <?php
+                        $titulo->telaLogin();
+                        ?>
+
+                        <br/>
+                        <?php
+                        switch ($erro) {
+                            case 1: echo "<div class='text-center'><br><p id='logint'><font color='red'>Usuário e/ou senha inválido</font></p></div>";
+                                break;
+                        }
+                        ?>
 
 
-                </div>
-<!--            </div>
-            <div class="row">-->
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <div class="text-center">
-                        <a href="../" target="_self" style="text-decoration: none;">
-                            <button class="btn btn-default btn-sm">
-                                Voltar para o site
-                            </button>
-                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="text-center">
+                            <a href="../" target="_self" style="text-decoration: none;">
+                                <button class="btn btn-default btn-sm">
+                                    Voltar para o site
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            
         </div>
 
         <footer>
 
             <p style="height: 40px"></p>
-            <hr/>
+            <!--<hr/>-->
             <div class="col-sm-12 col-xs-12 col-md-12">
                 <div class="text-center">
                     <label class="label label-primary">Acesso ao Sistema RUV</label>

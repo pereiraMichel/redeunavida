@@ -111,15 +111,25 @@ function _hora(){
     var horas = parseInt((tempo / 3600 % 24) - 2);		// Horas.
     
     if(horas == 0){
-        texto += "00:";
-    }
+        texto += "00";
+    }else
     if (horas > 0){
-        texto += horas + ((horas == 1) ? ":" : ":");
-    }		// Minutos.	
-    if (minutos > 0){ 
-        texto += ":" + minutos + ((minutos == 1) ? ":" : ":"); 
-    }		// Segundos.	
-    texto += segundos + ((segundos == 1) ? "" : "");		// Escrever.	
+        texto += horas;
+//        texto += horas + ((horas == 1) ? ":" : ":");
+    }		// Minutos.
+    if (minutos >= 0 && minutos < 10){
+        texto += ":0" + minutos + ":";
+    }else
+    if (minutos >= 10){ 
+        texto += ":" + minutos; 
+//        texto += ":" + minutos + ((minutos == 1) ? ":" : ":"); 
+    }		// Segundos.
+    if(segundos >= 0 && segundos < 10){
+        texto += ":0" + segundos;
+    }else if (segundos >= 10){
+        texto += ":" + segundos;		// Escrever.	
+//        texto += segundos + ((segundos == 1) ? "" : "");		// Escrever.	
+    }
     hora.innerHTML = texto;	
     tempo++;	
     setTimeout("_hora()", 1000);
@@ -128,7 +138,7 @@ function _hora(){
 
 
 function calculaCalendario(){
-    var data = new Date();
+    var data = new Date().toLocaleString("en-US",{timeZone:"America/Sao_Paulo"});
     var hoje = data.getDay();
     var dia = data.getDate(); // Pega o dia
     var mes = data.getMonth(); // Pega o mês

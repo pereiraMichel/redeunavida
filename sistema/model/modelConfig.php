@@ -87,7 +87,7 @@ class modelConfig {
                     echo "          <td>";
                                     $idusuarioSelecionado = $dados['idUsuario'];
                                     $usuarioSelecionado = $dados['nomeUsuario'];
-                    echo "              <a role='button' href='inicio.php?menu=configUsuario&idusuario=".$idusuarioSelecionado."&modalaltera=sim' aria=expanded='false' style='text-decoration: none;'>";
+                    echo "              <a role='button' href='inicio.php?menu=configuracoes&tarefa=usersistema&idusuario=".$idusuarioSelecionado."&modalaltera=sim' aria=expanded='false' style='text-decoration: none;'>";
                     echo "                      <img src='../../images/editar.png' class='img-responsive' title='Alterar'>";
                     echo "              </a>";
                     echo "              <a href='inicio.php?menu=configUsuario&idusuario=".$idusuarioSelecionado."&nomeUsuario=".$usuarioSelecionado."&modal=sim' data-toggle='modal' class='text-link' style='text-decoration: none;'>";
@@ -111,7 +111,7 @@ class modelConfig {
             echo "<div class='col-xs-12 col-sm-12 col-md-12' style='text-align: left;'>";
             echo "  <label class='label label-success'>Alteração efetuada com sucesso!</label>";
             echo "</div>";
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?menu=configUsuario'>";
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?menu=configuracoes&tarefa=usersistema'>";
         }
         
         
@@ -131,7 +131,7 @@ class modelConfig {
 //        }
         if (filter_input(INPUT_GET, 'exclui') == "sim"){
             $this->excluiUsuario("tblloginsystems");
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configuracoes&tarefa=usersistema'>";
         }
     }
     
@@ -195,7 +195,6 @@ class modelConfig {
         echo "  });";
         echo "</script>";
 
-        
         //chama o arquivo junto ao banco de dados
         try{
             $sqlConsulta = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro, DATE_FORMAT(l.dataUltimaAlteracao, '%d/%m/%Y') AS dataAlteracao
@@ -216,9 +215,9 @@ class modelConfig {
         }
         
         echo "<form class='form=horizontal' action='inicio.php?menu=configUsuario' method='get'>";
-        echo "                  <input type='hidden' value='configUsuario' id='menu' name='menu'>";
+        echo "  <input type='hidden' value='configuracoes' id='menu' name='menu'>";
         
-        echo "<div class='modal fade' id='editaUsuario' tabindex='-1' role='dialog' aria-labelledby='modalEdicao'>";
+        echo "  <div class='modal fade' id='editaUsuario' tabindex='-1' role='dialog' aria-labelledby='modalEdicao'>";
         echo "<div class='modal-dialog' role='document'>";
         echo "  <div class='modal-content'>";
         echo "      <div class='modal-header'>";
@@ -232,7 +231,7 @@ class modelConfig {
         echo "                  <input type='hidden' value='".$idusuario."' id='idusuarioaltera' name='idusuarioaltera'>";
         echo "                  <input type='hidden' value='sim' id='alteracao' name='alteracao'>";
         echo "                <div class='modal-footer' style='padding-right: 50px'>";
-        echo "              <a href='inicio.php?menu=configUsuario' target='_self' class='btn btn-default btn-sm'>";
+        echo "              <a href='inicio.php?menu=configuracoes&tarefa=usersistema' target='_self' class='btn btn-default btn-sm'>";
         echo "                  Fechar";
         echo "              </a>";
         echo "              <button type='submit' class='btn btn-primary btn-sm'>Alterar</button>";
@@ -392,7 +391,7 @@ class modelConfig {
     }
     
     public function novoModalUsuario(){
-        echo "<form name='novoUsuario' action='inicio.php?menu=configUsuario' method='post' class='form-horizontal'>";
+        echo "<form name='novoUsuario' action='inicio.php?menu=configuracoes' method='post' class='form-horizontal'>";
         echo "    <div class='modal fade' id='novoUsuario' tabindex='-1' role='dialog' aria-labelledby='modalAdesao'>";
         echo "        <div class='modal-dialog' role='document'>";
         echo "            <div class='modal-content'>";
@@ -408,7 +407,7 @@ class modelConfig {
         echo "                </div>";
         echo "                <div class='modal-footer' style='padding-right: 50px'>";
         echo "                    <button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>";
-        echo "                    <button type='submit' class='btn btn-primary'>Enviar</button>";
+        echo "                    <button type='submit' class='btn btn-primary'>Salvar</button>";
         echo "                </div>";
         echo "                <br/>";
         echo "            </div>";
@@ -435,14 +434,14 @@ class modelConfig {
                 
             }else{
                 $cadUsuario->cadastraUsuario();
-                echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
+                echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configuracoes&tarefa=usersistema'>";
 
             }
         }
         
     }
     public function novoModalUsuarioSite(){
-        echo "<form name='novoUsuario' action='inicio.php?menu=configUsuarioSite' method='post' class='form-horizontal'>";
+        echo "<form name='novoUsuario' action='inicio.php?menu=configuracoes&tarefa=usersite' method='post' class='form-horizontal'>";
         echo "    <div class='modal fade' id='novoUsuario' tabindex='-1' role='dialog' aria-labelledby='modalAdesao'>";
         echo "        <div class='modal-dialog' role='document'>";
         echo "            <div class='modal-content'>";

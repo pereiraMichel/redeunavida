@@ -287,7 +287,7 @@ class classTexto {
         echo "  </p>";
         echo "<p style='height: 20px;'>&nbsp;</p>";
         echo "  <p style='text-align: justify;'>";
-        echo "      <abbr title='Heiko Roscheke' style='font-size: 20px; color: #3F6CA1;'><b>Heiko Roscheke</b></abbr> (<a href='mailto:heikosunwu@yahoo.com.br' class='text-link'>heikosunwu@yahoo.com.br</a>)<br/>";
+        echo "      <abbr title='Heiko Hoschke' style='font-size: 20px; color: #3F6CA1;'><b>Heiko Hoschke</b></abbr> (<a href='mailto:heikosunwu@yahoo.com.br' class='text-link'>heikosunwu@yahoo.com.br</a>)<br/>";
         echo "  <p style='text-align: justify;'>";
         echo "      Método de yoga baseado no sistema Iyengar com o professor Heiko Roschke<br/>";
         echo "  </p>";
@@ -939,7 +939,7 @@ O valor pode ser divido em 10 parcelas a serem pagas de março a dezembro, ou em
         echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a> (ver à esquerda da barra horizontal, na base desta página ou no mapa, na aba “Contato”).<br><br>";
         echo "          Somos um grupo de voluntários que não recebe por qualquer serviço prestado. A cobrança visa unicamente a cobrir as despesas de aluguel da sala e gastos para o nosso desenvolvimento.<br><br>";
         echo "          Investimento: <b>R$ 120,00 </b>(por mês, a cada 4 semanas) ou <b>R$ 240,00</b>, a ser pago juntamente, com a sua inscrição.<br><br>";
-        echo "          Contamos com sua compreensão e contribuição para o desenvolvimento desta Rede espiritual – a <b>RedeUnaViva</b>. Caso aja interesse em participar, mas dificuldade em arcar com o investimento financeiro, as portas estão abertas para encontrarmos a solução.";
+        echo "          Contamos com sua compreensão e contribuição para o desenvolvimento desta Rede espiritual – a <b>RedeUnaViva</b>. Caso haja interesse em participar, mas dificuldade em arcar com o investimento financeiro, as portas estão abertas para encontrarmos a solução.";
         echo "      </span>";
         echo "  </div>";
         echo "</div>";

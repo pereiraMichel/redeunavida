@@ -13,32 +13,40 @@
 <html lang="pt-br">
     <head>
 	<meta charset="UTF-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-        
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="description" content="REDE UNA VIVA">
+        <meta name="keywords" content="rede una viva ruv jr jornada real">
+        <meta name="author" content="Michel Pereira - MAP TI">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
 
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="shortcut icon" href="icon/ruv.ico">
         <link rel="icon" type="image/png" href="images/ruvicon.png">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/menuResponsive.css">
+        <link rel="stylesheet" href="css/icone_slider.css">
+        <link rel="stylesheet" href="css/bootstrap-submenu.css">
+ 	<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive_1.css">
+	<link rel="stylesheet" href="css/bootstrap1.css"> 
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="author" href="autor.txt">        
 
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap-submenu.js"></script>
+        <script src="js/jquery-migrate.min.js"></script>
+        <script src="js/jquery.bxslider.min.js"></script>
+        <script src="sistema/js/validaCampos.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" href="css/estilo.css">
 
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
-        <!--<script src="js/bootstrap.js"></script>-->
         <script src="js/modal.js"></script>
         
         <script type="text/javascript">
@@ -59,23 +67,19 @@
                 background-color: <?php echo AZULINFO; ?>;
             }
         </style>
-       
-        
-        <link rel="author" href="autor.txt">        
     </head>
 <body>
-	<header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-			<div class="text-center">
-                                            <?php
-                                                $titulo = new slideShow();
-                                                $titulo->telaTitulo();
-                                            
-                                            ?>
 
-			</div>
-		</nav>
-	</header><!-- /header -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
+            <div class="navbar-text-top">
+                <?php
+                $titulo = new slideShow();
+                $titulo->telaTitulo();
+                ?>
+
+            </div>
+        </nav>
+
 
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
@@ -164,14 +168,14 @@
 
 
 <!-- EOF -->
-<div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
+<!--<div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="images/up.png" style="width:30px; height:30px"></div>
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="images/up.png" style="width:30px; height:30px">
-</div>
+</div>-->
 
 <!-- Modal -->
-<form name="form_contato" action="view/" method="post">
+<form name="form_contato" action="contato.php" method="post">
     <div class="modal fade" id="enviarMensagem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -179,7 +183,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel" style="color: #3F6CA1;"><img src="images/logoRUV50x51.png"/> Rede Una Vida - <small style="color: #3F6CA1;">Enviar mensagem</small></h4>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #3F6CA1;"><img src="images/logoRUV50x51.png"/> RedeUnaViva - <small style="color: #3F6CA1;">Enviar mensagem</small></h4>
                 </div>
                 <div class="modal-body">
                     <?php

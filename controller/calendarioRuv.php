@@ -6,6 +6,23 @@
  * @author Debug
  */
 class calendarioRuv {
+    
+    public function anoBisexto(){
+        date_default_timezone_set('America/Sao_Paulo');
+        //if ( (($ano%4) == 0 && ($ano%100) != 0) || ($ano%400) == 0 )
+        $ano = date('Y');
+        
+        if (($ano%4 == 0) && ($ano%100 != 0) || ($ano%400) == 0){
+            return 0;
+//            echo "Este ano é bissexto";
+//            echo "<br/>";
+        }else{
+            return 1;
+//            echo "Este ano não é bissexto";
+//            echo "<br/>";
+        }
+        
+    }
 
     public function configuracaoCalendario(){
         date_default_timezone_set('America/Sao_Paulo');
@@ -17,9 +34,22 @@ class calendarioRuv {
         $dia = date('d');
         $ano = date('Y');
 
+        $anoBissexto = $this->anoBisexto();
+        
+        
         $dataInicio = "09/20/".$ano;
         $dataFim = date('m/d/Y');
-        $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/(24*60*60), 0) + 1;
+//        $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/(24*60*60), 0) + 1;
+        if($anoBissexto == 0){
+            //É bissexto
+            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 2;
+        }else{
+            //Não é bissexto
+            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 1;
+            
+        }
+        
+//        echo "Estou no calculo da data: ".$calculoData;
 /*
 - Outono: de 21 de março a 21 de junho
 - Inverno: de 21 de junho a 23 de setembro
@@ -195,12 +225,13 @@ class calendarioRuv {
         }else{
             $anoLetivo++;
         }
-        
+//        echo "<br>Mês RUV: ".$mesRuv;
         $this->preencheCalendario($anoLetivo, $codEstacao, $mesRuv, $semana, $dia, "&nbsp;");
         
     }
     
     public function preencheCalendario($ano, $estacao, $mes, $semana, $dia, $mensagem){
+        date_default_timezone_set('America/Sao_Paulo');
 
         $larguraColuna = 5;
         echo "      <div class='table-responsive' style='padding-left: 10px;'>";
@@ -285,7 +316,8 @@ class calendarioRuv {
         echo "                      &nbsp;";
         echo "                  </td>";
         echo "                  <td colspan='3'>";
-        echo "                      <span><b>".date('H')."</b><label id='hora'></label></span>";
+        echo "                      <span><label id='hora'></label></span>";
+//        echo "                      <span><b>".date('H')."</b><label id='hora'></label></span>";
         echo "                  </td>";
         echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
         echo "                      &nbsp;";

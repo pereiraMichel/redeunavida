@@ -24,7 +24,7 @@ class classes {
         echo "      <li>";
         echo "          <a href='formAdesao.php' role='button' style='text-decoration: none;' class='text-link'>";
         echo "              <button class='btn btn-primary btn-sm btn-responsive'>";
-        echo "                  <i class='fa fa-user'></i> Cadastre-se";
+        echo "                  Cadastre-se";//<i class='fa fa-user'></i> 
         echo "              </button>";
         echo "          </a>";
         echo "      </li>";
@@ -33,19 +33,24 @@ class classes {
     }
     
     public function telaLogin(){
-       echo "<p style='height: 80px;>&nbsp;</p>'";
-       echo "<div class='form-group'>";
-       echo "   <form class='form-signin' name='formlogin' action='index.php' enctype='multipart/form-data' method='post' style='border-radius: 10px;'>";
-       echo "       <h4 style='text-align: center;'>Acesso ao Sistema</h4>";
-       echo "           <input type='text' class='form-control' placeholder='Login' id='login' name='login' required/>";
-       echo "           <input type='password' class='form-control' placeholder='Senha' id='senha' name='senha' required/>";
-       echo "       <a href='#' class='label label-primary'>Esqueci minha senha</a><br/>";
-       echo "       <p style='height: 30px'></p>";
-       echo "           <div class='text-center'>";
-       echo "               <input type='submit' value='Entrar' class='btn btn-default' />";
-       echo "           </div>";
-       echo "   </form>";
-       echo "</div>";
+        echo "<form id='contact-form' name='contact-form' method='post' action='#'>";
+        echo "  <div class='row wow fadeInUp' data-wow-duration='1000ms' data-wow-delay='300ms'>";
+        echo "      <div class='col-sm-6' style='color: #fff'>";
+        echo "          <div class='form-group'>";
+        echo "              <input type='text' name='login' class='form-control' placeholder='Login' required='required' style='color: #fff'>";
+        echo "          </div>";
+        echo "      </div>";
+        echo "      <div class='col-sm-6' style='color: #fff'>";
+        echo "          <div class='form-group'>";
+        echo "              <input type='password' name='senha' class='form-control' placeholder='senha' required='required' style='color: #fff'>";
+        echo "          </div>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='form-group'>";
+        echo "      <button type='submit' class='btn-submit'>Acessar</button>";
+        echo "  </div>";
+        echo "</form>";
+
     }
     
     

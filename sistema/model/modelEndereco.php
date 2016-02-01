@@ -95,7 +95,7 @@ class modelEndereco {
 //            echo "Vazio.";
 //        }
         
-        echo "<div class='col-xs-9 col-sm-9 placeholder'>";
+        echo "<div class='col-xs-12 col-sm-12 placeholder'>";
         echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfilend' action='inicio.php?menu=perfilend'>";
         echo "      <div class='form-group'>";
         echo "          <label for='endereco' class='col-sm-2 control-label'>Endereço:</label>";
@@ -109,7 +109,7 @@ class modelEndereco {
         echo "                  <input type='number' class='form-control' name='numero' id='numero' placeholder='Número' value='".$this->numero."' required>";
         echo "              </div>";
         echo "          <label for='complemento' class='col-sm-2 control-label'>Complemento:</label>";
-        echo "              <div class='col-sm-4'>";
+        echo "              <div class='col-sm-2'>";
         echo "                  <input type='text' class='form-control' name='complemento' value='".$this->complemento."' id='complemento' placeholder='Complemento'>";
         echo "              </div>";
         echo "      </div>";
@@ -169,15 +169,16 @@ class modelEndereco {
             echo "                  </select>";
         }
         echo "              </div>";
-        echo "              </div>";
-        echo "      </div>";
-        
         echo "      <div class='form-group'>";
         echo "          <label for='cep' class='col-sm-2 control-label'>CEP:</label>";
         echo "              <div class='col-sm-3'>";
         echo "                  <input type='cep' class='form-control' id='cep' value='".$this->cep."' name='cep' placeholder='CEP'>";
         echo "              </div>";
         echo "      </div>";
+        
+        echo "              </div>";
+        echo "      </div>";
+        
 
         echo "      <div class='form-group'>";
         echo "              <div class='col-sm-12' style='text-align:right'>";
@@ -197,7 +198,8 @@ class modelEndereco {
             $this->bairro = filter_input(INPUT_POST, 'bairro');
             $this->cidade = filter_input(INPUT_POST, 'cidade');
             $this->cep = filter_input(INPUT_POST, 'cep');
-            $this->codPerfil = base64_decode(filter_input(INPUT_GET, 'usuario'));
+            $this->codPerfil = filter_input(INPUT_GET, 'idusuario');
+//            $this->codEstado = filter_input(INPUT_POST, 'estado');
             
             try{
                 $sqlEstadoSelecionado = "SELECT idEstado FROM tblestado WHERE sigla = '".filter_input(INPUT_POST, 'estado')."'";
@@ -213,11 +215,11 @@ class modelEndereco {
             
             if($this->validaCampos($this->codPerfil)){
                 $this->alteraEndereco();
-                echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".$PHP_SELF."'>";
+                echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".PHP_SELF."'>";
 
             }else{
                 $this->cadastraEndereco();
-                echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".$PHP_SELF."'>";
+                echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".PHP_SELF."'>";
             }
 
             
@@ -233,6 +235,7 @@ class modelEndereco {
         
         try{
             $sqlVerifica = "SELECT * FROM tblendereco WHERE codPerfil=".$idPerfil;
+            echo $sqlVerifica."<br>";
             $resultadoVerifica = mysql_query($sqlVerifica) or die ("Erro no sql. Descrição: ".mysql_error());
             
             if($resultadoVerifica){
@@ -275,13 +278,23 @@ class modelEndereco {
             
             $sqlInclusao = "INSERT INTO tblendereco (idEndereco, endereco, numero, complemento, bairro, cidade, cep, codEstado, codPerfil) "
                     . "VALUES(".$this->idEndereco.", '".$this->endereco."', ".$this->numero.", '".$this->complemento."', '".$this->bairro."', '".$this->cidade."', '".$this->cep."', ".$this->codEstado.", ".$this->codPerfil.")";
-                        
-            $resultadoInclusao = mysql_query($sqlInclusao) or die("Erro na inclusão. Verifique sob o erro: ".mysql_error());
-            if(count($resultadoInclusao) > 0){
-                echo "Cadastro efetuado com sucesso.";
-            }else{
-                echo "O cadastro não foi salvo. Verifique seus dados.";
-            }
+            
+            echo "Dados preenchidos:<br>";
+            echo "Endereço: ".$this->endereco."<br/>";
+            echo "Número: ".$this->numero."<br/>";
+            echo "Complemento: ".$this->complemento."<br/>";
+            echo "Bairro: ".$this->bairro."<br/>";
+            echo "Cidade: ".$this->cidade."<br/>";
+            echo "CEP: ".$this->cep."<br/>";
+            echo "Estado: ".$this->codEstado."<br/>";
+            echo "Perfil: ".$this->codPerfil."<br/>";
+            
+//            $resultadoInclusao = mysql_query($sqlInclusao) or die("Erro na inclusão. Verifique sob o erro: ".mysql_error());
+//            if(count($resultadoInclusao) > 0){
+//                echo "Cadastro efetuado com sucesso.";
+//            }else{
+//                echo "O cadastro não foi salvo. Verifique seus dados.";
+//            }
             
         } catch (Exception $ex) {
             echo "Erro no cadastro. Descrição: ".$ex->getMessage();

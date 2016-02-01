@@ -78,7 +78,7 @@ class modelPerfil {
         $conecta->conecta();
 
         $codUsuarioPerfil = (int) $this->codUsuario;
-
+// "INNER JOIN tblendereco en ON p.codEndereco = en.idEndereco "
         try {
             $sql = "SELECT * FROM tblperfil p "
                     . "INNER JOIN tblestadocivil e ON p.codEstadoCivil = e.idEstadoCivil "
@@ -86,7 +86,6 @@ class modelPerfil {
                     . "INNER JOIN tblsetenio s ON p.codSetenio = s.idSetenio "
                     . "INNER JOIN tbltelefone t ON p.codTelefone = t.idTelefone "
                     . "INNER JOIN tbltarefa ta ON p.codTarefa = ta.idTarefa "
-                    . "INNER JOIN tblendereco en ON p.codEndereco = en.idEndereco "
                     . "WHERE p.codUsuario=" . $codUsuarioPerfil;
             $resultado = mysql_query($sql);
 
@@ -113,7 +112,7 @@ class modelPerfil {
 
             $this->idPerfil = $novoId;
         } catch (Exception $ex) {
-            echo "Erro ao consultar o(s) perfil(s). Erro: " . $ex->getMessage();
+            echo "Erro ao consultar o perfil. Erro: " . $ex->getMessage();
         }
     }
 
@@ -197,47 +196,46 @@ class modelPerfil {
                             DATE_FORMAT(l.dataCadastro,'%d/%m/%Y') AS dataCadastro, p.idPerfil, 
                             p.nome, p.descricao, 
                             DATE_FORMAT(p.dataNascimento,'%d/%m/%Y') AS dataNascimento, 
-                            p.idade, s.setenio, e.endereco, e.numero, e.complemento, e.bairro, 
-                            e.cidade, e.cep, es.sigla, tu.nomeTipoUsuario
+                            p.idade, s.setenio, tu.nomeTipoUsuario
                     FROM tblloginsystems l
                     INNER JOIN tblperfil p on l.idUsuario = p.codUsuario
-                    INNER JOIN tblendereco e on p.idPerfil = e.codPerfil
-                    INNER JOIN tblestado es on e.codEstado = es.idEstado
                     INNER JOIN tbltipousuario tu on tu.idTipoUsuario = l.codTipoUsuario
                     INNER JOIN tblsetenio s on p.codSetenio = s.idsetenio
                     WHERE l.idUsuario = ".$idusuario;
             $resultado = mysql_query($sql) or die("Erro no comando SQL. Verifique sob o erro: " . mysql_error());
             $dados = mysql_fetch_array($resultado);
-
+//                    INNER JOIN tblendereco e on p.idPerfil = e.codPerfil
+//                    INNER JOIN tblestado es on e.codEstado = es.idEstado
+//, e.endereco, e.numero, e.complemento, e.bairro, e.cidade, e.cep, es.sigla            
             if ($dados > 0) {
 
-                echo "<div class='row' align='left'>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h3>";
                 echo "          Usuário: ".$dados['nomeUsuario'];
                 echo "      </h3>";
                 echo "  </div>";
-                echo "  <div class='col-xs-8 col-md-8'>";
+                echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
                 echo "      &nbsp;";
                 echo "  </div>";
                 echo "</div>";
-                echo "<div class='row' align='left'>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h4>";
-                echo "          Perfil de: ".$dados['nome'];
+                echo            $dados['nome'];
                 echo "      </h4>";
                 echo "  </div>";
-                echo "  <div class='col-xs-8 col-md-8'>";
+                echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
                 echo "      &nbsp;";
                 echo "  </div>";
                 echo "</div>";
-                echo "<div class='row' align='left'>";
-                echo "  <div class='col-xs-4 col-md-4'>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-4 col-md-4' style='padding-left: 15px;'>";
                 echo "      <h5>";
-                echo "          <b>E-mail</b>: ".$dados['emailUsuario'];
+                echo            $dados['emailUsuario'];
                 echo "      </h5>";
                 echo "  </div>";
-                echo "  <div class='col-xs-8 col-md-8'>";
+                echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
                 echo "      <h5>";
                 echo "          <abbr title='Tipo de Acesso'>";
                 echo                $dados['nomeTipoUsuario'];
@@ -245,7 +243,7 @@ class modelPerfil {
                 echo "      </h5>";
                 echo "  </div>";
                 echo "</div>";
-                echo "<div class='row' align='left'>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h5>";
                 echo "          <b>Data de nascimento</b>: ".$dados['dataNascimento'];
@@ -262,43 +260,43 @@ class modelPerfil {
                 echo "      </h5>";
                 echo "  </div>";
                 echo "</div>";
-                echo "<div class='row' align='left'>";
-                echo "  <div class='col-xs-4 col-md-4'>";
-                echo "      <h5>";
-                echo "          <b>Endereço</b>: ".$dados['endereco'].", ".$dados['numero'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "  <div class='col-xs-2 col-md-2'>";
-                echo "      <h5>";
-                echo "          <b>Complemento</b>: ".$dados['complemento'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "  <div class='col-xs-6 col-md-6'>";
-                echo "      <h5>";
-                echo "          <b>CEP</b>: ".$dados['cep'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "</div>";
-                echo "<div class='row' align='left'>";
-                echo "  <div class='col-xs-4 col-md-4'>";
-                echo "      <h5>";
-                echo "          <b>Bairro</b>: ".$dados['bairro'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "  <div class='col-xs-2 col-md-2'>";
-                echo "      <h5>";
-                echo "          <b>Cidade</b>: ".$dados['cidade'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "  <div class='col-xs-6 col-md-6'>";
-                echo "      <h5>";
-                echo "          <b>Estado</b>: ".$dados['sigla'];
-                echo "      </h5>";
-                echo "  </div>";
-                echo "</div>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+//                echo "  <div class='col-xs-4 col-md-4'>";
+//                echo "      <h5>";
+//                echo "          <b>Endereço</b>: ".$dados['endereco'].", ".$dados['numero'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "  <div class='col-xs-2 col-md-2'>";
+//                echo "      <h5>";
+//                echo "          <b>Complemento</b>: ".$dados['complemento'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "  <div class='col-xs-6 col-md-6'>";
+//                echo "      <h5>";
+//                echo "          <b>CEP</b>: ".$dados['cep'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "</div>";
+//                echo "<div class='row' align='left'>";
+//                echo "  <div class='col-xs-4 col-md-4'>";
+//                echo "      <h5>";
+//                echo "          <b>Bairro</b>: ".$dados['bairro'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "  <div class='col-xs-2 col-md-2'>";
+//                echo "      <h5>";
+//                echo "          <b>Cidade</b>: ".$dados['cidade'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "  <div class='col-xs-6 col-md-6'>";
+//                echo "      <h5>";
+//                echo "          <b>Estado</b>: ".$dados['sigla'];
+//                echo "      </h5>";
+//                echo "  </div>";
+//                echo "</div>";
 
-                echo "<div class='row' align='left'>";
-                echo "  <div class='col-xs-12 col-md-12'>";
+//                echo "<div class='row' align='left'>";
+                echo "  <div class='col-xs-12 col-md-12' style='padding-left: 15px;'>";
                 echo "      <h5>";
                 echo "          <b>Telefones</b>: ";
                 echo "      </h5>";
@@ -316,7 +314,7 @@ class modelPerfil {
                 }
                 echo "</div>";
                 }
-                echo "<div class='row' align='left'>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h5>";
                 echo "          <b>Data de Cadastro</b>: ".$dados['dataCadastro'];
@@ -334,11 +332,11 @@ class modelPerfil {
                 echo "              Sobre você";
                 echo "          </button>";
                 echo "      </a>";
-                echo "      <a href='inicio.php?menu=perfilend' style='text-decoration: none;'>";
-                echo "          <button class='btn btn-default'>";
-                echo "              Seu endereço";
-                echo "          </button>";
-                echo "      </a>";
+//                echo "      <a href='inicio.php?menu=perfilend' style='text-decoration: none;'>";
+//                echo "          <button class='btn btn-default'>";
+//                echo "              Seu endereço";
+//                echo "          </button>";
+//                echo "      </a>";
                 echo "      <a href='inicio.php?menu=perfiltel' style='text-decoration: none;'>";
                 echo "          <button class='btn btn-default'>";
                 echo "              Telefones";
@@ -353,8 +351,9 @@ class modelPerfil {
                 echo "</div>";
                 
                 
-            } else {
+            } else {//Direcionar para Sobre você
                 echo "Perfil não preenchido. Verifique no menu acima para atualização.";
+                $this->telaPerfil();
             }
         } catch (Exception $ex) {
             echo "Não foi possível efetuar a consulta. Erro exception: " . $ex->getMessage();

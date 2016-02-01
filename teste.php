@@ -99,67 +99,158 @@ $slide = new slideShow();
                 
                 if(classificacao === "fonte1"){
                     if(fonte === "fonte0"){//Padrão
-                        document.getElementById('fonteRuv').style.fontFamily="times new roman";
+                        document.getElementById('tituloRuv').style.fontFamily="sans-serif";
+                        document.getElementById('fonteRuv').style.fontFamily="sans-serif";
+                        document.getElementById('fontePaz').style.fontFamily="sans-serif";
+                        document.getElementById('abecedario').style.fontFamily="sans-serif";
+                        document.getElementById('texto').style.fontFamily="sans-serif";
                     }else
                     if(fonte === "fonte1"){
-                        document.getElementById('fonteRuv').style.fontFamily="Malayalam, Cursive";
+                        document.getElementById('tituloRuv').style.fontFamily="Malayalam";
+                        document.getElementById('fonteRuv').style.fontFamily="Malayalam";
+                        document.getElementById('fontePaz').style.fontFamily="Malayalam";
+                        document.getElementById('abecedario').style.fontFamily="Malayalam";
+                        document.getElementById('texto').style.fontFamily="Malayalam";
                     }else
                     if(fonte === "fonte2"){
-                        document.getElementById('fonteRuv').style.fontFamily="Kannada, Cursive";
+                        document.getElementById('tituloRuv').style.fontFamily="Kannada";
+                        document.getElementById('fonteRuv').style.fontFamily="Kannada";
+                        document.getElementById('fontePaz').style.fontFamily="Kannada";
+                        document.getElementById('abecedario').style.fontFamily="Kannada";
+                        document.getElementById('texto').style.fontFamily="Kannada";
                     }else
                     if(fonte === "fonte3"){
-                        document.getElementById('fonteRuv').style.fontFamily="Cambria, Cursive";
+                        document.getElementById('tituloRuv').style.fontFamily="Cambria";
+                        document.getElementById('fonteRuv').style.fontFamily="Cambria";
+                        document.getElementById('fontePaz').style.fontFamily="Cambria";
+                        document.getElementById('abecedario').style.fontFamily="Cambria";
+                        document.getElementById('texto').style.fontFamily="Cambria";
                     }else
                     if(fonte === "fonte4"){
-                        document.getElementById('fonteRuv').style.fontFamily="Baskerville, Cursive";
+                        document.getElementById('tituloRuv').style.fontFamily="Baskerville";
+                        document.getElementById('fonteRuv').style.fontFamily="Baskerville";
+                        document.getElementById('fontePaz').style.fontFamily="Baskerville";
+                        document.getElementById('abecedario').style.fontFamily="Baskerville";
+                        document.getElementById('texto').style.fontFamily="Baskerville";
+                    }else
+                    if(fonte === "fonte5"){
+                        document.getElementById('tituloRuv').style.fontFamily="Arial Unicode MS";
+                        document.getElementById('fonteRuv').style.fontFamily="Arial Unicode MS";
+                        document.getElementById('fontePaz').style.fontFamily="Arial Unicode MS";
+                        document.getElementById('abecedario').style.fontFamily="Arial Unicode MS";
+                        document.getElementById('texto').style.fontFamily="Arial Unicode MS";
+                    }else
+                    if(fonte === "fonte6"){
+                        document.getElementById('tituloRuv').style.fontFamily="verdana";
+                        document.getElementById('fonteRuv').style.fontFamily="verdana";
+                        document.getElementById('fontePaz').style.fontFamily="verdana";
+                        document.getElementById('abecedario').style.fontFamily="verdana";
+                        document.getElementById('texto').style.fontFamily="verdana";
+                    }else
+                    if(fonte === "fonte7"){
+                        document.getElementById('tituloRuv').style.fontFamily="helvetica";
+                        document.getElementById('fonteRuv').style.fontFamily="helvetica";
+                        document.getElementById('fontePaz').style.fontFamily="helvetica";
+                        document.getElementById('abecedario').style.fontFamily="helvetica";
+                        document.getElementById('texto').style.fontFamily="helvetica";
+                    }else
+                    if(fonte === "fonte8"){
+                        document.getElementById('tituloRuv').style.fontFamily="serif";
+                        document.getElementById('fonteRuv').style.fontFamily="serif";
+                        document.getElementById('fontePaz').style.fontFamily="serif";
+                        document.getElementById('abecedario').style.fontFamily="serif";
+                        document.getElementById('texto').style.fontFamily="serif";
+                    }else
+                    if(fonte === "fonte9"){
+                        document.getElementById('tituloRuv').style.fontFamily="times new roman";
+                        document.getElementById('fonteRuv').style.fontFamily="times new roman";
+                        document.getElementById('fontePaz').style.fontFamily="times new roman";
+                        document.getElementById('abecedario').style.fontFamily="times new roman";
+                        document.getElementById('texto').style.fontFamily="times new roman";
+                    }else
+                    if(fonte === "fonte10"){
+                        document.getElementById('tituloRuv').style.fontFamily="Arial";
+                        document.getElementById('fonteRuv').style.fontFamily="Arial";
+                        document.getElementById('fontePaz').style.fontFamily="Arial";
+                        document.getElementById('abecedario').style.fontFamily="Arial";
+                        document.getElementById('texto').style.fontFamily="Arial";
                     }
+                
+                
                 }
-                else if(classificacao === "fonte2"){
-                    if(fonte === "fonte0"){
-                        document.getElementById('fontePaz').style.fontFamily="Angelface, Cursive";
-                    }else if(fonte === "fonte1"){
-                        document.getElementById('fontePaz').style.fontFamily="Baskerville, Cursive";
-                    }
-                    else if(fonte === "fonte2"){
-                        document.getElementById('fontePaz').style.fontFamily="times new roman, Cursive";
-                    }
-                    else if(fonte === "fonte3"){
-                        document.getElementById('fontePaz').style.fontFamily="garamond, Cursive";
-                    }
-                    else if(fonte === "fonte4"){
-                        document.getElementById('fontePaz').style.fontFamily="Cambria, Cursive";
-                    }
-
-                }
+//                else if(classificacao === "fonte2"){
+//                    if(fonte === "fonte0"){
+//                        document.getElementById('fontePaz').style.fontFamily="Angelface, Cursive";
+//                    }else if(fonte === "fonte1"){
+//                        document.getElementById('fontePaz').style.fontFamily="Baskerville, Cursive";
+//                    }
+//                    else if(fonte === "fonte2"){
+//                        document.getElementById('fontePaz').style.fontFamily="times new roman, Cursive";
+//                    }
+//                    else if(fonte === "fonte3"){
+//                        document.getElementById('fontePaz').style.fontFamily="garamond, Cursive";
+//                    }
+//                    else if(fonte === "fonte4"){
+//                        document.getElementById('fontePaz').style.fontFamily="Cambria, Cursive";
+//                    }
+//                    else if(fonte === "fonte5"){
+//                        document.getElementById('fontePaz').style.fontFamily="Arial Unicode MS, Cursive";
+//                    }
+//
+//                }
             }
             
             function mudaTamanho(tamanho, classificacao){
                 if(classificacao === "fonte1"){
+                    document.getElementById('tituloRuv').style.fontSize=tamanho+"px";
                     document.getElementById('fonteRuv').style.fontSize=tamanho+"px";
-                }else if (classificacao === "fonte2"){
                     document.getElementById('fontePaz').style.fontSize=tamanho+"px";
+                    document.getElementById('abecedario').style.fontSize=tamanho+"px";
+                    document.getElementById('texto').style.fontSize=tamanho+"px";
+//                }else if (classificacao === "fonte2"){
+//                    document.getElementById('fontePaz').style.fontSize=tamanho+"px";
                 }
             }
             
             function mudaEstilo(estilo, classificacao){
                 
                 if(classificacao === "fonte1"){
+                    document.getElementById('tituloRuv').style.fontStyle="normal";
+                    document.getElementById('tituloRuv').style.fontWeight="normal";
+                    document.getElementById('tituloRuv').style.fontStyle=estilo;
+
                     document.getElementById('fonteRuv').style.fontStyle="normal";
                     document.getElementById('fonteRuv').style.fontWeight="normal";
                     document.getElementById('fonteRuv').style.fontStyle=estilo;
-                }else if (classificacao === "fonte2"){
+
                     document.getElementById('fontePaz').style.fontStyle="normal";
                     document.getElementById('fontePaz').style.fontWeight="normal";
                     document.getElementById('fontePaz').style.fontStyle=estilo;
+
+                    document.getElementById('abecedario').style.fontStyle="normal";
+                    document.getElementById('abecedario').style.fontWeight="normal";
+                    document.getElementById('abecedario').style.fontStyle=estilo;
+
+                    document.getElementById('texto').style.fontStyle="normal";
+                    document.getElementById('texto').style.fontWeight="normal";
+                    document.getElementById('texto').style.fontStyle=estilo;
+//                }else if (classificacao === "fonte2"){
+//                    document.getElementById('fontePaz').style.fontStyle="normal";
+//                    document.getElementById('fontePaz').style.fontWeight="normal";
+//                    document.getElementById('fontePaz').style.fontStyle=estilo;
                 }
             }
             
             function mudaEstiloNegrito(classificacao){
                 var estilo = "bold";
                 if(classificacao === "fonte1"){
+                    document.getElementById('tituloRuv').style.fontWeight=estilo;
                     document.getElementById('fonteRuv').style.fontWeight=estilo;
-                }else if (classificacao === "fonte2"){
                     document.getElementById('fontePaz').style.fontWeight=estilo;
+                    document.getElementById('abecedario').style.fontWeight=estilo;
+                    document.getElementById('texto').style.fontWeight=estilo;
+//                }else if (classificacao === "fonte2"){
+//                    document.getElementById('fontePaz').style.fontWeight=estilo;
                 }
             }
 
@@ -176,42 +267,8 @@ $slide = new slideShow();
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top">-->
                     <?php
-                    $titulo = new slideShow();
-//                    $titulo->telaTitulo();
-                    
-        echo "<div class='navbar-header navbar-text-top'>";
-        echo "  <div class='container-fluid'>";
-        echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>";
-        echo "              <span class='sr-only'>Menu</span>";
-        echo "              <span class='icon-bar'></span>";
-        echo "              <span class='icon-bar'></span>";
-        echo "              <span class='icon-bar'></span>";
-        echo "          </button>";
-        echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px; 
-        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: times new roman; font-weight: bold;' id='fonteRuv'>RedeUnaViva</a> </span><a style='font-family: Angelface, Cursive; font-size: 28px; text-decoration: none; color: #F2C700' id='fontePaz'>Por uma cultura de paz</a>";
-        echo "          </div>";
-        echo "  </div>";
-        echo "</div>";
-        echo "<div class='collapse navbar-collapse navbar-right' id='menu'>";
-        echo "  <ul class='nav navbar-nav' style='padding-right: 25px;'>";
-//        echo "  <ul class='nav navbar-nav navbar-right' style='padding-right: 25px;'>";
-        echo "      <li>";
-	echo "          <a href='sistema/' class='text-link'>";
-        echo "              <button class='btn btn-warning btn-sm btn-responsive' style='border-radius: 4px; border: none;'>";
-        echo "                  <i class='fa fa-th'></i> Entrar";
-        echo "              </button>";
-        echo "          </a>";
-        echo "      </li>";
-        echo "      <li>";
-        echo "          <a href='formAdesao.php' role='button' style='text-decoration: none;' class='text-link'>";
-        echo "              <button class='btn btn-primary btn-sm btn-responsive' style='border-radius: 4px; border: none;>";
-        echo "                  <i class='fa fa-user'></i> Cadastre-se";
-        echo "              </button>";
-        echo "          </a>";
-        echo "      </li>";
-        echo "  </ul>";
-        echo "</div>";
-                    
+                        $titulo = new slideShow();
+                        $titulo->telaTitulo();
                     
                     ?>
 
@@ -225,27 +282,41 @@ $slide = new slideShow();
 
 
         <div class="content">
+            
             <!--<div class="container">-->
             <p style="height: 80px;">&nbsp;</p>
+            <div class="col-md-6">
             <form class="form-horizontal" name="formTeste" method="get" action="teste.php" style="padding-left: 15px;">
-                <b>RedeUnaViva</b><br/><br/>
+                <b>Teste de Fontes - RedeUnaViva</b><br/><br/>
                 <div style="padding-left: 20px;">
                     <b>Fonte:</b> 
                 <select name="fonte1" onclick="javascript: mudaFonte(this.value, 'fonte1')">
-                    <option value="fonte0">Fonte Padrão - Times New Roman</option>
+                    <option value="fonte0">Fonte 0 - Sans-serif</option>
                     <option value="fonte1">Fonte 1 - Malayalam</option>
                     <option value="fonte2">Fonte 2 - Kannada</option>
                     <option value="fonte3">Fonte 3 - Cambria</option>
                     <option value="fonte4">Fonte 4 - Baskerville</option>
+                    <option value="fonte5">Fonte 5 - Arial Unicode</option>
+                    <option value="fonte6">Fonte 6 - Verdana</option>
+                    <option value="fonte7">Fonte 7 - Helvetica</option>
+                    <option value="fonte8">Fonte 8 - Serif</option>
+                    <option value="fonte9">Fonte 9 - Times New Roman</option>
+                    <option value="fonte10">Fonte 10 - Arial</option>
+                    
+                   
                 </select>
-                    <br/>
-                    <b>Tamanho da fonte:</b> <input type="text" value="36" id="tamanhoFonte1" name="tamanhoFonte1" size="3" onkeyup="javascript: mudaTamanho(this.value, 'fonte1')"> 
-                    <br/>
-                    <b>Estilo:</b> <input type="radio" id="italico1" name="radio1" onclick="javascript: mudaEstilo('italic', 'fonte1')"> Itálico <input type="radio" name="radio1" id="negrito1" onclick="javascript: mudaEstiloNegrito('fonte1')"> Negrito <input type="radio" name="radio1" id="normal1" onclick="javascript: mudaEstilo('normal', 'fonte1')"> Normal
+                    <br/><br/>
+                    <b>Tamanho da fonte:</b> <input type="text" value="16" id="tamanhoFonte1" name="tamanhoFonte1" size="3" onkeyup="javascript: mudaTamanho(this.value, 'fonte1')"> 
+                    <br/><br/>
+                    <b>Estilo:</b> 
+                        <input type="radio" id="italico1" name="radio1" onclick="javascript: mudaEstilo('italic', 'fonte1')"> Itálico 
+                        <input type="radio" name="radio1" id="negrito1" onclick="javascript: mudaEstiloNegrito('fonte1')"> Negrito 
+                        <input type="radio" name="radio1" id="normal1" onclick="javascript: mudaEstilo('normal', 'fonte1')"> Normal
                     <br/>
                 </div>
-                <br/><br/>
-                <b>Por uma cultura de paz</b><br/><br/>
+                <br/>
+                <br/>
+<!--                <b>por uma cultura de paz</b><br/><br/>
                 <div style="padding-left: 20px;">
                     <b>Fonte:</b> 
                 <select name="fonte2" onclick="javascript: mudaFonte(this.value, 'fonte2')">
@@ -254,14 +325,38 @@ $slide = new slideShow();
                     <option value="fonte2">Fonte 2 - Times New Roman</option>
                     <option value="fonte3">Fonte 3 - Garamond</option>
                     <option value="fonte4">Fonte 4 - Cambria</option>
+                    <option value="fonte5">Fonte 5 - Arial Unicode MS</option>
                 </select>
                     <br/>
                     <b>Tamanho da fonte:</b> <input type="text" value="28" id="tamanhoFonte2" name="tamanhoFonte2" size="3" onkeyup="javascript: mudaTamanho(this.value, 'fonte2')">
                     <br/>
                     <b>Estilo:</b> <input type="radio" id="italico2" name="radio2" onclick="javascript: mudaEstilo('italic', 'fonte2')"> Itálico <input type="radio" name="radio2" id="negrito2" onclick="javascript: mudaEstiloNegrito('fonte2')"> Negrito <input type="radio" name="radio2" id="normal2" onclick="javascript: mudaEstilo('normal', 'fonte2')"> Normal
                     <br/>
-                </div>
+                </div>-->
             </form>
+            </div> <!-- fecha o col-md-6 -->
+            
+            <div class="col-md-6" style="padding-right: 15px; font-size: 16px;">
+                <p style="height: 20px">&nbsp;</p>
+                <div id="fonteRuv">
+                    RedeUnaViva
+                </div>
+                <br>
+                <div id="fontePaz">
+                    Por uma cultura de paz
+                </div>
+                <br>
+                <div id="abecedario">
+                    aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVxXwWyYzZ
+                </div>
+                <br>
+                <div style="text-align: justify" id="texto">
+                    A meditação compõe com a Jornada Real o projeto de ação da RedeUnaViva. Favorece o desenvolvimento espiritual e habilita cada pessoa a disponibilizar sua oferta de benefícios, em prol de um mundo melhor. Contribui sutil e efetivamente para a instalação da já vislumbrada cultura de paz. Embutida na Jornada Real, ela se entrelaça com o processo de autoconhecimento, em prática estendida ao longo de um ano.
+                    
+                </div>
+                
+                
+            </div>
             
                 <?php
 //                $slide->telaNovaSlide();
@@ -277,13 +372,6 @@ $slide = new slideShow();
                 ?>
             </nav>
         </footer>
-
-
-        <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px"></div>
-        <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px">
-        </div>
 
         <script>
             $(document).ready(function () {

@@ -29,7 +29,6 @@ $slide = new slideShow();
         <link rel="icon" type="image/png" href="images/ruvicon.png">
 
         <link rel="stylesheet" href="css/bootstrap-submenu.css">
-        <!--<link rel="stylesheet" href="css/bootstrap.css">-->
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="css/menuResponsive.css">
         <link rel="stylesheet" href="css/icone_slider.css">
@@ -98,8 +97,6 @@ $slide = new slideShow();
         
     </head>
     <body>
-
-        <!--<header id="header">-->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top">-->
@@ -108,27 +105,14 @@ $slide = new slideShow();
                     $titulo->telaTitulo();
                     ?>
 
-
-                    <!--</div>-->
                 </div>
             </nav>
-        <!--</header> /header -->
-
         <!-- Meio da página -->
-
-
         <div class="content">
             <!--<div class="container">-->
-
                 <?php
-//                $slide->telaLogoMarcas();
+                    $slide->telaNovaSlide();
                 ?>
-
-                <?php
-                $slide->telaNovaSlide();
-                ?>
-
-
             <!--</div>-->
         </div>
         <!-- Parte de baixo da página -->
@@ -136,7 +120,7 @@ $slide = new slideShow();
             <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo">
 
                 <?php
-                $slide->preparaMenu("home");
+                    $slide->preparaMenu("home");
                 ?>
             </nav>
         </footer>

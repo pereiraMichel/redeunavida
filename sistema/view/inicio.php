@@ -73,19 +73,20 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
         <link rel="icon" type="image/png" href="../../images/ruvicon.png">
         
         <link rel="stylesheet" href="../../css/bootstrap-responsive_1.css">
-	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="../../css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="../../css/docs.css">
 	<link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/styleme.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/estiloMenu.css">
-        <link rel="stylesheet" href="../../css/bootstrap-submenu.css">
+        <!--<link rel="stylesheet" href="../../css/bootstrap-submenu.css">-->
         
 <!--        <script src="../../js/jquery.js" defer=""></script>-->
         <!--<script src="../../js/highlight.min.js" defer=""></script>-->
         <!--<script src="../../js/docs.js" defer=""></script>-->
         <script src="../js/validaCampos.js" defer=""></script>
+        <script src="../../js/modal.js" defer=""></script>
         <script src="../../js/bootstrap-submenu.js" defer=""></script>
 
         
@@ -149,8 +150,8 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
                                 break;
                             case "perfilsv": echo "<div align='center'><h5><b>".PERFILSV."</b></h5></div>";
                                 break;
-                            case "perfilend": echo "<div align='center'><h5><b>".PERFILEND."</b></h5></div>";
-                                break;
+//                            case "perfilend": echo "<div align='center'><h5><b>".PERFILEND."</b></h5></div>";
+//                                break;
                             case "perfiltel": echo "<div align='center'><h5><b>".PERFILTEL."</b></h5></div>";
                                 break;
                             case "trocasenha": echo "<div align='center'><h5><b>".PERFILTROCASENHA."</b></h5></div>";
@@ -267,9 +268,9 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
                                     case "perfilsv":  $perfilsv = new modelPerfil();
                                                     $perfilsv->telaPerfil();
                                                     break;
-                                    case "perfilend":  $perfilend = new modelEndereco();
-                                                    $perfilend->telaEndereco();
-                                                    break;
+//                                    case "perfilend":  $perfilend = new modelEndereco();
+//                                                    $perfilend->telaEndereco();
+//                                                    break;
                                     case "perfiltel":  $perfiltel = new modelTelefone();
                                                     $perfiltel->telaTelefone();
                                                     break;
@@ -293,21 +294,6 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
                                     case "relatorios":   $erro = new erros();
                                                             $erro->error404();
                                                             break;
-//                                    case "relbonus":   $erro = new erros();
-//                                                            $erro->error404();
-//                                                            break;
-//                                    case "reltarefas":   $erro = new erros();
-//                                                            $erro->error404();
-//                                                            break;
-//                                    case "reljornadas":   $erro = new erros();
-//                                                            $erro->error404();
-//                                                            break;
-//                                    case "relparagem":   $erro = new erros();
-//                                                            $erro->error404();
-//                                                            break;
-//                                    case "relusuarios":   $erro = new erros();
-//                                                            $erro->error404();
-//                                                            break;
                                     case "suporte":   $erro = new erros();
                                                             $erro->error404();
                                                             break;
