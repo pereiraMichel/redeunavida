@@ -78,17 +78,16 @@ require_once './texto/classTexto.php';
 
                     <!--<h3 class="text-info"> RETIRO</h3>-->
                     <!--<br/>-->
-                    <div class="col-md-6 text-center" style="color: #3F6CA1;">
-                        <h2>
+                    <div class="col-md-12 text-center" style="color: #3F6CA1;">
+                        <div id="tituloPaginas">
                             <b>
                                 Retiro Anual<br>
-                                Jornada real - RedeUnaViva <br>no<br>
+                                Jornada Real - RedeUnaViva <br>no
                                 <abbr title="Morgenlicht">Morgenlicht</abbr>
                             </b>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <img src="images/imgRetiro.jpg" title="" alt="">
+                        </div>
+                        <br/>
+                        <img src="images/imgRetiro.jpg" title="Retiro" alt="Retiro" width="450" height="290">
                     </div>
                     <div class="col-md-12">
                         <?php

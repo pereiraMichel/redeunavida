@@ -79,8 +79,8 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info">GALERIA</h3>
-				<small>
+                            <div id="tituloPaginas">Galeria</div>
+				<p style="font-family: garamond; font-size: 20px;">
                         <?php
                         $filename = "texto/galeria.xml";
                         
@@ -93,7 +93,7 @@
                             echo "<br>";
                         }                        
                         ?>
-				</small>
+				</p>
 			</div>
 		</div>
 

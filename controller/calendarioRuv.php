@@ -235,10 +235,10 @@ class calendarioRuv {
 
         $larguraColuna = 5;
         echo "      <div class='table-responsive' style='padding-left: 10px;'>";
-        echo "          <table class='table' style='text-decoration: none;'>";
-        echo "              <tr style='background-color: #FFFF00;'>";
+        echo "          <table class='table table-condensed' style='text-decoration: none;'>";
+        echo "              <tr style='background-color: #f1cd8b;'>";
         echo "                  <td colspan='7'>";
-        echo "                      <b>Calendário - RUV</b>";
+        echo "                      <div id='tituloPaginas' style='font-weight: normal;'>Calendário</div>";
         echo "                  </td>";
         echo "              </tr>";
         //Segunda linha

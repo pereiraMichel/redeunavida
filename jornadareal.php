@@ -82,12 +82,15 @@ $formulario = new formulario();
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info"><img src="images/logoJrGraficoColor.png" width="32" height="32" title="Jornada Real"></i> JORNADA REAL</h3>
+                    <h3 class="text-info" style='text-align: center; font-family: garamond; font-size: 30px; font-weight: bold; color: #1f226d;'>
+                        <img src="images/logoJrGraficoColor.png" width="32" height="32" title="Jornada Real">
+                         Jornada Real
+                    </h3>
                     <br/>
 
                     <div class="col-md-12">
 
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="font-family: garamond; font-size: 20px;">
                             <div class="col-md-3"></div>
                             <div class="col-md-6 text-center">
                                 <table class="table">
@@ -96,7 +99,7 @@ $formulario = new formulario();
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="2">
-                                            <a href="#textoIntrodutorio" style="text-decoration: none;">
+                                            <a href="#textoIntrodutorio" style="text-decoration: none; color: #1f226d;">
                                                 <abbr title="Leia o texto abaixo">Mais detalhes, ler abaixo.</abbr>
                                             </a>
                                         </td>
@@ -107,11 +110,10 @@ $formulario = new formulario();
 
                         </div>
                     </div>
-
-
+                    
                     <p style="height: 120px">&nbsp;</p>
                     <div class="col-md-6">
-                        <h3 style="font-size: 18px; padding-left: 10px" id="textoIntrodutorio">Texto Introdutório e Explicativo da Jornada Real</h3>
+                        <h3 style="font-size: 20px; padding-left: 10px; font-family: garamond; font-weight: bold; " id="textoIntrodutorio">Texto Introdutório e Explicativo da Jornada Real</h3>
                     </div>
                     <div class="col-md-6" style="text-align: right;">
                         <a href="downloads.php" target="_self">
@@ -125,7 +127,7 @@ $formulario = new formulario();
                     <div class="page-header">&nbsp;</div>
 
                     <div class="col-md-12">
-                        <small style="text-align: justify;">
+                        <p style="text-align: justify;">
                             <?php
                             $textoJR = new classTexto();
 
@@ -141,7 +143,7 @@ $formulario = new formulario();
 //                            echo "<br>";
 //                        }
                             ?>
-                        </small>
+                        </p>
                     </div>
 
                     <!--</div>-->
@@ -149,7 +151,7 @@ $formulario = new formulario();
             </div>
             <div style="height: 40px;">&nbsp;</div>
             <div class="alert alert-info" role="alert">
-                <div class="text-center">
+                <div class="text-center" style="font-family: garamond; font-size: 18px;">
                     Faça o seu cadastro, telefone ou envie um e-mail para marcar uma entrevista.
                 </div>
             </div>

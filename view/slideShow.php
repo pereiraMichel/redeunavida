@@ -1,5 +1,10 @@
 <?php
 
+    define("TAMANHOTITULO","35px");
+    define("TAMANHOTEXTO","30px");
+    define("TAMANHOMENU","16px");
+
+
 class slideShow {
     
     public function telaLogoMarcas(){
@@ -221,8 +226,10 @@ class slideShow {
         echo "              <span class='icon-bar'></span>";
         echo "              <span class='icon-bar'></span>";
         echo "          </button>";
-        echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px; 
-        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial;' id='tituloRuv'>RedeUnaViva</a> </span><img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 30%; height: 30%; padding-bottom: 10px;'>";
+        echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px;
+        echo "                  <span>";
+        echo "                      <img src='images/logoRUV50x51.png' width='40' height='41'>";
+        echo "                      <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>RedeUnaViva</a> </span><img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 30%; height: 30%; padding-bottom: 10px;'>";
 //        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: times new roman; font-weight: bold;'>RedeUnaViva</a> </span><a style='font-family: Arial Unicode MS, Cursive; font-size: 20px; text-decoration: none; color: #F2C700'><b><i>por uma cultura de paz</i></b></a>";
         echo "          </div>";
         echo "  </div>";
@@ -232,14 +239,14 @@ class slideShow {
 //        echo "  <ul class='nav navbar-nav navbar-right' style='padding-right: 25px;'>";
         echo "      <li>";
 	echo "          <a href='sistema/' class='text-link'>";
-        echo "              <button class='btn btn-warning btn-sm btn-responsive' style='border-radius: 4px; border: none;'>";// width: 85px;
+        echo "              <button class='btn btn-warning btn-sm btn-responsive' style='border-radius: 4px; border: none; font-size: 14px;'>";// width: 85px;
         echo "                  Entrar";//<i class='fa fa-th'></i>
         echo "              </button>";
         echo "          </a>";
         echo "      </li>";
         echo "      <li>";
         echo "          <a href='formAdesao.php' role='button' style='text-decoration: none;' class='text-link'>";
-        echo "              <button class='btn btn-primary btn-sm btn-responsive' style='border-radius: 4px; border: none;>";
+        echo "              <button class='btn btn-primary btn-sm btn-responsive' style='border-radius: 4px; border: none; font-size: 14px;'>";
         echo "                  <i class='fa fa-user'></i> Cadastre-se";
         echo "              </button>";
         echo "          </a>";
@@ -249,6 +256,9 @@ class slideShow {
     }
     
     public function telaNovaSlide(){
+        $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
+        $medidaTopGruposSemanais = "padding-top: 170px";//medida do subtítulo no banner
+        
         echo "<div class='banner-box'>";
         echo "<div class='banner'>";
         echo "  <ul class='bxslider'>";
@@ -271,52 +281,52 @@ class slideShow {
 //        echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem1'>";
-        echo "          <div class='banner_texto1'>";
+        echo "          <div class='banner_texto1' style='padding-top: 35px;'>";
         echo "              <p style='text-align: center; font-family: arial'>";
         echo "                  RedeUnaViva";
         echo "              </p>";
-        echo "              <p>";
-        echo "              <div align='center'>";
-        echo "                  <img src='images/hanzipenImageUnicaBranco.png' width='230' height='23' class='image-responsive' style='background-position: center; text-align: center;'>";
-        echo "              </div>";
-        echo "              </p>";
-//        echo "              <p style='text-align: center; font-size: 24px;'>por uma cultura de paz</p>";
+//        echo "              <p>";
+//        echo "              <div align='center'>";
+//        echo "                  <img src='images/hanzipenImageUnicaBranco.png' width='230' height='23' class='image-responsive' style='background-position: center; text-align: center;'>";
+//        echo "              </div>";
+//        echo "              </p>";
+        echo "              <p style='text-align: center; font-size: 20px; font-family: arial;'>por uma cultura de paz</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 24px;'>";
+        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
         echo "              <p>nova humanidade</p>";
         echo "              <p>conspirada</p>";
         echo "              <p>em silêncio</p>";
         echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem2'>";
-        echo "          <div class='banner_texto1' style='text-align: center;'>";
-        echo "              <p style='text-align: center; font-family: arial'>Jornada Real</p>";
-        echo "              <p style='font-size: 28px;'>para ser</p>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "              <p style='text-align: center;'>Jornada Real</p>";
+        echo "              <p style='font-size: 20px;'>para ser</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 24px;'>";
+        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
         echo "              <p>Um caminho espiritual</p>";
         echo "              <p>de prática individual diária</p>";
         echo "              <p>e encontros semanais em grupo afim</p>";
         echo "          </div>";
         echo "      </li>";
+        // 
         echo "      <li class='icone_slider' id='imagem3'>";
-        echo "          <div class='banner_texto1' style='text-align: center; padding-top: 35px;'>";
-        echo "              <p style='text-align: center; font-family: arial'>Meditação</p>";
-        echo "              <p style='font-size: 20px;'>sentar em paz</p>";
-        echo "              <p style='font-size: 20px;'>sob a mente una</p>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "              <p style='text-align: center;'>Meditação</p>";
+        echo "              <p style='font-size: 20px;'>sentar em paz<br/>sob a mente una</p>";
         echo "          </div>";
         echo "          <br/><br/>";
-        echo "          <div class='banner_texto2' style='font-size: 24px;'>";
-        echo "              <p style='text-align: right; width=100%'>grupos semanais</p>";
+        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTopGruposSemanais."; font-family: arial;'>";
+        echo "              <p style='text-align: right;'>grupos semanais</p>";
         echo "              <p>prática e partilha</p>";
         echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem4'>";
-        echo "          <div class='banner_texto1' style='text-align: center;'>";
-        echo "              <p style='text-align: center; font-family: arial'>Retiro anual</p>";
-        echo "              <p style='font-size: 30px;'>Morgenlicht</p>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "              <p style='text-align: center;'>Retiro anual</p>";
+        echo "              <p style='font-size: 20px;'>Morgenlicht</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 20px;'>";
+        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
         echo "              <p>jornada de autoconhecimento</p>";
         echo "              <p>meditação</p>";
         echo "              <p>roda dos sonhos</p>";
@@ -587,15 +597,17 @@ class slideShow {
         echo "          <span class='icon-bar'></span>";
         echo "      </button>";
         echo "      <a class='navbar-brand' href='contato.php' style='padding: 0px 0px 0px 20px;'>";
-        echo "          <small>";
-        echo "              <h5>";
+//        echo "          <small>";
+//        echo "            <h5>";
+        echo "              <span style='font-size: ".TAMANHOMENU.";'>";
         echo                    ENDERECOORGAO;
         echo "              <br>" . TELEFONEORGAO;
-        echo "              </h5>";
-        echo "          </small>";
+        echo "              </span>";
+//        echo "            </h5>";
+//        echo "          </small>";
         echo "      </a>";
         echo "  </div>"; //Fecha o navbar-header
-        echo "  <div class='navbar-collapse collapse' id='menuBaixo' style='padding-right: 10px;'>";
+        echo "  <div class='navbar-collapse collapse' id='menuBaixo' style='padding-right: 10px; font-size: ".TAMANHOMENU.";'>";
         echo "      <ul class='nav navbar-nav navbar-right'>";
         echo "          <li id='home' ".$marcaHome.">";
         echo "              <a href='".HOMELINK."'>";

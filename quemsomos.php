@@ -61,31 +61,30 @@
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AMARELOCLARO; ?>
+                background-color: <?php echo AZULINFO; ?>
             }
 
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-<body id="corAzulInfo">
-	<header id="header">
+    <body id="corAzulInfo">
+        <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-				<div class="navbar-text-top">
-                                            <?php
-                                                $titulo = new slideShow();
-                                                $titulo->telaTitulo();
-                                            
-                                            ?>
+                <div class="navbar-text-top">
+                    <?php
+                    $titulo = new slideShow();
+                    $titulo->telaTitulo();
+                    ?>
 
 
-				</div>
-		</nav>
-	</header><!-- /header -->
+                </div>
+            </nav>
+        </header><!-- /header -->
 
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info"> QUEM SOMOS</h3>
+				<div id="tituloPaginas"> Quem Somos</div>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
                                 <p style="text-align: justify">

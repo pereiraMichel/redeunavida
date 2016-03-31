@@ -85,7 +85,7 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 style="color: #3F6CA1;"> YOGA</h3>
+                            <div id="tituloPaginas"> Yoga</div>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
                                 <p style="text-align: justify">

@@ -108,7 +108,7 @@ function _hora(){
     var texto = "";
     var segundos = parseInt(tempo % 60);	
     var minutos = parseInt(tempo / 60 % 60);	
-    var horas = parseInt((tempo / 3600 % 24) - 2);		// Horas.
+    var horas = parseInt((tempo / 3600 % 24) - 3);		// Horas.
     
     if(horas == 0){
         texto += "00";

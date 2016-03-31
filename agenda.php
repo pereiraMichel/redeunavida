@@ -36,7 +36,6 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/docs.css">
-	<link rel="stylesheet" href="css/estilo.css">
         
 	<!--<link rel="stylesheet" href="css/style.css">-->
         
@@ -61,6 +60,8 @@
         <link rel="stylesheet" href="view/dist/css/bootstrap-select.css">
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+	<link rel="stylesheet" href="css/estilo.css">
+        
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="view/dist/js/bootstrap-select.js"></script>
         <script type="text/javascript">
@@ -115,10 +116,7 @@
 				
                             <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
                                 <tr style="background-color: #f1cd8b">
-                                <!--<tr style="background-color: #d2ac67">-->
-                                <!--<tr class="warning">-->
-                                    <td colspan="2"><h3 style="color: #fff;">AGENDA</h3></td>
-                                    <!--<td colspan="2"><h3 class="text-info"><i class="fa fa-dashboard"></i> AGENDA</h3></td>-->
+                                    <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda</div></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">&nbsp;</td>

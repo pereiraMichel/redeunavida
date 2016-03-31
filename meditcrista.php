@@ -83,7 +83,7 @@ $texto = new classTexto();
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info"> MEDITAÇÃO CRISTÃ</h3>
+                    <div id="tituloPaginas" style="font-weight: normal; font-size: 33px;"> Meditação Cristã</div>
                     <br/>
 
                     <?php

@@ -395,7 +395,8 @@ only screen and (min-device-pixel-ratio : 1.5) {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #FFF;
-  background-color: #38B0DE;
+  background-color: #2D3192;
+  /*background-color: #38B0DE;*/
 }
 
 #imagem1
@@ -442,4 +443,17 @@ only screen and (min-device-pixel-ratio : 1.5) {
     margin: 0 auto;
     padding-bottom: 50px;
     border: 1px solid;
+}
+
+.dropdown-menu .active > a{
+    background-color: #2D3192;
+}
+
+#tituloPaginas
+{
+    font-family: garamond;
+    font-size: 30px;
+    text-align: center;
+    color: #1f226d;
+    font-weight: bold;
 }

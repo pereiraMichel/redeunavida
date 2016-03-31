@@ -98,7 +98,7 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info">CALENDÁRIO</h3>
+				<!--<div id="tituloPaginas">Calendário</div>-->
                                 <div style="height: 30px">&nbsp;</div>
     <!--<small>-->
                                 <div class="text-center">

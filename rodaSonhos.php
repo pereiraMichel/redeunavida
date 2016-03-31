@@ -77,8 +77,8 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<h3 class="text-info"> RODA DOS SONHOS</h3> <!-- <i class="fa fa-ticket"></i> -->
-				<small>
+                            <div id="tituloPaginas"> Roda dos Sonhos</div> <!-- <i class="fa fa-ticket"></i> -->
+                            <p style="font-family: garamond; font-size: 20px;">
                         <?php
                         $filename = "texto/rodasonhos.xml";
                         
@@ -91,7 +91,7 @@
                             echo "<br>";
                         }                        
                         ?>
-				</small>
+				</p>
 			</div>
 		</div>
 
