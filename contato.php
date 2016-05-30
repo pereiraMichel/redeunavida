@@ -79,12 +79,13 @@ $formulario = new formulario();
         <div id="content">
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
-                    <i class="fa fa-envelope-o" style="font-size: 25px; color: #1f226d;"></i>
+<!--                    <i class="fa fa-envelope-o" style="font-size: 25px; color: #1f226d;"></i>-->
                     <span id="tituloPaginas" style="text-align: left; color: #1f226d; font-weight: normal;"> Contato</span>
                     <p style="height: 20px;"></p>
 
                     <span style="color: #1f226d; font-size: 16px;">
                         <?php
+                        echo "<p style='height: 15px;'>&nbsp;</p>";
                         $filename = "texto/contato.xml";
 
                         @header("Content-Type: text/html; charset=utf-8");
@@ -98,7 +99,7 @@ $formulario = new formulario();
                     </div>
                 </div>
                 <div class="bs-docs-header bs-color-inverse">
-                    <div class="container">
+                    <div class="container" style="color: #1f226d;">
                         <div class="col-sm-12 text-left">
                             <address class="well">
                                 <span style="font-size: 18px;">
@@ -145,7 +146,7 @@ $formulario = new formulario();
         <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("contato");
                 ?>

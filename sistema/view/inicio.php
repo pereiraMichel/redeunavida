@@ -231,10 +231,10 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
                                 </a>
                             </div> -->
                             <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=tarefa" class="acesso">
-                                    <img src="../../images/tarefas.png" class="img-responsive" title="Tarefas" width="50" height="50">
-                                    <h4>Tarefas</h4>
-                                    <span class="text-muted">Verifique suas tarefas.</span>
+                                <a href="inicio.php?menu=paragem" class="acesso">
+                                    <img src="../../images/tarefas.png" class="img-responsive" title="Paragem" width="50" height="50">
+                                    <h4>Paragem</h4>
+                                    <span class="text-muted">Preencha a Paragem-Presença.</span>
                                 </a>
                             </div>
                             <div class="col-xs-6 col-sm-3 placeholder">

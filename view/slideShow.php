@@ -218,7 +218,14 @@ class slideShow {
     }
     
     public function telaTitulo(){
-        echo "<div class='navbar-header navbar-text-top'>";
+        
+//        echo "      <div class='navbar-header page-scroll'>";
+//        echo "          <a class='navbar-brand' href='index.php'>";
+//        echo "              <img src='images/logoRUV350x270FB.png' title='RedeUnaViva / Jornada Real' width='200' height='150' />";// width='200' height='150'
+//        echo "          </a>";
+//        echo "      </div>";
+        
+        echo "<div class='navbar-header navbar-text-top' style='border-color: #000000'>";
         echo "  <div class='container-fluid'>";
         echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>";
         echo "              <span class='sr-only'>Menu</span>";
@@ -229,7 +236,11 @@ class slideShow {
         echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px;
         echo "                  <span>";
         echo "                      <img src='images/logoRUV50x51.png' width='40' height='41'>";
-        echo "                      <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>RedeUnaViva</a> </span><img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 30%; height: 30%; padding-bottom: 10px;'>";
+        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'><img src='images/letraRUV.png' title='RedeUnaViva' width='150' height='40'></a> ";
+//        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>RedeUnaViva</a> ";
+        echo "                  </span>";
+        echo "                  <img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 30%; height: 30%; padding-bottom: 0px;'>";
+        
 //        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: times new roman; font-weight: bold;'>RedeUnaViva</a> </span><a style='font-family: Arial Unicode MS, Cursive; font-size: 20px; text-decoration: none; color: #F2C700'><b><i>por uma cultura de paz</i></b></a>";
         echo "          </div>";
         echo "  </div>";
@@ -247,7 +258,7 @@ class slideShow {
         echo "      <li>";
         echo "          <a href='formAdesao.php' role='button' style='text-decoration: none;' class='text-link'>";
         echo "              <button class='btn btn-primary btn-sm btn-responsive' style='border-radius: 4px; border: none; font-size: 14px;'>";
-        echo "                  <i class='fa fa-user'></i> Cadastre-se";
+        echo "                  Cadastre-se";//<i class='fa fa-user'></i> 
         echo "              </button>";
         echo "          </a>";
         echo "      </li>";
@@ -264,8 +275,10 @@ class slideShow {
         echo "  <ul class='bxslider'>";
 //        echo "      <li class='icone_slider' id='imagemRUV'>";
 //        echo "      </li>";
-        echo "      <li class='icone_slider' id='imagemRUV'>";
-        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        
+//        echo "      <li class='icone_slider' id='imagemRUV'>"; //Essa é o li da logomarca central RUV
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        
 //        echo "          <img src='images/logoRedeUnaViva.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center;'>";
 //        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center; max-width: 500px; max-height: 300px;'>";
         // superior, direito, inferior, esquerdo
@@ -333,6 +346,68 @@ class slideShow {
         echo "              <p>yoga</p>";
         echo "          </div>";
         echo "      </li>";
+        echo "  </ul>";
+        echo "</div>";
+        echo "</div>";
+
+    }
+    
+    public function telaNovaSlideTeste(){
+        $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
+        $medidaTopGruposSemanais = "padding-top: 170px";//medida do subtítulo no banner
+            
+        /*
+         *  Site flextool : cores - Dodgerblue 2; Deepskyblue; Steelblue3; darkturquoise;  e royalblue2;
+         * Dodgerblue 2 = #1C86EE
+         * Deepskyblue = #00BFFF
+         * Steelblue3 = #4F94CD
+         * darkturquoise = #00CED1
+         * royalblue2 = #436EEE
+         * 
+         * csro : cores - Cyan3; Turquesa3; Roxo2; Medium Roxo2; Sky Azul3; Deepskyazul3; Steel azul 2 e 3; Royal Azul2; e Medium slate azul.
+         * Cyan3 = #00CDCD
+         * Turquesa3 = #00C5CD
+         * Roxo2 = #912CEE
+         * Medium Roxo2 = #9F79EE
+         * Sky Azul3 = #87CEEB
+         * Deepskyazul3 = #009ACD
+         * Steel azul 2 e 3 = #4682B4
+         * Royal Azul2 = #4169E1
+         * Medium slate azul = #7B68EE
+         * 
+         */
+        
+        echo "<div class='banner-box'>";
+        echo "<div class='banner'>";
+        echo "  <ul class='bxslider'>";
+        
+//        echo "      <li class='icone_slider' id='imagemRUVWhite'>";
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "      </li>";
+        echo "      <li class='icone_slider' id='imagemRUVWhiteBlue'>";
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        echo "      </li>";
+        echo "      <li class='icone_slider' id='imagemRUVCDoggerBlue3'>";
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        echo "      </li>";
+        echo "      <li class='icone_slider' id='imagemRUVCDeepSkyBlue3'>";
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        echo "      </li>";
+        echo "      <li class='icone_slider' id='imagemRUVCorFundo'>";
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        echo "      </li>";
+//        echo "      <li class='icone_slider' id='imagemRUVWhiteImagem2'>";
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "      </li>";
+//        echo "      <li class='icone_slider' id='imagemRUVVerde'>";
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "      </li>";
+//        echo "      <li class='icone_slider' id='imagemRUVRoxo'>";
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "      </li>";
+//        echo "      <li class='icone_slider' id='imagemRUVAzul'>";
+//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+//        echo "      </li>";
         echo "  </ul>";
         echo "</div>";
         echo "</div>";
@@ -596,7 +671,7 @@ class slideShow {
         echo "          <span class='icon-bar'></span>";
         echo "          <span class='icon-bar'></span>";
         echo "      </button>";
-        echo "      <a class='navbar-brand' href='contato.php' style='padding: 0px 0px 0px 20px;'>";
+        echo "      <a class='navbar-brand' href='contato.php' style='padding: 6px 0px 0px 20px;'>";
 //        echo "          <small>";
 //        echo "            <h5>";
         echo "              <span style='font-size: ".TAMANHOMENU.";'>";

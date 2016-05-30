@@ -17,16 +17,15 @@
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Quem Somos - RedeUnaViva">
+        <meta name="keywords" content="quem somos RUV RedeUnaViva JR Jornada Real">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
 
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        
         
         <link rel="shortcut icon" href="icon/ruv.ico">
         <link rel="icon" type="image/png" href="images/ruvicon.png">
@@ -84,10 +83,10 @@
 	<div id="content">
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
-				<div id="tituloPaginas"> Quem Somos</div>
+                            <div id="tituloPaginas"> Quem Somos</div>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
-                                <p style="text-align: justify">
+                                <p style="text-align: justify; color: #1f226d">
                         <?php
                         
                         $quemsomos = new classTexto();
@@ -114,7 +113,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("quemSomos");
                 ?>

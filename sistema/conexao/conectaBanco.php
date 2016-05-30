@@ -11,7 +11,7 @@ class conectaBanco {
 //        private $database = "ruv";
     // Internto
         private $usuario = "root";
-        private $senha = "m1ch3l";
+        private $senha = "m1ch3l4p";
         private $servidor = "localhost";
         private $database = "ruv";
     

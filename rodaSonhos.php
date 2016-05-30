@@ -80,6 +80,7 @@
                             <div id="tituloPaginas"> Roda dos Sonhos</div> <!-- <i class="fa fa-ticket"></i> -->
                             <p style="font-family: garamond; font-size: 20px;">
                         <?php
+                        echo "<p style='height: 25px;'>&nbsp;</p>";
                         $filename = "texto/rodasonhos.xml";
                         
                         @header("Content-Type: text/html; charset=utf-8");
@@ -100,7 +101,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("rodaSonhos");
                 ?>

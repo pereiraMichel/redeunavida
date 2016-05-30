@@ -89,7 +89,7 @@ require_once './texto/classTexto.php';
                         <br/>
                         <img src="images/imgRetiro.jpg" title="Retiro" alt="Retiro" width="450" height="290">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="color: #1f226d;">
                         <?php
                         $texto = new classTexto();
                         $texto->textoRetiro();
@@ -103,7 +103,7 @@ require_once './texto/classTexto.php';
         <!-- Parte de baixo da página -->
         <footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("retiro");
                 ?>

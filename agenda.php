@@ -110,79 +110,82 @@
 		</nav>
 	</header><!-- /header -->
 
-	<div id="content">
-		<div class="bs-docs-header bs-docs-first">
-			<div class="container">
-				
-                            <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
-                                <tr style="background-color: #f1cd8b">
-                                    <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda</div></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">&nbsp;</td>
-                                </tr>
-                                <tr style="font-family: Lato; font-size: 15px">
-                                    <td style="text-align: right; padding-top: 10px; width: 50%;">Selecione o período </td>
-                                    
-                                    <td style="text-align: left; width: 50%;">
-                                        <div class="row-fluid">
-                                            <select name="selectAgenda" class="selectpicker" onchange="javascript:validaMes(this.value)">
-                                                <option value="0">Selecione</option>
-                                                <optgroup label="SETEMBRO">
-                                                    <?php 
-                                                    if($_GET['periodo'] == 91) { 
-                                                        $marcado = "selected='selected'";
-                                                    }else{
-                                                        $marcado = "";
-                                                    }
-                                                    ?>
-                                                    <option value="91" <?php echo $marcado; ?>>De 5 a 12</option>
-                                                    <!--<option value="92">De 12 a 30</option>-->
-                                                </optgroup>
-<!--                                                <optgroup label="OUTUBRO">
-                                                    <option value="101">1ª Quinzena</option>
-                                                    <option value="102">2ª Quinzena</option>
-                                                </optgroup>-->
-                                            </select>
-                                        </div>
+        <div id="content">
+            <div class="bs-docs-header bs-docs-first">
+                <div class="container">
+                    <div style="height: 30px">&nbsp;</div>
 
-                                    </td>
-                                </tr>
-                                <?php
-                                /* @var $_GET type */
-                                $periodo = utf8_decode($_GET['periodo']);
-                                
-                                if($periodo == ""){
-                                    $periodo = 0;
-                                }
-                                
-                                
-                                
-                                echo "<tr>";
-                                echo "  <td colspan='2'>";
-                                
-                                switch($periodo){
-                                    case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='1000' height='529'></iframe>";
-                                        break;
-                                    case 91: echo "<iframe src='view/setembro.php' width='1000' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
-                                }
-                                
-                                echo "  </td>";
-                                echo "</tr>";
-                                
-                                ?>
-                                
+                    <div class='table-responsive' style='padding-left: 10px;'>				
+                        <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
+                            <tr style="background-color: #f1cd8b">
+                                <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda</div></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr style="font-family: Lato; font-size: 15px">
+                                <td style="text-align: right; padding-top: 10px; width: 50%;">Selecione o período </td>
 
-                            </table>
+                                <td style="text-align: left; width: 50%;">
+                                    <div class="row-fluid">
+                                        <select name="selectAgenda" class="selectpicker" onchange="javascript:validaMes(this.value)">
+                                            <option value="0">Selecione</option>
+                                            <optgroup label="SETEMBRO">
+                                                <?php
+                                                $periodo = filter_input(INPUT_GET, "periodo");
+                                                if ($periodo == 91) {
+                                                    $marcado = "selected='selected'";
+                                                } else {
+                                                    $marcado = "";
+                                                }
+                                                ?>
+                                                <option value="91" <?php echo $marcado; ?>>De 5 a 12</option>
+                                                <!--<option value="92">De 12 a 30</option>-->
+                                            </optgroup>
+                                            <!--                                                <optgroup label="OUTUBRO">
+                                                                                                <option value="101">1ª Quinzena</option>
+                                                                                                <option value="102">2ª Quinzena</option>
+                                                                                            </optgroup>-->
+                                        </select>
+                                    </div>
 
-			</div>
-		</div>
+                                </td>
+                            </tr>
+                            <?php
+                            /* @var $_GET type */
+                            $periodo = utf8_decode($_GET['periodo']);
+
+                            if ($periodo == "") {
+                                $periodo = 0;
+                            }
+
+
+
+                            echo "<tr>";
+                            echo "  <td colspan='2'>";
+
+                            switch ($periodo) {
+                                case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='1000' height='529'></iframe>";
+                                    break;
+                                case 91: echo "<iframe src='view/setembro.php' width='1000' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                            }
+
+                            echo "  </td>";
+                            echo "</tr>";
+                            ?>
+
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
 
         </div>
 
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("agenda");
                 ?>

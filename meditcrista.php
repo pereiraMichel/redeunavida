@@ -62,7 +62,6 @@ $texto = new classTexto();
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AMARELOCLARO; ?>
             }
         </style>
         <link rel="author" href="autor.txt">      
@@ -96,7 +95,7 @@ $texto = new classTexto();
         <!-- Parte de baixo da página -->
         <footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("meditacaoCrista");
                 ?>

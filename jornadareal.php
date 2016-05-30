@@ -68,7 +68,7 @@ $formulario = new formulario();
     </head>
     <body id="corAzulInfo">
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
                 <div class="navbar-text-top">
                         <?php
                         $titulo = new slideShow();
@@ -87,18 +87,18 @@ $formulario = new formulario();
                          Jornada Real
                     </h3>
                     <br/>
-
                     <div class="col-md-12">
 
-                        <div class="table-responsive" style="font-family: garamond; font-size: 20px;">
+                        <div class="table-responsive" style="font-family: garamond; font-size: 20px; color: #1f226d;">
                             <div class="col-md-3"></div>
                             <div class="col-md-6 text-center">
                                 <table class="table">
                                     <tr colspan="2">
-                                        <td>Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
+                                        <td style="border-color: #009ACD;">Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
                                     </tr>
                                     <tr class="warning">
-                                        <td colspan="2">
+                                        <td colspan="2" style="background-color: #fff; border-color: #1874CD;">
+                                            <!--  opacity:.65;filter:alpha(opacity=65);-webkit-box-shadow:none; -->
                                             <a href="#textoIntrodutorio" style="text-decoration: none; color: #1f226d;">
                                                 <abbr title="Leia o texto abaixo">Mais detalhes, ler abaixo.</abbr>
                                             </a>
@@ -113,11 +113,11 @@ $formulario = new formulario();
                     
                     <p style="height: 120px">&nbsp;</p>
                     <div class="col-md-6">
-                        <h3 style="font-size: 20px; padding-left: 10px; font-family: garamond; font-weight: bold; " id="textoIntrodutorio">Texto Introdutório e Explicativo da Jornada Real</h3>
+                        <h3 style="font-size: 20px; padding-left: 10px; font-family: garamond; font-weight: bold; color: #1f226d;" id="textoIntrodutorio">Texto Introdutório e Explicativo da Jornada Real</h3>
                     </div>
                     <div class="col-md-6" style="text-align: right;">
                         <a href="downloads.php" target="_self">
-                            <button class="btn btn-default">
+                            <button class="btn btn-default" style="color: #1f226d;">
                                 <img src="images/logoJrGraficoColor.png" width="16" height="16" title="Jornada Real">
                                 Programa JR - Download
                             </button>
@@ -160,7 +160,7 @@ $formulario = new formulario();
         <footer id="footer">
 
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                 $titulo->preparaMenu("jornadaReal");
                 ?>

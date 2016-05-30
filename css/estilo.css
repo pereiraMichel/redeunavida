@@ -54,6 +54,7 @@
         color: #000;
         font-size: 7px;
         letter-spacing: 1px;
+        //text-align: justify;
 }
 .navbar-text-top
 {
@@ -62,6 +63,7 @@
         font-weight: 400;
         letter-spacing: 2px;
         font-family: arial;
+        border-bottom-color: #000000;
 }
 
 .navbar-text-top > div > div > span
@@ -385,6 +387,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 #corAzulInfo
 {
     background-color: #D9EDF7;
+    border-bottom-color: #1f226d;
 }
 #corBodyLaranja
 {
@@ -397,6 +400,14 @@ only screen and (min-device-pixel-ratio : 1.5) {
   color: #FFF;
   background-color: #2D3192;
   /*background-color: #38B0DE;*/
+}
+
+#corTabela > td:hover
+{
+    background-color: #FFF;
+    opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
 }
 
 #imagem1
@@ -425,6 +436,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
     background: #D9EDF7 url('../images/logoRUV550x430.png') no-repeat center;
     min-width: 600px;
     width: 100%;
+    background-color: rgba(150, 150, 150, 0.3);
 /*    background-image: url('../images/logoRedeUnaViva.png');
     background-repeat: no-repeat;
     background-position: center center;
@@ -434,6 +446,84 @@ only screen and (min-device-pixel-ratio : 1.5) {
     padding-left: 230px;
     padding-top: 100px;*/
     /*background-color: #D9EDF7;*/
+}
+
+#imagemRUVCDoggerBlue3
+{
+    background: #1874CD url('../images/logoRUVWhite.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVCDeepSkyBlue3
+{
+    background: #009ACD url('../images/logoRUVWhite.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhite
+{
+    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVCorFundo
+{
+//    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+    background: url('../images/logoRUVWhite.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhiteBlue
+{
+    background: #D9EDF7 url('../view/dummy-images/fundo/logoRUVWhiteAzul4.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhiteGreen
+{
+    background: #D9EDF7 url('../view/dummy-images/fundo/logoRUVWhiteVerde.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhiteRoxo
+{
+    background: #D9EDF7 url('../view/dummy-images/fundo/logoRUVWhiteRoxoEfeito.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhiteImagem
+{
+    background: #D9EDF7 url('../view/dummy-images/fundo/logoRUVWhiteImagem.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVWhiteImagem2
+{
+    background: #D9EDF7 url('../view/dummy-images/fundo/logoRUVWhiteImagem2.png') no-repeat center;
+    min-width: 600px;
+    width: 100%;
+}
+
+#imagemRUVVerde
+{
+    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+    background-color: #32CD32;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVRoxo
+{
+    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+    background-color: #DA70D6;
+    min-width: 600px;
+    width: 100%;
+}
+#imagemRUVAzul
+{
+    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+    background-color: #1E90FF;
+    min-width: 600px;
+    width: 100%;
 }
 
 #imagemRUVCentro
@@ -457,3 +547,24 @@ only screen and (min-device-pixel-ratio : 1.5) {
     color: #1f226d;
     font-weight: bold;
 }
+
+.navbar-brand {
+    font-weight: 700;
+}
+.navbar-brand {
+  height: 40px;
+  padding: 5px 15px;
+  font-size: 18px;
+  line-height: 1em;
+}
+
+.navbar-brand h1{
+	color: #fff;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.navbar-brand:focus {
+    outline: 0;
+}
+

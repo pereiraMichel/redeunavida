@@ -23,3 +23,31 @@
 [02-Nov-2015 15:03:31 UTC] PHP Stack trace:
 [02-Nov-2015 15:03:31 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
 [02-Nov-2015 15:03:31 UTC] PHP   2. session_destroy() C:\wamp\www\redeunaviva\sistema\index.php:35
+[15-Apr-2016 17:39:17 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 22
+[15-Apr-2016 17:39:17 UTC] PHP Stack trace:
+[15-Apr-2016 17:39:17 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Apr-2016 17:39:17 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[15-Apr-2016 17:39:17 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[15-Apr-2016 17:39:17 UTC] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:22
+[15-Apr-2016 17:39:18 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 23
+[15-Apr-2016 17:39:18 UTC] PHP Stack trace:
+[15-Apr-2016 17:39:18 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Apr-2016 17:39:18 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[15-Apr-2016 17:39:18 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[15-Apr-2016 17:39:18 UTC] PHP   4. mysql_select_db() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:23
+[15-Apr-2016 17:39:18 UTC] PHP Warning:  mysql_set_charset() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 24
+[15-Apr-2016 17:39:18 UTC] PHP Stack trace:
+[15-Apr-2016 17:39:18 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Apr-2016 17:39:18 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[15-Apr-2016 17:39:18 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[15-Apr-2016 17:39:18 UTC] PHP   4. mysql_set_charset() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:24
+[15-Apr-2016 17:39:18 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[15-Apr-2016 17:39:18 UTC] PHP Stack trace:
+[15-Apr-2016 17:39:18 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Apr-2016 17:39:18 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[15-Apr-2016 17:39:18 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95
+[15-Apr-2016 17:39:18 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[15-Apr-2016 17:39:18 UTC] PHP Stack trace:
+[15-Apr-2016 17:39:18 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Apr-2016 17:39:18 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[15-Apr-2016 17:39:18 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95

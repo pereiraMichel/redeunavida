@@ -97,7 +97,7 @@ $slide = new slideShow();
         
     </head>
     <body>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top">-->
                     <?php
@@ -118,7 +118,7 @@ $slide = new slideShow();
 
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $slide->preparaMenu("home");
                 ?>

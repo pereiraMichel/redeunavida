@@ -367,30 +367,15 @@ class calendarioRuv {
         echo "                  <td colspan='7'>";
         echo                        "<i>".date('d/m/Y')." - ".$dataSemanaJava[$dataJava]."</i>";///date('d/m/Y');
         echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
+
         echo "              </tr>";
         //Oitava linha
         echo "              <tr class='warning'>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
+
         echo "                  <td colspan='7'>";
         echo                        $mensagem;
         echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
+
         echo "              </tr>";
         echo "          </table>";
         echo "      </div>";

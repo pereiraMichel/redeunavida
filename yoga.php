@@ -61,7 +61,6 @@
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AMARELOCLARO; ?>
             }
 
         </style>
@@ -88,7 +87,7 @@
                             <div id="tituloPaginas"> Yoga</div>
                                 <br/>
                                 <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
-                                <p style="text-align: justify">
+                                <p style="text-align: justify; color: #1f226d;">
                         <?php
                         
                         $quemsomos = new classTexto();
@@ -115,7 +114,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
                 <?php
                     $titulo->preparaMenu("yoga");
                 ?>
