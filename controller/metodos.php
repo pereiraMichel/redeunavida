@@ -68,6 +68,24 @@ class metodos{
         echo "<span style='color: red; font-weight: bold;'>Roda dos Sonhos</span> e <span style='color: red; font-weight: bold;'>Transcurso Transpessoal</span> que são duas atividades coordenadas pelo idealizador da RUV, Luiz Carlos Bernal, constituindo parte do seu trabalho de profissional autônomo, médico e psicoterapeuta.";
         echo "</div>";
     }
+    
+    public function tabelaAtividades(){
+        echo "<table class='table table-condensed' style='width: 300px;'>";
+        echo "  <tr>";
+        echo "      <td class='info' style='text-align: left;'>Atividades semanais</td>";
+        echo "  </tr>";
+        echo "  <tr>";
+        echo "      <td class='warning' style='text-align: center;'>Atividades mensais</td>";
+        echo "  </tr>";
+        echo "  <tr>";
+        echo "      <td class='success' style='text-align: right;'>Atividades trimestrais</td>";
+        echo "  </tr>";
+        echo "  <tr>";
+        echo "      <td class='warning' style='text-align: center;'>Jornada de Meditação (Primavera e Outono)</td>";
+        echo "  </tr>";
+        echo "</table>";
+        
+    }
 
     
 }

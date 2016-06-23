@@ -74,7 +74,11 @@
         <script>
 //            var mes = document.getElementById("selectAgenda").value;
             function validaMes(mes){
-                window.location.href="agenda.php?periodo=" + mes;
+                if(mes === 0){
+                    window.location.href="agenda.php";
+                }else{
+                    window.location.href="agenda.php?periodo=" + mes;
+                }
             }
         </script>
 
@@ -134,18 +138,26 @@
 
                                 <td style="text-align: left; width: 50%;">
                                     <div class="row-fluid">
-                                        <select name="selectAgenda" class="selectpicker" onchange="javascript:validaMes(this.value)">
-                                            <option value="0">Selecione</option>
-                                            <optgroup label="SETEMBRO">
+                                        <select name="selectAgenda" class="selectpicker" onchange="validaMes(this.value)">
                                                 <?php
                                                 $periodo = filter_input(INPUT_GET, "periodo");
                                                 if ($periodo == 91) {
                                                     $marcado = "selected='selected'";
-                                                } else {
+                                                    $marcado2 = "";
+                                                } else if($periodo == 92){
                                                     $marcado = "";
+                                                    $marcado2 = "selected='selected'";
+                                                } else if($periodo == 0){
+                                                    $marcado = "";
+                                                    $marcado2 = "";
                                                 }
                                                 ?>
+
+                                            <option value="0">Selecione</option>
+                                            <optgroup label="SETEMBRO 2015">
                                                 <option value="91" <?php echo $marcado; ?>>De 5 a 12</option>
+                                            <optgroup label="SETEMBRO 2016">
+                                                <option value="92" <?php echo $marcado2; ?>>De 3 a 10</option>
                                                 <!--<option value="92">De 12 a 30</option>-->
                                             </optgroup>
                                             <!--                                                <optgroup label="OUTUBRO">
@@ -173,7 +185,10 @@
                             switch ($periodo) {
                                 case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='529'></iframe>";
                                     break;
-                                case 91: echo "<iframe src='view/setembro.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                case 91: echo "<iframe src='view/setembro15.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                    break;
+                                case 92: echo "<iframe src='view/setembro16.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                    break;
                             }
 
                             echo "  </td>";

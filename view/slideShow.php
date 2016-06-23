@@ -30,23 +30,6 @@ class slideShow {
         echo "                  </td>";
         echo "              </tr>";
         //Segunda linha
-//        echo "              <tr class='warning'>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td colspan='3'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "              </tr>";
         //Terceira linha
         echo "              <tr>";
         echo "                  <td>";
@@ -133,39 +116,15 @@ class slideShow {
         echo "              </tr>";
         //Sétima linha
         echo "              <tr>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
         echo "                  <td colspan='7'>";
         echo "                      <div id='dataJava'>&nbsp;</div>";///date('d/m/Y');
         echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
         echo "              </tr>";
         //Oitava linha
         echo "              <tr class='warning'>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
         echo "                  <td colspan='7'>";
         echo                        $mensagem;
         echo "                  </td>";
-//        echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
-//        echo "                  <td>";
-//        echo "                      &nbsp;";
-//        echo "                  </td>";
         echo "              </tr>";
         echo "          </table>";
         echo "      </div>";
@@ -219,12 +178,6 @@ class slideShow {
     
     public function telaTitulo(){
         
-//        echo "      <div class='navbar-header page-scroll'>";
-//        echo "          <a class='navbar-brand' href='index.php'>";
-//        echo "              <img src='images/logoRUV350x270FB.png' title='RedeUnaViva / Jornada Real' width='200' height='150' />";// width='200' height='150'
-//        echo "          </a>";
-//        echo "      </div>";
-        
         echo "<div class='navbar-header navbar-text-top' style='border-color: #000000'>";
         echo "  <div class='container-fluid'>";
         echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>";
@@ -276,26 +229,6 @@ class slideShow {
         echo "      <li class='icone_slider' id='imagemRUVCDoggerBlue3'>";
         echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
         echo "      </li>";
-//        echo "      <li class='icone_slider' id='imagemRUV'>";
-//        echo "      </li>";
-        
-//        echo "      <li class='icone_slider' id='imagemRUV'>"; //Essa é o li da logomarca central RUV
-//        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
-        
-//        echo "          <img src='images/logoRedeUnaViva.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center;'>";
-//        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' style='padding-left: 230px; padding-top: 80px; background-position: center center; max-width: 500px; max-height: 300px;'>";
-        // superior, direito, inferior, esquerdo
-//        echo "          <img src='images/logoRUV800x650.png' class='img-responsive' width='400' height='550' style='padding: 80px 0px 0px 150px'>"; // superior, direito, inferior, esquerdo
-//        echo "          <div class='banner_texto1'>";
-//        echo "              <p style='text-align: center;'>RedeUnaViva</p>";
-//        echo "              <p style='text-align: center; font-size: 24px;'>por uma cultura de paz</p>";
-//        echo "          </div>";
-//        echo "          <div class='banner_texto2' style='font-size: 24px;'>";
-//        echo "              <p>nova humanidade</p>";
-//        echo "              <p>conspirada</p>";
-//        echo "              <p>em silêncio</p>";
-//        echo "          </div>";
-//        echo "      </li>";
         echo "      <li class='icone_slider' id='imagem1'>";
         echo "          <div class='banner_texto1' style='padding-top: 35px;'>";
         echo "              <p style='text-align: center; font-family: arial'>";
@@ -741,7 +674,7 @@ class slideShow {
 //        echo "            <h5>";
         echo "              <span style='font-size: ".TAMANHOMENU.";'>";
         echo                    ENDERECOORGAO;
-        echo "              <br><img src='icon/glyphicons-443-earphone.png' width='20' height='20' alt='Telefone' title='Telefone'>" . TELEFONEORGAO;
+        echo "              <br><img src='images/telefone.png' width='20' height='20' alt='Telefone' title='Telefone'>" . TELEFONEORGAO;
         echo "              </span>";
 //        echo "            </h5>";
 //        echo "          </small>";

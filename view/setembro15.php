@@ -3,8 +3,10 @@
 <?php
     require_once 'formulario.php';
     require_once '../controller/constantes.php';
+    require_once '../controller/metodos.php';
 
     $formulario = new formulario();
+    $tabela = new metodos();
 
 ?>
 
@@ -367,17 +369,11 @@
                                 </table>
                                 <br/><br/>
 
-                                <table class="table table-condensed" style="width: 300px;">
-                                    <tr>
-                                        <td class="info" style="text-align: left;">Atividades semanais</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="warning" style="text-align: center;">Atividades mensais</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="success" style="text-align: right;">Atividades trimestrais</td>
-                                    </tr>
-                                </table>
+                                <?php
+                                    $tabela->tabelaAtividades();
+                                
+                                ?>
+
 
 
 

@@ -1057,9 +1057,17 @@ vosso Pai que está nos céus.<br/>";
         echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
         echo "  <div align='justify'>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Compartilhando o entendimetno de que a psicoterapia é promotora da saúde física, emocional e psíquica, a RUV oferece o serviço de atendimento psicoterapêutico através da Rede Social Clínica. O serviço se destina àqueles cuja condição financeira não se adequa aos valores praticados usualmente no mercado. A Rede Social Clínica é formada por psicólogos e terapeutas - membros da RUV - que dispõem de horários específicos para esse atendimento. Na entrevista inicial é acordado o valor do serviço, assim como também são transmitidas as regras do contrato. Informações adicionais e agendamento da entrevista através do...";
+        echo "          Compartilhando o entendimento de que a psicoterapia é promotora da saúde física, emocional e psíquica, a RUV oferece o serviço de atendimento psicoterapêutico através da Rede Social Clínica. O serviço se destina àqueles cuja condição financeira não se adequa aos valores praticados usualmente no mercado. A Rede Social Clínica é formada por psicólogos e terapeutas - membros da RUV - que dispõem de horários específicos para esse atendimento. Na entrevista inicial é acordado o valor do serviço, assim como também são transmitidas as regras do contrato.";
         echo "      </span>";
         echo "  </div>";
+        
+        echo "  <div style='height: 20px;'>&nbsp;</div>";
+        echo "  <div class='alert alert-info' role='alert'>";
+        echo "      <div class='text-center' style='font-family: garamond; font-size: 20px;'>";
+        echo "          Contato para marcar entrevista ou para outras informações no telefone (21) 2266-5690";
+        echo "      </div>";
+        echo "  </div>";
+        
         echo "</div>";
     }
     public function textoTranscursoTranspessoal(){
