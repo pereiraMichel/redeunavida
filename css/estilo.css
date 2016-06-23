@@ -14,6 +14,12 @@
         font-size: 12px;
     }
 }
+/*@media only screen and (min-width: 600px) and (max-width: 820px) {
+    span, a{
+        font-size: 12px;
+    }
+    
+}*/
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
@@ -244,72 +250,6 @@ div.WordSection1
     
 }
 
-/* =============================================== responsive =============== */
-
-/* Smartphones portrait and landscape */
-@media only screen and(min-device-width: 320px) and (max-device-width: 480px)
-{
-  .navbar-fixed-top .navbar-collapse,
-  .navbar-fixed-bottom .navbar-collapse {
-    display: none;
-    
-  }
-}
-/* Smartphones landscape */
-@media only screen and(min-width: 321px)
-{
-  .navbar-fixed-top .navbar-collapse,
-  .navbar-fixed-bottom .navbar-collapse {
-    display: none;
-  }
-}
-/* Smartphones portrait */
-@media only screen and(max-width: 320px)
-{
-  .navbar-fixed-top .navbar-collapse,
-  .navbar-fixed-bottom .navbar-collapse {
-    display: none;
-  }
-}
-/* iPads (portrait and landscape) */
-@media only screen and(min-device-width: 768px) and(max-device-width: 1024px)
-{
-    /*Styles*/
-}
-/* iPads (landscape) ———– */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-/* Styles */
-}
-/* iPads (portrait) ———– */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-/* Styles */
-}
-/* Desktops and laptops ———– */
-@media only screen
-and (min-width : 1224px) {
-/* Styles */
-}
-/* Large screens ———– */
-@media only screen
-and (min-width : 1824px) {
-/* Styles */
-}
-/* iPhone 4 ———– */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
-}
-
-/* ========================================= final responsive =============== */
-
-
 @media screen and (max-width: 767px){
     header .control-nav{
         position: absolute;
@@ -389,6 +329,14 @@ only screen and (min-device-pixel-ratio : 1.5) {
     background-color: #D9EDF7;
     border-bottom-color: #1f226d;
 }
+#corAzulFundoClaro
+{
+    background-color: rgba(173, 216, 230, 0.3); /* R, G, B, Opacity */
+    /*background-color: rgba(45, 124, 255, 0.3);  R, G, B, Opacity */
+/*    background-color: #87CEEB;*/
+    /*background-color: #EFF8FB;*/
+    border-bottom-color: #1f226d;
+}
 #corBodyLaranja
 {
     background-color: #FFA500;
@@ -418,7 +366,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 
 #imagem2
 {
-    background-image: url('../view/dummy-images/foto2TextoPuro.png');
+    background-image: url('../slider/images/galeria/foto13.JPG');
 }
 
 #imagem3
@@ -546,6 +494,14 @@ only screen and (min-device-pixel-ratio : 1.5) {
     text-align: center;
     color: #1f226d;
     font-weight: bold;
+}
+#subTituloGaleria
+{
+    font-family: garamond;
+    font-size: 18px;
+    text-align: left;
+    color: #fff;
+    /*color: #1f226d;*/
 }
 
 .navbar-brand {

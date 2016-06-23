@@ -3,9 +3,13 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
+    require_once './controller/metodos.php';
+    require_once './texto/classTexto.php';
     require_once './view/slideShow.php';
     require_once './view/classFormAdesao.php';
 
+    $texto = new classTexto();
+    
 ?>
 
 <html lang="pt-br">
@@ -36,6 +40,8 @@
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="js/modal.js" defer=""></script>
         <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
@@ -59,7 +65,15 @@
         </style>
         <link rel="author" href="autor.txt">
     </head>
-<body id="corAzulInfo">
+<body id="corAzulFundoClaro">
+    <?php
+    $metodo = new metodos();
+    $metodo->modalAviso();
+//    echo "<script>";
+//    echo "  $(document).ready(function(){ $('#avisoMais').modal(); });";
+//    echo "</script>";
+    ?>
+    
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 				<div class="navbar-text-top">
@@ -80,17 +94,20 @@
 				<div id="tituloPaginas">Transcurso Transpessoal</div> <!-- <i class="fa fa-ticket"></i> -->
 				<p style="font-family: garamond; font-size: 20px;">
                         <?php
-                        echo "<p style='height: 25px;'>&nbsp;</p>";
-                        $filename = "texto/transpessoal.xml";
                         
-                        @header("Content-Type: text/html; charset=utf-8");
-                        $xml = simplexml_load_file($filename);
-
-                        foreach($xml->texto as $texto)
-                        {
-                            echo $texto->transpessoal;
-                            echo "<br>";
-                        }                        
+                        $texto->textoTranscursoTranspessoal();
+                        
+//                        echo "<p style='height: 25px;'>&nbsp;</p>";
+//                        $filename = "texto/transpessoal.xml";
+//                        
+//                        @header("Content-Type: text/html; charset=utf-8");
+//                        $xml = simplexml_load_file($filename);
+//
+//                        foreach($xml->texto as $texto)
+//                        {
+//                            echo $texto->transpessoal;
+//                            echo "<br>";
+//                        }                        
                         ?>
 				</p>
 			</div>

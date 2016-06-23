@@ -34,5 +34,40 @@ class metodos{
 //					</li>
 
     }
+    
+    public function modalAviso(){
+        echo "<div class='modal fade' id='avisoMais' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
+        echo "  <div class='modal-dialog' role='document'>";
+        echo "      <div class='modal-content'>";
+        echo "          <div class='modal-header'>";
+        echo "              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+        echo "                  <span aria-hidden='true'>&times;</span>";
+        echo "              </button>";
+        echo "              <h4 class='modal-title' id='myModalLabel' style='color: #3F6CA1;'>";
+        echo "                  <img src='images/logoRUV50x51.png'/> RedeUnaViva - <small style='color: #3F6CA1;'>Sobre MAIS...</small></h4>";
+        echo "          </div>";
+        echo "          <div class='modal-body'>";
+        $this->avisoMais();
+        echo "          </div>";
+        echo "          <div class='modal-footer' style='padding-right: 50px;'>";
+        echo "               <button type='button' class='btn btn-primary' data-dismiss='modal'>Entendi</button>";
+        echo "          </div>";
+        echo "          <br/>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "</div>";
+    }
 
+    public function avisoMais(){
+        echo "<div style='text-align: justify;'>";
+        echo "As atividades aqui sugeridas são indicadas devido à sua afinidade com a proposta da RedeUnaViva.<br/><br/>";
+        echo "No entanto, elas são particulares e de responsabilidade exclusiva dos profissionais que as oferecem e mantém.<br/><br/>";
+        echo "A RUV não possui qualquer ingerência sobre o seu funcionamento. Qualquer dúvida ou dificuldade na sua utilização deverá ser resolvida entre o usuário e o responsável pela atividade. Mas somos sensíveis às críticas e, portanto, aberto aos seus comentários, que pesarão na indicação por nós feita.<br/><br/>";
+        echo "Indicamos, até o momento:<br/><br/>";
+        echo "<span style='color: red; font-weight: bold;'>Yoga</span> com os professores Eduardo Quintela e Heiko Hoschke.<br/><br/>";
+        echo "<span style='color: red; font-weight: bold;'>Roda dos Sonhos</span> e <span style='color: red; font-weight: bold;'>Transcurso Transpessoal</span> que são duas atividades coordenadas pelo idealizador da RUV, Luiz Carlos Bernal, constituindo parte do seu trabalho de profissional autônomo, médico e psicoterapeuta.";
+        echo "</div>";
+    }
+
+    
 }

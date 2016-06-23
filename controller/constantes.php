@@ -19,7 +19,7 @@
     define('TELEFONE', 'Telefone: ');
     define('MENSAGEM', 'Mensagem: ');
     define('ENDERECOORGAO', 'Rua Mário Pederneiras, 31 - Casa, Humaitá');
-    define('TELEFONEORGAO', 'Telefone: (21) 2266-5690');
+    define('TELEFONEORGAO', ' (21) 2266-5690');
     
     //Formulário Adesão
     define('VAZIO', '&nbsp;');
@@ -69,9 +69,11 @@
     define ('JORNADAREALLINK', 'jornadareal.php');
     define ('MEDITACAOLINK', 'meditacao.php');
     define ('MEDITCRISTALINK', 'meditcrista.php');
+    define ('REDESOCIALCLINICA', 'redesocialclinica.php');
     define ('RETIROLINK', 'retiro.php');
     define ('AGENDALINK', 'agenda.php');
     define ('CALENDARIOLINK', 'calendario.php');
+    define ('SOBREMAIS', 'sobremais.php');
     define ('YOGALINK', 'yoga.php');
     define ('RODASONHOSLINK', 'rodaSonhos.php');
     define ('TRANSPESSOALLINK', 'transpessoal.php');
@@ -97,4 +99,5 @@
     
     define('VERDESUCCESS','#DFF0D8');
     define('AZULINFO','#D9EDF7');
+    define('AZULFUNDOCLARO','#EFF8FB');
     define('BODYLARANJA','#FFA500');

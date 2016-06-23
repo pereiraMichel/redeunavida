@@ -2,6 +2,7 @@
 
 
 class classTexto {
+    
 
     public function textoJornadaReal(){
         $fonteGaramond = "font-family: garamond; text-align: justify";
@@ -149,14 +150,14 @@ class classTexto {
         echo "<div class='col-md-1'></div>";
         echo "<div class='col-md-4' style='".$tamanhoFonte16."'>";
         echo "  <div class='row'>";
-        echo "      <ul class='list-inline'>";
+        echo "      <ul class='list-inline' style='text-align: left;'>";
         echo "          <li>";
-        echo "              Somos nove pessoas que,";
-        echo "              com um <i>programa diário de autoconhecimento</i>";
-        echo "              cuja prática principal é a meditação,";
-        echo "              visamos a transformação própria e do mundo";
-        echo "              tendo como campo de trabalho";
-        echo "              as desafiadoras relações interpessoais.";
+        echo "              Somos nove pessoas que,<br/>";
+        echo "              com um <i>programa diário de autoconhecimento</i><br/>";
+        echo "              cuja prática principal é a meditação,<br/>";
+        echo "              visamos a transformação própria e do mundo<br/>";
+        echo "              tendo como campo de trabalho<br/>";
+        echo "              as desafiadoras relações interpessoais.<br/>";
         echo "          </li>";
         echo "      </ul>";
         echo "  </div>";
@@ -168,14 +169,14 @@ class classTexto {
         echo "</div>";
         echo "<div class='col-md-4' style='".$tamanhoFonte16."'>";
         echo "  <div class='row'>";
-        echo "      <ul class='list-inline'>";
+        echo "      <ul class='list-inline' style='text-align: left;'>";
         echo "          <li>";
-        echo "              Pela riqueza da experiência compartilhada,";
-        echo "              em reuniões semanais";
-        echo "              que deram consistência à proposta,";
-        echo "              decidimos,";
-        echo "              após sete anos de trabalho,";
-        echo "              divulgar esta <b><i>Jornada Real</i></b>";
+        echo "              Pela riqueza da experiência compartilhada,<br/>";
+        echo "              em reuniões semanais<br/>";
+        echo "              que deram consistência à proposta,<br/>";
+        echo "              decidimos,<br/>";
+        echo "              após sete anos de trabalho,<br/>";
+        echo "              divulgar esta <b><i>Jornada Real</i></b><br/>";
         echo "          </li>";
         echo "      </ul>";
         echo "  </div>";
@@ -185,7 +186,7 @@ class classTexto {
 
         echo "<div class='col-md-12'>";
         echo "  <div class='text-center' style='".$tamanhoFonte16."; text-align: center;'>";
-        echo "      convidando pessoas afins ";
+        echo "      convidando pessoas afins <br/>";
         echo "      a tornarem-se companheiros na <b>RedeUnaViva.</b>";
         echo "  </div>";
         echo "</div>";
@@ -275,10 +276,11 @@ class classTexto {
     }
     
     public function textoYoga(){
-        $tamanhoFonte16 = "font-size: 20px; font-family: garamond";
-        echo "<div class='col-md-2'>";
+        $tamanhoFonte16 = "font-size: 20px; font-family: garamond; text-align: justify;";
+        echo "<div class='col-md-1'>";
+        echo "  &nbsp;";
         echo "</div>";
-        echo "<div class='col-md-8' style='".$tamanhoFonte16."'>";
+        echo "<div class='col-md-10' style='".$tamanhoFonte16."'>";
         echo "  <p>";
         echo "      Segundo <b>Patanjali</b> nos yogasutras, <abbr title='yoga citta vrtti nirodah'><i>yoga citta vrtti nirodah</i></abbr> traduz-se por \"<b>yoga é pacificação das atividades da mente</b>\".<br/>";
         echo "  </p>";
@@ -291,6 +293,8 @@ class classTexto {
         echo "  <p>";
         echo "      Quando falamos de prática, existem inúmeras tais como a física (<i>asanas</i>), as respiratórias (<i>pranayama</i>), canto de mantras, entre outras.<br/><br/>";
         echo "  </p>";
+        
+        //Eduardo Quintela
         echo "  <p style='text-align: justify;'>";
         echo "      <abbr title='Eduardo Quintella' style='font-size: 20px; color: #3F6CA1;'><b>Eduardo Quintella</b></abbr> (<a href='mailto:duda.quintella@gmail.com' class='text-link'>duda.quintella@gmail.com</a>)<br/>";
         echo "  <p style='text-align: justify;'>";
@@ -299,6 +303,20 @@ class classTexto {
         echo "  <p style='text-align: justify;'>";
         echo "      Como professor, procuro adequar a prática à individualidade de cada aluno para que a desfrute de acordo com as suas possibilidades.";
         echo "  </p>";
+//        echo "<div class='imageRow'>";
+//        echo "  <div class='set'>";
+//        echo "      <div class='single first'>";
+//        echo "          <a href='images/yoga/foto1.jpg' rel='lightbox[plants]' title='Foto 1'>";
+//        echo "              <img src='images/yoga/foto1.jpg' alt='Foto 1 de 12' style='height: 90px; width: 135px;'/>";
+//        echo "          </a>";
+//        echo "          <a href='images/yoga/foto2.jpg' rel='lightbox[plants]' title='Foto 2'>";
+//        echo "              <img src='images/yoga/foto2.jpg' alt='Foto 2 de 12' style='height: 90px; width: 135px;'/>";
+//        echo "          </a>";
+//        echo "      </div>";
+//        echo "  </div>";
+//        echo "</div>";
+        
+        //Heiko Hoschke
         echo "<p style='height: 20px;'>&nbsp;</p>";
         echo "  <p style='text-align: justify;'>";
         echo "      <abbr title='Heiko Hoschke' style='font-size: 20px; color: #3F6CA1;'><b>Heiko Hoschke</b></abbr> (<a href='mailto:heikosunwu@yahoo.com.br' class='text-link'>heikosunwu@yahoo.com.br</a>)<br/>";
@@ -309,7 +327,8 @@ class classTexto {
         echo "      Agreguei meus conhecimentos como fisioterapeuta e como professor de artes marciais ao método de yoga baseado no sistema Iyengar. Este método prioriza o alongamento e o alinhamento propiciando ao praticante forte consciência corporal, tornando perceptíveis os seus vícios posturais e possibilitando a sua correção.";
         echo "  </p>";
         echo "</div>";
-        echo "<div class='col-md-2'>";
+        echo "<div class='col-md-1'>";
+        echo "  &nbsp;";
         echo "</div>";
     }
     
@@ -959,7 +978,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          Informações:<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Início da próxima Jornada de Meditação, em <b>21 de março de 2016</b>.<br><br>";
+        echo "          Início da próxima Jornada de Meditação, em <b>19 de setembro de 2016</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
         echo "          Dia e horário: <b>2as feiras, de 19 às 20h30</b>.<br><br>";
@@ -978,14 +997,139 @@ vosso Pai que está nos céus.<br/>";
         echo "      </span>";
         echo "  </div>";
         echo "</div>";
-
-
-
-
-
-
-
-
+    }
+    public function textoRodaDosSonhos(){
+    $fonteGaramond = "font-family: garamond";
+    $tamanhoFonte = "font-size: 20px";
+    $espacamento = "padding-left: 50px";
+        echo "<p style='height: 20px;'>&nbsp;</p>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div class='text-center' style='font-family: garamond; color: #1f226d;'>";
+        echo "      <span style='".$tamanhoFonte.";'>";
+        echo "          descubra como remover obstáculos ao crescimento pessoal <br>";
+        echo "          através do poder instrínseco dos sonhos<br><br>";
+        echo "          trabalhando os sonhos é possível conhecer padrões inconscientes<br>";
+        echo "          que comprometem a saúde psíquica<br><br>";
+        echo "          a partilha em grupo afim e cuidadoso enriquece os processos pessoais e coletivos<br><br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Mensalmente, numa manhã de sábado, reúno-me com um grupo de pessoas interessadas em trabalhar psicologicamente seus sonhos, usando como referência principal uma teoria transpessoal autoral, desenvolvida nas últimas décadas.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Os sonhos, ampliados através de vivências e análises, contribuem com o processo de autorrealização, incrementando novos elementos para o autoconhecimento.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Segundo o sistema transpessoal, aos dois períodos naturais da jornada diária - o dia, com sua claridade, e a noite, com sua obscuridade, complementados para formar a unidade do ciclo diário - vinculam-se dois instigantes estados da consciência humana: a vigília, própria do <i>consciente solar</i>, e o onírico, afinado com o <i>inconsciente lunar</i>. Um também é claro, e o outro, sombrio. Um verbal, afirmativo e justificador, e o outro, imagético, alucinante e conspirador. Duas realidades do, subjetivismo que se colam, mais ou menos, com movimentos antagônicos e cooperativos, com a singela propriedade de promover a inteireza do ser humano, desde que criatiivamente integradas.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Ao interessado em experimentar este processo, é facultado participar de uma Roda, mediante entrevista prévia. Tanto a entrevista como sua participação no grupo são oferecidas sem custo financeiro para o interessado. É um grupo aberto não apenas aos profissionais de saúde, mas para todo aquele que se interessa no mergulho interior.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "         Contato por e-mail ou por telefone.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Focalizador: <b>Luiz Carlos Bernal - Médico e Psicoterapeuta</b>. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          <b>Informações:</b><br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Próxima Roda: ver calendário abaixo.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Horário: <b>de 9h às 13h</b><br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a>.<br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+    }
+    public function textoRedeSocialClinica(){
+    $fonteGaramond = "font-family: garamond";
+    $tamanhoFonte = "font-size: 20px";
+    $espacamento = "padding-left: 50px";
+        echo "<p style='height: 30px;'>&nbsp;</p>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Compartilhando o entendimetno de que a psicoterapia é promotora da saúde física, emocional e psíquica, a RUV oferece o serviço de atendimento psicoterapêutico através da Rede Social Clínica. O serviço se destina àqueles cuja condição financeira não se adequa aos valores praticados usualmente no mercado. A Rede Social Clínica é formada por psicólogos e terapeutas - membros da RUV - que dispõem de horários específicos para esse atendimento. Na entrevista inicial é acordado o valor do serviço, assim como também são transmitidas as regras do contrato. Informações adicionais e agendamento da entrevista através do...";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+    }
+    public function textoTranscursoTranspessoal(){
+    $fonteGaramond = "font-family: garamond";
+    $tamanhoFonte = "font-size: 20px";
+    $espacamento = "padding-left: 50px";
+        echo "<p style='height: 20px;'>&nbsp;</p>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div class='text-center' style='font-family: garamond; color: #1f226d;'>";
+        echo "      <span style='".$tamanhoFonte.";'>";
+        echo "          apresenta uma teoria autoral que justifica a estruturação e desenvolvimento da<br>";
+        echo "          personalidade em consonância com a realidade espiritual<br><br>";
+        echo "          mostra a coincidência da saúde mental com a felicidade<br>";
+        echo "          apontando caminhos para a autorrealização<br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Ao longo das últimas décadas venho desenvolvendo uma teoria psicológica decorrente de particular leitura do Sistema Transpessoal, aplicada com mais especificidade no campo da psicoterapia e do desenvolvimento pessoal.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          O empenho desta teoria, em afinidade com a proposta transpessoal, visa a integração entre a psicologia ociedental, mais formal, e a abordagem espiritual desenvolvida pelas Tradições da Sabedoria Antiga. Além de beber nas fontes da psicanálise e da psicologia analítica, que centram seu trabalho terapêutico no modelo clássico da relação terapeuta-paciente, busquei sua complementação no investimento psicológico da introspecção, sustentados por estes sistemas espirituais, ao longo de milênios. Eles promovem o autoconhecimento para além das fronteiras do ego, a partir da especialíssima e diferente relação a dois - a do mestre com o discípulo.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Os quatro pilares em que se assenta o Transcuro transpessoal são:<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; margin-left: 25px;'>";
+        echo "          Psicodinâmica do ego<br/>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; margin-left: 25px;'>";
+        echo "          Cosmogênese do ego<br/>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; margin-left: 25px;'>";
+        echo "          Ontogênese do ego<br/>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; margin-left: 25px;'>";
+        echo "          Roda das estações da vida";
+        echo "      </span>";
+        echo "          <br><br>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          O Transcurso acontece uma vez por mês, às 6ªs. feiras, no horário de 14h às 18h.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          A medicação, por pressuposto, permeia tanto o campo de estudo como o da prática terapêutica.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Investigar e testar a teoria com a clínica fez gerar uma forma diferenciada de supervisão em grupo, a Transvisão. Sua frequência é também mensal, às 6ªs feiras, de 14h às 16:30h.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          O ingresso no Transcurso é realizado mediante entrevista prévia e está aberto a todo aquele interessado no tema. A Transvisão é acessível apenas aos profissionais que trabalham em campo afim. Contato por e-mail ou por telefone.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          <b>Informações:</b><br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Focalizador: <b>Luiz Carlos Bernal</b> - Médico e Psicoterapeuta. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Próximo encontro: ver calendário.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Horário: <b>de 13h às 18h</b>.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a>.<br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
     }
     
 }

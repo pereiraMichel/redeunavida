@@ -3,6 +3,7 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
+    require_once './controller/metodos.php';
     require_once './view/slideShow.php';
 //    require_once './view/slideShow.php';
     require_once './controller/calendarioRuv.php';
@@ -74,7 +75,12 @@
         </style>
         <link rel="author" href="autor.txt">
     </head>
-    <body onload="_hora()" id="corAzulInfo">
+    <body onload="hora()" id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+        
         <script>
             callerdate=new Date( <?php echo date("Y,m,d,H,i,s");?>);   
 //window.onload = _hora();

@@ -104,13 +104,38 @@ function emiteEstadoSelecionado(estado){
     document.getElementById("selecionaEstado").style.display="none";
 }
 
+function hora(){
+var time=new Date(); 
+var hour=time.getHours(); 
+var minute=time.getMinutes(); 
+var second=time.getSeconds(); 
+//var second=time.getSeconds(); 
+
+if(hour<10) 
+    hour ="0"+hour; 
+if(minute<10) 
+    minute="0"+minute; 
+if(second<10) 
+    second="0"+second; 
+
+    var st=hour+":"+minute+":"+second; 
+    document.getElementById("hora").innerHTML=st;
+    tempo++;	
+    setTimeout("hora()", 1000);
+    
+} 
+
+function initTimer() { // O metodo nativo setInterval executa uma determinada funcao em um determinado tempo 
+    setInterval(showTimer,1000); 
+}
+
 function _hora(){	
     var texto = "";
     var segundos = parseInt(tempo % 60);	
     var minutos = parseInt(tempo / 60 % 60);	
     var horas = parseInt((tempo / 3600 % 24) - 3);		// Horas.
     
-    if(horas == 0){
+    if(horas === 0){
         texto += "00";
     }else
     if (horas > 0){
@@ -138,7 +163,7 @@ function _hora(){
 
 
 function calculaCalendario(){
-    var data = new Date().toLocaleString("en-US",{timeZone:"America/Sao_Paulo"});
+    var data = new Date().toLocaleString("UTC",{timeZone:"America/Sao_Paulo"});
     var hoje = data.getDay();
     var dia = data.getDate(); // Pega o dia
     var mes = data.getMonth(); // Pega o mês

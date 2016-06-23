@@ -3,6 +3,7 @@
 <?php
 require_once 'view/formulario.php';
 require_once 'controller/constantes.php';
+require_once 'controller/metodos.php';
 require_once 'view/slideShow.php';
 require_once 'view/classFormAdesao.php';
 require_once 'texto/classTexto.php';
@@ -66,7 +67,12 @@ $texto = new classTexto();
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body id="corAzulInfo">
+    <body id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+        
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                     <div class="navbar-text-top">

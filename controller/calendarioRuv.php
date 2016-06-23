@@ -23,6 +23,7 @@ class calendarioRuv {
         }
         
     }
+    
 
     public function configuracaoCalendario(){
         date_default_timezone_set('America/Sao_Paulo');
@@ -36,17 +37,31 @@ class calendarioRuv {
 
         $anoBissexto = $this->anoBisexto();
         
+        $anoAnterior = $ano - 1;
         
-        $dataInicio = "09/20/".$ano;
-        $dataFim = date('m/d/Y');
+        $dataInicio = "20-09-".$anoAnterior;
+        $dataFim = date('d-m-Y');
+
+        $diferenca = strtotime($dataFim) - strtotime($dataInicio);
+
+//        $timer = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0);
+//        $timer = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0);
+        
+        $dias = (int) floor($diferenca /(24*60*60));
+        
+//        $calculoData = $dias;// 276 dias (até 22/06/2016)
+//        $dataInicio = "09/20/".$ano;
+//        $dataFim = date('m/d/Y');
 //        $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/(24*60*60), 0) + 1;
         if($anoBissexto == 0){
-            //É bissexto
-            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 2;
+//            //É bissexto
+            $calculoData = $dias;
+////            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 2;
         }else{
-            //Não é bissexto
-            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 1;
-            
+//            //Não é bissexto
+            $calculoData = $dias + 1;
+////            $calculoData = round((strtotime($dataFim) - strtotime($dataInicio))/-(24*60*60), 0) + 1;
+//            
         }
         
 //        echo "Estou no calculo da data: ".$calculoData;
@@ -131,91 +146,102 @@ class calendarioRuv {
                     $semana = 2;
                 }else if($calculoData >= 71 && $calculoData <= 77){
                     $semana = 3;
-                }else if($calculoData >= 78 && $calculoData <= 91){
+                }else if($calculoData >= 78 && $calculoData <= 84){
                     $semana = 4;
+                }else if($calculoData >= 85 && $calculoData <= 91){
+                    $semana = 1;
                 }
+                
                 //Verão, de 92 a 182
                 else if($calculoData >= 92 && $calculoData <= 98){
-                    $semana = 1;
-                }else if($calculoData >= 99 && $calculoData <= 105){
                     $semana = 2;
-                }else if($calculoData >= 106 && $calculoData <= 112){
+                }else if($calculoData >= 99 && $calculoData <= 105){
                     $semana = 3;
-                }else if($calculoData >= 113 && $calculoData <= 119){
+                }else if($calculoData >= 106 && $calculoData <= 112){
                     $semana = 4;
+                }else if($calculoData >= 113 && $calculoData <= 119){
+                    $semana = 1;
                 }
                 else if($calculoData >= 120 && $calculoData <= 126){
-                    $semana = 1;
-                }else if($calculoData >= 127 && $calculoData <= 133){
                     $semana = 2;
-                }else if($calculoData >= 134 && $calculoData <= 140){
+                }else if($calculoData >= 127 && $calculoData <= 133){
                     $semana = 3;
-                }else if($calculoData >= 141 && $calculoData <= 147){
+                }else if($calculoData >= 134 && $calculoData <= 140){
                     $semana = 4;
+                }else if($calculoData >= 141 && $calculoData <= 147){
+                    $semana = 1;
                 }
                 else if($calculoData >= 148 && $calculoData <= 154){
-                    $semana = 1;
-                }else if($calculoData >= 155 && $calculoData <= 161){
                     $semana = 2;
-                }else if($calculoData >= 162 && $calculoData <= 168){
+                }else if($calculoData >= 155 && $calculoData <= 161){
                     $semana = 3;
-                }else if($calculoData >= 169 && $calculoData <= 182){
+                }else if($calculoData >= 162 && $calculoData <= 168){
                     $semana = 4;
+                }else if($calculoData >= 169 && $calculoData <= 175){
+                    $semana = 1;
+                }else if($calculoData >= 176 && $calculoData <= 182){
+                    $semana = 2;
                 }
+                
                 //Outono, de 183 a 273
                 else if($calculoData >= 183 && $calculoData <= 189){
-                    $semana = 1;
-                }else if($calculoData >= 190 && $calculoData <= 196){
-                    $semana = 2;
-                }else if($calculoData >= 197 && $calculoData <= 203){
                     $semana = 3;
-                }else if($calculoData >= 204 && $calculoData <= 210){
+                }else if($calculoData >= 190 && $calculoData <= 196){
                     $semana = 4;
+                }else if($calculoData >= 197 && $calculoData <= 203){
+                    $semana = 1;
+                }else if($calculoData >= 204 && $calculoData <= 210){
+                    $semana = 2;
                 }
                 else if($calculoData >= 211 && $calculoData <= 217){
-                    $semana = 1;
-                }else if($calculoData >= 218 && $calculoData <= 224){
-                    $semana = 2;
-                }else if($calculoData >= 225 && $calculoData <= 231){
                     $semana = 3;
-                }else if($calculoData >= 232 && $calculoData <= 238){
+                }else if($calculoData >= 218 && $calculoData <= 224){
                     $semana = 4;
+                }else if($calculoData >= 225 && $calculoData <= 231){
+                    $semana = 1;
+                }else if($calculoData >= 232 && $calculoData <= 238){
+                    $semana = 2;
                 }
                 else if($calculoData >= 239 && $calculoData <= 245){
-                    $semana = 1;
-                }else if($calculoData >= 246 && $calculoData <= 252){
-                    $semana = 2;
-                }else if($calculoData >= 253 && $calculoData <= 259){
                     $semana = 3;
-                }else if($calculoData >= 260 && $calculoData <= 273){
+                }else if($calculoData >= 246 && $calculoData <= 252){
                     $semana = 4;
+                }else if($calculoData >= 253 && $calculoData <= 259){
+                    $semana = 1;
+                }else if($calculoData >= 260 && $calculoData <= 266){
+                    $semana = 2;
+                }else if($calculoData >= 267 && $calculoData <= 273){
+                    $semana = 3;
                 }
+                
                 //Inverno, de 274 a 364
                 else if($calculoData >= 274 && $calculoData <= 280){
-                    $semana = 1;
-                }else if($calculoData >= 281 && $calculoData <= 287){
-                    $semana = 2;
-                }else if($calculoData >= 288 && $calculoData <= 294){
-                    $semana = 3;
-                }else if($calculoData >= 295 && $calculoData <= 301){
                     $semana = 4;
+                }else if($calculoData >= 281 && $calculoData <= 287){
+                    $semana = 1;
+                }else if($calculoData >= 288 && $calculoData <= 294){
+                    $semana = 2;
+                }else if($calculoData >= 297 && $calculoData <= 301){
+                    $semana = 3;
                 }
                 else if($calculoData >= 302 && $calculoData <= 308){
-                    $semana = 1;
-                }else if($calculoData >= 309 && $calculoData <= 315){
-                    $semana = 2;
-                }else if($calculoData >= 316 && $calculoData <= 322){
-                    $semana = 3;
-                }else if($calculoData >= 323 && $calculoData <= 329){
                     $semana = 4;
+                }else if($calculoData >= 309 && $calculoData <= 315){
+                    $semana = 1;
+                }else if($calculoData >= 316 && $calculoData <= 322){
+                    $semana = 2;
+                }else if($calculoData >= 323 && $calculoData <= 329){
+                    $semana = 3;
                 }
                 else if($calculoData >= 330 && $calculoData <= 336){
-                    $semana = 1;
+                    $semana = 4;
                 }else if($calculoData >= 337 && $calculoData <= 343){
-                    $semana = 2;
+                    $semana = 1;
                 }else if($calculoData >= 344 && $calculoData <= 350){
+                    $semana = 2;
+                }else if($calculoData >= 351 && $calculoData <= 357){
                     $semana = 3;
-                }else if($calculoData >= 351 && $calculoData <= 364){
+                }else if($calculoData >= 358 && $calculoData <= 364){
                     $semana = 4;
                 }
 
@@ -268,7 +294,7 @@ class calendarioRuv {
         echo "                      &nbsp;";
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      <label for='estacao'><b>".$estacao."</b></label>";
+        echo "                      <label for='estacao'><b>".$estacao."</b></label>";//Problema
         echo "                  </td>";
         echo "                  <td>";
         echo "                      <label for='mes'><b>".$mes."</b></label>";
@@ -370,6 +396,13 @@ class calendarioRuv {
 
         echo "              </tr>";
         //Oitava linha
+//        echo "              <tr class='warning'>";
+//
+//        echo "                  <td colspan='7'>";
+//        echo                        "Quantidade de dias: ".$calculoData;
+//        echo "                  </td>";
+//
+//        echo "              </tr>";
         echo "              <tr class='warning'>";
 
         echo "                  <td colspan='7'>";

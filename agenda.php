@@ -3,6 +3,7 @@
 <?php
 //    require_once './view/formulario.php';
     require_once './controller/constantes.php';
+    require_once './controller/metodos.php';
     require_once './view/slideShow.php';
 
     error_reporting(0);
@@ -95,7 +96,12 @@
         
         <link rel="author" href="autor.txt">        
     </head>
-<body id="corAzulInfo">
+<body id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+    
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 				<div class="navbar-text-top">
@@ -165,9 +171,9 @@
                             echo "  <td colspan='2'>";
 
                             switch ($periodo) {
-                                case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='1000' height='529'></iframe>";
+                                case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='529'></iframe>";
                                     break;
-                                case 91: echo "<iframe src='view/setembro.php' width='1000' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                case 91: echo "<iframe src='view/setembro.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
                             }
 
                             echo "  </td>";

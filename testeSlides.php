@@ -93,126 +93,73 @@ $slide = new slideShow();
 
         </style>
        
-        <script>
-            
-            function mudaCor(opcao){
-                var imagem = document.getElementById('imagemRUVCorFundo');
-                switch(opcao){
-                    case "f1":
-                        imagem.style.backgroundColor = "#1C86EE";
-                        break;
-                    case "f2":
-                        imagem.style.backgroundColor = "#00BFFF";
-                        break;
-                    case "f3":
-                        imagem.style.backgroundColor = "#4F94CD";
-                        break;
-                    case "f4":
-                        imagem.style.backgroundColor = "#00CED1";
-                        break;
-                    case "f5":
-                        imagem.style.backgroundColor = "#436EEE";
-                        break;
-                    case "c1":
-                        imagem.style.backgroundColor = "#00CDCD";
-                        break;
-                    case "c2":
-                        imagem.style.backgroundColor = "#00C5CD";
-                        break;
-                    case "c3":
-                        imagem.style.backgroundColor = "#912CEE";
-                        break;
-                    case "c4":
-                        imagem.style.backgroundColor = "#9F79EE";
-                        break;
-                    case "c5":
-                        imagem.style.backgroundColor = "#87CEEB";
-                        break;
-                    case "c6":
-                        imagem.style.backgroundColor = "#009ACD";
-                        break;
-                    case "c7":
-                        imagem.style.backgroundColor = "#4682B4";
-                        break;
-                    case "c8":
-                        imagem.style.backgroundColor = "#4169E1";
-                        break;
-                    case "c9":
-                        imagem.style.backgroundColor = "#7B68EE";
-                        break;
-                    case "a1": //Chocolate
-                        imagem.style.backgroundColor = "#D2691E";
-                        break;
-                    case "a2": // OliverDrab
-                        imagem.style.backgroundColor = "#6B8E23";
-                        break;
-                    case "a3": // OliverDrab
-                        imagem.style.backgroundColor = "#B03060";
-                        break;
-                    case "a4": // OliverDrab
-                        imagem.style.backgroundColor = "#CD1076";
-                        break;
-                    case "a5": // OliverDrab
-                        imagem.style.backgroundColor = "#EE0000";
-                        break;
-                    case "a6": // OliverDrab
-                        imagem.style.backgroundColor = "#CD4F39";
-                        break;
-                    case "a7": // OliverDrab
-                        imagem.style.backgroundColor = "#00CD66";
-                        break;
-                    case "a8": // OliverDrab
-                        imagem.style.backgroundColor = "#8B5F65";
-                        break;
-                    case "a9": // OliverDrab
-                        imagem.style.backgroundColor = "#CD6889";
-                        break;
-                    case "a10": // OliverDrab
-                        imagem.style.backgroundColor = "#009ACD";
-                        break;
-                    case "a11": // OliverDrab
-                        imagem.style.backgroundColor = "#00688B";
-                        break;
-                    case "a12": // OliverDrab
-                        imagem.style.backgroundColor = "#1874CD";
-                        break;
-                    case "a13": // OliverDrab
-                        imagem.style.backgroundColor = "#104E8B";
-                        break;
-                    case "a14": // OliverDrab
-                        imagem.style.backgroundColor = "#6959CD";
-                        break;
-                    case "a15": // OliverDrab
-                        imagem.style.backgroundColor = "#B22222";
-                        break;
-                    case "a16": // OliverDrab
-                        imagem.style.backgroundColor = "#228B22";
-                        break;
-                    case "a17": // OliverDrab
-                        imagem.style.backgroundColor = "#3CB371";
-                        break;
-                    case "a18": // OliverDrab
-                        imagem.style.backgroundColor = "#8B2252";
-                        break;
-                    case "a19": // OliverDrab
-                        imagem.style.backgroundColor = "#CD2626";
-                        break;
-                }
-            }
-        </script>
+        <script src="js/scriptTeste.js"></script>
         
         <link rel="author" href="autor.txt">
         
     </head>
     <body>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="menuSup" style="background-color: #D9EDF7;">
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top">-->
                     <?php
                     $titulo = new slideShow();
                     $titulo->telaTitulo();
-                    
+                    echo "<label style='font-size: 12px;'>SlideShow: </label>";
                     echo "<select name='cor' style='font-family: arial; font-size: 16px;' onchange='mudaCor(this.value)'>";
+                    echo "  <option value=''></option>";
+
+                    echo "  <option value=''>FLEXTOOL</option>";
+                    echo "  <option value=''>============================</option>";
+                    echo "  <option value='f1' style='background-color: #1C86EE; color: #fff;'>Doggerblue 2</option>";
+                    echo "  <option value='f2' style='background-color: #00BFFF; color: #fff;'>Deepskyblue</option>";
+                    echo "  <option value='f3' style='background-color: #4F94CD; color: #fff;'>Steelblue3</option>";
+                    echo "  <option value='f4' style='background-color: #00CED1; color: #fff;'>Darkturquoise</option>";
+                    echo "  <option value='f5' style='background-color: #436EEE; color: #fff;'>Royalblue2</option>";
+
+                    echo "  <option value=''></option>";
+
+                    echo "  <option value=''>CSRO</option>";
+                    echo "  <option value=''>============================</option>";
+                    echo "  <option value='c1' style='background-color: #00CDCD; color: #fff;'>Cyan3</option>";
+                    echo "  <option value='c2' style='background-color: #00C5CD; color: #fff;'>Turquesa3</option>";
+                    echo "  <option value='c3' style='background-color: #912CEE; color: #fff;'>Roxo2</option>";
+                    echo "  <option value='c4' style='background-color: #9F79EE; color: #fff;'>Medium Roxo2</option>";
+                    echo "  <option value='c5' style='background-color: #87CEEB; color: #fff;'>Sky Azul3</option>";
+                    echo "  <option value='c6' style='background-color: #009ACD; color: #fff;'>Deepskyazul3</option>";
+                    echo "  <option value='c7' style='background-color: #4682B4; color: #fff;'>Steel Azul 2 e 3</option>";
+                    echo "  <option value='c8' style='background-color: #4169E1; color: #fff;'>Royal Azul2</option>";
+                    echo "  <option value='c9' style='background-color: #7B68EE; color: #fff;'>Medium Slate Azul</option>";
+
+                    echo "  <option value=''></option>";
+
+                    echo "  <option value=''>OUTROS</option>";
+                    echo "  <option value=''>============================</option>";
+                    echo "  <option value='a1' style='background-color: #D2691E; color: #fff;'>Chocolate</option>";
+                    echo "  <option value='a2' style='background-color: #6B8E23; color: #fff;'>OliveDrab</option>";
+                    echo "  <option value='a3' style='background-color: #B03060; color: #fff;'>Maroon</option>";
+                    echo "  <option value='a4' style='background-color: #CD1076; color: #fff;'>DeepPink3</option>";
+                    echo "  <option value='a5' style='background-color: #EE0000; color: #fff;'>Red2</option>";
+                    echo "  <option value='a6' style='background-color: #CD4F39; color: #fff;'>Tomato3</option>";
+                    echo "  <option value='a7' style='background-color: #00CD66; color: #fff;'>SpringGreen3</option>";
+                    echo "  <option value='a8' style='background-color: #8B5F65; color: #fff;'>LightPink4</option>";
+                    echo "  <option value='a9' style='background-color: #CD6889; color: #fff;'>PaleVioletRed3</option>";
+                    echo "  <option value='a10' style='background-color: #009ACD; color: #fff;'>DeepSkyBlue3</option>";
+                    echo "  <option value='a11' style='background-color: #00688B; color: #fff;'>DeepSkyBlue4</option>";
+                    echo "  <option value='a12' style='background-color: #1874CD; color: #fff;'>DodgerBlue3</option>";
+                    echo "  <option value='a13' style='background-color: #104E8B; color: #fff;'>DodgerBlue4</option>";
+                    echo "  <option value='a14' style='background-color: #6959CD; color: #fff;'>SlateBlue3</option>";
+                    echo "  <option value='a15' style='background-color: #B22222; color: #fff;'>Firebrick</option>";
+                    echo "  <option value='a16' style='background-color: #228B22; color: #fff;'>ForestGreen</option>";
+                    echo "  <option value='a17' style='background-color: #3CB371; color: #fff;'>MediumSeaGreen</option>";
+                    echo "  <option value='a18' style='background-color: #8B2252; color: #fff;'>VioletRed4</option>";
+                    echo "  <option value='a19' style='background-color: #CD2626; color: #fff;'>Firebrick3</option>";
+                    echo "</select>";
+                    
+                    echo "<br/>";
+                    
+                    echo "<label style='font-size: 12px;'>Menu's: </label>";
+                    echo "<select name='cor' style='font-family: arial; font-size: 16px;' onchange='mudaCorMenu(this.value)'>";
                     echo "  <option value=''></option>";
 
                     echo "  <option value=''>FLEXTOOL</option>";
@@ -277,7 +224,7 @@ $slide = new slideShow();
 
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="border-color: #009ACD;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" id="menuInf" style="background-color: #D9EDF7;">
                 <?php
                     $slide->preparaMenu("home");
                 ?>

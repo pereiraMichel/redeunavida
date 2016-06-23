@@ -3,6 +3,7 @@
 <?php
 require_once './view/formulario.php';
 require_once './controller/constantes.php';
+require_once './controller/metodos.php';
 require_once './view/slideShow.php';
 require_once './view/classFormAdesao.php';
 require_once './texto/classTexto.php';
@@ -14,9 +15,9 @@ require_once './texto/classTexto.php';
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Retiro do RUV - JR">
+        <meta name="keywords" content="retiro ruv rede una viva jornada real">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>
@@ -60,7 +61,12 @@ require_once './texto/classTexto.php';
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body id="corAzulInfo">
+    <body id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+        
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                     <div class="navbar-text-top">

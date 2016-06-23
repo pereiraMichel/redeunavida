@@ -3,12 +3,13 @@
 <?php
     require_once './view/formulario.php';
     require_once './controller/constantes.php';
+    require_once './controller/metodos.php';
     require_once './view/classFormAdesao.php';
     require_once './view/slideShow.php';
     require_once './texto/classTexto.php';
 
     $formulario = new formulario();
-
+    
 ?>
 
 <html lang="pt-br">
@@ -37,6 +38,10 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="css/estilo.css">
+	<!--<link rel="stylesheet" href="slider/css/screen.css" type="text/css" media="screen" />-->
+        <!--<link rel="stylesheet" href="slider/css/lightbox.css" type="text/css" media="screen" />-->
+        <!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
+        
 	<!--<link rel="stylesheet" href="css/style.css">-->
         
         <script src="js/jquery.js" defer=""></script>
@@ -44,6 +49,8 @@
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="js/modal.js" defer=""></script>
         <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
@@ -66,7 +73,12 @@
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-<body id="corAzulInfo">
+<body id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+    
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 				<div class="navbar-text-top">
@@ -80,35 +92,24 @@
 				</div>
 		</nav>
 	</header><!-- /header -->
+            <!--<p style="height: 150px;"></p>-->
 
-	<div id="content">
-		<div class="bs-docs-header bs-docs-first">
-			<div class="container">
-                            <div id="tituloPaginas"> Yoga</div>
-                                <br/>
-                                <!--<h3 style="color: blue; font-size: 18px;">Texto Introdutório e Explicativo da Jornada Real</h3><br/>-->
-                                <p style="text-align: justify; color: #1f226d;">
-                        <?php
-                        
-                        $quemsomos = new classTexto();
-                        
-                        $quemsomos->textoYoga();
-                        
-//                        $filename = "texto/quemsomos.xml";
-//                        
-//                        @header("Content-Type: text/html; charset=utf-8");
-//                        $xml = simplexml_load_file($filename);
-//
-//                        foreach($xml->texto as $texto)
-//                        {
-//                            echo $texto->quemsomos;
-//                            echo "<br>";
-//                        }
+        <div id="content">
+            <div class="bs-docs-header bs-docs-first">
+                <div class="container">
+                    <div class="col-sm-12">
+                        <div id="tituloPaginas"> Yoga Iyengar</div>
+                        <br/>
+                        <p style="text-align: justify; color: #1f226d;">
+                            <?php
+                            $quemsomos = new classTexto();
 
-?>
-				</p>
-			</div>
-		</div>
+                            $quemsomos->textoYoga();
+                            ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 <!-- Parte de baixo da página -->
@@ -122,12 +123,7 @@
             </nav>
 	</footer>
 
-<?php
-//    $formAdesao = new formAdesao();
-//    
-//    $formAdesao->telaFormAdesao();
 
-?>
 <!-- EOF -->
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="images/up.png" style="width:30px; height:30px"></div>

@@ -8,6 +8,7 @@ require_once './view/classFormAdesao.php';
 require_once './view/slideShow.php';
 
 $slide = new slideShow();
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ $slide = new slideShow();
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="css/menuResponsive.css">
         <link rel="stylesheet" href="css/icone_slider.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
         <link rel="stylesheet" href="css/jquery.bxslider.css">
         <link href="jscss/jquery.bxslider.css" rel="stylesheet" />
 
@@ -43,6 +44,7 @@ $slide = new slideShow();
 	<link rel="stylesheet" href="css/bootstrap1.css"> 
 
         <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/responsive.css">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <!--<script src="jscss/jquery.min.js"></script>-->
@@ -88,15 +90,44 @@ $slide = new slideShow();
             body
             {
                 padding-top: 40px; 
-                background-color: <?php echo AZULINFO; ?>;
+                background-color: <?php echo AZULFUNDOCLARO; ?>;
             }
 
         </style>
+        
+        <script>
+            function sizeOfThings(){
+              var windowWidth = window.innerWidth;
+              var windowHeight = window.innerHeight;
+
+              var screenWidth = screen.width;
+              var screenHeight = screen.height;
+
+
+              document.querySelector('.window-size').innerHTML = windowWidth + 'x' + windowHeight;
+              document.querySelector('.screen-size').innerHTML = screenWidth + 'x' + screenHeight;
+
+            };
+            sizeOfThings();
+
+            window.addEventListener('resize', function(){
+                    sizeOfThings();
+            });            
+            
+            
+        </script>
        
         <link rel="author" href="autor.txt">
         
     </head>
-    <body>
+    <body onload="sizeOfThings()">
+    <?php
+    $metodo = new metodos();
+    $metodo->modalAviso();
+//    echo "<script>";
+//    echo "  $(document).ready(function(){ $('#avisoMais').modal(); });";
+//    echo "</script>";
+    ?>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top">-->
@@ -115,10 +146,12 @@ $slide = new slideShow();
                 ?>
             <!--</div>-->
         </div>
+<!--                <h3>Window size is <span class="window-size"></span></h3>
+                <h3>Screen size is <span class="screen-size"></span></h3>-->
 
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="border-color: #009ACD;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="border-color: #1f226d;">
                 <?php
                     $slide->preparaMenu("home");
                 ?>

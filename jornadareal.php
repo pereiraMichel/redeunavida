@@ -3,6 +3,7 @@
 <?php
 require_once './view/formulario.php';
 require_once './controller/constantes.php';
+require_once './controller/metodos.php';
 require_once './view/slideShow.php';
 require_once './view/classFormAdesao.php';
 require_once './texto/classTexto.php';
@@ -60,13 +61,18 @@ $formulario = new formulario();
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AZULCLARO; ?>
+                background-color: <?php echo AZULFUNDOCLARO; ?>
             }
 
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body id="corAzulInfo">
+    <body id="corAzulFundoClaro">
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+        
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
                 <div class="navbar-text-top">
@@ -94,7 +100,7 @@ $formulario = new formulario();
                             <div class="col-md-6 text-center">
                                 <table class="table">
                                     <tr colspan="2">
-                                        <td style="border-color: #009ACD;">Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
+                                        <td style="border-color: #1874CD;">Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="2" style="background-color: #fff; border-color: #1874CD;">
@@ -160,9 +166,9 @@ $formulario = new formulario();
         <footer id="footer">
 
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
                 <?php
-                $titulo->preparaMenu("jornadaReal");
+                    $titulo->preparaMenu("jornadaReal");
                 ?>
 
             </nav>

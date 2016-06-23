@@ -3,6 +3,7 @@
 <?php
 require_once './view/formulario.php';
 require_once './controller/constantes.php';
+require_once './controller/metodos.php';
 require_once './view/classFormAdesao.php';
 require_once './view/slideShow.php';
 
@@ -59,11 +60,16 @@ $formulario = new formulario();
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AZULINFO; ?>;
+                background-color: <?php echo AZULFUNDOCLARO; ?>;
             }
         </style>
     </head>
     <body>
+    <?php
+        $metodo = new metodos();
+        $metodo->modalAviso();
+    ?>
+        
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
@@ -107,9 +113,9 @@ $formulario = new formulario();
                                     <span style="font-size: 16px;">
                                         <strong>
 
-    <?php
-    echo $texto->informacoes1;
-    ?>
+                                        <?php
+                                        echo $texto->informacoes1;
+                                        ?>
                                         </strong><br>
                                             <?php
                                             echo $texto->informacoes2;

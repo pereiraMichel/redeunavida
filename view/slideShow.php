@@ -236,10 +236,10 @@ class slideShow {
         echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px;
         echo "                  <span>";
         echo "                      <img src='images/logoRUV50x51.png' width='40' height='41'>";
-        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'><img src='images/letraRUV.png' title='RedeUnaViva' width='150' height='40'></a> ";
+        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'><img src='images/letraRUV.png' title='RedeUnaViva' width='150' height='40' style='width: 16%; height: 8%'></a> ";
 //        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>RedeUnaViva</a> ";
         echo "                  </span>";
-        echo "                  <img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 30%; height: 30%; padding-bottom: 0px;'>";
+        echo "                  <img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 20%; height: 20%; padding-bottom: 0px;'>";
         
 //        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: times new roman; font-weight: bold;'>RedeUnaViva</a> </span><a style='font-family: Arial Unicode MS, Cursive; font-size: 20px; text-decoration: none; color: #F2C700'><b><i>por uma cultura de paz</i></b></a>";
         echo "          </div>";
@@ -273,6 +273,9 @@ class slideShow {
         echo "<div class='banner-box'>";
         echo "<div class='banner'>";
         echo "  <ul class='bxslider'>";
+        echo "      <li class='icone_slider' id='imagemRUVCDoggerBlue3'>";
+        echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
+        echo "      </li>";
 //        echo "      <li class='icone_slider' id='imagemRUV'>";
 //        echo "      </li>";
         
@@ -292,7 +295,7 @@ class slideShow {
 //        echo "              <p>conspirada</p>";
 //        echo "              <p>em silêncio</p>";
 //        echo "          </div>";
-        echo "      </li>";
+//        echo "      </li>";
         echo "      <li class='icone_slider' id='imagem1'>";
         echo "          <div class='banner_texto1' style='padding-top: 35px;'>";
         echo "              <p style='text-align: center; font-family: arial'>";
@@ -317,15 +320,15 @@ class slideShow {
         echo "              <p style='font-size: 20px;'>para ser</p>";
         echo "          </div>";
         echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
-        echo "              <p>Um caminho espiritual</p>";
-        echo "              <p>de prática individual diária</p>";
-        echo "              <p>e encontros semanais em grupo afim</p>";
+        echo "              <p style='text-align: left;'>Um caminho espiritual</p>";
+        echo "              <p style='text-align: left;'>de prática individual diária</p>";
+        echo "              <p style='text-align: left;'>e encontros semanais em grupo afim</p>";
         echo "          </div>";
         echo "      </li>";
         // 
         echo "      <li class='icone_slider' id='imagem3'>";
         echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
-        echo "              <p style='text-align: center;'>Meditação</p>";
+        echo "              <p style='text-align: center;'>Jornada de Meditação</p>";
         echo "              <p style='font-size: 20px;'>sentar em paz<br/>sob a mente una</p>";
         echo "          </div>";
         echo "          <br/><br/>";
@@ -336,14 +339,14 @@ class slideShow {
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem4'>";
         echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
-        echo "              <p style='text-align: center;'>Retiro anual</p>";
+        echo "              <p style='text-align: center;'>Retiro Anual</p>";
         echo "              <p style='font-size: 20px;'>Morgenlicht</p>";
         echo "          </div>";
         echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
-        echo "              <p>jornada de autoconhecimento</p>";
-        echo "              <p>meditação</p>";
-        echo "              <p>roda dos sonhos</p>";
-        echo "              <p>yoga</p>";
+        echo "              <p style='text-align: left;'>jornada de autoconhecimento</p>";
+        echo "              <p style='text-align: left;'>meditação</p>";
+        echo "              <p style='text-align: left;'>roda dos sonhos</p>";
+        echo "              <p style='text-align: left;'>yoga</p>";
         echo "          </div>";
         echo "      </li>";
         echo "  </ul>";
@@ -452,9 +455,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -467,9 +472,11 @@ class slideShow {
                 $marcaJR = "class='active'";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -482,9 +489,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "class='active'";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -497,9 +506,28 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "class='active'";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "redeSocialClinica": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "class='active'";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -512,9 +540,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "class='active'";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -527,9 +557,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "class='active'";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -542,9 +574,28 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "class='active'";
+                $marcaSobreMais = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "sobremais": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
+                $marcaRetiro = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaSobreMais = "class='active'";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -557,9 +608,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "class='active'";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -572,9 +625,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "class='active'";
                 $marcaTranscurso = "";
@@ -587,9 +642,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "class='active'";
@@ -602,9 +659,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -617,9 +676,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -632,9 +693,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -647,9 +710,11 @@ class slideShow {
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
+                $marcaSobreMais = "";
                 $marcaYoga = "";
                 $marcaRodaSonhos = "";
                 $marcaTranscurso = "";
@@ -658,10 +723,10 @@ class slideShow {
                 $marcaContato = "";
                 break;
         }
-        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
+        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
     }
     
-    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
+    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
         
         echo "<div class='container-fluid'>";
         echo "  <div class='navbar-header'>";
@@ -671,12 +736,12 @@ class slideShow {
         echo "          <span class='icon-bar'></span>";
         echo "          <span class='icon-bar'></span>";
         echo "      </button>";
-        echo "      <a class='navbar-brand' href='contato.php' style='padding: 6px 0px 0px 20px;'>";
+        echo "      <a class='navbar-brand' href='contato.php' style='padding: 6px 0px 0px 20px; color: rgba(184, 124, 4, 0.9);'>";
 //        echo "          <small>";
 //        echo "            <h5>";
         echo "              <span style='font-size: ".TAMANHOMENU.";'>";
         echo                    ENDERECOORGAO;
-        echo "              <br>" . TELEFONEORGAO;
+        echo "              <br><img src='icon/glyphicons-443-earphone.png' width='20' height='20' alt='Telefone' title='Telefone'>" . TELEFONEORGAO;
         echo "              </span>";
 //        echo "            </h5>";
 //        echo "          </small>";
@@ -685,95 +750,105 @@ class slideShow {
         echo "  <div class='navbar-collapse collapse' id='menuBaixo' style='padding-right: 10px; font-size: ".TAMANHOMENU.";'>";
         echo "      <ul class='nav navbar-nav navbar-right'>";
         echo "          <li id='home' ".$marcaHome.">";
-        echo "              <a href='".HOMELINK."'>";
+        echo "              <a href='".HOMELINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Home"; //<i class="fa icon-home"></i> Home
         echo "              </a>";
         echo "          </li>";
         echo "          <li class='dropdown'>";
-        echo "              <a data-toggle='dropdown' class='dropdown-toggle'>";
+        echo "              <a data-toggle='dropdown' class='dropdown-toggle' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Programação";
         echo "                  <span class='caret'></span>";
         echo "              </a>"; //<i class="fa fa-puzzle-piece"></i> 
         echo "              <ul class='dropdown-menu' role='menu'>";
         echo "          <li ".$marcaJR.">";
-        echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self'>";
+        echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Jornada Real";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaMeditacao.">";
-        echo "              <a tabindex='0' href='".MEDITACAOLINK."'>";
+        echo "              <a tabindex='0' href='".MEDITACAOLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Jornada de Meditação";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaMeditacaoCrista.">";
-        echo "              <a tabindex='0' href='".MEDITCRISTALINK."'>";
+        echo "              <a tabindex='0' href='".MEDITCRISTALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Meditação Cristã";
         echo "              </a>";
         echo "          </li>";
+        echo "          <li ".$marcaRedeSocialClinica.">";
+        echo "              <a tabindex='0' href='".REDESOCIALCLINICA."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  Rede Social Clínica";
+        echo "              </a>";
+        echo "          </li>";
         echo "          <li ".$marcaRetiro.">";
-        echo "              <a tabindex='0' href='".RETIROLINK."'>";
+        echo "              <a tabindex='0' href='".RETIROLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Retiro";
         echo "              </a>";
         echo "          </li>";
         echo "      </ul>";
 //        echo "  </li>";
         echo "  <li class='dropdown'>";
-        echo "      <a tabindex='0' data-toggle='dropdown'>";
+        echo "      <a tabindex='0' data-toggle='dropdown' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Tempo";
         echo "          <span class='caret'></span>";
         echo "      </a>"; //<i class="fa fa-clock-o"></i> 
         echo "      <ul class='dropdown-menu' role='menu'>";
         echo "          <li ".$marcaAgenda.">";
-        echo "              <a tabindex='0' href='".AGENDALINK."' target='_self'>";
+        echo "              <a tabindex='0' href='".AGENDALINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Agenda";
         echo "              </a>"; // <i class="fa fa-dashboard"></i> 
         echo "          </li>";
         echo "          <li ".$marcaCalendario.">";
-        echo "              <a tabindex='0' href='".CALENDARIOLINK."' target='_self'>";
+        echo "              <a tabindex='0' href='".CALENDARIOLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Calendário";
         echo "              </a>"; // <i class="fa fa-calendar"></i> 
         echo "          </li>";
         echo "      </ul>";
         echo "  </li>";
         echo "  <li class='dropdown'>";
-        echo "      <a tabindex='0' data-toggle='dropdown'>";
+        echo "      <a tabindex='0' data-toggle='dropdown' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          ".MENU4."<span class='caret'></span>";
         echo "      </a>"; // <i class="fa fa-ticket"></i> 
         echo "          <ul class='dropdown-menu' role='menu'>";
+        echo "              <li ".$marcaSobreMais.">";
+        echo "                  <a tabindex='0' href='".SOBREMAIS."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                      Sobre MAIS...";
+        echo "                  </a>";
+        echo "              </li>";
         echo "              <li ".$marcaYoga.">";
-        echo "                  <a tabindex='0' href='".YOGALINK."'>";
+        echo "                  <a tabindex='0' href='".YOGALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                      Yoga";
         echo "                  </a>";
         echo "              </li>";
         echo "              <li ".$marcaRodaSonhos.">";
-        echo "                  <a tabindex='0' href='".RODASONHOSLINK."'>";
+        echo "                  <a tabindex='0' href='".RODASONHOSLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                      Roda dos Sonhos";
         echo "                  </a>";
         echo "              </li>";
         echo "              <li ".$marcaTranscurso.">";
-        echo "                  <a tabindex='0' href='".TRANSPESSOALLINK."'>";
+        echo "                  <a tabindex='0' href='".TRANSPESSOALLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                      Transcurso Transpessoal";
         echo "                  </a>";
         echo "              </li>";
         echo "          </ul>";
         echo "  </li>";
         echo "  <li id='galeria' ".$marcaGaleria.">";
-        echo "      <a href='".GALERIALINK."'>";
+        echo "      <a href='".GALERIALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Galeria"; // <i class="fa fa-ticket"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='quemsomos' ".$marcaQuemSomos.">";
-        echo "      <a href='".QUEMSOMOSLINK."' target='_self'>";
+        echo "      <a href='".QUEMSOMOSLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Quem Somos"; // <i class="fa fa-book"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='contato' ".$marcaContato.">";
-        echo "      <a href='".CONTATOLINK."' target='_self'>";
+        echo "      <a href='".CONTATOLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Contato"; // <i class="fa fa-envelope-o"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='blog'>";
-        echo "      <a href='".BLOGLINK."'>";
+        echo "      <a href='".BLOGLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Blog"; // <i class="fa fa-link"></i> 
         echo "      </a>";
         echo "  </li>";
@@ -785,7 +860,7 @@ class slideShow {
         echo "</ul>";
         echo "</div><!-- navbar-collapse -->";
         echo "</div> <!-- container-fluid -->";
-        
+
         
     }
     
