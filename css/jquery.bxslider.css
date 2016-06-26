@@ -30,6 +30,8 @@
 	margin-left: auto;
 }
 
+/*.bx-wrapper, .bx-viewport, .bx-wrapper img {height: 100% !important;}*/
+
 .bx-wrapper img {
 	max-width: 100%;
 	display: block;

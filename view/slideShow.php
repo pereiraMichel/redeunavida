@@ -178,7 +178,7 @@ class slideShow {
     
     public function telaTitulo(){
         
-        echo "<div class='navbar-header navbar-text-top' style='border-color: #000000'>";
+        echo "<div class='navbar-header navbar-text-top'>";
         echo "  <div class='container-fluid'>";
         echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>";
         echo "              <span class='sr-only'>Menu</span>";
@@ -222,6 +222,14 @@ class slideShow {
     public function telaNovaSlide(){
         $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
         $medidaTopGruposSemanais = "padding-top: 170px";//medida do subtítulo no banner
+
+
+//        echo "<script>";
+//        echo "  $('.bxslider').bxslider({";
+//        echo "      adaptiveHeight: true;";
+//        echo "      mode: 'fade';";
+//        echo "  });";
+//        echo "</script>";
         
         echo "<div class='banner-box'>";
         echo "<div class='banner'>";
@@ -230,7 +238,7 @@ class slideShow {
         echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem1'>";
-        echo "          <div class='banner_texto1' style='padding-top: 35px;'>";
+        echo "          <div class='banner_texto1'>";
         echo "              <p style='text-align: center; font-family: arial'>";
         echo "                  RedeUnaViva";
         echo "              </p>";
@@ -248,7 +256,7 @@ class slideShow {
         echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem2'>";
-        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
         echo "              <p style='text-align: center;'>Jornada Real</p>";
         echo "              <p style='font-size: 20px;'>para ser</p>";
         echo "          </div>";
@@ -260,7 +268,7 @@ class slideShow {
         echo "      </li>";
         // 
         echo "      <li class='icone_slider' id='imagem3'>";
-        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
         echo "              <p style='text-align: center;'>Jornada de Meditação</p>";
         echo "              <p style='font-size: 20px;'>sentar em paz<br/>sob a mente una</p>";
         echo "          </div>";
@@ -271,7 +279,7 @@ class slideShow {
         echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem4'>";
-        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial; padding-top: 35px;'>";
+        echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
         echo "              <p style='text-align: center;'>Retiro Anual</p>";
         echo "              <p style='font-size: 20px;'>Morgenlicht</p>";
         echo "          </div>";
@@ -390,6 +398,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -407,6 +416,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -424,6 +434,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -441,6 +452,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "class='active'";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -458,6 +470,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "class='active'";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -475,6 +488,25 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "class='active'";
+                $marcaSemanaRuv = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaSobreMais = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "semanaruv": 
+                $marcaHome = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
+                $marcaRetiro = "";
+                $marcaSemanaRuv = "class='active'";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -492,6 +524,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "class='active'";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -509,6 +542,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "class='active'";
                 $marcaSobreMais = "";
@@ -526,6 +560,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "class='active'";
@@ -543,6 +578,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -560,6 +596,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -577,6 +614,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -594,6 +632,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -611,6 +650,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -628,6 +668,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -645,6 +686,7 @@ class slideShow {
                 $marcaMeditacaoCrista = "";
                 $marcaRedeSocialClinica = "";
                 $marcaRetiro = "";
+                $marcaSemanaRuv = "";
                 $marcaAgenda = "";
                 $marcaCalendario = "";
                 $marcaSobreMais = "";
@@ -656,10 +698,10 @@ class slideShow {
                 $marcaContato = "";
                 break;
         }
-        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
+        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
     }
     
-    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
+    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
         
         echo "<div class='container-fluid'>";
         echo "  <div class='navbar-header'>";
@@ -726,6 +768,11 @@ class slideShow {
         echo "          <span class='caret'></span>";
         echo "      </a>"; //<i class="fa fa-clock-o"></i> 
         echo "      <ul class='dropdown-menu' role='menu'>";
+        echo "          <li ".$marcaSemanaRuv.">";
+        echo "              <a tabindex='0' href='".SEMANARUV."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  Semana RUV";
+        echo "              </a>"; // <i class="fa fa-dashboard"></i> 
+        echo "          </li>";
         echo "          <li ".$marcaAgenda.">";
         echo "              <a tabindex='0' href='".AGENDALINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "                  Agenda";

@@ -72,7 +72,7 @@ $formulario = new formulario();
     ?>
         
         <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
                         <?php
                         $titulo = new slideShow();
@@ -120,7 +120,7 @@ $formulario = new formulario();
         <footer id="footer">
 
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $titulo->preparaMenu("sobremais");
                 ?>

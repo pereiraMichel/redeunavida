@@ -120,17 +120,17 @@ $slide = new slideShow();
         <link rel="author" href="autor.txt">
         
     </head>
-    <body onload="sizeOfThings()">
+    <body>
     <?php
-    $metodo = new metodos();
-    $metodo->modalAviso();
+//    $metodo = new metodos();
+//    $metodo->modalAviso();
 //    echo "<script>";
 //    echo "  $(document).ready(function(){ $('#avisoMais').modal(); });";
 //    echo "</script>";
     ?>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo" style="border-color: #1f226d;">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
-                    <!--<div class="navbar-text-top">-->
+                    <!--<div class="navbar-text-top"> #D9EDF7-->
                     <?php
                     $titulo = new slideShow();
                     $titulo->telaTitulo();
@@ -151,7 +151,7 @@ $slide = new slideShow();
 
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="border-color: #1f226d;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $slide->preparaMenu("home");
                 ?>

@@ -25,6 +25,9 @@
         <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
 
+	<link rel="stylesheet" href="slider/css/screen_edit.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="slider/css/lightbox.css" type="text/css" media="screen" />
+        <link href='http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         
@@ -38,9 +41,6 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="css/estilo.css">
-	<!--<link rel="stylesheet" href="slider/css/screen.css" type="text/css" media="screen" />-->
-        <!--<link rel="stylesheet" href="slider/css/lightbox.css" type="text/css" media="screen" />-->
-        <!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
         
 	<!--<link rel="stylesheet" href="css/style.css">-->
         
@@ -49,8 +49,6 @@
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="js/modal.js" defer=""></script>
         <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
@@ -107,6 +105,7 @@
                             $quemsomos->textoYoga();
                             ?>
                         </p>
+                        
                     </div>
                 </div>
             </div>
@@ -115,7 +114,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $titulo->preparaMenu("yoga");
                 ?>
@@ -123,6 +122,10 @@
             </nav>
 	</footer>
 
+<script src="slider/js/jquery-1.7.2.min.js"></script>
+<script src="slider/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="slider/js/jquery.smooth-scroll.min.js"></script>
+<script src="slider/js/lightbox.js"></script>
 
 <!-- EOF -->
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">

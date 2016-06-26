@@ -326,8 +326,11 @@ div.WordSection1
 }
 #corAzulInfo
 {
-    background-color: #D9EDF7;
+    background-color: rgb(217, 237, 247);
+    /*background-color: #D9EDF7;*/
     border-bottom-color: #1f226d;
+    border-color: #1f226d;
+    border-top-color: #1f226d;
 }
 #corAzulFundoClaro
 {
@@ -345,7 +348,7 @@ div.WordSection1
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #FFF;
+/*  color: #FFF;*/
   background-color: #2D3192;
   /*background-color: #38B0DE;*/
 }

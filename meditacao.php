@@ -109,7 +109,7 @@
 <!-- Parte de baixo da página -->
 	<footer id="footer">
             <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="border-color: #009ACD;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $titulo->preparaMenu("meditacao");
                 ?>

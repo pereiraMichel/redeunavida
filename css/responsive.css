@@ -9,6 +9,30 @@ and open the template in the editor.
 */
 
 
+@media only screen and(min-device-height: 320px) and (max-device-height: 480px)
+{
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    display: none;
+    
+  }
+  .body{
+      padding-top: 40px;
+  }
+}
+@media (min-device-height: 490px) and (orientation: maction) and (max-device-height: 1024px)/* and (max-device-width: 820px)*/
+{
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    display: none;
+    
+  }
+  .body{
+      padding-top: 50px;
+  }
+    
+}
+
 /* Smartphones portrait and landscape */
 @media only screen and(min-device-width: 320px) and (max-device-width: 480px)
 {
@@ -17,9 +41,15 @@ and open the template in the editor.
     display: none;
     
   }
+  .body{
+      padding-top: 40px;
+  }
 }
 @media (min-device-width: 490px) and (orientation: maction)/* and (max-device-width: 820px)*/
 {
+    .body{
+        padding-top: 50px;
+    }
     .col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,
     .col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,
     .col-sm-11,.col-sm-12

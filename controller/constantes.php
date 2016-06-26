@@ -71,6 +71,7 @@
     define ('MEDITCRISTALINK', 'meditcrista.php');
     define ('REDESOCIALCLINICA', 'redesocialclinica.php');
     define ('RETIROLINK', 'retiro.php');
+    define ('SEMANARUV', 'semanaRuv.php');
     define ('AGENDALINK', 'agenda.php');
     define ('CALENDARIOLINK', 'calendario.php');
     define ('SOBREMAIS', 'sobremais.php');

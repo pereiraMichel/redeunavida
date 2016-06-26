@@ -4,20 +4,48 @@
 @import url("../../webfonts/Aller_Light/stylesheet.css");
 
 
-body {
-	/* [disabled]font-size: 0px; */
-	margin: 0px;
-
+@media only screen and (min-height: 500px) and (max-height: 529px)
+{
+    .icone_slider{
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* [disabled]margin: 0px; */
+        background-position: center center;
+        /* [disabled]background-color: #FC0; */
+        padding: 0px;
+        padding-top: 30px;
+        
+    }
 }
-.icone_slider {
+@media only screen and (min-height: 529px)
+{
+    .icone_slider{
 	height: 529px;
+	/*height: 529px;*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	/* [disabled]margin: 0px; */
 	background-position: center center;
 	/* [disabled]background-color: #FC0; */
 	padding: 0px;
-	/* [disabled]top: -20px; */
+        
+    }
+}
+
+body {
+	/* [disabled]font-size: 0px; */
+	margin: 0px;
+
+}
+.icone_slider {
+	/*min-height: 529px;*/
+        max-height: 520px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	padding: 0px;
+        padding-top: 30px;
 }
 
 .banner_box{
@@ -49,8 +77,8 @@ body {
 	text-transform: none;
 	text-shadow: 2px 2px 12px #000000;
 	font-family: Aller;
-	padding-top: 100px;
-	padding-left: 76px;
+	padding-top: 20px;
+	/*padding-left: 76px;*/
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
@@ -81,7 +109,7 @@ body {
 .banner_texto3{
 	font-size: 22px;
 	color: #FFF;
-	padding-left: 76px;
+	/*padding-left: 76px;*/
 	padding-top: 30px;
 	text-shadow: 2px 2px 12px #000000;
 	max-width: 500px;
@@ -104,6 +132,16 @@ body {
 }
 .banner_botao a:hover{
 	background-color: #F90;
+}
+@media only screen and (max-height : 500px) {
+	.icone_slider {
+	height: 100%;
+	}
+	.banner_texto1{
+	font-size: 42px;
+	padding-top: 20px;
+
+}
 }
 @media only screen and (max-width : 1024px) {
 	.icone_slider {
