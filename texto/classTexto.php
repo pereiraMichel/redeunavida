@@ -277,10 +277,10 @@ class classTexto {
     
     public function textoYoga(){
         $tamanhoFonte16 = "font-size: 20px; font-family: garamond; text-align: justify;";
-        echo "<div class='col-md-1'>";
-        echo "  &nbsp;";
-        echo "</div>";
-        echo "<div class='col-md-10' style='".$tamanhoFonte16."'>";
+//        echo "<div class='col-md-1'>";
+//        echo "  &nbsp;";
+//        echo "</div>";
+        echo "<div class='col-sm-12' style='".$tamanhoFonte16."'>";
         echo "  <p>";
         echo "      Segundo <b>Patanjali</b> nos yogasutras, <abbr title='yoga citta vrtti nirodah'><i>yoga citta vrtti nirodah</i></abbr> traduz-se por \"<b>yoga é pacificação das atividades da mente</b>\".<br/>";
         echo "  </p>";
@@ -306,13 +306,13 @@ class classTexto {
         echo "<div class='imageRow' style='padding-left: 30%; padding-right: 30%'>";
         echo "  <div class='set'>";
         echo "      <div class='single first'>";
-        echo "          <a href='images/yoga/foto8.jpg' rel='lightbox[plants]' title='Foto 1'>";
-        echo "              <img src='images/yoga/foto8.jpg' alt='Foto 1 de 2' style='height: 110px; width: 160px;'/>";
+        echo "          <a href='slider/images/yoga/foto8.jpg' rel='lightbox[plants]' title='Foto 1'>";
+        echo "              <img src='slider/images/yoga/foto8.jpg' alt='Foto 1 de 2' style='height: 110px; width: 160px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "      <div class='single last'>";
-        echo "          <a href='images/yoga/foto9.jpg' rel='lightbox[plants]' title='Foto 2'>";
-        echo "              <img src='images/yoga/foto9.jpg' alt='Foto 2 de 2' style='height: 110px; width: 160px;'/>";
+        echo "          <a href='slider/images/yoga/eduardo1.jpg' rel='lightbox[plants]' title='Foto 2'>";
+        echo "              <img src='slider/images/yoga/eduardo1.jpg' alt='Foto 2 de 2' style='height: 110px; width: 160px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
@@ -331,21 +331,21 @@ class classTexto {
         echo "<div class='imageRow' style='padding-left: 30%; padding-right: 30%;'>";
         echo "  <div class='set'>";
         echo "      <div class='single first'>";
-        echo "          <a href='images/yoga/foto6.jpg' rel='lightbox[plants]' title='Foto 1'>";
-        echo "              <img src='images/yoga/foto6.jpg' alt='Foto 1 de 2' style='height: 110px; width: 160px;'/>";
+        echo "          <a href='slider/images/yoga/heiko1.jpg' rel='lightbox[plants]' title='Foto 1'>";
+        echo "              <img src='slider/images/yoga/heiko1.jpg' alt='Foto 1 de 2' style='height: 110px; width: 160px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "      <div class='single last'>";
-        echo "          <a href='images/yoga/foto7.jpg' rel='lightbox[plants]' title='Foto 2'>";
-        echo "              <img src='images/yoga/foto7.jpg' alt='Foto 2 de 2' style='height: 110px; width: 160px;'/>";
+        echo "          <a href='slider/images/yoga/heiko2.jpg' rel='lightbox[plants]' title='Foto 2'>";
+        echo "              <img src='slider/images/yoga/heiko2.jpg' alt='Foto 2 de 2' style='height: 110px; width: 160px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
         echo "</div>";
         echo "</div>";
-        echo "<div class='col-md-1'>";
-        echo "  &nbsp;";
-        echo "</div>";
+//        echo "<div class='col-md-1'>";
+//        echo "  &nbsp;";
+//        echo "</div>";
     }
     
     public function textoMeditacaoCrista(){

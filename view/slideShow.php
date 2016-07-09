@@ -296,6 +296,66 @@ class slideShow {
 
     }
     
+    public function telaNovoSlide(){
+        $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
+        
+        echo "<div id='myCarousel' class='carousel slide'>";
+        echo "  <ol class='carousel-indicators'>";
+        echo "      <li data-target='#myCarousel' data-slide-to='0' class='active'>";
+        echo "      </li>";
+        echo "      <li data-target='#myCarousel' data-slide-to='1'>";
+        echo "      </li>";
+        echo "  </ol>";
+        echo "<!-- Carousel-inner -->";
+        echo "  <div class='carousel-inner'>";
+        echo "      <div class='active item'>";
+        echo "          <div class='carousel-caption'>";
+        echo "              <div class='banner_texto_estilo1'>";
+        echo "                  <p style='text-align: center; font-family: arial'>";
+        echo "                      RedeUnaViva";
+        echo "                  </p>";
+        echo "                  <p style='text-align: center; font-size: 20px; font-family: arial;'>por uma cultura de paz</p>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='carousel-caption' style='".$medidaTop.";'>";
+        echo "              <div class='banner_texto_estilo2'>";
+        echo "                  <p>nova humanidade</p>";
+        echo "                  <p>conspirada</p>";
+        echo "                  <p>em silêncio</p>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <img src='view/dummy-images/foto1TextoPuro.png' style='width: 100%; height: 555px; overflow: hidden;'>";
+        echo "      </div>";
+        echo "      <div class='item'>";
+        echo "          <div class='carousel-caption'>";
+        echo "              <div class='banner_texto_estilo1'>";
+        echo "                  <p style='text-align: center;'>Jornada Real</p>";
+        echo "                  <p style='font-size: 20px;'>para ser</p>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='carousel-caption' style='".$medidaTop.";'>";
+        echo "              <div class='banner_texto_estilo3'>";
+        echo "                  <p style='text-align: left;'>Um caminho espiritual</p>";
+        echo "                  <p style='text-align: left;'>de prática individual diária</p>";
+        echo "                  <p style='text-align: left;'>e encontros semanais em grupo afim</p>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <img src='view/dummy-images/foto2TextoPuro.png' style='width: 100%; height: 555px;'>";
+        echo "      </div>";
+        echo "  </div>";//fecha carousel-inner
+        echo "<!-- Carousel nav -->";
+        echo "<a class='carousel-control left' href='#myCarousel' role='button' data-slide='prev'>";
+        echo "  <span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>";
+        echo "  <span class='sr-only'>Previous</span>";
+        echo "</a>";
+//        echo "  <a class='carousel-control left' href='#myCarousel' data-slide='prev'>&lsaquo;</a>";
+        echo " <a class='carousel-control right' href='#myCarousel' data-slide='next'>";
+        echo "  <span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span>";
+        echo "  <span class='sr-only'>Next</span>";
+        echo "</a>";
+        echo "</div>";
+    }
+    
     public function telaNovaSlideTeste(){
         $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
         $medidaTopGruposSemanais = "padding-top: 170px";//medida do subtítulo no banner
