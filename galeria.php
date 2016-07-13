@@ -97,48 +97,158 @@
             <div class="content" style="margin: 0 auto; padding-left: 1%; padding-right: 1%;">
                 <div class="col-sm-12">
 
+                    <?php
+                        $pathJR = "galeria/jornadaReal/";
+                        $pathJORM = "galeria/jornadaMeditacao/";
+                        $pathMED = "galeria/meditacaoCrista/";
+                        $pathRET = "galeria/retiro/";
+                        $pathYOG = "galeria/yoga/";
+                        $pathESPRUV = "galeria/espacoRuv/";
+                    
+                    ?>
+                    
                     <div class="col-sm-2" id="subTituloGaleria">
                         Jornada Real
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/galeria/foto14.JPG" rel="lightbox[plants]" title="Jornada Real - Foto 1">
-                                        <img src="slider/images/galeria/foto14.JPG" alt="Jornada Real - Foto 1 de 8" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathJR; ?>fotoJR01.jpg" rel="lightbox[]" title="Jornada Real - Foto 1">
+                                        <img src="<?php echo $pathJR; ?>fotoJR01.jpg" alt="Jornada Real - Foto 1 de 28" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto3.JPG" rel="lightbox[plants]" title="Jornada Real - Foto 2">
-                                        <img src="slider/images/galeria/foto3.JPG" alt="Foto 2 de 8" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathJR; ?>fotoJR02.jpg" rel="lightbox[]" title="Jornada Real - Foto 2">
+                                        <img src="<?php echo $pathJR; ?>fotoJR02.jpg" alt="Foto 2 de 28" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto19.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 3">
-                                        <img src="slider/images/galeria/foto19.jpg" alt="Foto 3 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 3" />
+                                    <a href="<?php echo $pathJR; ?>fotoJR03.jpg" rel="lightbox[]" title="Jornada Real - Foto 3">
+                                        <img src="<?php echo $pathJR; ?>fotoJR03.jpg" alt="Foto 3 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 3" />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/jornadaReal/foto1.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 4">
-                                        <img src="slider/images/jornadaReal/foto1.jpg" alt="Foto 4 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 4" />
+                                    <a href="<?php echo $pathJR; ?>foto1.jpg" rel="lightbox[]" title="Jornada Real - Foto 4">
+                                        <img src="<?php echo $pathJR; ?>foto1.jpg" alt="Foto 4 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 4" />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/jornadaReal/foto2.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 5">
-                                        <img src="slider/images/jornadaReal/foto2.jpg" alt="Foto 5 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 5" />
+                                    <a href="<?php echo $pathJR; ?>foto2.jpg" rel="lightbox[]" title="Jornada Real - Foto 5">
+                                        <img src="<?php echo $pathJR; ?>foto2.jpg" alt="Foto 5 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 5" />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/jornadaReal/foto3.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 6">
-                                        <img src="slider/images/jornadaReal/foto3.jpg" alt="Foto 6 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 6" />
+                                    <a href="<?php echo $pathJR; ?>foto3.jpg" rel="lightbox[]" title="Jornada Real - Foto 6">
+                                        <img src="<?php echo $pathJR; ?>foto3.jpg" alt="Foto 6 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 6" />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/jornadaReal/foto4.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 7">
-                                        <img src="slider/images/jornadaReal/foto4.jpg" alt="Foto 7 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 7" />
+                                    <a href="<?php echo $pathJR; ?>foto4.jpg" rel="lightbox[]" title="Jornada Real - Foto 7">
+                                        <img src="<?php echo $pathJR; ?>foto4.jpg" alt="Foto 7 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 7" />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/jornadaReal/foto5.jpg" rel="lightbox[plants]" title="Jornada Real - Foto 8">
-                                        <img src="slider/images/jornadaReal/foto5.jpg" alt="Foto 8 de 8" <?php echo $margemImagens; ?> title="Jornada Real - Foto 8" />
+                                    <a href="<?php echo $pathJR; ?>foto5.jpg" rel="lightbox[]" title="Jornada Real - Foto 8">
+                                        <img src="<?php echo $pathJR; ?>foto5.jpg" alt="Foto 8 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 8" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR01.png" rel="lightbox[]" title="Jornada Real - Foto 9">
+                                        <img src="<?php echo $pathJR; ?>fotoJR01.png" alt="Foto 9 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 9" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR02.png" rel="lightbox[]" title="Jornada Real - Foto 10">
+                                        <img src="<?php echo $pathJR; ?>fotoJR02.png" alt="Foto 10 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 10" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR03.png" rel="lightbox[]" title="Jornada Real - Foto 11">
+                                        <img src="<?php echo $pathJR; ?>fotoJR03.png" alt="Foto 11 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 11" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR04.png" rel="lightbox[]" title="Jornada Real - Foto 12">
+                                        <img src="<?php echo $pathJR; ?>fotoJR04.png" alt="Foto 12 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 12" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR05.png" rel="lightbox[]" title="Jornada Real - Foto 13">
+                                        <img src="<?php echo $pathJR; ?>fotoJR05.png" alt="Foto 13 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 13" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR06.png" rel="lightbox[]" title="Jornada Real - Foto 14">
+                                        <img src="<?php echo $pathJR; ?>fotoJR06.png" alt="Foto 14 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 14" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR07.png" rel="lightbox[]" title="Jornada Real - Foto 15">
+                                        <img src="<?php echo $pathJR; ?>fotoJR07.png" alt="Foto 15 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 15" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR08.png" rel="lightbox[]" title="Jornada Real - Foto 16">
+                                        <img src="<?php echo $pathJR; ?>fotoJR08.png" alt="Foto 16 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 16" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR09.png" rel="lightbox[]" title="Jornada Real - Foto 17">
+                                        <img src="<?php echo $pathJR; ?>fotoJR09.png" alt="Foto 17 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 17" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR10.png" rel="lightbox[]" title="Jornada Real - Foto 18">
+                                        <img src="<?php echo $pathJR; ?>fotoJR10.png" alt="Foto 18 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 18" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR11.png" rel="lightbox[]" title="Jornada Real - Foto 19">
+                                        <img src="<?php echo $pathJR; ?>fotoJR11.png" alt="Foto 19 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 19" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR12.png" rel="lightbox[]" title="Jornada Real - Foto 20">
+                                        <img src="<?php echo $pathJR; ?>fotoJR12.png" alt="Foto 20 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 20" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR13.png" rel="lightbox[]" title="Jornada Real - Foto 21">
+                                        <img src="<?php echo $pathJR; ?>fotoJR13.png" alt="Foto 21 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 21" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR14.png" rel="lightbox[]" title="Jornada Real - Foto 22">
+                                        <img src="<?php echo $pathJR; ?>fotoJR14.png" alt="Foto 22 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 22" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR15.png" rel="lightbox[]" title="Jornada Real - Foto 23">
+                                        <img src="<?php echo $pathJR; ?>fotoJR15.png" alt="Foto 23 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 23" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR16.png" rel="lightbox[]" title="Jornada Real - Foto 24">
+                                        <img src="<?php echo $pathJR; ?>fotoJR16.png" alt="Foto 24 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 24" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR17.png" rel="lightbox[]" title="Jornada Real - Foto 25">
+                                        <img src="<?php echo $pathJR; ?>fotoJR17.png" alt="Foto 25 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 25" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR18.png" rel="lightbox[]" title="Jornada Real - Foto 26">
+                                        <img src="<?php echo $pathJR; ?>fotoJR18.png" alt="Foto 26 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 26" />
+                                    </a>
+                                </div>
+                                <div class="single">
+                                    <a href="<?php echo $pathJR; ?>fotoJR19.png" rel="lightbox[]" title="Jornada Real - Foto 27">
+                                        <img src="<?php echo $pathJR; ?>fotoJR19.png" alt="Foto 27 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 27" />
+                                    </a>
+                                </div>
+                                <div class="single last">
+                                    <a href="<?php echo $pathJR; ?>fotoJR20.png" rel="lightbox[]" title="Jornada Real - Foto 28">
+                                        <img src="<?php echo $pathJR; ?>fotoJR20.png" alt="Foto 28 de 28" <?php echo $margemImagens; ?> title="Jornada Real - Foto 28" />
                                     </a>
                                 </div>
                             </div>
@@ -151,13 +261,13 @@
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/galeria/foto7.jpg" rel="lightbox[plants]" title="Foto 7">
-                                        <img src="slider/images/galeria/foto7.jpg" alt="Foto 7 de 21" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathJORM; ?>fotoJM01.jpg" rel="lightbox[]" title="Meditação Cristã - Foto 1">
+                                        <img src="<?php echo $pathJORM; ?>fotoJM01.jpg" alt="Foto 1 de 2" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
-                                <div class="single">
-                                    <a href="slider/images/galeria/foto8.JPG" rel="lightbox[plants]" title="Foto 8">
-                                        <img src="slider/images/galeria/foto8.JPG" alt="Foto 8 de 21" <?php echo $margemImagens; ?> />
+                                <div class="single last">
+                                    <a href="<?php echo $pathJORM; ?>fotoJM02.jpg" rel="lightbox[]" title="Meditação Cristã - Foto 2">
+                                        <img src="<?php echo $pathJORM; ?>fotoJM02.jpg" alt="Foto 2 de 2" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 
@@ -172,128 +282,128 @@
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/galeria/foto1.JPG" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 1">
-                                        <img src="slider/images/galeria/foto1.JPG" title="<?php echo $textoTitulo; ?> - Foto 1 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>fotoMC01.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 1">
+                                        <img src="<?php echo $pathMED; ?>fotoMC01.jpg" title="<?php echo $textoTitulo; ?> - Foto 1 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto5.JPG" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 2">
-                                        <img src="slider/images/galeria/foto5.JPG" title="<?php echo $textoTitulo; ?> - Foto 2 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>fotoMC02.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 2">
+                                        <img src="<?php echo $pathMED; ?>fotoMC02.jpg" title="<?php echo $textoTitulo; ?> - Foto 2 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto9.JPG" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 3">
-                                        <img src="slider/images/galeria/foto9.JPG" title="<?php echo $textoTitulo; ?> - Foto 3 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>fotoMC03.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 3">
+                                        <img src="<?php echo $pathMED; ?>fotoMC03.jpg" title="<?php echo $textoTitulo; ?> - Foto 3 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto18.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 4">
-                                        <img src="slider/images/galeria/foto18.jpg" title="Foto 4 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>fotoMC04.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 4">
+                                        <img src="<?php echo $pathMED; ?>fotoMC04.jpg" title="Foto 4 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto1.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 5">
-                                        <img src="slider/images/meditacaoCrista/foto1.jpg" title="<?php echo $textoTitulo; ?> - Foto 5 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto1.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 5">
+                                        <img src="<?php echo $pathMED; ?>foto1.jpg" title="<?php echo $textoTitulo; ?> - Foto 5 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto2.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> -Foto 6">
-                                        <img src="slider/images/meditacaoCrista/foto2.jpg" title="<?php echo $textoTitulo; ?> - Foto 6 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto2.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 6">
+                                        <img src="<?php echo $pathMED; ?>foto2.jpg" title="<?php echo $textoTitulo; ?> - Foto 6 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto3.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 7">
-                                        <img src="slider/images/meditacaoCrista/foto3.jpg" title="<?php echo $textoTitulo; ?> - Foto 7 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto3.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 7">
+                                        <img src="<?php echo $pathMED; ?>foto3.jpg" title="<?php echo $textoTitulo; ?> - Foto 7 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto4.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 8">
-                                        <img src="slider/images/meditacaoCrista/foto4.jpg" title="<?php echo $textoTitulo; ?> - Foto 8 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto4.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 8">
+                                        <img src="<?php echo $pathMED; ?>foto4.jpg" title="<?php echo $textoTitulo; ?> - Foto 8 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto5.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 9">
-                                        <img src="slider/images/meditacaoCrista/foto5.jpg" title="<?php echo $textoTitulo; ?> - Foto 9 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto5.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 9">
+                                        <img src="<?php echo $pathMED; ?>foto5.jpg" title="<?php echo $textoTitulo; ?> - Foto 9 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto6.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 10">
-                                        <img src="slider/images/meditacaoCrista/foto6.jpg" title="<?php echo $textoTitulo; ?> - Foto 10 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto6.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 10">
+                                        <img src="<?php echo $pathMED; ?>foto6.jpg" title="<?php echo $textoTitulo; ?> - Foto 10 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto7.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 11">
-                                        <img src="slider/images/meditacaoCrista/foto7.jpg" title="<?php echo $textoTitulo; ?> - Foto 11 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto7.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 11">
+                                        <img src="<?php echo $pathMED; ?>foto7.jpg" title="<?php echo $textoTitulo; ?> - Foto 11 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto8.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 12">
-                                        <img src="slider/images/meditacaoCrista/foto8.jpg" title="<?php echo $textoTitulo; ?> - Foto 12 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto8.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 12">
+                                        <img src="<?php echo $pathMED; ?>foto8.jpg" title="<?php echo $textoTitulo; ?> - Foto 12 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto9.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 13">
-                                        <img src="slider/images/meditacaoCrista/foto9.jpg" title="<?php echo $textoTitulo; ?> - Foto 13 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto9.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 13">
+                                        <img src="<?php echo $pathMED; ?>foto9.jpg" title="<?php echo $textoTitulo; ?> - Foto 13 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto10.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 14">
-                                        <img src="slider/images/meditacaoCrista/foto10.jpg" title="<?php echo $textoTitulo; ?> - Foto 14 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto10.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 14">
+                                        <img src="<?php echo $pathMED; ?>foto10.jpg" title="<?php echo $textoTitulo; ?> - Foto 14 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto11.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 15">
-                                        <img src="slider/images/meditacaoCrista/foto11.jpg" title="<?php echo $textoTitulo; ?> - Foto 15 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto11.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 15">
+                                        <img src="<?php echo $pathMED; ?>foto11.jpg" title="<?php echo $textoTitulo; ?> - Foto 15 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto12.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 16">
-                                        <img src="slider/images/meditacaoCrista/foto12.jpg" title="<?php echo $textoTitulo; ?> - Foto 16 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto12.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 16">
+                                        <img src="<?php echo $pathMED; ?>foto12.jpg" title="<?php echo $textoTitulo; ?> - Foto 16 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto13.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 17">
-                                        <img src="slider/images/meditacaoCrista/foto13.jpg" title="<?php echo $textoTitulo; ?> - Foto 17 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto13.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 17">
+                                        <img src="<?php echo $pathMED; ?>foto13.jpg" title="<?php echo $textoTitulo; ?> - Foto 17 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto14.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 18">
-                                        <img src="slider/images/meditacaoCrista/foto14.jpg" title="<?php echo $textoTitulo; ?> - Foto 18 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto14.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 18">
+                                        <img src="<?php echo $pathMED; ?>foto14.jpg" title="<?php echo $textoTitulo; ?> - Foto 18 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto15.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 19">
-                                        <img src="slider/images/meditacaoCrista/foto15.jpg" title="<?php echo $textoTitulo; ?> - Foto 19 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto15.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 19">
+                                        <img src="<?php echo $pathMED; ?>foto15.jpg" title="<?php echo $textoTitulo; ?> - Foto 19 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto16.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 20">
-                                        <img src="slider/images/meditacaoCrista/foto16.jpg" title="<?php echo $textoTitulo; ?> - Foto 20 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto16.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 20">
+                                        <img src="<?php echo $pathMED; ?>foto16.jpg" title="<?php echo $textoTitulo; ?> - Foto 20 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto17.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 21">
-                                        <img src="slider/images/meditacaoCrista/foto17.jpg" title="<?php echo $textoTitulo; ?> - Foto 21 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto17.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 21">
+                                        <img src="<?php echo $pathMED; ?>foto17.jpg" title="<?php echo $textoTitulo; ?> - Foto 21 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto18.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 22">
-                                        <img src="slider/images/meditacaoCrista/foto18.jpg" title="<?php echo $textoTitulo; ?> - Foto 22 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto18.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 22">
+                                        <img src="<?php echo $pathMED; ?>foto18.jpg" title="<?php echo $textoTitulo; ?> - Foto 22 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto19.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 23">
-                                        <img src="slider/images/meditacaoCrista/foto19.jpg" title="<?php echo $textoTitulo; ?> - Foto 23 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto19.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 23">
+                                        <img src="<?php echo $pathMED; ?>foto19.jpg" title="<?php echo $textoTitulo; ?> - Foto 23 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/meditacaoCrista/foto20.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 24">
-                                        <img src="slider/images/meditacaoCrista/foto20.jpg" alt="<?php echo $textoTitulo; ?> - Foto 24 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto20.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 24">
+                                        <img src="<?php echo $pathMED; ?>foto20.jpg" alt="<?php echo $textoTitulo; ?> - Foto 24 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single last">
-                                    <a href="slider/images/meditacaoCrista/foto21.jpg" rel="lightbox[plants]" title="<?php echo $textoTitulo; ?> - Foto 25">
-                                        <img src="slider/images/meditacaoCrista/foto21.jpg" alt="<?php echo $textoTitulo; ?> - Foto 25 de 25" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathMED; ?>foto21.jpg" rel="lightbox[]" title="<?php echo $textoTitulo; ?> - Foto 25">
+                                        <img src="<?php echo $pathMED; ?>foto21.jpg" alt="<?php echo $textoTitulo; ?> - Foto 25 de 25" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 
@@ -307,58 +417,58 @@
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/galeria/foto2.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 1">
-                                        <img src="slider/images/galeria/foto2.JPG" alt="<?php echo $retiroAnual; ?> - Foto 1 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET101.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 1">
+                                        <img src="<?php echo $pathRET; ?>fotoRET101.jpg" alt="<?php echo $retiroAnual; ?> - Foto 1 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto4.JPG" rel="lightbox[plants]" title="Foto 2">
-                                        <img src="slider/images/galeria/foto4.JPG" alt="<?php echo $retiroAnual; ?> - Foto 2 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET102.jpg" rel="lightbox[]" title="Retiro Anual - Foto 2">
+                                        <img src="<?php echo $pathRET; ?>fotoRET102.jpg" alt="<?php echo $retiroAnual; ?> - Foto 2 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto6.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 3">
-                                        <img src="slider/images/galeria/foto6.JPG" alt="<?php echo $retiroAnual; ?> - Foto 3 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET103.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 3">
+                                        <img src="<?php echo $pathRET; ?>fotoRET103.jpg" alt="<?php echo $retiroAnual; ?> - Foto 3 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto10.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 4">
-                                        <img src="slider/images/galeria/foto10.JPG" alt="<?php echo $retiroAnual; ?> - Foto 4 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET104.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 4">
+                                        <img src="<?php echo $pathRET; ?>fotoRET104.jpg" alt="<?php echo $retiroAnual; ?> - Foto 4 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto11.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 5">
-                                        <img src="slider/images/galeria/foto11.JPG" alt="<?php echo $retiroAnual; ?> - Foto 5 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET105.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 5">
+                                        <img src="<?php echo $pathRET; ?>fotoRET105.jpg" alt="<?php echo $retiroAnual; ?> - Foto 5 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto12.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 6">
-                                        <img src="slider/images/galeria/foto12.JPG" alt="<?php echo $retiroAnual; ?> - Foto 6 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET106.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 6">
+                                        <img src="<?php echo $pathRET; ?>fotoRET106.jpg" alt="<?php echo $retiroAnual; ?> - Foto 6 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto15.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 7">
-                                        <img src="slider/images/galeria/foto15.JPG" alt="<?php echo $retiroAnual; ?> - Foto 7 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET107.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 7">
+                                        <img src="<?php echo $pathRET; ?>fotoRET107.jpg" alt="<?php echo $retiroAnual; ?> - Foto 7 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto16.jpg" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 8">
-                                        <img src="slider/images/galeria/foto16.jpg" alt="<?php echo $retiroAnual; ?> - Foto 8 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET108.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 8">
+                                        <img src="<?php echo $pathRET; ?>fotoRET108.jpg" alt="<?php echo $retiroAnual; ?> - Foto 8 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto17.jpg" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 9">
-                                        <img src="slider/images/galeria/foto17.jpg" alt="<?php echo $retiroAnual; ?> - Foto 9 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET109.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 9">
+                                        <img src="<?php echo $pathRET; ?>fotoRET109.jpg" alt="<?php echo $retiroAnual; ?> - Foto 9 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/galeria/foto20.JPG" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 10">
-                                        <img src="slider/images/galeria/foto20.jpg" alt="<?php echo $retiroAnual; ?> - Foto 10 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET110.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 10">
+                                        <img src="<?php echo $pathRET; ?>fotoRET110.jpg" alt="<?php echo $retiroAnual; ?> - Foto 10 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single last">
-                                    <a href="slider/images/galeria/foto21.jpg" rel="lightbox[plants]" title="<?php echo $retiroAnual; ?> - Foto 11">
-                                        <img src="slider/images/galeria/foto21.jpg" alt="<?php echo $retiroAnual; ?> - Foto 11 de 11" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathRET; ?>fotoRET111.jpg" rel="lightbox[]" title="<?php echo $retiroAnual; ?> - Foto 11">
+                                        <img src="<?php echo $pathRET; ?>fotoRET111.jpg" alt="<?php echo $retiroAnual; ?> - Foto 11 de 11" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 
@@ -373,68 +483,68 @@
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/galeria/foto13.JPG" rel="lightbox[plants]" title="Yoga Iyengar - Foto 1">
-                                        <img src="slider/images/galeria/foto13.JPG" title="Yoga Iyengar - Foto 1 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto7.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 1">
+                                        <img src="<?php echo $pathYOG; ?>foto7.jpg" title="Yoga Iyengar - Foto 1 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto6.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 2">
-                                        <img src="slider/images/yoga/foto6.jpg" alt="Yoga Iyengar - Foto 2 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto6.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 2">
+                                        <img src="<?php echo $pathYOG; ?>foto6.jpg" alt="Yoga Iyengar - Foto 2 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto1.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 3">
-                                        <img src="slider/images/yoga/foto1.jpg" title="Yoga Iyengar - Foto 3 de 13" alt="Yoga Iyengar - Foto 2 de 14" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto1.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 3">
+                                        <img src="<?php echo $pathYOG; ?>foto1.jpg" title="Yoga Iyengar - Foto 3 de 13" alt="Yoga Iyengar - Foto 2 de 14" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto2.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 4">
-                                        <img src="slider/images/yoga/foto2.jpg" title="Yoga Iyengar - Foto 4 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto2.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 4">
+                                        <img src="<?php echo $pathYOG; ?>foto2.jpg" title="Yoga Iyengar - Foto 4 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto3.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 5">
-                                        <img src="slider/images/yoga/foto3.jpg" title="Yoga Iyengar - Foto 5 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto3.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 5">
+                                        <img src="<?php echo $pathYOG; ?>foto3.jpg" title="Yoga Iyengar - Foto 5 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto4.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 6">
-                                        <img src="slider/images/yoga/foto4.jpg" title="Yoga Iyengar - Foto 6 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto4.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 6">
+                                        <img src="<?php echo $pathYOG; ?>foto4.jpg" title="Yoga Iyengar - Foto 6 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto5.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 7">
-                                        <img src="slider/images/yoga/foto5.jpg" alt="Yoga Iyengar - Foto 7 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto5.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 7">
+                                        <img src="<?php echo $pathYOG; ?>foto5.jpg" alt="Yoga Iyengar - Foto 7 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto8.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 8">
-                                        <img src="slider/images/yoga/foto8.jpg" alt="Yoga Iyengar - Foto 8 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto8.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 8">
+                                        <img src="<?php echo $pathYOG; ?>foto8.jpg" alt="Yoga Iyengar - Foto 8 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto9.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 9">
-                                        <img src="slider/images/yoga/foto9.jpg" alt="Yoga Iyengar - Foto 9 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto9.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 9">
+                                        <img src="<?php echo $pathYOG; ?>foto9.jpg" alt="Yoga Iyengar - Foto 9 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto10.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 10">
-                                        <img src="slider/images/yoga/foto10.jpg" alt="Yoga Iyengar - Foto 10 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto10.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 10">
+                                        <img src="<?php echo $pathYOG; ?>foto10.jpg" alt="Yoga Iyengar - Foto 10 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto11.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 11">
-                                        <img src="slider/images/yoga/foto11.jpg" alt="Yoga Iyengar - Foto 11 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto11.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 11">
+                                        <img src="<?php echo $pathYOG; ?>foto11.jpg" alt="Yoga Iyengar - Foto 11 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/yoga/foto12.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 12">
-                                        <img src="slider/images/yoga/foto12.jpg" alt="Yoga Iyengar - Foto 12 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto12.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 12">
+                                        <img src="<?php echo $pathYOG; ?>foto12.jpg" alt="Yoga Iyengar - Foto 12 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single last">
-                                    <a href="slider/images/yoga/foto13.jpg" rel="lightbox[plants]" title="Yoga Iyengar - Foto 13">
-                                        <img src="slider/images/yoga/foto13.jpg" alt="Yoga Iyengar - Foto 13 de 13" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathYOG; ?>foto13.jpg" rel="lightbox[]" title="<?php echo $yogaIyengar; ?> - Foto 13">
+                                        <img src="<?php echo $pathYOG; ?>foto13.jpg" alt="Yoga Iyengar - Foto 13 de 13" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 
@@ -443,37 +553,38 @@
                         <div style="height: 200px;">&nbsp;</div>
                     </div>
                     <div class="col-sm-2" id="subTituloGaleria">
+                        <?php $espacoRuvTexto = "Espaço RUV"; ?>
                         Espaço RUV
                         <div class="imageRow">
                             <div class="set">
                                 <div class="single first">
-                                    <a href="slider/images/espacoRuv/foto1.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 1">
-                                        <img src="slider/images/espacoRuv/foto1.jpg" alt="Foto 1 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto1.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 1">
+                                        <img src="<?php echo $pathESPRUV; ?>foto1.jpg" alt="Foto 1 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/espacoRuv/foto2.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 2">
-                                        <img src="slider/images/espacoRuv/foto2.jpg" alt="Foto 2 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto2.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 2">
+                                        <img src="<?php echo $pathESPRUV; ?>foto2.jpg" alt="Foto 2 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/espacoRuv/foto3.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 3">
-                                        <img src="slider/images/espacoRuv/foto3.jpg" alt="Foto 3 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto3.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 3">
+                                        <img src="<?php echo $pathESPRUV; ?>foto3.jpg" alt="Foto 3 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/espacoRuv/foto4.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 4">
-                                        <img src="slider/images/espacoRuv/foto4.jpg" alt="Foto 4 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto4.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 4">
+                                        <img src="<?php echo $pathESPRUV; ?>foto4.jpg" alt="Foto 4 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single">
-                                    <a href="slider/images/espacoRuv/foto5.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 5">
-                                        <img src="slider/images/espacoRuv/foto5.jpg" alt="Foto 5 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto5.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 5">
+                                        <img src="<?php echo $pathESPRUV; ?>foto5.jpg" alt="Foto 5 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 <div class="single last">
-                                    <a href="slider/images/espacoRuv/foto6.jpg" rel="lightbox[plants]" title="Espaço RUV - Foto 6">
-                                        <img src="slider/images/espacoRuv/foto6.jpg" alt="Foto 6 de 6" <?php echo $margemImagens; ?> />
+                                    <a href="<?php echo $pathESPRUV; ?>foto6.jpg" rel="lightbox[]" title="<?php echo $espacoRuvTexto; ?> - Foto 6">
+                                        <img src="<?php echo $pathESPRUV; ?>foto6.jpg" alt="Foto 6 de 6" <?php echo $margemImagens; ?> />
                                     </a>
                                 </div>
                                 
@@ -486,6 +597,7 @@
                     </div>
 
                     <?php
+                        
 //                        $filename = "texto/galeria.xml";
 //                        
 //                        @header("Content-Type: text/html; charset=utf-8");

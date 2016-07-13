@@ -328,9 +328,17 @@ div.WordSection1
 {
     background-color: rgb(217, 237, 247);
     /*background-color: #D9EDF7;*/
-    border-bottom-color: #1f226d;
-    border-color: #1f226d;
-    border-top-color: #1f226d;
+    /*border-bottom-color: #1f226d;*/
+    /*border-color: #1f226d;*/
+    /*border-top-color: #1f226d;*/
+}
+#corAzulInfo1
+{
+    background-color: rgb(217, 237, 247);
+    /*background-color: #D9EDF7;*/
+    /*border-bottom-color: #1f226d;*/
+    /*border-color: #1f226d;*/
+    /*border-top-color: #1f226d;*/
 }
 #corAzulFundoClaro
 {

@@ -299,7 +299,7 @@ class slideShow {
     public function telaNovoSlide(){
         $medidaTop = "padding-top: 200px";//medida do subtítulo no banner
         
-        echo "<div id='myCarousel' class='carousel slide'>";
+        echo "<div id='myCarousel' class='carousel slide' style='height: 100%;'>";
         echo "  <ol class='carousel-indicators'>";
         echo "      <li data-target='#myCarousel' data-slide-to='0' class='active'>";
         echo "      </li>";
