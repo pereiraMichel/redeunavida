@@ -121,6 +121,7 @@ $slide = new slideShow();
         
     </head>
     <body>
+    <!--<body onload="sizeOfThings()">-->
     <?php
 //    $metodo = new metodos();
 //    $metodo->modalAviso();
@@ -146,8 +147,8 @@ $slide = new slideShow();
                 ?>
             <!--</div>-->
         </div>
-<!--                <h3>Window size is <span class="window-size"></span></h3>
-                <h3>Screen size is <span class="screen-size"></span></h3>-->
+<!--                <h3>Window size is <span class="window-size"></span></h3>-->
+                <!--<h3>Screen size is <span class="screen-size"></span></h3>-->
 
         <!-- Parte de baixo da página -->
         <footer id="footer">

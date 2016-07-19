@@ -47,7 +47,7 @@
     background-color: #fffadf;
 }
 
-// Top - Barra
+/* Top - Barra */
 .navbar-subtext-top
 {
         color: #000;
@@ -60,7 +60,7 @@
         color: #000;
         font-size: 7px;
         letter-spacing: 1px;
-        //text-align: justify;
+        /*text-align: justify;*/
 }
 .navbar-text-top
 {
@@ -101,7 +101,7 @@
     src: url("../fonts/backolives.ttf");
 
 }
-//Fontes escolhidas
+/*Fontes escolhidas*/
 
 @font-face{
     font-family: Malayalam;
@@ -215,7 +215,7 @@ div.WordSection1
 	{page:WordSection1;}
 
 
-//Fim das fontes escolhidas
+/*Fim das fontes escolhidas*/
 
 .link-direita > div > a > h3,
 .link-direita > div > a > h3:hover,
@@ -228,7 +228,7 @@ div.WordSection1
   text-align: right;
   padding-right: 10px;
 }
-//Caption Overlay Imagens slide
+/*Caption Overlay Imagens slide*/
 
 .av-image-caption-overlay-center {
   display: block;
@@ -427,7 +427,7 @@ div.WordSection1
 }
 #imagemRUVCorFundo
 {
-//    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;
+/*    background: #D9EDF7 url('../images/logoRUVWhite.png') no-repeat center;*/
     background: url('../images/logoRUVWhite.png') no-repeat center;
     min-width: 600px;
     width: 100%;
@@ -567,4 +567,46 @@ div.WordSection1
         left: 50px;
         /*position: absolute;*/
 	max-width: 100%;
+}
+
+/* mudar */
+@media only screen and (min-height : 1195px) {
+    /*navbar-header navbar-text-top container-fluid*/
+    
+	.navbar-header {
+            
+	/*height: 400px;*/
+	}
+	.navbar-text-top
+        {
+
+        }
+        .container-fluid
+        {
+
+        }
+        .navbar-nav 
+        {
+            position:static;
+            float:none;
+            width:auto;
+            margin-top:0;
+            background-color:transparent;
+            border:0;
+            box-shadow:none;
+        }
+        .navbar-toggle
+        {
+            display: block;
+            position:relative;
+            float:right;
+            margin-right:15px;
+            padding:9px 10px;
+            margin-top:8px;
+            margin-bottom:8px;
+            background-color:transparent;
+            background-image:none;
+            border:1px solid transparent;
+            border-radius:4px;
+        }
 }
