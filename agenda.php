@@ -128,7 +128,10 @@
                     <div class='table-responsive' style='padding-left: 10px;'>				
                         <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
                             <tr style="background-color: #f1cd8b">
-                                <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda</div></td>
+                                <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda - próximos eventos</div></td>
+                            </tr>
+                            <tr class="warning">
+                                <td colspan="2"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Retiro - 3 a 10 de setembro de 2016</div></td>
                             </tr>
                             <tr>
                                 <td colspan="2">&nbsp;</td>

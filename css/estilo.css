@@ -369,6 +369,7 @@ div.WordSection1
     filter: alpha(opacity=65);
 }
 
+
 #imagem1
 {
     background-image: url('../view/dummy-images/foto1TextoPuro.png');
@@ -377,7 +378,7 @@ div.WordSection1
 
 #imagem2
 {
-    background-image: url('../slider/images/galeria/foto13.JPG');
+    background-image: url('../galeria/yoga/foto7.jpg');
 }
 
 #imagem3
@@ -570,12 +571,12 @@ div.WordSection1
 }
 
 /* mudar */
-@media only screen and (min-height : 1195px) {
-    /*navbar-header navbar-text-top container-fluid*/
+/*@media only screen and (min-height : 1195px) {
+    navbar-header navbar-text-top container-fluid
     
 	.navbar-header {
             
-	/*height: 400px;*/
+	height: 400px;
 	}
 	.navbar-text-top
         {
@@ -609,4 +610,4 @@ div.WordSection1
             border:1px solid transparent;
             border-radius:4px;
         }
-}
+}*/

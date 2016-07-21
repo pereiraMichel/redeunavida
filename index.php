@@ -32,7 +32,7 @@ $slide = new slideShow();
         <link rel="stylesheet" href="css/bootstrap-submenu.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="css/menuResponsive.css">
-        <link rel="stylesheet" href="css/icone_slider.css">
+        <link rel="stylesheet" href="css/icone_slider1.css">
         <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
         <link rel="stylesheet" href="css/jquery.bxslider.css">
         <link href="jscss/jquery.bxslider.css" rel="stylesheet" />
@@ -89,7 +89,8 @@ $slide = new slideShow();
         <style>
             body
             {
-                padding-top: 40px; 
+                padding-top: 40px;
+                margin: 0px;
                 background-color: <?php echo AZULFUNDOCLARO; ?>;
             }
 
@@ -147,8 +148,9 @@ $slide = new slideShow();
                 ?>
             <!--</div>-->
         </div>
-<!--                <h3>Window size is <span class="window-size"></span></h3>-->
+                <!--<h3>Window size is <span class="window-size"></span></h3>-->
                 <!--<h3>Screen size is <span class="screen-size"></span></h3>-->
+                <!--<p style="height: 200px">&nbsp;</p>-->
 
         <!-- Parte de baixo da página -->
         <footer id="footer">
@@ -170,11 +172,11 @@ $slide = new slideShow();
             $(document).ready(function () {
                 $('.bxslider').bxSlider({
                     auto: true,
-                    mode: 'fade',
-                    slideMargin: 0,
-                    controls: true,
-                    touchEnabled: true,
-                    autoControls: true,
+                    mode: 'horizontal',
+//                    slideMargin: 0,
+//                    controls: true,
+//                    touchEnabled: true,
+//                    autoControls: true,
                     responsive: true
 
 

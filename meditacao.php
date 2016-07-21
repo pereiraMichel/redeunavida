@@ -56,7 +56,7 @@
             iframe{width: 100%; border: none; position: absolute}
             body
             {
-                padding-top: 80px;
+                padding-top: 80px
                 // background-color: <?php //echo AZULFUNDOCLARO; ?>
             }
 

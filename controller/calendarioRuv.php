@@ -300,13 +300,13 @@ class calendarioRuv {
         echo "                      <label for='mes'><b>".$mes."</b></label>";
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      <label for='semana'><b>".$semana."</b></label>";
+        echo "                      <label for='semana'><b>1</b></label>"; //".$semana."
         echo "                  </td>";
         echo "                  <td style='width: ".$larguraColuna."px; background-color: #00BFFF'>";
         echo "                      &nbsp;";
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      <label style='color: #0000FF' for='dias'><b>".$dia."</b></label>";
+        echo "                      <label style='color: #0000FF' for='dias'><b>".$semana."</b></label>"; //era $dia
         echo "                  </td>";
         echo "              </tr>";
         //Quarta linha
