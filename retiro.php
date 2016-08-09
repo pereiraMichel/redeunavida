@@ -55,8 +55,8 @@ require_once './texto/classTexto.php';
         </script>
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
-            /*iframe{width: 100%; border: none; position: absolute}*/
-            body{padding-top: 80px;}
+            /*iframse{width: 100%; border: none; position: absolute}*/
+            body{padding-top: 100px;}
 
         </style>
         <link rel="author" href="autor.txt">      
@@ -93,7 +93,7 @@ require_once './texto/classTexto.php';
                             </b>
                         </div>
                         <br/>
-                        <img src="images/imgRetiro.jpg" title="Retiro" alt="Retiro" width="450" height="290">
+                        <img src="images/imgRetiro.jpg" title="Retiro" alt="Retiro" width="550" height="390">
                     </div>
                     <div class="col-md-12" style="color: #1f226d;">
                         <?php
@@ -105,10 +105,10 @@ require_once './texto/classTexto.php';
             </div>
         </div>
 
-        <p style="height: 120px">&nbsp;</p>
+        <!--<p style="height: 120px">&nbsp;</p>-->
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <p style="height: 150px;"></p>
+            <p style="height: 50px;"></p>
             <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $titulo->preparaMenu("retiro");

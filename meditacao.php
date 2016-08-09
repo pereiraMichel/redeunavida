@@ -53,11 +53,15 @@
         </script>
         <style>
             /*html, body, div, iframe {margin: 0px; padding: 0px}*/
-            iframe{width: 100%; border: none; position: absolute}
+            iframe
+            {
+                width: 100%; 
+                border: none; 
+                position: absolute
+            }
             body
             {
-                padding-top: 80px
-                // background-color: <?php //echo AZULFUNDOCLARO; ?>
+                padding-top: 100px;
             }
 
         </style>

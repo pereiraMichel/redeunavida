@@ -17,9 +17,9 @@ $formulario = new formulario();
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano">
+        <meta name="keywords" content="jornada real jr">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>

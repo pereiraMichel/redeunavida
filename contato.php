@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 
 <?php
+
 require_once './view/formulario.php';
 require_once './controller/constantes.php';
 require_once './controller/metodos.php';
 require_once './view/classFormAdesao.php';
 require_once './view/slideShow.php';
+require_once './controller/enviaMensagem.php';
+require_once './lib/phpmailer/class.phpmailer.php';
+require_once './lib/phpmailer/class.smtp.php';
+require_once './lib/phpmailer/class.pop3.php';
+require_once './lib/phpmailer/class.phpmaileroauth.php';
+
 
 $formulario = new formulario();
+
+
 ?>
 
 <html lang="pt-br">
@@ -66,8 +75,8 @@ $formulario = new formulario();
     </head>
     <body>
     <?php
-        $metodo = new metodos();
-        $metodo->modalAviso();
+//        $metodo = new metodos();
+//        $metodo->modalAviso();
     ?>
         
         <header id="header">
@@ -132,14 +141,36 @@ $formulario = new formulario();
                     <div class="col-sm-12 text-left">
                         <address class="well">
                             <h4>
-                                <a href='#enviarMensagem' role='button' data-toggle='modal' style="text-decoration: none; color: #3F6CA1">
-                                    <b>Quero enviar uma mensagem</b>
+                                <!--<a href='#enviarMensagem' role='button' data-toggle='modal' style="text-decoration: none; color: #3F6CA1">-->
+                                    <!--<b>Quero enviar uma mensagem</b>-->
+                                <!--</a>-->
+
+                            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                              Quero enviar uma mensagem
+                            </a>
+                                <p style="height: 10px;"></p>
+                                <!--<div class="label label-info" id="mensagem" style="display: none;"></div>-->
+                                <a class="alert alert-danger" id="erro" style="display: none;">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    Ocorreu um erro. Tente novamente mais tarde.
                                 </a>
-
-
+                                <a class="alert alert-success" id="sucesso" style="display: none;">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    Mensagem enviada com sucesso!
+                                </a>
+                            <div class="collapse" id="collapseExample">
+                              <div class="well">
+                                <?php
+                                $formulario->mensagemContato();    
+                                
+                                ?>
+                              </div>
+                            </div>
 
                             </h4>
                         </address>
+
+                        
                     </div>
                 </div>
             </div>
@@ -159,43 +190,6 @@ $formulario = new formulario();
 
             </nav>
 	</footer>
-
-
-        <!-- EOF -->
-        <!--<div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px"></div>
-        <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px">
-        </div>-->
-
-        <!-- Modal -->
         
-        
-        <form name="form_contato" action="contato.php" method="post">
-            <div class="modal fade" id="enviarMensagem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel" style="color: #3F6CA1;"><img src="images/logoRUV50x51.png"/> RedeUnaViva - <small style="color: #3F6CA1;">Enviar mensagem</small></h4>
-                        </div>
-                        <div class="modal-body">
-                        <?php
-                            $formulario->mensagemContato();
-                        ?>
-                        </div>
-                        <div class="modal-footer" style="padding-right: 50px">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary">Enviar</button>
-                        </div>
-                        <br/>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-
     </body>
 </html>

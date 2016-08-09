@@ -47,7 +47,7 @@ $slide = new slideShow();
         <link rel="stylesheet" href="css/responsive.css">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <!--<script src="jscss/jquery.min.js"></script>-->
+        <script src="jscss/jquery.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/bootstrap-submenu.js"></script>
         <script src="js/jquery-migrate.min.js"></script>
@@ -117,7 +117,13 @@ $slide = new slideShow();
             
             
         </script>
-       
+        
+        <script>
+            function paginaOficial(){
+                window.location.href="http://www.redeunaviva.rio";
+            }
+            
+        </script>
         <link rel="author" href="autor.txt">
         
     </head>
@@ -173,11 +179,12 @@ $slide = new slideShow();
                 $('.bxslider').bxSlider({
                     auto: true,
                     mode: 'horizontal',
-//                    slideMargin: 0,
-//                    controls: true,
-//                    touchEnabled: true,
-//                    autoControls: true,
-                    responsive: true
+                    slideMargin: 0,
+                    controls: true,
+                    touchEnabled: true,
+                    autoControls: true,
+                    responsive: true,
+                    pause: 6000
 
 
                 });

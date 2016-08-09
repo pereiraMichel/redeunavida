@@ -611,3 +611,33 @@ div.WordSection1
             border-radius:4px;
         }
 }*/
+
+#selecaoTd
+{
+    width: 120px; /*Largura do td*/
+}
+#selecaoTd:hover
+{
+    width: 120px; /*Largura do td*/
+    z-index: 2;
+/*    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    -webkit-transform: translate(100%,0);
+    -ms-transform: translate(100%,0);
+    transform: translate(100%,0);*/
+    opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+    
+}
+
+#linkEstacao
+{
+    text-decoration: none;
+    color: #000;
+}
+#linkEstacao:hover
+{
+    text-decoration: none;
+    color: #fff;
+}

@@ -12,7 +12,7 @@ class classTexto {
         
         echo "<div class='row' style='color: #1f226d;'>";
         echo "<div style='height: 20px;'></div>";
-        echo "<div class='col-xs-6 col-sm-5'>";
+        echo "<div class='col-xs-6 col-sm-5' style='padding-right: 0; margin-right: 0; width: 50%;'>";
         echo "<ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
         echo "  <li>1. A Jornada Real é, por excelência, um caminho espiritual, afinado com o conceito de sadhana da tradição védica, que esclarece que todas as atividades do viver comum podem ser assumidas como oportunidades para o desenvolvimento espiritual  e, por fim, para a própria iluminação.</li>";
         echo "  <li>&nbsp;</li>";
@@ -23,8 +23,8 @@ class classTexto {
         echo "  <li>4. Concebemos a Jornada diária, com dois portais de mudança de consciência como momentos propícios para atividades específicas de autoconhecimento e autotransformação. O portal da noite (PN), onde se realiza a retrospectiva do dia, e o portal da manhã (PM), onde se registra os sonhos. Há recursos próprios para incentivar exercícios de autoterapia com estes conteúdos.</li>";
         echo "</ul>";
         echo "</div>";
-        echo "<div class='col-xs-6 col-sm-7' align='center'>";
-        echo "  <img src='images/logoJrColor.png' width='300' height='250' class='img-responsive'>";
+        echo "<div class='col-xs-6 col-sm-7' align='center' style='padding-left: 0; margin-left: 0; width: 50%; heigth: 50%;'>";
+        echo "  <img src='images/logoJrColor.png' width='400' height='300' class='img-responsive' style='padding-top: 15%;'>";
         echo "</div>";
         echo "</div>"; // Fecha o div class row
         
@@ -33,9 +33,9 @@ class classTexto {
         echo "<div class='row' style='color: #1f226d;'>";
         echo "<div style='height: 20px;'></div>";
         echo "<div class='col-xs-6 col-sm-6' align='center'>";
-        echo "  <img src='images/jrLogoColorAzul.png' width='300' height='250' class='img-responsive'>";
+        echo "  <img src='jr/JRImage1.jpg' width='450' height='611' class='img-responsive'>";
         echo "</div>";
-        echo "<div class='col-xs-6 col-sm-6'>";
+        echo "<div class='col-xs-6 col-sm-6' style='width: 50%;'>";
         echo "<ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
         echo "      <li>5. A meditação é prática fundamental em todo o percurso, realizada diariamente, e técnicas específicas são ensinadas.<br>";
         echo "      <br>6. Mensalmente, há atividades de auto-avaliação.";
@@ -77,7 +77,9 @@ class classTexto {
         echo "          </ul>";
         echo "      </div>";
         echo "  <div class='col-xs-6 col-sm-6' align='center'>";
-        echo "  <img src='images/jrLogoColorRoxo.png' width='300' height='250' class='img-responsive'>";
+        echo "      <img src='jr/JRImage3.jpg' width='400' height='561' class='img-responsive'>";
+        echo "      <br/>";
+        echo "      <img src='jr/JRImage2.jpg' width='400' height='561' class='img-responsive'>";
         echo "  </div>";
         echo "</div>";//Fecha a div row
 
@@ -86,7 +88,7 @@ class classTexto {
         echo "<div class='row' style='color: #1f226d;'>";
         echo "  <div style='height: 20px;'></div>";
         echo "      <div class='col-xs-6 col-sm-6' align='center'>";
-        echo "          <img src='images/jrLogoColorVerde.png' width='300' height='250' class='img-responsive'>";
+        echo "          <img src='jr/JRImage6.jpg' width='400' height='561' class='img-responsive'>";
         echo "      </div>";
         echo "      <div class='col-xs-6 col-sm-6'>";
         echo "          <ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
@@ -113,38 +115,39 @@ class classTexto {
         echo "      <div class='col-xs-6 col-sm-6'>";
         echo "          <ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
         echo "              <li>";
-        echo "                  18. A inscrição é feita mediante preenchimento do Formulário de Adesão, que pode ser conseguido por e-mail. Não há um compromisso de permanência depois de ter sido feita a inscrição. Isto é, caso não esteja satisfeita ou por outros motivos, a pessoa pode desfazer, em qualquer momento, o compromisso de permanecer na Jornada.";
+        echo "                  18. A inscrição é feita mediante preenchimento do Formulário de Adesão (JR). Não há um compromisso de permanência depois de ter sido feita a inscrição. Isto é, caso não esteja satisfeita ou por outros motivos, a pessoa pode desfazer, em qualquer momento, o compromisso de permanecer na jornada.";
         echo "              <br><br>";
-        echo "                  19. A conclusão do ano-Jornada Real ocorre por meio de uma semana de retiro, visando a intensificação da prática deste programa. Sua adesão, apesar de não obrigatória, é fortemente recomendada.";
+        echo "                  19. A sua entrada somente poderá ser feita até dois meses de iniciado. Seu início, em 2016, se dará na semana, cujo domingo é dia 18 de setembro, considerado o primeiro dia da semana.";
+        
+//        echo "                  19. A conclusão do ano-Jornada Real ocorre por meio de uma semana de retiro, visando a intensificação da prática deste programa. Sua adesão, apesar de não obrigatória, é fortemente recomendada.";
         echo "              </li>";
         echo "          </ul>";
         echo "      </div>";
         echo "  <div class='col-xs-6 col-sm-6' align='center'>";
-        echo "  <img src='images/jrLogomarca.png' width='300' height='250' class='img-responsive'>";
+        echo "      <img src='jr/JRBorboleta.jpg' class='img-responsive' style='width: 400px; height: 561px;'>";
         echo "  </div>";
         echo "</div>";//Fecha a div row
         
         //Sexta parte
         
-        echo "<div class='row' style='color: #1f226d;'>";
-        echo "  <div style='height: 20px;'></div>";
-        echo "      <div class='col-xs-6 col-sm-6' align='center'>";
-        echo "          <img src='images/jrLogoColorRoxoClaro.png' width='300' height='250' class='img-responsive'>";
-        echo "      </div>";
-        echo "  <div class='col-xs-6 col-sm-6'>";
-        echo "      <ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
-        echo "              <li>";
-        echo "                  20. A sua entrada somente poderá ser feita até dois meses de iniciado. Seu início, em 2015, se dará na semana, cujo domingo é dia 20 de setembro, considerado o primeiro dia da semana.";
-        echo "              <br><br>";
-        echo "                  21. Para se inscrever use o <a href='formAdesao.php' href='_self' style='color: #3F6CA1'>Formulário de Adesão (JR)</a>.";
-        echo "              </li>";
-        echo "          </ul>";
-        echo "  </div>";
-        echo "</div>";//Fecha a div row
+//        echo "<div class='row' style='color: #1f226d;'>";
+//        echo "  <div style='height: 20px;'></div>";
+//        echo "      <div class='col-xs-6 col-sm-6' align='center'>";
+//        echo "          <img src='images/jrLogoColorRoxoClaro.png' width='300' height='250' class='img-responsive'>";
+//        echo "      </div>";
+//        echo "  <div class='col-xs-6 col-sm-6'>";
+//        echo "      <ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
+//        echo "              <li>";
+//        echo "              <br><br>";
+////        echo "                  21. Para se inscrever use o <a href='formAdesao.php' href='_self' style='color: #3F6CA1'>Formulário de Adesão (JR)</a>.";
+//        echo "              </li>";
+//        echo "          </ul>";
+//        echo "  </div>";
+//        echo "</div>";//Fecha a div row
     }
     
     public function textoQuemSomos(){
-        $tamanhoFonte16="font-size: 20px; font-family: garamond; text-align: justify;";
+        $tamanhoFonte16="font-size: 20px; font-family: garamond; text-align: justify; color: #1f226d;";
         
         echo "<p style='height: 15px;'>&nbsp;</p>";
         echo "<div class='col-md-1'></div>";
@@ -276,7 +279,7 @@ class classTexto {
     }
     
     public function textoYoga(){
-        $tamanhoFonte16 = "font-size: 20px; font-family: garamond; text-align: justify;";
+        $tamanhoFonte16 = "font-size: 20px; font-family: garamond; text-align: justify; color: #1f226d;";
 //        echo "<div class='col-md-1'>";
 //        echo "  &nbsp;";
 //        echo "</div>";
@@ -306,13 +309,13 @@ class classTexto {
         echo "<div class='imageRow' style='padding-left: 25%; padding-right: 25%'>";
         echo "  <div class='set'>";
         echo "      <div class='single first'>";
-        echo "          <a href='slider/images/yoga/foto8.jpg' rel='lightbox[plants]' title='Foto 1'>";
-        echo "              <img src='slider/images/yoga/foto8.jpg' alt='Foto 1 de 2' style='height: 190px; width: 250px;'/>";
+        echo "          <a href='galeria/yoga/foto8.jpg' rel='lightbox[plants]' title='Foto 1'>";
+        echo "              <img src='galeria/yoga/foto8.jpg' alt='Foto 1 de 2' style='height: 190px; width: 250px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "      <div class='single last'>";
-        echo "          <a href='slider/images/yoga/eduardo1.jpg' rel='lightbox[plants]' title='Foto 2'>";
-        echo "              <img src='slider/images/yoga/eduardo1.jpg' alt='Foto 2 de 2' style='height: 190px; width: 250px;'/>";
+        echo "          <a href='galeria/yoga/eduardo1.jpg' rel='lightbox[plants]' title='Foto 2'>";
+        echo "              <img src='galeria/yoga/eduardo1.jpg' alt='Foto 2 de 2' style='height: 190px; width: 250px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
@@ -331,13 +334,13 @@ class classTexto {
         echo "<div class='imageRow' style='padding-left: 25%; padding-right: 25%;'>";
         echo "  <div class='set'>";
         echo "      <div class='single first'>";
-        echo "          <a href='slider/images/yoga/heiko1.jpg' rel='lightbox[plants]' title='Foto 1'>";
-        echo "              <img src='slider/images/yoga/heiko1.jpg' alt='Foto 1 de 2' style='height: 190px; width: 250px;'/>";
+        echo "          <a href='galeria/yoga/heiko1.jpg' rel='lightbox[plants]' title='Foto 1'>";
+        echo "              <img src='galeria/yoga/heiko1.jpg' alt='Foto 1 de 2' style='height: 190px; width: 250px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "      <div class='single last'>";
-        echo "          <a href='slider/images/yoga/heiko2.jpg' rel='lightbox[plants]' title='Foto 2'>";
-        echo "              <img src='slider/images/yoga/heiko2.jpg' alt='Foto 2 de 2' style='height: 190px; width: 250px;'/>";
+        echo "          <a href='galeria/yoga/heiko2.jpg' rel='lightbox[plants]' title='Foto 2'>";
+        echo "              <img src='galeria/yoga/heiko2.jpg' alt='Foto 2 de 2' style='height: 190px; width: 250px;'/>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
@@ -1039,10 +1042,10 @@ vosso Pai que está nos céus.<br/>";
         echo "          Os sonhos, ampliados através de vivências e análises, contribuem com o processo de autorrealização, incrementando novos elementos para o autoconhecimento.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Segundo o sistema transpessoal, aos dois períodos naturais da jornada diária - o dia, com sua claridade, e a noite, com sua obscuridade, complementados para formar a unidade do ciclo diário - vinculam-se dois instigantes estados da consciência humana: a vigília, própria do <i>consciente solar</i>, e o onírico, afinado com o <i>inconsciente lunar</i>. Um também é claro, e o outro, sombrio. Um verbal, afirmativo e justificador, e o outro, imagético, alucinante e conspirador. Duas realidades do, subjetivismo que se colam, mais ou menos, com movimentos antagônicos e cooperativos, com a singela propriedade de promover a inteireza do ser humano, desde que criatiivamente integradas.<br><br>";
+        echo "          Segundo o sistema transpessoal, aos dois períodos naturais da jornada diária - o dia, com sua claridade, e a noite, com sua obscuridade, complementados para formar a unidade do ciclo diário - vinculam-se dois instigantes estados da consciência humana: a vigília, própria do <i>consciente solar</i>, e o onírico, afinado com o <i>inconsciente lunar</i>. Um também é claro, e o outro, sombrio. Um verbal, afirmativo e justificador, e o outro, imagético, alucinante e conspirador. Duas realidades do, subjetivismo que se colam, mais ou menos, com movimentos antagônicos e cooperativos, com a singela propriedade de promover a inteireza do ser humano, desde que criativamente integradas.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Ao interessado em experimentar este processo, é facultado participar de uma Roda, mediante entrevista prévia. Tanto a entrevista como sua participação no grupo são oferecidas sem custo financeiro para o interessado. É um grupo aberto não apenas aos profissionais de saúde, mas para todo aquele que se interessa no mergulho interior.<br><br>";
+        echo "          Ao interessado em experimentar este processo, é facultado participar de uma Roda, mediante entrevista prévia. Tanto esta entrevista como sua primeira participação no grupo são oferecidas sem custo financeiro para o interessado. É um grupo aberto não apenas aos profissionais de saúde, mas para todo aquele que se interessa no mergulho interior.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "         Contato por e-mail ou por telefone.<br><br>";
@@ -1107,7 +1110,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          Ao longo das últimas décadas venho desenvolvendo uma teoria psicológica decorrente de particular leitura do Sistema Transpessoal, aplicada com mais especificidade no campo da psicoterapia e do desenvolvimento pessoal.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          O empenho desta teoria, em afinidade com a proposta transpessoal, visa a integração entre a psicologia ociedental, mais formal, e a abordagem espiritual desenvolvida pelas Tradições da Sabedoria Antiga. Além de beber nas fontes da psicanálise e da psicologia analítica, que centram seu trabalho terapêutico no modelo clássico da relação terapeuta-paciente, busquei sua complementação no investimento psicológico da introspecção, sustentados por estes sistemas espirituais, ao longo de milênios. Eles promovem o autoconhecimento para além das fronteiras do ego, a partir da especialíssima e diferente relação a dois - a do mestre com o discípulo.<br><br>";
+        echo "          O empenho desta teoria, em afinidade com a proposta transpessoal, visa a integração entre a psicologia ocidental, mais formal, e a abordagem espiritual desenvolvida pelas Tradições da Sabedoria Antiga. Além de beber nas fontes da psicanálise e da psicologia analítica, que centram seu trabalho terapêutico no modelo clássico da relação terapeuta-paciente, busquei sua complementação no investimento psicológico da introspecção, sustentado por estes sistemas espirituais, ao longo de milênios. Eles promovem o autoconhecimento para além das fronteiras do ego, a partir da especialíssima e diferente relação a dois - a do mestre com o discípulo.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "          Os quatro pilares em que se assenta o Transcuro transpessoal são:<br><br>";
@@ -1129,7 +1132,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          O Transcurso acontece uma vez por mês, às 6ªs. feiras, no horário de 14h às 18h.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          A medicação, por pressuposto, permeia tanto o campo de estudo como o da prática terapêutica.<br><br>";
+        echo "          A meditação, por pressuposto, permeia tanto o campo de estudo como o da prática terapêutica.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "          Investigar e testar a teoria com a clínica fez gerar uma forma diferenciada de supervisão em grupo, a Transvisão. Sua frequência é também mensal, às 6ªs feiras, de 14h às 16:30h.<br><br>";
@@ -1147,7 +1150,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          Próximo encontro: ver calendário.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Horário: <b>de 13h às 18h</b>.<br><br>";
+        echo "          Horário: <b>de 14h às 18h</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a>.<br><br>";

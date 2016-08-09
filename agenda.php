@@ -5,10 +5,17 @@
     require_once './controller/constantes.php';
     require_once './controller/metodos.php';
     require_once './view/slideShow.php';
+    require_once './view/agenda/estacao.class.php';
 
     error_reporting(0);
     
+    $e = new estacao();
 //    $formulario = new formulario();
+    $estacao = filter_input(INPUT_GET, 'e');
+    
+//    if(isset($estacao)){
+//        $estacao = "";
+//    }
 
 ?>
 
@@ -18,9 +25,9 @@
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Agenda RUV - Próximos Eventos">
+        <meta name="keywords" content="redeunaviva ruv RUV RedeUnaViva agenda eventos calendario semana">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
 	<title><?php echo TITULORUV;?></title>
@@ -73,17 +80,149 @@
         
         <script>
 //            var mes = document.getElementById("selectAgenda").value;
-            function validaMes(mes){
-                if(mes === 0){
+            
+            function validaTipoPesquisa(semana, pesquisa){
+                if(pesquisa === 0){
                     window.location.href="agenda.php";
                 }else{
-                    window.location.href="agenda.php?periodo=" + mes;
+                    window.location.href="agenda.php?s="+semana+"&p="+pesquisa;
                 }
             }
+            
+            function buscaEstacao(estacao){
+                if(estacao === ""){
+                    window.location.href="agenda.php";
+                }else{
+                    window.location.href="agenda.php?e="+estacao;
+                }
+            }
+            
+            function prev(estacao, semana){
+                
+                if(estacao === "0" && semana === 0){
+                    estacao = "inverno";
+                    semana = 436;
+                }
+                
+                var prevSemana = semana - 1;
+                
+                if(estacao === "primavera"){
+                    if (prevSemana > 114 && prevSemana < 121){
+                        prevSemana = 114;
+                    }else if(prevSemana > 124 && prevSemana < 131){
+                        prevSemana = 124;
+                    }else{
+                        prevSemana = semana - 1;
+                    }
+                    
+                }else if(estacao === "verao"){
+                    if(prevSemana > 214 && prevSemana < 221 ){
+                        prevSemana = 214;
+                    }else if(prevSemana > 224 && prevSemana < 231){
+                        prevSemana = 224;
+                    }else{
+                        prevSemana = semana - 1;
+                    }
+                }else if(estacao === "outono"){
+                    if(prevSemana > 314 && prevSemana < 321 ){
+                        prevSemana = 314;
+                    }else if(prevSemana > 324 && prevSemana < 331){
+                        prevSemana = 324;
+                    }else{
+                        prevSemana = semana - 1;
+                    }
+                    
+                }else if(estacao === "inverno"){
+                    if(prevSemana > 414 && prevSemana < 421 ){
+                        prevSemana = 414;
+                    }else if(prevSemana > 424 && prevSemana < 431){
+                        prevSemana = 424;
+                    }else{
+                        prevSemana = semana - 1;
+                    }
+                }
+
+                if(prevSemana === 110){//aqui era primavera
+                    validaMes("inverno", 435);//passa para inverno
+                }else if(prevSemana === 410){//aqui era inverno
+                    validaMes("outono", 335);//passa para outono
+                }else if(prevSemana === 310){//aqui era outono
+                    validaMes("verao", 235);//passa para o verão
+                }else if(prevSemana === 210){//aqui era verão
+                    validaMes("primavera", 135);//passa para primavera
+                }else{
+                    window.location.href="agenda.php?e="+estacao+"&s="+prevSemana;
+                }
+            }
+            
+            function next(estacao, semana){
+                if(estacao === "0" && semana === 0){
+                    estacao = "primavera";
+                    semana = 110;
+                }
+                
+                var nextSemana = semana + 1;
+                
+                if(estacao === "primavera"){
+                    if(nextSemana > 114 && nextSemana < 121 ){
+                        nextSemana = 121;
+                    }else if(nextSemana > 124 && nextSemana < 131){
+                        nextSemana = 131;
+                    }else{
+                        nextSemana = semana + 1;
+                    }
+                }else if(estacao === "verao"){
+                    if(nextSemana > 214 && nextSemana < 221 ){
+                        nextSemana = 221;
+                    }else if(nextSemana > 224 && nextSemana < 231){
+                        nextSemana = 231;
+                    }else{
+                        nextSemana = semana + 1;
+                    }
+                }else if(estacao === "outono"){
+                    if(nextSemana > 314 && nextSemana < 321 ){
+                        nextSemana = 321;
+                    }else if(nextSemana > 324 && nextSemana < 331){
+                        nextSemana = 331;
+                    }else{
+                        nextSemana = semana + 1;
+                    }
+                    
+                }else if(estacao === "inverno"){
+                    if(nextSemana > 414 && nextSemana < 421 ){
+                        nextSemana = 421;
+                    }else if(nextSemana > 424 && nextSemana < 431){
+                        nextSemana = 431;
+                    }else{
+                        nextSemana = semana + 1;
+                    }
+                    
+                }
+
+                if(nextSemana === 136){//aqui era primavera
+                    validaMes("verao", 211);//passa para verão
+                }else if(nextSemana === 236){//aqui era verão
+                    validaMes("outono", 311);//passa para outono
+                }else if(nextSemana === 336){//aqui era outono
+                    validaMes("inverno", 411);//passa para inverno
+                }else if(nextSemana === 436){//aqui era inverno
+                    validaMes("primavera", 111);//passa para primavera
+                }else{
+                    window.location.href="agenda.php?e="+estacao+"&s="+nextSemana;
+                }
+            }
+            
+            function validaMes(estacao, semana){
+                if(semana === 0){
+                    window.location.href="agenda.php";
+                }else{
+                    window.location.href="agenda.php?e=" + estacao + "&s=" + semana;
+                }
+            }
+            
         </script>
 
-<!--	<script type="text/javascript" src="./CETAS_files/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="./CETAS_files/back-to-top.js"></script>-->
+
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			scrolltotop.init();
@@ -128,70 +267,158 @@
                     <div class='table-responsive' style='padding-left: 10px;'>				
                         <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
                             <tr style="background-color: #f1cd8b">
-                                <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Agenda - próximos eventos</div></td>
+                                <td colspan="3"><div id="tituloPaginas" style="font-weight: normal;">Agenda - próximos eventos</div></td>
                             </tr>
                             <tr class="warning">
-                                <td colspan="2"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Retiro - 3 a 10 de setembro de 2016</div></td>
+                                <td colspan="3"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Retiro - 3 a 10 de setembro de 2016</div></td>
+                            </tr>
+                            <tr class="warning">
+                                <td colspan="3"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Jornada Real - novos grupos - a partir de 18 de setembro de 2016</div></td>
                             </tr>
                             <tr>
-                                <td colspan="2">&nbsp;</td>
+                                <td colspan="3">
+                                    <div align="right">
+                                        <table border="0" cellpadding="0" cellspacing="0" style="font-family: Garamond; font-size: 20px; text-align: center; font-weight: bold;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="background-color: yellow;" id="selecaoTd">
+                                                        <a href="javascript:buscaEstacao('primavera');" id="linkEstacao">
+                                                            Primavera
+                                                        </a>
+                                                    </td>
+                                                    <td style="background-color: orange;" id="selecaoTd">
+                                                        <a href="javascript:buscaEstacao('verao');" id="linkEstacao">
+                                                            Verão
+                                                        </a>
+                                                    </td>
+                                                    <td style="background-color: yellowgreen;" id="selecaoTd">
+                                                        <a href="javascript:buscaEstacao('outono');" id="linkEstacao">
+                                                            Outono
+                                                        </a>
+                                                    </td>
+                                                    <td style="background-color: violet;" id="selecaoTd">
+                                                        <a href="javascript:buscaEstacao('inverno');" id="linkEstacao">
+                                                            Inverno
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
                             </tr>
                             <tr style="font-family: Lato; font-size: 15px">
-                                <td style="text-align: right; padding-top: 10px; width: 50%;">Selecione o período </td>
-
-                                <td style="text-align: left; width: 50%;">
-                                    <div class="row-fluid">
-                                        <select name="selectAgenda" class="selectpicker" onchange="validaMes(this.value)">
+                                <td colspan="3" style="text-align: center; padding-top: 10px; width: 100%; font-weight: bold;">
+                                    <?php
+                                        $semana = filter_input(INPUT_GET, "s");
+//                                        $p = filter_input(INPUT_GET, "p");
+                                        
+                                        if($semana == "421"){
+                                            $marcado1 = "selected";
+                                        }
+                                        
+                                        
+                                    ?>
+                                    <table border="0" width="100%" cellpadding="0" cellspacing="0" height="50px">
+                                        <tbody>
+                                            <tr>
                                                 <?php
-                                                $periodo = filter_input(INPUT_GET, "periodo");
-                                                if ($periodo == 91) {
-                                                    $marcado = "selected='selected'";
-                                                    $marcado2 = "";
-                                                } else if($periodo == 92){
-                                                    $marcado = "";
-                                                    $marcado2 = "selected='selected'";
-                                                } else if($periodo == 0){
-                                                    $marcado = "";
-                                                    $marcado2 = "";
-                                                }
+//                                                if(!empty($estacao)){
+                                                    $anteBloqueado = "title='Voltar'";
+//                                                }
+                                                    
+                                                    if(empty($estacao)){
+                                                        $estacao = 0;
+                                                    }else if(empty($semana)){
+                                                        $semana = 0;
+                                                    }
+                                                
+                                                    echo "  <td style='width: 5px;'>";
+//                                                    echo "  <ul class='pager'>";
+//                                                    echo "  <li class='previous'>";
+                                                    echo "      <a href='javascript:prev(\"$estacao\", ".$semana.")' $anteBloqueado>";
+//                                                    echo "          &larr; Voltar";
+                                                    echo "          <img src='slider/images/prev.png' id='prevAgenda' name='prevAgenda' style='width: 38px; height: 38px; padding-left: 0; padding-top: 10px;'>";
+                                                    echo "      </a>";
+//                                                    echo "  </li>";
+//                                                    echo "  </ul>";
+                                                    echo "  </td>";
+                                                
                                                 ?>
+                                                <td width="100%" style="text-align: center; padding-right: 10px; font-size: 20px; font-family: garamond;">
+                                                        <b>Semana</b>
+<!--<select name="selectSemana" class="selectpicker" onclick="validaMes(this.value)" onchange="validaMes(this.value)">-->                                                    
+<?php
+//echo $estacao;
+                                                            echo "<select name='selectSemana' class='selectpicker' onclick='validaMes(\"$estacao\", this.value)' onchange='validaMes(\"$estacao\", this.value)'>"; 
 
-                                            <option value="0">Selecione</option>
-                                            <optgroup label="SETEMBRO 2015">
-                                                <option value="91" <?php echo $marcado; ?>>De 5 a 12</option>
-                                            <optgroup label="SETEMBRO 2016">
-                                                <option value="92" <?php echo $marcado2; ?>>De 3 a 10</option>
-                                                <!--<option value="92">De 12 a 30</option>-->
-                                            </optgroup>
-                                            <!--                                                <optgroup label="OUTUBRO">
-                                                                                                <option value="101">1ª Quinzena</option>
-                                                                                                <option value="102">2ª Quinzena</option>
-                                                                                            </optgroup>-->
-                                        </select>
-                                    </div>
+                                                            if(empty($estacao)){
+                                                                echo "<option value='0'>Selecione a estação</option>";
+                                                                
+//                                                                $e->todasEstacoes();
+                                                            }else{
+                                                                echo "<option value='0'>Selecione a semana</option>";
+                                                            }
+                                                            
+                                                            echo "<optgroup label='SEMANA'>";
+                                                                    
+                                                                    $e->relacaoEstacao($estacao);
+                                                                
+                                                            echo "</optgroup>";
+                                                            echo "</select>";
+                                                                ?>
+
+
+                                                </td>
+                                                <?php
+//                                                if(!empty($estacao)){
+                                                    $postBloqueado = "title='Avançar'";
+//                                                }
+                                        echo "  <td style='width: 5px;'>";
+                                        echo "      <a href='javascript:next(\"$estacao\", ".$semana.")' $posBloqueado>";
+                                        echo "          <img src='slider/images/next.png' id='nextAgenda' name='nextAgenda' style='width: 38px; height: 38px; padding-right: 0; padding-top: 10px;'>";
+                                        echo "      </a>";
+                                        echo "  </td>";
+                                                
+                                                ?>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
                                 </td>
                             </tr>
                             <?php
                             /* @var $_GET type */
-                            $periodo = utf8_decode($_GET['periodo']);
-
-                            if ($periodo == "") {
-                                $periodo = 0;
-                            }
-
+//                            $periodo = utf8_decode($_GET['p']);
+//
+//                            if ($p == "") {
+//                                $p = 0;
+//                            }
 
 
                             echo "<tr>";
-                            echo "  <td colspan='2'>";
+                            echo "  <td colspan='3'>";
 
-                            switch ($periodo) {
+                            switch ($semana) {
                                 case 0: echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='529'></iframe>";
                                     break;
-                                case 91: echo "<iframe src='view/setembro15.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                case 421: echo "<iframe src='view/agenda/semana421.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
                                     break;
-                                case 92: echo "<iframe src='view/setembro16.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+                                
+                                default:
+                                    echo "<iframe src='view/agendaPadrao.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='529'></iframe>";
                                     break;
+                                
+//                                case 170716: echo "<iframe src='view/agenda/170716.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+//                                    break;
+//                                case 180716: echo "<iframe src='view/agenda/180716.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+//                                    break;
+//                                case 190716: echo "<iframe src='view/agenda/190716.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+//                                    break;
+//                                case 200716: echo "<iframe src='view/agenda/200716.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+//                                    break;
+//                                case 210716: echo "<iframe src='view/agenda/210716.php' width='100%' height='529' frameborder='0' scrolling='yes' style='padding-left: 0px;' name='slide'></iframe>";
+//                                    break;
                             }
 
                             echo "  </td>";

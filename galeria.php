@@ -2,7 +2,7 @@
 
 <?php
 
-    $_SERVER['PATH_INFO'] = "redeunaviva.mapti.com.br/";
+    $_SERVER['PATH_INFO'] = "redeunaviva.rio/";
     
     require_once './view/formulario.php';
     require_once './controller/constantes.php';

@@ -18,7 +18,7 @@ $formulario = new formulario();
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="description" content="Sobre Mais - RUV/ Jornada Real">
         <meta name="keywords" content="sobre mais ruv redeunaviva jornada real jr">
-        <meta name="author" content="Vasily A.">
+        <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>
@@ -86,7 +86,7 @@ $formulario = new formulario();
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
 
-                    <h3 class="text-info" style='text-align: center; font-family: garamond; font-size: 30px; font-weight: bold; color: #1f226d;'>
+                    <h3 class="text-info" style="text-align: center; font-family: garamond; font-size: 30px; font-weight: bold; color: #3F6CA1;"><!-- #1f226d  -->
                          Sobre MAIS
                     </h3>
                     <br/>

@@ -384,7 +384,7 @@
                                     </tr>
                                 </table>
                                 
-<p style="text-align: center; color: red;">Agenda vazia. Selecione o período da agenda.</p>
+<p style="text-align: center; color: red;">Agenda vazia. Selecione a semana desejável.</p>
                                 <br/>
 
                                 <table class="table table-condensed" style="width: 300px;">

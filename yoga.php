@@ -18,7 +18,7 @@
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Descrição do Yoga">
+        <meta name="description" content="Segundo Patanjali nos yogasutras, yoga citta vrtti nirodah traduz-se por 'yoga é pacificação das atividades da mente'.">
         <meta name="keywords" content="yoga Yoga eduardo quintella heiko roscheke">
         <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
@@ -96,7 +96,7 @@
             <div class="bs-docs-header bs-docs-first">
                 <div class="container">
                     <div class="col-sm-12">
-                        <div id="tituloPaginas"> Yoga Iyengar</div>
+                        <div id="tituloPaginas">Iyengar Yoga </div>
                         <br/>
                         <p style="text-align: justify; color: #1f226d;">
                             <?php

@@ -18,6 +18,7 @@
     define('EMAIL', 'E-mail: ');
     define('TELEFONE', 'Telefone: ');
     define('MENSAGEM', 'Mensagem: ');
+    define('DEPARTAMENTO', 'Departamento:');
     define('ENDERECOORGAO', 'Rua Mário Pederneiras, 31 - Casa, Humaitá');
     define('TELEFONEORGAO', ' (21) 2266-5690');
     
