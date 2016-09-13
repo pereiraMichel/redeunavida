@@ -888,7 +888,7 @@ class slideShow {
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='blog'>";
-        echo "      <a href='".BLOGLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a href='".BLOGLINK."' target='_blank' style='color: rgba(184, 124, 4, 0.9);'>";
         echo "          Blog"; // <i class="fa fa-link"></i> 
         echo "      </a>";
         echo "  </li>";

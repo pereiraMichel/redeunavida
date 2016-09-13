@@ -17,7 +17,7 @@ $formulario = new formulario();
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano">
+        <meta name="description" content="Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.">
         <meta name="keywords" content="jornada real jr">
         <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
@@ -64,11 +64,22 @@ $formulario = new formulario();
                 background-color: <?php echo AZULFUNDOCLARO; ?>
             }
 
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
         </style>
         <link rel="author" href="autor.txt">      
     </head>
     <body id="corAzulFundoClaro">
-    <?php
+    <?php 
+        require_once './analyticstracking.php';
         $metodo = new metodos();
         $metodo->modalAviso();
     ?>
@@ -158,7 +169,7 @@ $formulario = new formulario();
             <div style="height: 40px;">&nbsp;</div>
             <div class="alert alert-info" role="alert">
                 <div class="text-center" style="font-family: garamond; font-size: 18px;">
-                    Faça o seu cadastro, telefone ou envie um e-mail para marcar uma entrevista.
+                    Faça o seu cadastro (clique no botão "Cadastre-se", no alto à direita), telefone (abaixo, à esquerda) ou envie um e-mail (Menu Contato) para marcar uma entrevista.
                 </div>
             </div>
         </div>

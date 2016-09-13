@@ -19,9 +19,9 @@ $texto = new classTexto();
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Meditação Cristã. Em todos os domingos nos encontramos na nossa sede para realizar nossa costumeira e nutridora Meditação Cristã (MC).">
+        <meta name="keywords" content="Meditação cristã meditação cristã evangelho composição reunião dinâmica">
+        <meta name="author" content="autor.txt">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>
@@ -64,15 +64,28 @@ $texto = new classTexto();
             {
                 padding-top: 80px;
             }
-        </style>
-        <link rel="author" href="autor.txt">      
+            
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+            
+        </style>   
     </head>
     <body id="corAzulFundoClaro">
-    <?php
+        <?php
+        require_once './analyticstracking.php';
+
         $metodo = new metodos();
         $metodo->modalAviso();
-    ?>
-        
+        ?>
+
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                     <div class="navbar-text-top">

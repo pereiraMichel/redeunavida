@@ -95,13 +95,25 @@
                 padding-top: 80px;
                 background-color: <?php echo AMARELOCLARO; ?>
             }
+            
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
 
         </style>
         
         <link rel="author" href="autor.txt">        
     </head>
 <body id="corAzulFundoClaro">
-    <?php
+    <?php require_once './analyticstracking.php';
+
         $metodo = new metodos();
         $metodo->modalAviso();
     ?>
@@ -127,6 +139,9 @@
 
                     <div class='table-responsive' style='padding-left: 10px;'>				
                         <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
+                            <tr style="background-color: #fff; ">
+                                <td colspan="2"><div id="tituloPaginas" style="font-weight: normal; color: #B22222">Jornada Real - novos grupos - a partir de 18 de setembro de 2016</div></td>
+                            </tr>
                             <tr class="warning">
                                 <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Semana - RUV</div></td>
                             </tr>

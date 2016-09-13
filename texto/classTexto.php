@@ -92,10 +92,9 @@ class classTexto {
         echo "      </div>";
         echo "      <div class='col-xs-6 col-sm-6'>";
         echo "          <ul class='list-inline' style='".$fonteTamanho."; ".$fonteGaramond.";'>";
-        echo "              <li>14. Atualmente, oferecemos 3 grupos de encontros semanais, com duração de 2 horas:<br><br>";
-        echo "                  1) 3a feira - 18h;<br>";
-        echo "                  2) 4a feira - 14h30;<br>";
-        echo "                  3) 5a feira - 18h30.";
+        echo "              <li>14. A partir de setembro, ofereceremos 2 grupos de encontros semanais, ambos às 5as feiras, com duração de 2 horas. Horários:<br><br>";
+        echo "                  1) 14h30<br>";
+        echo "                  2) 18h30";
 //        echo "              </li>";
 //        echo "              <li>&nbsp;</li>";
         echo "              <br><br>";
@@ -306,7 +305,7 @@ class classTexto {
         echo "  <p style='text-align: justify;'>";
         echo "      Como professor, procuro adequar a prática à individualidade de cada aluno para que a desfrute de acordo com as suas possibilidades.";
         echo "  </p>";
-        echo "<div class='imageRow' style='padding-left: 25%; padding-right: 25%'>";
+        echo "<div class='imageRow' style='padding-left: 25%; padding-right: 25%;'>";
         echo "  <div class='set'>";
         echo "      <div class='single first'>";
         echo "          <a href='galeria/yoga/foto8.jpg' rel='lightbox[plants]' title='Foto 1'>";
@@ -360,26 +359,44 @@ class classTexto {
         echo "          <ul class='list-inline' style='font-size: 20px; text-align: justify; font-family: garamond;'>";
         echo "              <li>";
         echo "                  <span style='".$margem.";'>";
-        echo "                      Em todos os domingos nos encontramos na nossa sede para realizar nossa costumeira e nutridora <b>Meditação Cristã (MC)</b>.";
+        echo "                      Amigas e amigos,</b>";
+//        echo "                      Em todos os domingos nos encontramos na nossa sede para realizar nossa costumeira e nutridora <b>Meditação Cristã (MC)</b>.";
         echo "                  </span>";
         echo "              <br><br>";
         echo "                  <span style='".$margem.";'>";
-        echo "                      No decorrer da semana dispomos aqui o texto do Evangelho com sua indagação reflexiva, como preparação para a ceia do espírito.";
+        echo "                      Segue abaixo o texto do Evangelho com sua indagação reflexiva, como preparação para a ceia do espírito.";
+//        echo "                      No decorrer da semana dispomos aqui o texto do Evangelho com sua indagação reflexiva, como preparação para a ceia do espírito.";
         echo "                  </span>";
         echo "              <br><br>";
         echo "                  <span style='".$margem.";'>";
-        echo "                      São todos convidados e bem vindos.";
+        echo "                      São todos convidados e bem vindos.<br><br>";
         echo "                  </span>";
+        echo "                  <span style='".$margem.";'>";
+        echo "                      <b>Visando a sintonia do grupo e o seu melhor aproveitamento, é indicado chegar de 10 a 15 minutos antes do começo da meditação</b>.<br><br>";
+        echo "                  </span>";
+        echo "                  <span style='".$margem.";'>";
+        echo "                      <b>Nesse momento, para a sua reflexão inicial, será distribuído um resumo do entendimento do texto evangélico referenciado.</b><br><br>";
+        echo "                  </span>";
+        echo "                  <span style='".$margem.";'>";
+        echo "                      Com afeto,<br><br>";
+        echo "                  </span>";
+        echo "                  <span style='".$margem.";'>";
+        echo "                      Bernal.<br><br>";
+        echo "                  </span>";
+        echo "                  <span style='".$margem.";'>";
+        echo "                      Endereço: Rua Mário Pederneiras, 31 - Humaitá, Rio de Janeiro/RJ.";
+        echo "                  </span>";
+//        echo "                  <span style='".$margem.";'>";
+//        echo "                      Endereço: Rua Mário Pederneiras, 31 - Humaitá, Rio de Janeiro/RJ.<br><br>";
+//        echo "                  </span>";
         echo "              <br><br>";
         echo "                  <p style='color: #31708f; ".$margem.";'><b>DOMINGO - 17 às 19h</b>.</p><br/>";
-//        echo "                  <a href='downloads/meditacaocrista/MeditacaoCristaConviteMC59.pdf' target='_blank'>Clique aqui</a> para ler o texto do Evangelho para a MC da semana.";
-//        echo "              <br><br>";
         echo "                  <a href='contato.php#mapa' target='_self' style='".$margem.";'>Clique aqui</a> para visualização do mapa, indicando como chegar no endereço.";
         echo "              </li>";
         echo "              <li style='font-size: 20px;'>";
         echo "              <br><br>";
-        echo "                  <b>Texto do Evangelho desta semana - 01/11/15</b><br>";
-        echo "                  <b>MC 59</b><br>";
+        echo "                  <b>Texto do Evangelho desta semana - 28/08/2016</b><br>";
+        echo "                  <b>MC 102</b><br>";
         echo "              <br><br>";
         echo "                  <a role='button' data-toggle='collapse' href='#leitura1' aria=expanded='false' aria-controls='collapseLeitura1' style='".$margem.";'>Clique aqui</a> para ler nesta página.";// data-toggle='modal' COLLAPSE
         echo "              <br><br>";
@@ -438,22 +455,22 @@ class classTexto {
         echo "              </tr>";
         echo "              <tr class='warning'>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em ---";//Parte 1
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em ---";//Parte 2
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em 26/08/2016";//Parte 3
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em ---";//Parte 4
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em ---";//Parte 5
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      Atualizado em 10/11/2015";
+        echo "                      Atualizado em ---";//Parte 6
         echo "                  </td>";
         echo "              </tr>";
         echo "              <tr>";
@@ -644,7 +661,7 @@ class classTexto {
         echo "                      &nbsp;";
         echo "                  </td>";
         echo "                  <td>";
-        echo "                      28";
+        echo "                      <a href='downloads/meditacaocrista/MC102Paragem433.pdf' style='text-decoration: underline; font-weight: bold;' target='_blank'>28</a>";
         echo "                  </td>";
         echo "                  <td>";
         echo "                      &nbsp;";
@@ -753,50 +770,7 @@ class classTexto {
         
         
         //Collapse
-        echo "<div class='collapse' id='leitura1'>";
-        echo "  <div class='well'>";
-            echo "<div class='row' style='font-family: garamond; font-size: 20px; color: #1f226d;'>";
-            echo "  <div class='col-xs-12 col-md-12'>";
-            echo "      <div class='text-center'>";
-            echo "          59. <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'>59</label> – paragem <label style='color: red;'>123</label> – <label style='color: red;'>01.11.2015</label></label>";
-            echo "      </div>";
-            echo "      <div align='right' style='padding-right: 50px;'><small>MATEUS 6:1-4</small></div>";
-            echo "      <div class='text-center'>";
-            echo "          SERMÃO DO MONTE – X – Quanto à Esmola: Não Saiba sua Mão Esquerda o que a Direita Faz<br/>ou<br/>O Tesouro Secreto";
-            echo "      </div>";
-            echo "      <div class='table-responsive'>";
-            echo "      <table class='table'>";
-            echo "          <tr>";
-            echo "              <td>";
-            echo "                  59.1";
-            echo "              </td>";
-            echo "              <td>";
-            echo "                  <b>Auto-indagação reflexiva:</b><br/>";
-            echo "                  1. Qual é a desvantagem em dar esmola publicamente?<br/>";
-            echo "                  2. Qual é a vantagem em dar esmola em secreto?<br/><br/>";
-            echo "                  <b>Ao recolher-me, na hora da meditação, afinando a sintonia com o Mestre:</b><br>";
-            echo "                  3. Qual é o valor da esmola (de dar e receber) para a meditação?";
-            echo "              </td>";
-            echo "          </tr>";
-            echo "      </table>";
-            echo "      </div>";
-            echo "      <div class='text-center' style='color: red;'>Mateus 6:1-4</div>";
-            echo "      <div align='justify' style='color: red;'>";
-            echo "          1. Prestai atenção: não façais vossas boas obras diante dos homens, para serdes vistos por eles; senão não tereis recompensa junto de
-vosso Pai que está nos céus.<br/>";
-            echo "          2. Quando, pois, deres esmola, não faças tocar a trombeta diante de ti, como fazem os hipócritas nas sinagogas e nas ruas, para serem honrados pelos homens; em verdade vos digo: já receberam sua recompensa.<br/>";
-            echo "          3. Tu, porém, quando deres esmola, não saiba tua mão esquerda o que faz tua direita.<br/>";
-            echo "          4. para que tua esmola fique no secreto, e teu Pai, que vê no secreto, te retribuirá.<br/><br/>";
-            echo "      </div>";
-            echo "      <div class='text-center'>";
-            echo "          <label style='color: blue;'>RedeUnaViva: Meditação Cristã<label style='color: red;'> 60 </label> – paragem <label style='color: red;'>124</label> – <label style='color: red;'>08.11.15</label></label>";
-            echo "          <label style='color: red;'>MATEUS 6:5-15; MARCOS 11:25-26; LUCAS 11:1-4</label>";
-            echo "      </div>";
-            echo "  </div>";
-            echo "</div>";
-        echo "  </div>";
-        echo "</div>";
-        
+        $this->textoLeituraMC();//leitura semanal 
         
         //Dinâmica da reunião
         echo "<div class='row' style='font-family: garamond; font-size: 20px; color: #1f226d;' align='justify'>";
@@ -927,6 +901,78 @@ vosso Pai que está nos céus.<br/>";
         
     }
     
+    public function textoLeituraMC(){
+        echo "<div class='collapse' id='leitura1'>";
+        echo "  <div class='well'>";
+            echo "<div class='row' style='font-family: garamond; font-size: 20px; color: #1f226d;'>";
+            echo "  <div class='col-xs-12 col-md-12'>";
+            echo "      <div class='text-center'>";
+            echo "          102. <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'>102</label> – paragem <label style='color: red;'>433</label> – <label style='color: red;'>28.08.2016</label></label>";
+            echo "      </div>";
+            echo "      <div align='right' style='padding-right: 50px;'><small>JOÃO 6:47-58</small></div>";
+            echo "      <div class='text-center'>";
+            echo "          O PÃO DA VIDA – V<br/>Para ser um com o Cristo";
+            echo "      </div>";
+            echo "      <div class='table-responsive'>";
+            echo "      <table class='table'>";
+            echo "          <tr>";
+            echo "              <td>";
+            echo "                  102-1";
+            echo "              </td>";
+            echo "              <td>";
+            echo "                  <b>Auto-indagação reflexiva e expansiva:</b><br/>";
+            echo "                  1. O que determinava a ignorância dos judeus sobre o corpo de Jesus?<br/>";
+            echo "                  2. Como distinguir a genealogia entre o Pai, o Filho e homem para alcançar a unificação?<br/><br/>";
+            echo "                  <b>Ao recolher-me, na hora da meditação, afinando a sintonia com o Mestre:</b><br>";
+            echo "                  3. Como saborear a carne e beber o sangue do Cristo, em meditação, para ter a vida imanente?";
+            echo "              </td>";
+            echo "          </tr>";
+            echo "      </table>";
+            echo "      </div>";
+            echo "      <div class='text-center' style='color: #CC3299; font-weight: bold;'>João 6:47-58</div>";
+            echo "      <br>";
+            echo "      <div align='justify' style='color: #CC3299;'>";
+            echo "          47. Em verdade, em verdade vos digo: quem confia em mim tem a vida imanente.<br/>";
+            echo "          48. eu sou o Pão da Vida.<br/>";
+            echo "          49. Vossos pais comeram o maná no deserto, e morreram.<br/>";
+            echo "          50. Este é o pão que desce do céu, para que qualquer um coma dele e não morra.<br/>";
+            echo "          51. Eu sou o Pão Vivo que desci do céu; se alguém comer desse pão, viverá para a imanência. E mais, o pão que darei é minha carne, em lugar da vida do mundo.<br/>";
+            echo "          52. Discutiam, então, os judeus uns com os outros, dizendo: 'Como pode este dar-nos de comer sua carne?'<br/>";
+            echo "          53. Respondeu-lhes Jesus: 'Em verdade, em verdade vos digo: se não comeis a carne do filho do homem e não bebeis seu sangue, não tendes a vida em vós'.<br/>";
+            echo "          54. Quem saboreia a carne e me bebe o sangue, tem a vida imanente, e eu o elevarei na etapa final.<br/>";
+            echo "          55. Porque minha carne é verdadeiramente alimento, e meu sangue verdadeiramente bebida.<br/>";
+            echo "          56. Quem me saboreia a carne e me bebe o sangue, permanece em mim e eu nele.<br/>";
+            echo "          57. Assim como o Pai que vive me enviou e eu vivo através do Pai, assim quem me saboreia, esse viverá também através de mim.<br/>";
+            echo "          58. Este é o pão que desceu do céu; não é como o que comeram vossos pais, e morreram; quem saboreia este pão viverá para a imanência.<br/>";
+            echo "<br/>";
+            echo "          Não que alguém visse ao Pai, a não ser aquele que é de Deus; este tem visto ao Pai.<Br>
+                            Na verdade, na verdade vos digo que aquele que crê em mim tem a vida eterna.<br>
+                            Eu sou o pão da vida.<br>
+                            Vossos pais comeram o maná no deserto, e morreram.<br>
+                            Este é o pão que desce do céu, para que o que dele comer não morra.<br>
+                            Eu sou o pão vivo que desceu do céu; se alguém comer deste pão, viverá para sempre; e o pão que eu der é a minha carne, que eu darei pela vida do mundo.<br>
+                            Disputavam, pois, os judeus entre si, dizendo: Como nos pode dar este a sua carne a comer?<br>
+                            Jesus, pois, lhes disse: Na verdade, na verdade vos digo que, se não comerdes a carne do Filho do homem, e não beberdes o seu sangue, não tereis vida em vós mesmos.<br>
+                            Quem come a minha carne e bebe o meu sangue tem a vida eterna, e eu o ressuscitarei no último dia.<br>
+                            Porque a minha carne verdadeiramente é comida, e o meu sangue verdadeiramente é bebida.<br>
+                            Quem come a minha carne e bebe o meu sangue permanece em mim e eu nele.<br>
+                            Assim como o Pai, que vive, me enviou, e eu vivo pelo Pai, assim, quem de mim se alimenta, também viverá por mim.<br>
+                            Este é o pão que desceu do céu; não é o caso de vossos pais, que comeram o maná e morreram; quem comer este pão viverá para sempre.<br>";
+            echo "          <p style='height: 20px;'>&nbsp;</p>";
+            echo "          <div class='text-center' style='color: blue; font-weight: bold;'>João 6:46-58</div>";
+            echo "          <p style='height: 20px;'>&nbsp;</p>";
+            echo "      </div>";
+            echo "      <div class='text-center'>";
+            echo "          <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'> 103 </label> – paragem <label style='color: red;'>434</label> – <label style='color: red;'>04.09.16</label></label>";
+            echo "          <label style='color: red;'>João 6:59-71</label>";
+            echo "      </div>";
+            echo "  </div>";
+            echo "</div>";
+        echo "  </div>";
+        echo "</div>";
+        
+    }
+    
     public function textoRetiro(){
         $tamanhoFonte16 = "font-size: 20px; font-family: garamond; text-align: justify;"; //; margin-left: 50px
 
@@ -997,10 +1043,10 @@ vosso Pai que está nos céus.<br/>";
         echo "          Informações:<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Início da próxima Jornada de Meditação, em <b>19 de setembro de 2016</b>.<br><br>";
+        echo "          Início da próxima Jornada de Meditação, em <b>21 de setembro de 2016</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Dia e horário: <b>2as feiras, de 19 às 20h30</b>.<br><br>";
+        echo "          Dia e horário: <b>4as feiras, de 14:30h às 16h00h</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
         echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a> (ver à esquerda da barra horizontal, na base desta página ou no mapa, na aba “Contato”).<br><br>";
@@ -1051,7 +1097,7 @@ vosso Pai que está nos céus.<br/>";
         echo "         Contato por e-mail ou por telefone.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Focalizador: <b>Luiz Carlos Bernal - Médico e Psicoterapeuta</b>. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
+        echo "          Focalizador: <b>Luiz Carlos Bernal (<a href='mailto:luiz.bernal@gmail.com' style='text-decoration: none;'>luiz.bernal@gmail.com</a>) - Médico e Psicoterapeuta</b>. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "          <b>Informações:</b><br><br>";
@@ -1144,7 +1190,7 @@ vosso Pai que está nos céus.<br/>";
         echo "          <b>Informações:</b><br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Focalizador: <b>Luiz Carlos Bernal</b> - Médico e Psicoterapeuta. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
+        echo "          Focalizador: <b>Luiz Carlos Bernal (<a href='mailto:luiz.bernal@gmail.com' style='text-decoration: none;'>luiz.bernal@gmail.com</a>) - Médico e Psicoterapeuta</b>. Mestre pelo HCTE-UFRJ, com o tema vinculado aos estudos da Consciência.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
         echo "          Próximo encontro: ver calendário.<br><br>";

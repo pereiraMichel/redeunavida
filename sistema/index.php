@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 require_once 'classes/classes.php';
 require_once 'model/modelUsuario.php';
 require_once '../controller/constantes.php';
-
+include_once './classes/paragem.inc.php';
 
 
 //error_reporting(0);
@@ -34,6 +34,9 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
         $modelUsuario->validaUser($nomeMail);
 //    }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +87,10 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 
                 <?php
                 $titulo = new classes();
+                
+                paragem::teste();
+                        
+                
                 ?>
 
         <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">

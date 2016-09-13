@@ -68,11 +68,35 @@
                 padding-top: 80px;
             }
 
-        </style>
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+                .set
+                {
+                    padding-left: 20%; 
+                    padding-right: 20%;
+                    background-position: center;
+                }
+                .imageRow
+                {
+                    padding-left: 50%; 
+                    padding-right: 50%;
+                    background-position: center;
+                }
+
+            </style>
         <link rel="author" href="autor.txt">      
     </head>
 <body id="corAzulFundoClaro">
-    <?php
+    <?php 
+        require_once './analyticstracking.php'; 
         $metodo = new metodos();
         $metodo->modalAviso();
     ?>

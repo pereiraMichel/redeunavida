@@ -6,3 +6,5 @@
 [2016-08-01 17:01:11] [[ERROR]]: Você deve fornecer pelo menos um endereço de destinatário de e-mail.
 [2016-08-01 17:01:54] [[ERROR]]: Você deve fornecer pelo menos um endereço de destinatário de e-mail.
 [2016-08-01 17:02:29] [[ERROR]]: SMTP Connect() falhou. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[2016-08-26 13:34:14] [[ERROR]]: SMTP Connect() falhou. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[2016-08-26 14:13:59] [[ERROR]]: SMTP Connect() falhou. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting

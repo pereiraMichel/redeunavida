@@ -113,6 +113,7 @@ class enviaMensagem {
         
         $pop = new POP3();
         $pop->authorise("mbox.redeunaviva.rio", 110, 30, "contato=redeunaviva.rio", "redeunaviva", 1);
+//        $pop->authorise("mbox.redeunaviva.rio", 110, 30, "redesocial=redeunaviva.rio", "r3d3un4v1v4", 1);
         
         $mail = new PHPMailer();
         $mail->SetLanguage("br");
@@ -126,16 +127,18 @@ class enviaMensagem {
 //        $mail->SMTPDebug = 1;
         $mail->Username = "contato=redeunaviva.rio";
         $mail->Password = "redeunaviva";
+//        $mail->Username = "redesocial=redeunaviva.rio";
+//        $mail->Password = "r3d3un4v1v4";
         $mail->Port = 587;
 
         $to = 'contato@redeunaviva.rio'; //seu e-mail
         $mail->From = $to;  //email do remetente
         $mail->Sender = $to;  //email do remetente
-        $mail->FromName = "REDEUNAVIVA";   //Nome de formatado do remetente
+        $mail->FromName = "RedeUnaViva";   //Nome de formatado do remetente
 
         $mail->AddAddress($to);     //O destino do email
         $mail->AddBCC($this->email);      //Envio com cópia oculta
-        $mail->Subject = "REDEUNAVIVA - CONTATO ";// . $this->titulo; //Assunto do email
+        $mail->Subject = "RedeUnaViva - Contato ";// . $this->titulo; //Assunto do email
         
         $font = "arial";
         $tamanho = 2;
@@ -143,7 +146,7 @@ class enviaMensagem {
         $mail->CharSet = "UTF-8";
         $mail->Body = "<br>"; //Body of the message
         $mail->Body .= "<font face=$font size='$tamanho'>";
-        $mail->Body .= "<font face=$font size='3'><b>REDEUNAVIVA - ATENDIMENTO";// . $this->titulo . "</b></font>";
+        $mail->Body .= "<font face=$font size='3'><b>RedeUnaViva - Atendimento";// . $this->titulo . "</b></font>";
         $mail->Body .= "<br/><hr>";
         $mail->Body .= "<div align='right'><font face='$font' size='".$tamanhoSub."'>Protocolo: ".$this->protocolo."</font></div>";
         $mail->Body .= "<br/><br/>";
@@ -180,7 +183,7 @@ class enviaMensagem {
         if (!$mail->Send()) {
             echo "<script>document.getElementById('sucesso').style.display='none'</script>";
             echo "<script>document.getElementById('erro').style.display='block'</script>";
-//            $this->geraLogErro($mail->ErrorInfo, "error");
+            $this->geraLogErro($mail->ErrorInfo, "error");
 
         } else {
             echo "<script>document.getElementById('erro').style.display='none'</script>";
@@ -189,13 +192,9 @@ class enviaMensagem {
 //            echo "<meta http-equiv='refresh' content='5;url=http://www.redeunaviva.rio/'>";
             
         }
-
         $mail->ClearAllRecipients();
-        
         die;
-        
-        
-        
     }
+    
     
 }

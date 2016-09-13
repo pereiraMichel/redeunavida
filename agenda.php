@@ -240,7 +240,9 @@
         <link rel="author" href="autor.txt">        
     </head>
 <body id="corAzulFundoClaro">
-    <?php
+    <?php 
+        require_once './analyticstracking.php';
+
         $metodo = new metodos();
         $metodo->modalAviso();
     ?>

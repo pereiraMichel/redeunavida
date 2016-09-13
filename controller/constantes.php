@@ -18,7 +18,7 @@
     define('EMAIL', 'E-mail: ');
     define('TELEFONE', 'Telefone: ');
     define('MENSAGEM', 'Mensagem: ');
-    define('DEPARTAMENTO', 'Departamento:');
+    define('ATIVIDADE', 'Atividade:');
     define('ENDERECOORGAO', 'Rua Mário Pederneiras, 31 - Casa, Humaitá');
     define('TELEFONEORGAO', ' (21) 2266-5690');
     
@@ -82,7 +82,7 @@
     define ('GALERIALINK', 'galeria.php');
     define ('QUEMSOMOSLINK', 'quemsomos.php');
     define ('CONTATOLINK', 'contato.php');
-    define ('BLOGLINK', 'http://www.blogspot.com');
+    define ('BLOGLINK', 'https://redeunavivablog.wordpress.com/');
     define ('LINKHOME', 'http://redeunaviva.mapti.com.br');
     
     define('PRIMAVERALINK', 'primavera.php');

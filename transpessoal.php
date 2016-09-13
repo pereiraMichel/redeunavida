@@ -61,12 +61,24 @@
                 padding-top: 80px;
                 background-color: <?php echo AMARELOCLARO; ?>
             }
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+            }
 
         </style>
         <link rel="author" href="autor.txt">
     </head>
 <body id="corAzulFundoClaro">
-    <?php
+    <?php require_once './analyticstracking.php';
+
     $metodo = new metodos();
     $metodo->modalAviso();
 //    echo "<script>";

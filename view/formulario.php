@@ -38,7 +38,7 @@ class formulario {
         echo "      </div>";
         echo "      <div class='col-sm-6'>";
         echo "          <div class='form-group'>";
-        echo "              <label class='control-label'>" . DEPARTAMENTO . "</label>";
+        echo "              <label class='control-label'>" . ATIVIDADE . "</label>";
         echo "              <div class='controls'>";
         echo "                  <select name='departamento' id='departamento' name='departamento' class='form-control'>";
         echo "                      <option name='atendimento'>Atendimento</option>";

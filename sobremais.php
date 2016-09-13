@@ -63,39 +63,52 @@ $formulario = new formulario();
                 background-color: <?php echo AZULFUNDOCLARO; ?>
             }
 
-        </style>
-        <link rel="author" href="autor.txt">      
-    </head>
-    <body id="corAzulFundoClaro">
-    <?php
-        $metodo = new metodos();
-    ?>
-        
-        <header id="header">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-                <div class="navbar-text-top">
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+
+            </style>
+            <link rel="author" href="autor.txt">      
+        </head>
+        <body id="corAzulFundoClaro">
+            <?php
+            require_once './analyticstracking.php';
+
+            $metodo = new metodos();
+            ?>
+
+            <header id="header">
+                <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
+                    <div class="navbar-text-top">
                         <?php
                         $titulo = new slideShow();
                         $titulo->telaTitulo();
                         ?>
-                </div>
-            </nav>
-        </header><!-- /header -->
+                    </div>
+                </nav>
+            </header><!-- /header -->
 
-        <div id="content">
-            <div class="bs-docs-header bs-docs-first">
-                <div class="container">
+            <div id="content">
+                <div class="bs-docs-header bs-docs-first">
+                    <div class="container">
 
-                    <h3 class="text-info" style="text-align: center; font-family: garamond; font-size: 30px; font-weight: bold; color: #3F6CA1;"><!-- #1f226d  -->
-                         Sobre MAIS
-                    </h3>
-                    <br/>
-                    
-                    <p style="height: 20px">&nbsp;</p>
-                    <div class="col-md-12">
-                        <p style="text-align: justify;">
-                            <?php
-                            $metodo->avisoMais();
+                        <h3 class="text-info" style="text-align: center; font-family: garamond; font-size: 30px; font-weight: bold; color: #3F6CA1;"><!-- #1f226d  -->
+                            Sobre MAIS
+                        </h3>
+                        <br/>
+
+                        <p style="height: 20px">&nbsp;</p>
+                        <div class="col-md-12">
+                            <p style="text-align: justify;">
+                                <?php
+                                $metodo->avisoMais();
 //                        $filename = "texto/quemsomos.xml";
 //                        
 //                        @header("Content-Type: text/html; charset=utf-8");
@@ -106,35 +119,35 @@ $formulario = new formulario();
 //                            echo $texto->quemsomos;
 //                            echo "<br>";
 //                        }
-                            ?>
-                        </p>
+                                ?>
+                            </p>
+                        </div>
+
+                        <!--</div>-->
                     </div>
-
-                    <!--</div>-->
                 </div>
+                <div style="height: 40px;">&nbsp;</div>
+
             </div>
-            <div style="height: 40px;">&nbsp;</div>
+            <!-- Parte de baixo da página -->
+            <footer id="footer">
 
-        </div>
-        <!-- Parte de baixo da página -->
-        <footer id="footer">
-
-            <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
-                <?php
+                <p style="height: 150px;"></p>
+                <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo" style="background-color: #BFE0F1;">
+                    <?php
                     $titulo->preparaMenu("sobremais");
-                ?>
+                    ?>
 
-            </nav>
-        </footer>
+                </nav>
+            </footer>
 
-        <!-- EOF -->
-        <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px"></div>
-        <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-            <img src="images/up.png" style="width:30px; height:30px">
-        </div>
+            <!-- EOF -->
+            <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
+                <img src="images/up.png" style="width:30px; height:30px"></div>
+            <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
+                <img src="images/up.png" style="width:30px; height:30px">
+            </div>
 
 
-    </body>
-</html>
+        </body>
+    </html>

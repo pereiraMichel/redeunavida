@@ -12,6 +12,7 @@ require_once './lib/phpmailer/class.phpmailer.php';
 require_once './lib/phpmailer/class.smtp.php';
 require_once './lib/phpmailer/class.pop3.php';
 require_once './lib/phpmailer/class.phpmaileroauth.php';
+require_once './lib/phpmailer/PHPMailerAutoload.php';
 
 
 $formulario = new formulario();
@@ -70,14 +71,26 @@ $formulario = new formulario();
             {
                 padding-top: 80px;
                 background-color: <?php echo AZULFUNDOCLARO; ?>;
+                
             }
+            
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+            }
+            
         </style>
     </head>
     <body>
-    <?php
-//        $metodo = new metodos();
-//        $metodo->modalAviso();
-    ?>
+    <?php require_once './analyticstracking.php'; ?>
+
         
         <header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">

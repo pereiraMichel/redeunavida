@@ -14,7 +14,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>REDE UNA VIDA</title>
+        <title>RedeUnaViva - Semana RUV</title>
 
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         
@@ -197,7 +197,12 @@
                                         <td class="active" style="text-align: right;">30</td>
                                         <td>&nbsp;</td><!-- Domingo -->
                                         <td>&nbsp;</td><!-- Segunda -->
-                                        <td>&nbsp;</td><!-- Terça -->
+                                        <td rowspan="3" class="warning">
+                                            <p style="padding-top: 15px; font-family: Lato; font-size: 15px; color: blueviolet">
+                                                <b>Jornada de Meditação</b><br/>
+                                                14:30h às 16:00h
+                                            </p>
+                                        </td><!-- Terça -->
                                         <td rowspan="4" class="info">
                                             <p style="padding-top: 40px; font-family: Lato; font-size: 15px; color: #FF0000">
                                                 <b>JR - Semanal</b><br/>
@@ -212,7 +217,7 @@
                                         <td class="active" style="font-size: 15px;">15</td>
                                         <td>&nbsp;</td><!-- Domingo -->
                                         <td>&nbsp;</td><!-- Segunda -->
-                                        <td>&nbsp;</td><!-- Terça -->
+                                        <!--<td>&nbsp;</td> Terça -->
                                         <!--<td>&nbsp;</td> Quarta -->
                                         <td>&nbsp;</td><!-- Quinta -->
                                         <td>&nbsp;</td><!-- Sexta -->
@@ -222,7 +227,7 @@
                                         <td class="active" style="text-align: right;">30</td>
                                         <td>&nbsp;</td><!-- Domingo -->
                                         <td>&nbsp;</td><!-- Segunda -->
-                                        <td>&nbsp;</td><!-- Terça -->
+                                        <!--<td>&nbsp;</td> Terça -->
                                         <!--<td>&nbsp;</td> Quarta -->
                                         <td>&nbsp;</td><!-- Quinta -->
                                         <td>&nbsp;</td><!-- Sexta -->
@@ -316,22 +321,19 @@
                                     <tr>
                                         <td class="active" style="font-size: 15px;">19</td>
                                         <td>&nbsp;</td><!-- Domingo -->
-                                        <td rowspan="3" class="warning">
-                                            <p style="padding-top: 15px; font-family: Lato; font-size: 15px; color: blueviolet">
-                                                <b>Jornada de Meditação</b><br/>
-                                                19h às 20:30h
-                                            </p>
-                                        </td><!-- Segunda -->
+                                        <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Sábado -->
                                     </tr>
                                     <tr>
                                         <td class="active" style="text-align: right;">30</td>
+                                        <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Sexta -->
                                     </tr>
                                     <tr>
                                         <td class="active" style="font-size: 15px;">20</td>
                                         <td>&nbsp;</td><!-- Domingo -->
+                                        <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Terça -->
                                     </tr>
                                     <tr>

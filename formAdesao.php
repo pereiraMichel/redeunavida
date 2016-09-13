@@ -64,9 +64,9 @@ if($_POST){
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="Bootstrap Sub-Menus">
-        <meta name="keywords" content="bootstrap dropdown jquery-plugin submenu">
-        <meta name="author" content="Vasily A.">
+        <meta name="description" content="Formulário de Adesão do RUV.">
+        <meta name="keywords" content="formulário formulario adesão adesao redeunaviva RUV RedeUnaViva">
+        <meta name="author" content="autor.txt">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>
@@ -109,25 +109,38 @@ if($_POST){
             body
             {
                 padding-top: 80px;
-                background-color: <?php echo AMARELOCLARO; ?>
+                margin: 0px;
+                background-color: <?php echo AZULFUNDOCLARO; ?>;
             }
-
+            @media only screen and (min-height : 1195px){
+                body
+                {
+                    margin-top: 80px;
+                    padding-top: 80px;
+                }
+                #espacamento
+                {
+                    height: 30px;
+                }
+            }
         </style>
         <link rel="author" href="autor.txt">      
     </head>
-    <body id="corAzulInfo">
-        <header id="header">
+    <body>
+    <?php require_once './analyticstracking.php'; ?>
+        
+        
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
-                <div class="text-center">
-                    <div class="navbar-text-top">
-                        <?php
-                        $titulo = new slideShow();
-                        $titulo->telaTitulo();
-                        ?>
-                    </div>
+                <div class="navbar-text-top">
+                    <!--<div class="navbar-text-top"> #D9EDF7-->
+                    <?php
+                    $titulo = new slideShow();
+                    $titulo->telaTitulo();
+                    ?>
+
                 </div>
             </nav>
-        </header><!-- /header -->
+
 
         <div id="content">
             <div class="bs-docs-header bs-docs-first">
@@ -166,10 +179,10 @@ if($_POST){
             <!--<div class="col-md-3"></div>-->
             
         </div>
+        <div id="espacamento">&nbsp;</div>
         <!-- Parte de baixo da página -->
         <footer id="footer">
-            <p style="height: 150px;"></p>
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" id="corAzulInfo">
+            <nav class="navbar navbar-default navbar-fixed-bottom" id="corAzulInfo" style="background-color: #BFE0F1;">
                 <?php
                     $titulo->preparaMenu("formAdesao");
                 ?>

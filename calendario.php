@@ -76,11 +76,13 @@
         <link rel="author" href="autor.txt">
     </head>
     <body onload="hora()" id="corAzulFundoClaro">
-    <?php
+        <?php
+        require_once './analyticstracking.php';
+
         $metodo = new metodos();
         $metodo->modalAviso();
-    ?>
-        
+        ?>
+
         <script>
             callerdate=new Date( <?php echo date("Y,m,d,H,i,s");?>);   
 //window.onload = _hora();

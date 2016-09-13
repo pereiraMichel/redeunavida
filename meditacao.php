@@ -69,10 +69,12 @@
     </head>
 <body id="corAzulFundoClaro">
     <?php
-        $metodo = new metodos();
-        $metodo->modalAviso();
+    require_once './analyticstracking.php';
+
+    $metodo = new metodos();
+    $metodo->modalAviso();
     ?>
-    
+
 	<header id="header">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
 			<div class="navbar-text-top">

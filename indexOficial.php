@@ -9,10 +9,6 @@ require_once './view/slideShow.php';
 
 $slide = new slideShow();
 
-$_COOKIE['inicial'] = "home";
-
-setcookie("inicial", "home", time() + 3600);
-
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +129,13 @@ setcookie("inicial", "home", time() + 3600);
     </head>
     <body>
     <!--<body onload="sizeOfThings()">-->
-    <?php require_once './analyticstracking.php'; ?>
+    <?php
+//    $metodo = new metodos();
+//    $metodo->modalAviso();
+//    echo "<script>";
+//    echo "  $(document).ready(function(){ $('#avisoMais').modal(); });";
+//    echo "</script>";
+    ?>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
                     <!--<div class="navbar-text-top"> #D9EDF7-->
