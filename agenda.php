@@ -272,7 +272,7 @@
                                 <td colspan="3"><div id="tituloPaginas" style="font-weight: normal;">Agenda - próximos eventos</div></td>
                             </tr>
                             <tr class="warning">
-                                <td colspan="3"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Retiro - 3 a 10 de setembro de 2016</div></td>
+                                <td colspan="3"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Retiro - 2 a 9 de setembro de 2017</div></td>
                             </tr>
                             <tr class="warning">
                                 <td colspan="3"><div id="subTituloGaleria" style="font-weight: normal; color: #1f226d;">Jornada Real - novos grupos - a partir de 18 de setembro de 2016</div></td>

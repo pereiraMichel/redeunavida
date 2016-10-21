@@ -192,15 +192,15 @@ class modelPerfil {
         $conexao->conecta();
 
         try {
-            $sql = "SELECT  l.nomeUsuario, l.emailUsuario,
+            $sql = "SELECT  l.nomeUsuario, l.email,
                             DATE_FORMAT(l.dataCadastro,'%d/%m/%Y') AS dataCadastro, p.idPerfil, 
                             p.nome, p.descricao, 
                             DATE_FORMAT(p.dataNascimento,'%d/%m/%Y') AS dataNascimento, 
-                            p.idade, s.setenio, tu.nomeTipoUsuario
-                    FROM tblloginsystems l
-                    INNER JOIN tblperfil p on l.idUsuario = p.codUsuario
-                    INNER JOIN tbltipousuario tu on tu.idTipoUsuario = l.codTipoUsuario
-                    INNER JOIN tblsetenio s on p.codSetenio = s.idsetenio
+                            p.idade, s.setenio, tu.nomeTipo
+                    FROM tblusuario l
+                    INNER JOIN perfil p on l.idUsuario = p.codUsuario
+                    INNER JOIN tipousuario tu on tu.idTipo = l.codTipoUsuario
+                    INNER JOIN setenio s on p.codSetenio = s.idsetenio
                     WHERE l.idUsuario = ".$idusuario;
             $resultado = mysql_query($sql) or die("Erro no comando SQL. Verifique sob o erro: " . mysql_error());
             $dados = mysql_fetch_array($resultado);
@@ -302,7 +302,7 @@ class modelPerfil {
                 echo "      </h5>";
                 echo "  </div>";
                 if($dados['idPerfil'] != ""){
-                $sqlTelefone = "SELECT telefone FROM tbltelefone WHERE codPerfil = ".$dados['idPerfil'];
+                $sqlTelefone = "SELECT telefone FROM telefone WHERE codPerfil = ".$dados['idPerfil'];
                 $resultadoTelefone = mysql_query($sqlTelefone) or die("Houve um erro no SQL da consulta do perfil. Erro: ".mysql_error());
                 
                 while($dadosTelefone = mysql_fetch_array($resultadoTelefone)){
@@ -352,7 +352,8 @@ class modelPerfil {
                 
                 
             } else {//Direcionar para Sobre você
-                echo "Perfil não preenchido. Verifique no menu acima para atualização.";
+                echo "Perfil não preenchido. Preencha os campos para atualização.";
+                echo "<p style='height: 30px;'>&nbsp;</p>";
                 $this->telaPerfil();
             }
         } catch (Exception $ex) {
@@ -366,8 +367,8 @@ class modelPerfil {
         $conecta->conecta();
 
         try {
-            $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM tblperfil p "
-                    . "INNER JOIN tblsetenio s ON s.idSetenio = p.codSetenio "
+            $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM perfil p "
+                    . "INNER JOIN setenio s ON s.idSetenio = p.codSetenio "
                     . " WHERE p.codUsuario = " . $_SESSION['idusuario'];
 //            echo $sqlConsultaPerfil."<br>";
             $resultadoConsulta = mysql_query($sqlConsultaPerfil) or die ("Não foi possível executar a ação devido ao erro de comando SQL. Erro: ".mysql_error());
@@ -430,7 +431,8 @@ class modelPerfil {
         echo "      <div class='form-group'>";
 //        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
         echo "              <div class='col-sm-10' style='text-align:right'>";
-        echo "                  <button class='btn btn-primary btn-xs'>Salvar</button>";
+        echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+        echo "                  <button class='btn btn-primary'>Salvar</button>";
         echo "              </div>";
         echo "      </div>";
         if ($_POST) {
@@ -461,21 +463,5 @@ class modelPerfil {
         echo "  </form>";
         echo "</div>";
     }
-
-//        echo "<div class='col-xs-5 col-sm-5 placeholder'>";
-//        echo "  <div class='btn-group' data-toggle='buttons'>";
-//        echo "      <label class='btn btn-default'>";
-//        echo "          <input type='radio' name='options' id='option1' autocomplete='off' checked> Inclusão";
-//        echo "      </label>";
-//        echo "      <label class='btn btn-default'>";
-//        echo "          <input type='radio' name='options' id='option2' autocomplete='off'> Consulta";
-//        echo "      </label>";
-//        echo "      <label class='btn btn-default'>";
-//        echo "          <input type='radio' name='options' id='option3' autocomplete='off'> Alteração";
-//        echo "      </label>";
-//        echo "      <label class='btn btn-default'>";
-//        echo "          <input type='radio' name='options' id='option3' autocomplete='off'> Exclusão";
-//        echo "      </label>";
-//        echo "  </div>";
-//        echo "</div>";    
+   
 }

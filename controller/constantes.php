@@ -14,6 +14,7 @@
 
 
     //Formulário contato
+    define('OPCAOJORNADA', 'Jornada: ');
     define('NOME', 'Nome: ');
     define('EMAIL', 'E-mail: ');
     define('TELEFONE', 'Telefone: ');

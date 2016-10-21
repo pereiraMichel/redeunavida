@@ -151,9 +151,9 @@ class classformAdesao {
         echo "<form name='form_adesao' action='formAdesao.php' method='post' class='form-horizontal'>";
 //        echo "  <span aria-hidden='true'>&times;</span>";
         echo "      <h3 style='text-align: center; padding-left: 0; padding-right: 0;'>";
-        echo "          <img src='images/logoJrGraficoColor.png' width='32' height='32'/> JORNADA REAL - <small>FORMULÁRIO DE ADESÃO</small>";
+        echo "          <img src='images/logoJrGraficoColor.png' width='32' height='32'/> FORMULÁRIO DE ADESÃO";
         echo "      </h3>";
-        echo "<p class='alert alert-danger' style='text-align: center;'>Momentaneamente, o formulário não está disponível. A previsão é de até sábado (03/09/2016). Grato pela atenção e compreensão.</p>";
+        echo "<p class='alert alert-danger' style='text-align: center;'>Momentaneamente, o formulário não está disponível. Grato pela atenção e compreensão.</p>";
         echo "      <p style='height: 30px;'>&nbsp;</p>";
         $this->formularioAdesao();
         echo "<div align='right'>";
@@ -293,10 +293,24 @@ class classformAdesao {
 
     public function formularioAdesao(){
         $medidaEsquerda = 3;
-        $medidaDireita = 9;
+        $medidaDireita = 7;
         echo "<div class='tab-pane active' id='tab1'>";
         echo "<input type='hidden' name='dataFormatada' id='dataFormatada' value='".date('Y-m-d') . "' size='10' readonly='readonly' />";
 
+        echo "<div class='form-group'>";
+        echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . OPCAOJORNADA . "</label>";
+        echo "   <div class='col-sm-".$medidaDireita."'>";
+        echo "      <label class='radio'>";
+        echo "          <input type='radio' name='jornada' id='jornada' value='JornadaReal' />";
+        echo "              Jornada Real";
+        echo "      </label>";
+        echo "      <label class='radio'>";
+        echo "          <input type='radio' name='jornada' id='jornada' value='JornadaMeditacao' />";
+        echo "              Jornada de Meditação";
+        echo "      </label>";
+        echo "   </div>";
+        echo "</div>";
+        
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . NOME . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
@@ -307,7 +321,7 @@ class classformAdesao {
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . SENHA . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='password' name='senha' id='senha' class='form-control' maxlength='8' />";
+        echo "      <input type='password' name='senha' id='senha' class='form-control' maxlength='8' readonly />";
         echo "   </div>";
         echo "</div>";
         
@@ -351,7 +365,7 @@ class classformAdesao {
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . ENDERECO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='text' name='endereco' id='endereco'  placeholder='Endereço' class='form-control' />";
+        echo "      <input type='text' name='enderecoAdesao' id='enderecoAdesao'  placeholder='Endereço' class='form-control' />";
         echo "   </div>";
         echo "</div>";
 

@@ -57,7 +57,7 @@ class modelUsuario {
         
         try{
             $sql = "SELECT * "
-                    . "FROM tblloginsystems l "
+                    . "FROM tblusuario l "
                     . "INNER JOIN tblperfil p ON p.codUsuario = l.idUsuario "
                     . "INNER JOIN tblsetenio s ON p.codSetenio = s.idsetenio "
                     . "WHERE l.idUsuario = ".$this->idUsuario;
@@ -87,9 +87,9 @@ class modelUsuario {
         
         try{
             $sql = "SELECT * "
-                    . "FROM tblloginsystems "
+                    . "FROM tblusuario "
                     . "WHERE (nomeUsuario = '".$usuario."' "
-                    . "OR emailUsuario = '".$usuario."') "
+                    . "OR email = '".$usuario."') "
                     . "AND senha = '".$this->senha."'";
 
             $resultado = mysql_query($sql) or die("||| Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
@@ -99,7 +99,7 @@ class modelUsuario {
                 session_start();
                 $_SESSION['idusuario'] = $dados['idUsuario'];//Não está gravando
                 $_SESSION['usuario'] = $dados['nomeUsuario'];
-                $_SESSION['email'] = $dados['emailUsuario'];
+                $_SESSION['email'] = $dados['email'];
                 $_SESSION['codTipoUsuario'] = $dados['codTipoUsuario'];
                 $_SESSION['logado'] = true;
                 
@@ -128,7 +128,7 @@ class modelUsuario {
         $conecta->conecta();
         try{
             
-            $sql = "SELECT MAX(idUsuario) AS idUsuario FROM tblloginsystems";
+            $sql = "SELECT MAX(idUsuario) AS idUsuario FROM tblusuario";
             $resultado = mysql_query($sql);
             $dados = mysql_fetch_array($resultado);
             $novoId = $dados['idUsuario'] + 1;
@@ -153,7 +153,7 @@ class modelUsuario {
         $this->dataUltimaAlteracao = $this->dataCadastro;
         
         try{
-            $sql = "INSERT INTO tblloginsystems (idUsuario, nomeUsuario, emailUsuario, senha, dataCadastro, dataUltimaAlteracao, codTipoUsuario) "
+            $sql = "INSERT INTO tblusuario (idUsuario, nomeUsuario, email, senha, dataCadastro, dataUltimaAlteracao, codTipoUsuario) "
                     . "VALUES ("
                     . $this->idUsuario.", "
                     . "'".$this->usuario."', "
@@ -340,7 +340,7 @@ class modelUsuario {
         $conecta->conecta();
         
         try{
-            $sql = "DELETE * FROM tblloginsystems WHERE idUsuario = ".$idUsuario;
+            $sql = "DELETE * FROM tblusuario WHERE idUsuario = ".$idUsuario;
 //            echo $sql;
             $resultado = mysql_query($sql) or die ("<br>Erro na exclusão: ".  mysql_error());
             

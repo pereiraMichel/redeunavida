@@ -6,7 +6,7 @@
 class modelBonus {
     
     public function telaBonus(){
-        $tarefa = filter_input(INPUT_GET, 'tarefa');
+        $tarefa = filter_input(INPUT_GET, 't');
         
         switch ($tarefa){
             
@@ -39,7 +39,7 @@ class modelBonus {
         echo "<div class='row' id='telaEscolha'>";
         echo "  <div class='col-xs-6 col-sm-6 col-md-6 placeholder'>";
         echo "      <div class='text-center'>";
-        echo "          <a href='inicio.php?menu=bonus&tarefa=registros' target='_self'>";
+        echo "          <a href='inicio.php?m=bonus&t=registros' target='_self'>";
         echo "              <img src='../img/registro1.jpg' title='Registros' width='150' height='150' class='img-responsive'>";
         echo "              <h5>Registros</h5>";
         echo "          </a>";
@@ -47,7 +47,7 @@ class modelBonus {
         echo "  </div>";
         echo "  <div class='col-xs-6 col-sm-6 col-md-6 placeholder'>";
         echo "      <div class='text-center'>";
-        echo "          <a href='inicio.php?menu=bonus&tarefa=indice' target='_self'>";
+        echo "          <a href='inicio.php?m=bonus&t=indice' target='_self'>";
         echo "              <img src='../img/analiseEstatistica.png' title='Registros' width='150' height='150' class='img-responsive'>";
         echo "              <h5>Índice Investimento</h5>";
         echo "          </a>";
@@ -57,7 +57,7 @@ class modelBonus {
         echo "<br/><br/>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
-        echo "      <a href='inicio.php' target='_self'>";
+        echo "      <a href='javascript: history.go(-1)' target='_self'>";
         echo "          <button class='btn btn-default'>";
         echo "              Sair";
         echo "          </button>";
@@ -105,90 +105,6 @@ class modelBonus {
         echo "                  </select>";
         echo "              </div>";
         echo "          </div>";
-//        echo "          <div class='table-responsive'>";
-//        echo "              <table class='table'>";
-//        echo "                  <tr>";
-//        echo "                      <td>";
-//        echo "                          Meditação";
-//        echo "                      </td>";
-//        echo "                      <td>";
-//        echo "                          &nbsp;";
-//        echo "                      </td>";
-//        echo "                      <td>";
-//        echo "                          Início";
-//        echo "                      </td>";
-//        echo "                      <td>";
-//        echo "                          Término";
-//        echo "                      </td>";
-//        echo "                      <td>";
-//        echo "                          Duração";
-//        echo "                      </td>";
-//        echo "                      <td>";
-//        echo "                          Nível";
-//        echo "                      </td>";
-//        echo "                  </tr>";
-//        echo "                  <tr>";
-//        echo "                      <td for='meditacao'>";
-//        echo "                          PM";
-//        echo "                      </td>";
-//        echo "                      <td for='atividade'>";
-//        echo "                          Sonho";
-//        echo "                      </td>";
-//        echo "                      <td for='inicio'>";
-//        echo "                          <input type='checkbox' name='inicioSonho' id='inicioSonho'>";
-//        echo "                      </td>";
-//        echo "                      <td for='termino'>";
-//        echo "                          <input type='checkbox' name='terminoSonho' id='terminoSonho'>";
-//        echo "                      </td>";
-//        echo "                      <td for='duracao'>";
-//        echo "                          <input type='text' class='col-sm-3' name='duracaoSonho' id='duracaoSonho'>";
-//        echo "                      </td>";
-//        echo "                      <td for='nivel'>";
-//        echo "                          <input type='text' class='col-sm-3' name='nivelSonho' id='nivelSonho'>";
-//        echo "                      </td>";
-//        echo "                  </tr>";
-//        echo "                  <tr>";
-//        echo "                      <td for='meditacao'>";
-//        echo "                          &nbsp;";
-//        echo "                      </td>";
-//        echo "                      <td for='atividade'>";
-//        echo "                          Completação";
-//        echo "                      </td>";
-//        echo "                      <td for='inicio'>";
-//        echo "                          <input type='checkbox' name='inicioCompletacao' id='inicioCompletacao'>";
-//        echo "                      </td>";
-//        echo "                      <td for='termino'>";
-//        echo "                          <input type='checkbox' name='terminoCompletacao' id='terminoCompletacao'>";
-//        echo "                      </td>";
-//        echo "                      <td for='duracao'>";
-//        echo "                          <input type='text' class='col-sm-3' name='duracaoCompletacao' id='duracaoSonho'>";
-//        echo "                      </td>";
-//        echo "                      <td for='nivel'>";
-//        echo "                          <input type='text' class='col-sm-3' name='nivelCompletacao' id='nivelSonho'>";
-//        echo "                      </td>";
-//        echo "                  </tr>";
-//        echo "                  <tr>";
-//        echo "                      <td for='meditacao'>";
-//        echo "                          PN"; //Parte Noite
-//        echo "                      </td>";
-//        echo "                      <td for='atividade'>";
-//        echo "                          Retrospectiva";
-//        echo "                      </td>";
-//        echo "                      <td for='inicio'>";
-//        echo "                          <input type='checkbox' name='inicioRetrospectiva' id='inicioRetrospectiva'>";
-//        echo "                      </td>";
-//        echo "                      <td for='termino'>";
-//        echo "                          <input type='checkbox' name='terminoRetrospectiva' id='terminoRetrospectiva'>";
-//        echo "                      </td>";
-//        echo "                      <td for='duracao'>";
-//        echo "                          <input type='text' class='col-sm-3' name='duracaoRetrospectiva' id='duracaoRetrospectiva'>";
-//        echo "                      </td>";
-//        echo "                      <td for='nivel'>";
-//        echo "                          <input type='text' class='col-sm-3' name='nivelRetrospectiva' id='nivelRetrospectiva'>";
-//        echo "                      </td>";
-//        echo "                  </tr>";
-//        echo "              </table>";
-//        echo "          </div>";
         echo "      </form>";
         echo "  </div>";
         echo "</div>";

@@ -180,7 +180,7 @@ class slideShow {
         
         echo "<div class='navbar-header navbar-text-top'>";
         echo "  <div class='container-fluid'>";
-        echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false'>";
+        echo "          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#menu' aria-expanded='false' id='responsivo'>";
         echo "              <span class='sr-only'>Menu</span>";
         echo "              <span class='icon-bar'></span>";
         echo "              <span class='icon-bar'></span>";
@@ -188,11 +188,13 @@ class slideShow {
         echo "          </button>";
         echo "          <div class='navbar-subtext-top' style='padding-top: 5px; padding-left: 15px;'>";//padding-top: 15px;
         echo "                  <span>";
-        echo "                      <img src='images/logoRUV50x51.png' width='40' height='41'>";
-        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'><img src='images/letraRUV.png' title='RedeUnaViva' width='150' height='40' style='width: 16%; height: 8%'></a> ";
+        echo "                      <img src='images/logoRUV50x51.png' width='40' height='41' id='logoRuv'>";
+        echo "                      <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>";
+        echo "                          <img src='images/letraRUV.png' title='RedeUnaViva' id='logoTextoRuv'>";
+        echo "                      </a> ";
 //        echo "                  <a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: arial; font-size: ".TAMANHOTITULO.";' id='tituloRuv'>RedeUnaViva</a> ";
         echo "                  </span>";
-        echo "                  <img src='images/hanzipenImage.png' width='230' height='23' class='image-responsive' style='width: 20%; height: 20%; padding-bottom: 0px;'>";
+        echo "                  <img src='images/hanzipenImage.png' id='imageHanzipen'>";
         
 //        echo "                  <span><a href='index.php' style='text-decoration: none; color: #3F6CA1; font-family: times new roman; font-weight: bold;'>RedeUnaViva</a> </span><a style='font-family: Arial Unicode MS, Cursive; font-size: 20px; text-decoration: none; color: #F2C700'><b><i>por uma cultura de paz</i></b></a>";
         echo "          </div>";
@@ -234,7 +236,8 @@ class slideShow {
         echo "<div class='banner-box'>";
         echo "<div class='banner'>";
         echo "  <ul class='bxslider'>";
-        echo "      <li class='icone_slider' id='imagemRUVCDoggerBlue3'>";
+//        echo "      <li class='icone_slider img-responsive' id='imagemRUVCDoggerBlue3'>";
+        echo "      <li class='icone_slider img-responsive' id='imagemRUVFundoBlue'>";
         echo "          <div class='imagemRUVCentro'>&nbsp;</div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem1'>";
@@ -247,9 +250,9 @@ class slideShow {
 //        echo "                  <img src='images/hanzipenImageUnicaBranco.png' width='230' height='23' class='image-responsive' style='background-position: center; text-align: center;'>";
 //        echo "              </div>";
 //        echo "              </p>";
-        echo "              <p style='text-align: center; font-size: 20px; font-family: arial;'>por uma cultura de paz</p>";
+        echo "              <p id='sub'>por uma cultura de paz</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
+        echo "          <div class='banner_texto2' id='textoBaixo'>";
         echo "              <p>nova humanidade</p>";
         echo "              <p>conspirada</p>";
         echo "              <p>em silêncio</p>";
@@ -257,10 +260,10 @@ class slideShow {
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem2'>";
         echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
-        echo "              <p style='text-align: center;'>Jornada Real</p>";
-        echo "              <p style='font-size: 20px;'>para ser</p>";
+        echo "              <p>Jornada Real</p>";
+        echo "              <p id='sub'>para ser</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
+        echo "          <div class='banner_texto2' id='textoBaixo'>";// 
         echo "              <p style='text-align: left;'>Um caminho espiritual</p>";
         echo "              <p style='text-align: left;'>de prática individual diária</p>";
         echo "              <p style='text-align: left;'>e encontros semanais em grupo afim</p>";
@@ -269,21 +272,21 @@ class slideShow {
         // 
         echo "      <li class='icone_slider' id='imagem3'>";
         echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
-        echo "              <p style='text-align: center;'>Jornada de Meditação</p>";
-        echo "              <p style='font-size: 20px;'>sentar em paz<br/>sob a mente una</p>";
+        echo "              <p>Jornada de Meditação</p>";
+        echo "              <p id='sub'>sentar em paz<br/>sob a mente una</p>";
         echo "          </div>";
         echo "          <br/><br/>";
-        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTopGruposSemanais."; font-family: arial;'>";
-        echo "              <p style='text-align: right;'>grupos semanais</p>";
+        echo "          <div class='banner_texto2' id='textoBaixo'>";
+        echo "              <p>grupos semanais</p>";
         echo "              <p>prática e partilha</p>";
         echo "          </div>";
         echo "      </li>";
         echo "      <li class='icone_slider' id='imagem4'>";
         echo "          <div class='banner_texto1' style='text-align: center; font-family: arial;'>";
         echo "              <p style='text-align: center;'>Retiro Anual</p>";
-        echo "              <p style='font-size: 20px;'>Morgenlicht</p>";
+        echo "              <p id='sub'>Morgenlicht</p>";
         echo "          </div>";
-        echo "          <div class='banner_texto2' style='font-size: 24px; ".$medidaTop.";'>";
+        echo "          <div class='banner_texto2' id='textoBaixo'>";
         echo "              <p style='text-align: left;'>jornada de autoconhecimento</p>";
         echo "              <p style='text-align: left;'>meditação</p>";
         echo "              <p style='text-align: left;'>roda dos sonhos</p>";
@@ -765,7 +768,7 @@ class slideShow {
         
         echo "<div class='container-fluid'>";
         echo "  <div class='navbar-header'>";
-        echo "      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#menuBaixo' aria-expanded='false'>";
+        echo "      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#menuBaixo' aria-expanded='false' id='botao'>";
         echo "          <span class='sr-only'>Menu</span>";
         echo "          <span class='icon-bar'></span>";
         echo "          <span class='icon-bar'></span>";
@@ -774,9 +777,11 @@ class slideShow {
         echo "      <a class='navbar-brand' href='contato.php' style='padding: 6px 0px 0px 20px; color: rgba(184, 124, 4, 0.9);'>";
 //        echo "          <small>";
 //        echo "            <h5>";
-        echo "              <span style='font-size: ".TAMANHOMENU.";'>";
+        echo "              <span id='endereco'>";// style='font-size: ".TAMANHOMENU.";'
         echo                    ENDERECOORGAO;
-        echo "              <br><img src='images/telefone.png' width='20' height='20' alt='Telefone' title='Telefone'>" . TELEFONEORGAO;
+        echo "              </span>";
+        echo "              <span id='endereco'>";// style='font-size: ".TAMANHOMENU.";'
+        echo "              <br>" . TELEFONEORGAO;//<img src='images/telefone.png' id='imgTelefone' alt='Telefone' title='Telefone'>
         echo "              </span>";
 //        echo "            </h5>";
 //        echo "          </small>";
@@ -785,110 +790,110 @@ class slideShow {
         echo "  <div class='navbar-collapse collapse' id='menuBaixo' style='padding-right: 10px; font-size: ".TAMANHOMENU.";'>";
         echo "      <ul class='nav navbar-nav navbar-right'>";
         echo "          <li id='home' ".$marcaHome.">";
-        echo "              <a href='".HOMELINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a href='".HOMELINK."' id='linkMenu'>";
         echo "                  Home"; //<i class="fa icon-home"></i> Home
         echo "              </a>";
         echo "          </li>";
         echo "          <li class='dropdown'>";
-        echo "              <a data-toggle='dropdown' class='dropdown-toggle' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a data-toggle='dropdown' class='dropdown-toggle' id='linkMenu'>";
         echo "                  Programação";
         echo "                  <span class='caret'></span>";
         echo "              </a>"; //<i class="fa fa-puzzle-piece"></i> 
         echo "              <ul class='dropdown-menu' role='menu'>";
         echo "          <li ".$marcaJR.">";
-        echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self' id='linkMenu'>";
         echo "                  Jornada Real";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaMeditacao.">";
-        echo "              <a tabindex='0' href='".MEDITACAOLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".MEDITACAOLINK."' id='linkMenu'>";
         echo "                  Jornada de Meditação";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaMeditacaoCrista.">";
-        echo "              <a tabindex='0' href='".MEDITCRISTALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".MEDITCRISTALINK."' id='linkMenu'>";
         echo "                  Meditação Cristã";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaRedeSocialClinica.">";
-        echo "              <a tabindex='0' href='".REDESOCIALCLINICA."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".REDESOCIALCLINICA."' id='linkMenu'>";
         echo "                  Rede Social Clínica";
         echo "              </a>";
         echo "          </li>";
         echo "          <li ".$marcaRetiro.">";
-        echo "              <a tabindex='0' href='".RETIROLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".RETIROLINK."' id='linkMenu'>";
         echo "                  Retiro";
         echo "              </a>";
         echo "          </li>";
         echo "      </ul>";
 //        echo "  </li>";
         echo "  <li class='dropdown'>";
-        echo "      <a tabindex='0' data-toggle='dropdown' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a tabindex='0' data-toggle='dropdown' id='linkMenu'>";
         echo "          Tempo";
         echo "          <span class='caret'></span>";
         echo "      </a>"; //<i class="fa fa-clock-o"></i> 
         echo "      <ul class='dropdown-menu' role='menu'>";
         echo "          <li ".$marcaSemanaRuv.">";
-        echo "              <a tabindex='0' href='".SEMANARUV."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".SEMANARUV."' target='_self' id='linkMenu'>";
         echo "                  Semana RUV";
         echo "              </a>"; // <i class="fa fa-dashboard"></i> 
         echo "          </li>";
         echo "          <li ".$marcaAgenda.">";
-        echo "              <a tabindex='0' href='".AGENDALINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".AGENDALINK."' target='_self' id='linkMenu'>";
         echo "                  Agenda";
         echo "              </a>"; // <i class="fa fa-dashboard"></i> 
         echo "          </li>";
         echo "          <li ".$marcaCalendario.">";
-        echo "              <a tabindex='0' href='".CALENDARIOLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "              <a tabindex='0' href='".CALENDARIOLINK."' target='_self' id='linkMenu'>";
         echo "                  Calendário";
         echo "              </a>"; // <i class="fa fa-calendar"></i> 
         echo "          </li>";
         echo "      </ul>";
         echo "  </li>";
         echo "  <li class='dropdown'>";
-        echo "      <a tabindex='0' data-toggle='dropdown' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a tabindex='0' data-toggle='dropdown' id='linkMenu'>";
         echo "          ".MENU4."<span class='caret'></span>";
         echo "      </a>"; // <i class="fa fa-ticket"></i> 
         echo "          <ul class='dropdown-menu' role='menu'>";
         echo "              <li ".$marcaSobreMais.">";
-        echo "                  <a tabindex='0' href='".SOBREMAIS."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  <a tabindex='0' href='".SOBREMAIS."' id='linkMenu'>";
         echo "                      Sobre MAIS...";
         echo "                  </a>";
         echo "              </li>";
         echo "              <li ".$marcaYoga.">";
-        echo "                  <a tabindex='0' href='".YOGALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  <a tabindex='0' href='".YOGALINK."' id='linkMenu'>";
         echo "                      Yoga";
         echo "                  </a>";
         echo "              </li>";
         echo "              <li ".$marcaRodaSonhos.">";
-        echo "                  <a tabindex='0' href='".RODASONHOSLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  <a tabindex='0' href='".RODASONHOSLINK."' id='linkMenu'>";
         echo "                      Roda dos Sonhos";
         echo "                  </a>";
         echo "              </li>";
         echo "              <li ".$marcaTranscurso.">";
-        echo "                  <a tabindex='0' href='".TRANSPESSOALLINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "                  <a tabindex='0' href='".TRANSPESSOALLINK."' id='linkMenu'>";
         echo "                      Transcurso Transpessoal";
         echo "                  </a>";
         echo "              </li>";
         echo "          </ul>";
         echo "  </li>";
         echo "  <li id='galeria' ".$marcaGaleria.">";
-        echo "      <a href='".GALERIALINK."' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a href='".GALERIALINK."' id='linkMenu'>";
         echo "          Galeria"; // <i class="fa fa-ticket"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='quemsomos' ".$marcaQuemSomos.">";
-        echo "      <a href='".QUEMSOMOSLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a href='".QUEMSOMOSLINK."' target='_self' id='linkMenu'>";
         echo "          Quem Somos"; // <i class="fa fa-book"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='contato' ".$marcaContato.">";
-        echo "      <a href='".CONTATOLINK."' target='_self' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a href='".CONTATOLINK."' target='_self' id='linkMenu'>";
         echo "          Contato"; // <i class="fa fa-envelope-o"></i> 
         echo "      </a>";
         echo "  </li>";
         echo "  <li id='blog'>";
-        echo "      <a href='".BLOGLINK."' target='_blank' style='color: rgba(184, 124, 4, 0.9);'>";
+        echo "      <a href='".BLOGLINK."' target='_blank' id='linkMenu'>";
         echo "          Blog"; // <i class="fa fa-link"></i> 
         echo "      </a>";
         echo "  </li>";

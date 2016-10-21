@@ -145,15 +145,37 @@
                             <tr class="warning">
                                 <td colspan="2"><div id="tituloPaginas" style="font-weight: normal;">Semana - RUV</div></td>
                             </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center; padding: 0; margin-bottom: 0;">
+                                        <tbody>
+                                            <!-- Cabeçalho -->
+                                            <tr style="font-size: 15px; text-align: center">
+                                                <td class="active" style="width: 50px">&nbsp;</td>
+                                                <td style="width: 150px"><b>Domingo</b></td>
+                                                <td style="width: 150px"><b>2ª Feira</b></td>
+                                                <td style="width: 150px"><b>3ª Feira</b></td>
+                                                <td style="width: 150px"><b>4ª Feira</b></td>
+                                                <td style="width: 150px"><b>5ª Feira</b></td>
+                                                <td style="width: 150px"><b>6ª Feira</b></td>
+                                                <td style="width: 150px"><b>Sábado</b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+<?php                       
+                            echo "<iframe src='view/iSemanaRuv.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='600'></iframe>";
+                            ?>
+                                </td>
+                            </tr>
                             <?php
                             /* @var $_GET type */
-                            echo "<tr>";
-                            echo "  <td colspan='2'>";
-
-                            echo "<iframe src='view/iSemanaRuv.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='529'></iframe>";
-
-                            echo "  </td>";
-                            echo "</tr>";
+//                            echo "<tr>";
+//                            echo "  <td colspan='2'>";
+//
+//                            echo "<iframe src='view/iSemanaRuv.php' frameborder='0' scrolling='yes' name='agendaPadrao' width='100%' height='600'></iframe>";
+//
+//                            echo "  </td>";
+//                            echo "</tr>";
                             ?>
 
 

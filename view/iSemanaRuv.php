@@ -60,8 +60,9 @@
                                         </small>
 
                                 <table  class="table table-condensed" style="font-family: Lato; font-size: 10px; text-align: center">
+                                    <tbody>
                                     <!-- Cabeçalho -->
-                                    <tr style="font-size: 15px; text-align: center">
+<!--                                    <tr style="font-size: 15px; text-align: center">
                                         <td class="active" style="width: 50px">&nbsp;</td>
                                         <td style="width: 150px"><b>Domingo</b></td>
                                         <td style="width: 150px"><b>2ª Feira</b></td>
@@ -70,25 +71,35 @@
                                         <td style="width: 150px"><b>5ª Feira</b></td>
                                         <td style="width: 150px"><b>6ª Feira</b></td>
                                         <td style="width: 150px"><b>Sábado</b></td>
-                                    </tr>
+                                    </tr>-->
+<!--                                    <tr style="font-size: 15px; text-align: center">
+                                        <td class="active" style="width: 50px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                        <td style="width: 150px">&nbsp;</td>
+                                    </tr>-->
                                     
                                     <!-- Fim do cabeçalho -->
                                     <tr>
-                                        <td class="active" style="font-size: 15px;">9</td>
+                                        <td class="active" style="font-size: 15px; width: 50px;">9</td>
                                         <td rowspan="8" class="warning">
-                                            <p style="padding-top: 90px; font-family: Lato; font-size: 15px; color: #FF0000">
+                                            <p style="padding-top: 90px; font-family: Lato; font-size: 15px; color: #FF0000;">
                                                 <b>Jornada Real<br> Mensal</b><br/>
                                                 9h às 13h
                                             </p>
                                         </td><!-- Domingo -->
-                                        <td>&nbsp;</td><!-- Segunda -->
-                                        <td>&nbsp;</td><!-- Terça -->
-                                        <td>&nbsp;</td><!-- Quarta -->
-                                        <td>&nbsp;</td><!-- Quinta -->
-                                        <td>&nbsp;</td><!-- Sexta -->
-                                        <td rowspan="18" class="success">
+                                        <td style="width: 150px;">&nbsp;</td><!-- Segunda -->
+                                        <td style="width: 150px;">&nbsp;</td><!-- Terça -->
+                                        <td style="width: 150px;">&nbsp;</td><!-- Quarta -->
+                                        <td style="width: 150px;">&nbsp;</td><!-- Quinta -->
+                                        <td style="width: 150px;">&nbsp;</td><!-- Sexta -->
+                                        <td rowspan="18" class="success" style="width: 150px;">
                                             <p style="padding-top: 200px; font-family: Lato; font-size: 15px; color: #FF0000">
-                                                <b>Jornada Real<br> Trimestral</b><br/>
+                                                <b>RedeUnaViva</b><br/>
                                                 9h às 18h
                                             </p>
                                         </td><!-- Sábado -->
@@ -197,6 +208,7 @@
                                         <td class="active" style="text-align: right;">30</td>
                                         <td>&nbsp;</td><!-- Domingo -->
                                         <td>&nbsp;</td><!-- Segunda -->
+                                        <td>&nbsp;</td><!-- Terça -->
                                         <td rowspan="3" class="warning">
                                             <p style="padding-top: 15px; font-family: Lato; font-size: 15px; color: blueviolet">
                                                 <b>Jornada de Meditação</b><br/>
@@ -209,7 +221,6 @@
                                                 14:30h às 16:30h
                                             </p>                                              
                                         </td><!-- Quarta -->
-                                        <td>&nbsp;</td><!-- Quinta -->
                                         <td>&nbsp;</td><!-- Sexta -->
                                         <!--<td>&nbsp;</td> Sábado -->
                                     </tr>
@@ -265,13 +276,13 @@
                                         <td class="info" rowspan="3">
                                             <p style="padding-top: 10px; font-family: Lato; font-size: 15px; color: blue">
                                                 <b>Yoga</b><br/>
-                                                17h às 18:30h
+                                                17h às 18:15h
                                             </p>  
                                         </td><!-- Quarta -->
                                         <td class="info" rowspan="3">
                                             <p style="padding-top: 10px; font-family: Lato; font-size: 15px; color: blue">
                                                 <b>Yoga</b><br/>
-                                                17h às 18:30h
+                                                17h às 18:15h
                                             </p>  
                                         </td><!-- Quarta -->
                                         <td rowspan="7" class="info">
@@ -294,9 +305,9 @@
                                     </tr>
                                     <tr>
                                         <td class="active" style="font-size: 15px;">18</td>
-                                        <td class="info" rowspan="5">
+                                        <td class="info" rowspan="4">
                                             <p style="padding-top: 30px; font-family: Lato; font-size: 15px; color: red">
-                                                <b>JR - Semanal</b><br/>
+                                                <b>JR - avançada Semanal</b><br/>
                                                 18h às 20h
                                             </p>
                                         </td><!-- Quarta -->
@@ -326,13 +337,14 @@
                                     </tr>
                                     <tr>
                                         <td class="active" style="text-align: right;">30</td>
-                                        <td>&nbsp;</td><!-- Terça -->
+                                        <td>&nbsp;</td><!-- Domingo -->
                                         <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Sexta -->
                                     </tr>
                                     <tr>
                                         <td class="active" style="font-size: 15px;">20</td>
                                         <td>&nbsp;</td><!-- Domingo -->
+                                        <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Terça -->
                                         <td>&nbsp;</td><!-- Terça -->
                                     </tr>
@@ -356,6 +368,7 @@
                                         <td>&nbsp;</td><!-- Sexta -->
                                         <td>&nbsp;</td><!-- Sábado -->
                                     </tr>
+                                    </tbody>
                                 </table>
                                 <br/><br/>
 

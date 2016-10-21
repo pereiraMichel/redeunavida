@@ -7,6 +7,8 @@
     require_once './view/slideShow.php';
 //    require_once './view/slideShow.php';
     require_once './controller/calendarioRuv.php';
+    
+    error_reporting(0);
 
     $formulario = new formulario();
     

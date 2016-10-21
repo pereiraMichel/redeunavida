@@ -116,7 +116,7 @@ class paragem {
     public function verificaParagem(){
         $sqlVerificaParagem = "SELECT * FROM paragem WHERE paragem = '".$this->paragem."' AND codUsuario = ".$this->codUsuario;
         try{
-            $resultVerifica = mysql_query($sqlVerificaParagem) or die("Retorno de erro no comando SQL. Mensagem: ".mysql_error());
+            $resultVerifica = mysql_query($sqlVerificaParagem) or die(RETURN_SQL.mysql_error());
             if(mysql_num_rows($resultVerifica) > 0){//Verifica se a quantidade é maior que 0
                 $this->editParagem();//Vai para alteração
             }else{
@@ -124,46 +124,46 @@ class paragem {
             }
             
         } catch (Exception $ex) {
-            echo "Houve um erro na verificação. Exception: ".$ex->getMessage();
+            echo EXCEPTION_VERIF.$ex->getMessage();
         }
     }
 
     public function novaParagem(){
         $sqlNovaParagem = "INSERE_PARAGEM(".$this->idParagem.", ".$this->paragem.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
         try{
-            $resultNovo = mysql_query($sqlNovaParagem) or die("Retorno de erro no comando SQL. Mensagem: ".mysql_error());
+            $resultNovo = mysql_query($sqlNovaParagem) or die(RETURN_SQL.mysql_error());
             if(!$resultNovo){
-                echo "Não foi inserido. Verifique os dados com o seu analista.";
+                echo "Não foi inserido. ".VER_ANALISTA;
             }
             mysql_close($resultNovo);
         } catch (Exception $ex) {
-            echo "Houve um erro ao incluir. Exception: ".$ex->getMessage();
+            echo EXCEPTION_INC.$ex->getMessage();
         }
     }
         
     public function editParagem(){
         $sqlEditTelefone = "EDIT_PARAGEM(".$this->idTelefone.", ".$this->telefone.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
         try{
-            $resultEdit = mysql_query($sqlEditTelefone) or die("Retorno de erro no comando SQL. Mensagem: ".mysql_error());
+            $resultEdit = mysql_query($sqlEditTelefone) or die(RETURN_SQL.mysql_error());
             if(!$resultEdit){
-                echo "Não foi alterado. Verifique os dados com o seu analista.";
+                echo "Não foi alterado. ".VER_ANALISTA;
             }
             mysql_close($resultEdit);
         } catch (Exception $ex) {
-            echo "Houve um erro ao alterar. Exception: ".$ex->getMessage();
+            echo EXCEPTION_ALT.$ex->getMessage();
         }
     }
     
     public function deleteParagem(){
         $sqlDeleteParagem = "DELETE_PARAGEM(".$this->idParagem.")";
         try{
-            $resultDelete = mysql_query($sqlDeleteParagem) or die("Retorno de erro no comando SQL. Mensagem: ".mysql_error());
+            $resultDelete = mysql_query($sqlDeleteParagem) or die(RETURN_SQL.mysql_error());
             if(!$resultDelete){
-                echo "Não foi excluído. Verifique os dados com o seu analista.";
+                echo "Não foi excluído. ".VER_ANALISTA;
             }
             mysql_close($resultDelete);
         } catch (Exception $ex) {
-            echo "Houve um erro ao excluir. Exception: ".$ex->getMessage();
+            echo EXCEPTION_EXC.$ex->getMessage();
         }
     }
     

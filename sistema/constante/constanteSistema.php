@@ -32,3 +32,13 @@ define('3', 'ALTERAÇÃO');
 define('4', 'EXCLUSÃO');
 define('5', 'PARAM CONSULTA');
 
+define('RETURN_SQL', 'Retorno de erro no comando SQL. Mensagem: ');
+define('VER_ANALISTA', 'Verifique os dados com o seu analista.');
+
+//EXCEPTION
+define('EXCEPTION_VERIF', 'Houve um erro na verificação. Exception: ');
+define('EXCEPTION_CON', 'Houve um erro ao consultar. Exception: ');
+define('EXCEPTION_INC', 'Houve um erro ao incluir. Exception: ');
+define('EXCEPTION_ALT', 'Houve um erro ao alterar. Exception: ');
+define('EXCEPTION_EXC', 'Houve um erro ao excluir. Exception: ');
+

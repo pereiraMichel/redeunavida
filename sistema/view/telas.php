@@ -19,7 +19,7 @@ class telas {
     echo "  </div>";
 
     echo "  <div class='collapse navbar-collapse' style='padding-right: 20px;'>";
-    echo "      <ul class='nav navbar-nav navbar-left' id='menu' style='font-size: 12px;'>";
+    echo "      <ul class='nav navbar-nav navbar-right' id='menu' style='font-size: 12px; padding-right: 20px;'>";
     
     echo "          <li id='perfil' class='dropdown'>";
     echo "              <a tabindex='0' data-toggle='dropdown'>";
@@ -32,7 +32,7 @@ class telas {
     echo "              </a>";
     echo "              <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfilsv'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfilsv'>";
     echo "                          Sobre você";
     echo "                      </a>";
     echo "                  </li>";
@@ -42,12 +42,12 @@ class telas {
 //    echo "                      </a>";
 //    echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfiltel'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfiltel'>";
     echo "                          Telefones";
     echo "                      </a>";
     echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=trocasenha'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=trocasenha'>";
     echo "                          Troca de Senha";
     echo "                      </a>";
     echo "                  </li>";
@@ -77,7 +77,7 @@ class telas {
     echo "                  <li id='atividade'>";
 //    echo "                  <li class='dropdown-submenu' id='atividade'>";
 //    echo "                      <a tabindex='0' class='dropdown-toggle' role='button' data-toggle='dropdown'>";
-    echo "                      <a tabindex='-1' href='inicio.php?menu=atividades'>";
+    echo "                      <a tabindex='-1' href='inicio.php?m=atividades'>";
     echo "                          <i class='fa fa-archive'></i> Atividades";
     echo "                      </a>";
 //    echo "                      <ul class='dropdown-menu mega-dropdown-menu' style='font-size: 12px;'>";
@@ -95,7 +95,7 @@ class telas {
     echo "                  </li>";
     
     echo "                  <li id='relatorio'>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=relatorios'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=relatorios'>";
     echo "                          <i class='fa fa-list'></i> Relatórios";
     echo "                      </a>";
 //    echo "                      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
@@ -129,7 +129,7 @@ class telas {
 
                 if($autoriza){
                     echo "  <li id='configuracoes'>";
-                    echo "      <a tabindex='0' href='inicio.php?menu=configuracoes'>";
+                    echo "      <a tabindex='0' href='inicio.php?m=configuracoes'>";
                     echo "          <i class='fa fa-windows'></i> Configurações";
                     echo "      </a>";
 //                    echo "      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
@@ -144,7 +144,7 @@ class telas {
                 }
             
     echo "                  <li id='suporte'>";
-    echo "                      <a href='inicio.php?menu=suporte'>";
+    echo "                      <a href='inicio.php?m=suporte'>";
     echo "                          <i class='fa fa-cloud'></i> ";
     echo "                              Suporte";
     echo "                      </a>";
@@ -209,22 +209,22 @@ class telas {
     echo "              <span class='caret'></span>";
     echo "              <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfilsv'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfilsv'>";
     echo "                          Sobre você";
     echo "                      </a>";
     echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfilend'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfilend'>";
     echo "                          Seu endereço";
     echo "                      </a>";
     echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=perfiltel'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfiltel'>";
     echo "                          Telefones";
     echo "                      </a>";
     echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?menu=trocasenha'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=trocasenha'>";
     echo "                          Troca de Senha";
     echo "                      </a>";
     echo "                  </li>";

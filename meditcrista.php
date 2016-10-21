@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 require_once 'view/formulario.php';
 require_once 'controller/constantes.php';
@@ -11,7 +9,46 @@ require_once 'texto/classTexto.php';
 $formulario = new formulario();
 $texto = new classTexto();
 
+error_reporting(0);
+//echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
+//    $texto->modalDownload();
+
+/* @var $_GET type */
+    $sucesso = $_GET['s'];
+    $download = $_GET['d'];
+
+if($_GET){
+    if($sucesso){
+        $texto->preparaDownload($sucesso);
+    }
+    
+    
+    switch ($download){
+        case "107":
+            $texto->downloaPdf("MC107Paragem113.pdf");
+            break;
+        case "108":
+            $texto->downloaPdf("MC108Paragem114.pdf");
+            break;
+        case "109":
+            $texto->downloaPdf("MC109Paragem121.pdf");
+            break;
+//        case "110":
+//            $texto->downloaPdf("MC109Paragem121.pdf");
+//            break;
+    }
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
+    
+//define('mTime', $texto->calculaTempo());
+//
+//$tempo = $texto->calculaTempo(mTime);
+//
+}
+
+            
 ?>
+
+<!DOCTYPE html>
 
 <html lang="pt-br">
     <head>
@@ -21,7 +58,7 @@ $texto = new classTexto();
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="description" content="Meditação Cristã. Em todos os domingos nos encontramos na nossa sede para realizar nossa costumeira e nutridora Meditação Cristã (MC).">
         <meta name="keywords" content="Meditação cristã meditação cristã evangelho composição reunião dinâmica">
-        <meta name="author" content="autor.txt">
+        <meta name="author" content="REDEUNAVIVA - MAPTI">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
         <title><?php echo TITULORUV; ?></title>
@@ -42,12 +79,15 @@ $texto = new classTexto();
         <!--<link rel="stylesheet" href="css/style.css">-->
 
         <script src="js/jquery.js" defer=""></script>
+        <script src="js/modal.js" defer=""></script>
         <script src="js/bootstrap.js" defer=""></script>
         <script src="js/highlight.min.js" defer=""></script>
         <script src="js/bootstrap-submenu.js" defer=""></script>
         <script src="js/docs.js" defer=""></script>
-        <script src="js/bootstrap-transition.js" defer=""></script>
-        <script src="js/bootstrap-collapse.js" defer=""></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        
+        <!--<script src="js/bootstrap-transition.js" defer=""></script>-->
+        <!--<script src="js/bootstrap-collapse.js" defer=""></script>-->
         <!--<script src="js/control.js" defer=""></script>-->
 
         <script>
@@ -59,6 +99,7 @@ $texto = new classTexto();
                 $('body').addClass('images');
             });
         </script>
+
         <style>
             body
             {
@@ -80,6 +121,7 @@ $texto = new classTexto();
     </head>
     <body id="corAzulFundoClaro">
         <?php
+        
         require_once './analyticstracking.php';
 
         $metodo = new metodos();

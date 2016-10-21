@@ -5,10 +5,10 @@ class conectaBanco {
 //        private $usuario = "sec_login";
 //        private $senha = "y9kwbLCk";
     //Web
-//        private $usuario = "root_ruv";
-//        private $senha = "M1ch3l4p";
-//        private $servidor = "mysql524.umbler.com";
-//        private $database = "ruv";
+//        private $usuario = "redeunaviva";
+//        private $senha = "y9kwbLCk";
+//        private $servidor = "mysql111.prv.f1.k8.com.br";
+//        private $database = "redeunaviva";
     // Internto
         private $usuario = "root";
         private $senha = "m1ch3l4p";

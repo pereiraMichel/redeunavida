@@ -98,7 +98,7 @@ class classTexto {
 //        echo "              </li>";
 //        echo "              <li>&nbsp;</li>";
         echo "              <br><br>";
-        echo "              15. Há um encontro mensal, aos domingos, de 9 às 13h, em que se concentra a transmissão do programa do mês. Caso haja vagas, quem frequenta o grupo semanal, poderá também participar do grupo mensal, sem custo adicional.</li>";
+        echo "              15. Há um encontro mensal, aos domingos, de 9 às 13h, em que se concentra a transmissão do programa do mês. Caso haja vagas, quem frequenta o grupo semanal poderá também participar do grupo mensal, sem custo adicional.</li>";
         echo "              <li>&nbsp;</li>";
         echo "              <li>16. O investimento financeiro é R$ 50,00 (cinquenta reais) por encontro, pagos mensalmente, no início do período. Em cada estação há 2 meses de 4 semanas, cujo valor é de R$ 200,00 (duzentos reais), e 1 mês de 5 semanas, cujo valor de investimento é de R$ 250,00 (duzentos e cinquenta reais). Este valor é o mesmo para o grupo semanal e para o grupo mensal.</li>";
         echo "              <li>&nbsp;</li>";
@@ -350,7 +350,109 @@ class classTexto {
 //        echo "</div>";
     }
     
+    public function preparaDownload($download){
+//        echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=meditcrista.php&s=1'>";
+        echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=meditcrista.php?d=$download'>";
+        echo "<div class='alert alert-success' role='alert' id='sucesso' style='position: relative; text-align: center;'>Download efetuado com sucesso! Agradecemos o download. <a class='btn btn-success' href='meditcrista.php'>OK</a></div>";
+        
+    }
+    
+    public function calculaTempo($start = null){
+        $mtime = microtime();
+        $mtime = explode(' ', $mtime);
+        $mtime = $mtime[1] + $mtime[0];
+
+        if($start = null){
+            return $mtime;
+        }else{
+            return round($mtime - $start, 2);
+        }
+    }
+    
+    public function downloaPdf($arquivo){
+        
+        define('DIR_DOWNLOAD', 'downloads/meditacaocrista/');
+
+//        set_time_limit(0);
+//        $endereco = "http://www.redeunaviva.rio";
+//         case "pdf": $tipo="application/pdf"; break;
+//         case "exe": $tipo="application/octet-stream"; break;
+//         case "zip": $tipo="application/zip"; break;
+//         case "doc": $tipo="application/msword"; break;
+//         case "xls": $tipo="application/vnd.ms-excel"; break;
+//         case "ppt": $tipo="application/vnd.ms-powerpoint"; break;
+//         case "gif": $tipo="image/gif"; break;
+//         case "png": $tipo="image/png"; break;
+//         case "jpg": $tipo="image/jpg"; break;
+//         case "mp3": $tipo="audio/mpeg"; break;
+//         case "php": // deixar vazio por seurança
+//         case "htm": // deixar vazio por seurança
+//         case "html": // deixar vazio por seurança
+             
+//        $local = "/downloads/meditacaocrista/";
+
+//        exit;
+ //           echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=meditcrista.php?s=108'>";
+
+
+        $path = DIR_DOWNLOAD.$arquivo;
+        
+        if(!file_exists($path)){
+//            echo "Caminho: ".$path;
+//            die ("Arquivo não existente.");
+//            echo "<meta HTTP-EQUIV='refresh' CONTENT='2;URL=meditcrista.php'>";
+            echo "<br>Caminho: ".$path;
+//            exit;
+        }
+//        header('Content-Description: File Transfer');
+        header('Content-Disposition: attachment; filename="'.$arquivo.'";');
+//        header('Content-Type: octet-stream');
+        header('Content-Type: application/pdf');
+//        header('Content-Transfer-Encoding: binary');
+        header('Content-Length: ' . filesize($path));
+
+//        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+//        header('Pragma: public');
+//        header('Expires: 0');
+//            header('Content-Description: File Transfer');
+//            header('Content-Type: application/pdf');
+//            header('Content-Length: '.filesize($arquivo));
+//            header('Content-Disposition: attachment; filename="'.$arquivo.'"');
+//            header('Content-Transfer-Encoding: binary');
+//            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+//            header('Pragma: public');
+//            header('Expires: 0');
+//            ob-clean();
+//            flush();
+            //abaixo funcionou normalmente.
+        readfile($path);
+        //echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=meditcrista.php'>";
+
+    }
+
+    public function modalDownload(){
+        
+        echo "<!-- Modal -->";
+        echo "<div class='modal fade bs-example-modal-sm' id='modalsuccess' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
+        echo "  <div class='modal-dialog modal-sm' role='document'>";
+        echo "      <div class='modal-content'>";
+        echo "          <div class='modal-header'>";
+        echo "              <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+        echo "              <h4 class='modal-title' id='myModalLabel'>Download</h4>";
+        echo "          </div>";
+        echo "          <div class='modal-body'>";
+        echo "              Download efetuado com sucesso!";
+        echo "          </div>";
+        echo "          <div class='modal-footer'>";
+        echo "              <button type='button' class='btn btn-primary'>Save changes</button>";
+        echo "          </div>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "</div>";
+    }
+    
     public function textoMeditacaoCrista(){
+
         $tamanhoFonte16 = "font-size: 20px";
         $margem = "margin-left: 0px; text-align: justify";
         echo "<div class='row' style='color: #1f226d;'>";
@@ -395,13 +497,22 @@ class classTexto {
         echo "              </li>";
         echo "              <li style='font-size: 20px;'>";
         echo "              <br><br>";
-        echo "                  <b>Texto do Evangelho desta semana - 28/08/2016</b><br>";
-        echo "                  <b>MC 102</b><br>";
+//        echo "                  <b>Texto do Evangelho desta semana - 28/08/2016</b><br>";
+        echo "                  <b>Texto do Evangelho desta semana - domingo - 16.10.2016</b><br>";
+        echo "                  <b>MC 121</b><br>";
         echo "              <br><br>";
-        echo "                  <a role='button' data-toggle='collapse' href='#leitura1' aria=expanded='false' aria-controls='collapseLeitura1' style='".$margem.";'>Clique aqui</a> para ler nesta página.";// data-toggle='modal' COLLAPSE
+        echo "                  <a role='button' href='downloads/meditacaocrista/MC110Paragem122Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (23.10.2016).";
         echo "              <br><br>";
-        echo "                  <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads' style='".$margem.";'>Clique aqui</a> para efetuar o download do arquivo ou ler o texto do Evangelho para a MC da semana.";
+        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC109Paragem121.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (16.10.2016).";
         echo "              <br><br>";
+        echo "                  Clique na tabela ao lado para fazer download da MC.";
+//        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC107Paragem113.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira passado para fazer o download da MC do domingo anterior (02.10.2016).";
+        echo "              <br><br>";
+        
+//        echo "                  <a role='button' data-toggle='collapse' href='#leitura1' aria-expanded='false' aria-controls='leitura1' style='".$margem.";'>Clique aqui</a> para ler nesta página o convite da MC desta semana.";
+//        echo "              <br><br>";
+//        echo "                  <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads' style='".$margem.";'>Clique aqui</a> para efetuar o download do arquivo com o texto elaborado a partir da MC desta semana, ou para lê-lo aqui, no site.";
+//        echo "              <br><br>";
         echo "              </li>";
         echo "          </ul>";
         echo "      </div>";
@@ -410,10 +521,128 @@ class classTexto {
         echo "          <div style='height: 5px;'>&nbsp;</div>";
         echo "          <img src='images/meditacaoCrista.jpg' width='550' height='500' class='img-responsive'>";
 //        echo "      </div>";
-        echo "  <div style='height: 10px; font-family: garamond; font-size: 20px;'>&nbsp;</div>";
-        echo "      <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads'>Download das Composições da MC</a><br>";
-        echo "      (Textos da MC do número 1 ao 59)";
-        echo "  </div>";
+        echo "          <p style='height: 20px;'>&nbsp;</p>";
+        echo "          <div style='height: 10px; font-family: garamond; font-size: 20px;'>&nbsp;</div>";
+        echo "              <table class='table' style='height: 10px; font-family: garamond; font-size: 16px;'>";
+        echo "                  <tr>";
+        echo "                      <td colspan='10' style='text-align: center; font-weight: bold; font-size: 18px; background-color: #00FFFF;'>";
+        echo "                          Clique no numero (acompanhado) da data para fazer download";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "                  <tr>";
+        echo "                      <td colspan='10' style='text-align: center; font-weight: bold; font-size: 18px; background-color: #F5FFFA;'>";
+        echo "                          no momento apenas disponível a partir da MC 107";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
+        echo "                      <td width='55'>";
+        echo "                          1";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          2";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          3";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          4";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          5";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          6";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          7";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          8";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          9";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          10";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "                  <tr style='text-align: center; background-color: #E0FFFF; height: 60px;'>";
+        echo "                      <td>";
+        echo "                          91";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          92";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          93";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          94";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          95";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          96";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          97";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          98";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          99";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          100";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
+        echo "                      <td width='55'>";
+        echo "                          101";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          102";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          103";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          104";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          105";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          106";
+        echo "                      </td>";
+        echo "                      <td width='55' title='MC 107 Paragem 113 - 02/10/2016'>";
+        echo "                          <a href='meditcrista.php?s=107' id='linkDownloads'>107<p style='font-size: 13px;'>02.10.2016</p></a>";//style='background-color: #FFA07A;'
+        echo "                      </td>";
+        echo "                      <td width='55' title='MC 108 Paragem 114 - 09/10/2016'>";
+//        echo "                          <a href='/downloads/meditacaocrista/MC108Paragem114.pdf' id='linkDownloads'>108<p style='font-size: 13px;'>09.10.2016</p></a>";//style='background-color: #FFA07A;'
+        echo "                          <a href='meditcrista.php?s=108' id='linkDownloads'>108<p style='font-size: 13px;'>09.10.2016</p></a>";//style='background-color: #FFA07A;'
+        echo "                      </td>";
+        echo "                      <td width='55' title='MC 109 Paragem 121 - 16/10/2016'>";
+        echo "                          <a href='meditcrista.php?s=109' id='linkDownloads'>109<p style='font-size: 13px;'>16.10.2016</p></a>";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          110";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "              </table>";
+        
+//                    echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
+            
+//            echo "<div class='alert alert-success' role='alert'>Download efetuado com sucesso!</div>";
+
+
+//        echo "              <meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
+
+//        echo "              <a role='button' data-toggle='collapse' href='#downloads' aria=expanded='false' aria-controls='collapseDownloads'>Download das Composições da MC</a><br>";
+//        echo "                  (Textos da MC do número 1 ao 59)";
+        echo "          </div>";
         echo "</div>";//Fecha a div row
         
         echo "<div class='collapse' id='downloads'>";
@@ -455,7 +684,7 @@ class classTexto {
         echo "              </tr>";
         echo "              <tr class='warning'>";
         echo "                  <td>";
-        echo "                      Atualizado em ---";//Parte 1
+        echo "                      Atualizado em 30/09/2016";//Parte 1
         echo "                  </td>";
         echo "                  <td>";
         echo "                      Atualizado em ---";//Parte 2
@@ -695,7 +924,7 @@ class classTexto {
         echo "              </tr>";
         echo "              <tr class='warning'>";
         echo "                  <td>";
-        echo "                      12";
+        echo "                      <a href='downloads/meditacaocrista/MC106Paragem112.pdf' style='text-decoration: underline; font-weight: bold;' target='_blank' title='Paragem 112'>12</a>";
         echo "                  </td>";
         echo "                  <td>";
         echo "                      &nbsp;";
@@ -715,7 +944,7 @@ class classTexto {
         echo "              </tr>";
         echo "              <tr>";
         echo "                  <td>";
-        echo "                      13";
+        echo "                      <a href='downloads/meditacaocrista/MC107Paragem113.pdf' style='text-decoration: underline; font-weight: bold;' target='_blank' title='Paragem 113'>13</a>";
         echo "                  </td>";
         echo "                  <td>";
         echo "                      &nbsp;";
@@ -767,11 +996,10 @@ class classTexto {
         echo "</div>";
         
         echo "<p style='height: 30px;'>&nbsp;</p>";
-        
-        
+        echo "<div class='collapse' id='leitura1'>";
         //Collapse
         $this->textoLeituraMC();//leitura semanal 
-        
+        echo "</div>";
         //Dinâmica da reunião
         echo "<div class='row' style='font-family: garamond; font-size: 20px; color: #1f226d;' align='justify'>";
         echo "  <div style='height: 20px;'>&nbsp;</div>";
@@ -902,74 +1130,80 @@ class classTexto {
     }
     
     public function textoLeituraMC(){
-        echo "<div class='collapse' id='leitura1'>";
+//        echo "<div class='collapse' id='leitura1'>";
         echo "  <div class='well'>";
             echo "<div class='row' style='font-family: garamond; font-size: 20px; color: #1f226d;'>";
             echo "  <div class='col-xs-12 col-md-12'>";
             echo "      <div class='text-center'>";
-            echo "          102. <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'>102</label> – paragem <label style='color: red;'>433</label> – <label style='color: red;'>28.08.2016</label></label>";
+            echo "          107. <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'>102</label> – paragem <label style='color: red;'>113</label> – <label style='color: red;'>02.10.2016</label></label>";
             echo "      </div>";
-            echo "      <div align='right' style='padding-right: 50px;'><small>JOÃO 6:47-58</small></div>";
+            echo "      <div align='right' style='padding-right: 50px;'><small>JOÃO 5:30-47</small></div>";
             echo "      <div class='text-center'>";
-            echo "          O PÃO DA VIDA – V<br/>Para ser um com o Cristo";
+            echo "          OS TESTEMUNHOS SOBRE O CRISTO";
             echo "      </div>";
             echo "      <div class='table-responsive'>";
             echo "      <table class='table'>";
             echo "          <tr>";
             echo "              <td>";
-            echo "                  102-1";
+            echo "                  107.1";
             echo "              </td>";
             echo "              <td>";
             echo "                  <b>Auto-indagação reflexiva e expansiva:</b><br/>";
-            echo "                  1. O que determinava a ignorância dos judeus sobre o corpo de Jesus?<br/>";
-            echo "                  2. Como distinguir a genealogia entre o Pai, o Filho e homem para alcançar a unificação?<br/><br/>";
+            echo "                  1. Por que os judeus não aceitam os três testemunhos oferecidos a eles sobre Cristo?<br/>";
+            echo "                  2. Por que o Cristo não recebe doutrina dos homens?<br/><br/>";
             echo "                  <b>Ao recolher-me, na hora da meditação, afinando a sintonia com o Mestre:</b><br>";
-            echo "                  3. Como saborear a carne e beber o sangue do Cristo, em meditação, para ter a vida imanente?";
+            echo "                  3. Como me comportar na meditação para não receber as doutrinas humanas, mas, sim, a do Cristo?";
             echo "              </td>";
             echo "          </tr>";
             echo "      </table>";
             echo "      </div>";
-            echo "      <div class='text-center' style='color: #CC3299; font-weight: bold;'>João 6:47-58</div>";
+            echo "      <div class='text-center' style='color: #CC3299; font-weight: bold;'>João 5:30-47</div>";
             echo "      <br>";
             echo "      <div align='justify' style='color: #CC3299;'>";
-            echo "          47. Em verdade, em verdade vos digo: quem confia em mim tem a vida imanente.<br/>";
-            echo "          48. eu sou o Pão da Vida.<br/>";
-            echo "          49. Vossos pais comeram o maná no deserto, e morreram.<br/>";
-            echo "          50. Este é o pão que desce do céu, para que qualquer um coma dele e não morra.<br/>";
-            echo "          51. Eu sou o Pão Vivo que desci do céu; se alguém comer desse pão, viverá para a imanência. E mais, o pão que darei é minha carne, em lugar da vida do mundo.<br/>";
-            echo "          52. Discutiam, então, os judeus uns com os outros, dizendo: 'Como pode este dar-nos de comer sua carne?'<br/>";
-            echo "          53. Respondeu-lhes Jesus: 'Em verdade, em verdade vos digo: se não comeis a carne do filho do homem e não bebeis seu sangue, não tendes a vida em vós'.<br/>";
-            echo "          54. Quem saboreia a carne e me bebe o sangue, tem a vida imanente, e eu o elevarei na etapa final.<br/>";
-            echo "          55. Porque minha carne é verdadeiramente alimento, e meu sangue verdadeiramente bebida.<br/>";
-            echo "          56. Quem me saboreia a carne e me bebe o sangue, permanece em mim e eu nele.<br/>";
-            echo "          57. Assim como o Pai que vive me enviou e eu vivo através do Pai, assim quem me saboreia, esse viverá também através de mim.<br/>";
-            echo "          58. Este é o pão que desceu do céu; não é como o que comeram vossos pais, e morreram; quem saboreia este pão viverá para a imanência.<br/>";
+            echo "          30. Não posso fazer nada por mim mesmo: conforme ouço, escolho, e minha escolha é justa, porque não procuro minha vontade, mas a vontade do que me enviou.<br/>";
+            echo "          31. Seu eu testifico a meu respeito, não é verdadeiro meu testemunho?<br/>";
+            echo "          32. Há outro que testifica a meu respeito, e sei que é verdadeiro o testemunho que ele testifica a meu respeito.<br/>";
+            echo "          33. Vós enviastes a João e ele testificou a verdade.<br/>";
+            echo "          34. Eu porém não recebo testemunho de homem, mas digo estas coisas para que vos salveis.<br/>";
+            echo "          35. Ele era a lâmpada que ardia e brilhava: vós quisestes alegrar-vos por uma hora na luz dele.<br/>";
+            echo "          36. Eu porém tenho um testemunho maior que o de João: pois as obras que o Pai me deu para que eu as termine, essas obras que produzo, testificam acerca de mim, que o Pai me enviou.<br/>";
+            echo "          37. E o Pai que me enviou, esse testificou a meu respeito. Nem a voz dele nunca ouvistes, nem a forma dele vistes.<br/>";
+            echo "          38. e não trazeis imanente em vós o seu ensino, porque não confiais em quem ele enviou.<br/>";
+            echo "          39. Examinais as Escrituras, porque pensais ter nelas a vida imanente, e são elas que testificam a meu respeito.<br/>";
+            echo "          40. E não quereis vir a mim, para que tenhais vida.<br/>";
+            echo "          41. Não recebo doutrinha de homens.<br/>";
+            echo "          42. mas conheci-vos, e não tendes em vós o amor de Deus.<br/>";
+            echo "          43. Eu vim por meu Pai e não me recebeis: se vier outro por si mesmo, esse recebereis.<br/>";
+            echo "          44. Como podeis confiar, recebendo uns dos outros uma doutrina, e não procurais a doutrina que vem da parte do único Deus?<br/>";
+            echo "          45. Não penseis que vos acusarei ao Pai: há quem vos acuse, Moisés, no qual esperastes.<br/>";
+            echo "          46. Pois se tivésseis confiado em Moisés, teríeis confiado em mim, pois de mim escreveu ele.<br/>";
+            echo "          47. Se porém não confiais em seus escritos, como confiareis em minhas palavras?<br/>";
             echo "<br/>";
-            echo "          Não que alguém visse ao Pai, a não ser aquele que é de Deus; este tem visto ao Pai.<Br>
-                            Na verdade, na verdade vos digo que aquele que crê em mim tem a vida eterna.<br>
-                            Eu sou o pão da vida.<br>
-                            Vossos pais comeram o maná no deserto, e morreram.<br>
-                            Este é o pão que desce do céu, para que o que dele comer não morra.<br>
-                            Eu sou o pão vivo que desceu do céu; se alguém comer deste pão, viverá para sempre; e o pão que eu der é a minha carne, que eu darei pela vida do mundo.<br>
-                            Disputavam, pois, os judeus entre si, dizendo: Como nos pode dar este a sua carne a comer?<br>
-                            Jesus, pois, lhes disse: Na verdade, na verdade vos digo que, se não comerdes a carne do Filho do homem, e não beberdes o seu sangue, não tereis vida em vós mesmos.<br>
-                            Quem come a minha carne e bebe o meu sangue tem a vida eterna, e eu o ressuscitarei no último dia.<br>
-                            Porque a minha carne verdadeiramente é comida, e o meu sangue verdadeiramente é bebida.<br>
-                            Quem come a minha carne e bebe o meu sangue permanece em mim e eu nele.<br>
-                            Assim como o Pai, que vive, me enviou, e eu vivo pelo Pai, assim, quem de mim se alimenta, também viverá por mim.<br>
-                            Este é o pão que desceu do céu; não é o caso de vossos pais, que comeram o maná e morreram; quem comer este pão viverá para sempre.<br>";
-            echo "          <p style='height: 20px;'>&nbsp;</p>";
-            echo "          <div class='text-center' style='color: blue; font-weight: bold;'>João 6:46-58</div>";
+//            echo "          Não que alguém visse ao Pai, a não ser aquele que é de Deus; este tem visto ao Pai.<br>
+//                            Na verdade, na verdade vos digo que aquele que crê em mim tem a vida eterna.<br>
+//                            Eu sou o pão da vida.<br>
+//                            Vossos pais comeram o maná no deserto, e morreram.<br>
+//                            Este é o pão que desce do céu, para que o que dele comer não morra.<br>
+//                            Eu sou o pão vivo que desceu do céu; se alguém comer deste pão, viverá para sempre; e o pão que eu der é a minha carne, que eu darei pela vida do mundo.<br>
+//                            Disputavam, pois, os judeus entre si, dizendo: Como nos pode dar este a sua carne a comer?<br>
+//                            Jesus, pois, lhes disse: Na verdade, na verdade vos digo que, se não comerdes a carne do Filho do homem, e não beberdes o seu sangue, não tereis vida em vós mesmos.<br>
+//                            Quem come a minha carne e bebe o meu sangue tem a vida eterna, e eu o ressuscitarei no último dia.<br>
+//                            Porque a minha carne verdadeiramente é comida, e o meu sangue verdadeiramente é bebida.<br>
+//                            Quem come a minha carne e bebe o meu sangue permanece em mim e eu nele.<br>
+//                            Assim como o Pai, que vive, me enviou, e eu vivo pelo Pai, assim, quem de mim se alimenta, também viverá por mim.<br>
+//                            Este é o pão que desceu do céu; não é o caso de vossos pais, que comeram o maná e morreram; quem comer este pão viverá para sempre.<br>";
+//            echo "          <p style='height: 20px;'>&nbsp;</p>";
+//            echo "          <div class='text-center' style='color: blue; font-weight: bold;'>João 6:46-58</div>";
             echo "          <p style='height: 20px;'>&nbsp;</p>";
             echo "      </div>";
             echo "      <div class='text-center'>";
-            echo "          <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'> 103 </label> – paragem <label style='color: red;'>434</label> – <label style='color: red;'>04.09.16</label></label>";
-            echo "          <label style='color: red;'>João 6:59-71</label>";
+            echo "          <label style='color: blue;'>RedeUnaViva: Meditação Cristã <label style='color: red;'> 108 </label> – paragem <label style='color: red;'>114</label> – <label style='color: red;'>09.10.16</label></label><br>";
+            echo "          <label style='color: red;'>João 7:1; Marcos 7:1-16; Mateus 15:1-11</label>";
             echo "      </div>";
             echo "  </div>";
             echo "</div>";
         echo "  </div>";
-        echo "</div>";
+//        echo "</div>";
         
     }
     
@@ -1036,7 +1270,7 @@ class classTexto {
         echo "          Se você já apreendeu que sua natureza espiritual almeja vivências que ultrapassam o funcionamento ordinário da mente, se você já pressentiu que há um despertar interior à espera do seu investimento, é possível que tenhamos uma experiência singular a ser permutada nestes encontros.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Para participar é preciso preencher a ficha de inscrição (<a href='formAdesao.php' target='_self'>clique aqui</a>).<br><br>";
+        echo "          Para participar é preciso preencher o formulário de adesão (<a href='formAdesao.php' target='_self'>clique aqui</a>).<br><br>";
         echo "      </span>";
         echo "<hr style='border-color: #1f226d;'>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";

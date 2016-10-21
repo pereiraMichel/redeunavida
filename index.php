@@ -19,7 +19,8 @@ setcookie("inicial", "home", time() + 3600);
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<!--        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="REDE UNA VIVA">
         <meta name="keywords" content="rede una viva ruv jr jornada real">
         <meta name="author" content="Michel Pereira - MAP TI">
@@ -33,22 +34,22 @@ setcookie("inicial", "home", time() + 3600);
         <link rel="shortcut icon" href="icon/ruv.ico">
         <link rel="icon" type="image/png" href="images/ruvicon.png">
 
-        <link rel="stylesheet" href="css/bootstrap-submenu.css">
+        <!--<link rel="stylesheet" href="css/bootstrap-submenu.css"> Nao precisa.-->
+        <!--<link rel="stylesheet" href="css/menuResponsive.css">-->
+        
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="css/menuResponsive.css">
         <link rel="stylesheet" href="css/icone_slider1.css">
-        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
         <link rel="stylesheet" href="css/jquery.bxslider.css">
         <link href="jscss/jquery.bxslider.css" rel="stylesheet" />
 
-        <link rel="stylesheet" href="css/bootstrap-submenu.css">
+        <!--<link rel="stylesheet" href="css/bootstrap-submenu.css">-->
  	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!--<link rel="stylesheet" href="css/bootstrap.css"> Atrapalha o responsivo-->
-        <link rel="stylesheet" href="css/bootstrap-responsive_1.css">
-	<link rel="stylesheet" href="css/bootstrap1.css"> 
+        <!--<link rel="stylesheet" href="css/bootstrap-responsive_1.css">-->
+	<!--<link rel="stylesheet" href="css/bootstrap1.css">--> 
 
-        <link rel="stylesheet" href="css/estilo.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/estilo.css">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="jscss/jquery.min.js"></script>
@@ -82,7 +83,6 @@ setcookie("inicial", "home", time() + 3600);
         <script>
             $('.dropdown-submenu > a').submenupicker();
         </script>
-
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
@@ -131,8 +131,8 @@ setcookie("inicial", "home", time() + 3600);
         <link rel="author" href="autor.txt">
         
     </head>
-    <body>
-    <!--<body onload="sizeOfThings()">-->
+    <!--<body>-->
+    <body onload="sizeOfThings()">
     <?php require_once './analyticstracking.php'; ?>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="corAzulInfo">
                 <div class="navbar-text-top">
@@ -164,7 +164,7 @@ setcookie("inicial", "home", time() + 3600);
                 ?>
             </nav>
         </footer>
-
+        
 
         <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
             <img src="images/up.png" style="width:30px; height:30px"></div>

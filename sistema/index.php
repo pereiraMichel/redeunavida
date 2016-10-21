@@ -88,7 +88,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
                 <?php
                 $titulo = new classes();
                 
-                paragem::teste();
+//                paragem::teste();
                         
                 
                 ?>

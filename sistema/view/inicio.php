@@ -47,8 +47,8 @@ if($_SESSION['logado'] == false){
     header("Location: ../index.php");
 }
 
-$menu = filter_input(INPUT_GET, 'menu');
-$tarefa = filter_input(INPUT_GET, 'tarefa');
+$menu = filter_input(INPUT_GET, 'm');
+$tarefa = filter_input(INPUT_GET, 't');
 
 $codigoUsuario = base64_decode(filter_input(INPUT_GET, 'usuario'));
 $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
@@ -191,7 +191,7 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
                                 break;
                         }
 
-                        
+       4                
                     ?>
         
     
@@ -209,57 +209,44 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
 
                             ?>
                             
-                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=perfil" class="acesso">
-                                    <img src="../../images/usuario.png" title="Perfil" class="img-responsive" width="50" height="50">
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <a href="inicio.php?m=perfil" class="acesso">
+                                    <img src="../img/usuario.png" title="Perfil" class="img-responsive" width="50" height="50">
                                     <h4>Perfil</h4>
                                     <span class="text-muted">Altere o seu perfil.</span>
                                 </a>
                             </div>
-<!--                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="#" class="acesso">
-                                    <img src="../../images/mail_logo.png" class="img-responsive" title="Mensagens" width="100" height="100">
-                                    <h4>Mensagens</h4>
-                                    <span class="text-muted">Verifique suas mensagens.</span>
-                                </a>
-                            </div>-->
-<!--                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="#" class="acesso">
-                                    <img src="../../images/tasks.png" class="img-responsive" title="Bônus" width="100" height="100">
-                                    <h4>Bônus</h4>
-                                    <span class="text-muted">Preencha seus bônus.</span>
-                                </a>
-                            </div> -->
-                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=paragem" class="acesso">
-                                    <img src="../../images/tarefas.png" class="img-responsive" title="Paragem" width="50" height="50">
+
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <a href="inicio.php?m=paragem" class="acesso">
+                                    <img src="../img/tarefas.png" class="img-responsive" title="Paragem" width="50" height="50">
                                     <h4>Paragem</h4>
                                     <span class="text-muted">Preencha a Paragem-Presença.</span>
                                 </a>
                             </div>
-                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=relatorios" class="acesso">
-                                    <img src="../../images/tarefa.png" class="img-responsive" title="Relatórios" width="53" height="53">
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <a href="inicio.php?m=relatorios" class="acesso">
+                                    <img src="../img/tarefa.png" class="img-responsive" title="Relatórios" width="53" height="53">
                                     <h4>Relatórios</h4>
                                     <span class="text-muted">Consulte os relatórios.</span>
                                 </a>
                             </div>
-                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=suporte" class="acesso">
-                                    <img src="../../images/logoMapTI.png" class="img-responsive" title="Relatórios" width="83" height="83">
-                                    <h4>Suporte</h4>
-                                    <span class="text-muted">Encaminhe uma mensagem.</span>
-                                </a>
-                            </div>
 
-                            <div class="col-xs-6 col-sm-3 placeholder">
-                                <a href="inicio.php?menu=bonus" class="acesso">
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <a href="inicio.php?m=bonus" class="acesso">
                                     <img src="../img/bonus.jpg" class="img-responsive" title="Bônus" width="50" height="50">
                                     <h4>Tabuleta de Bônus</h4>
                                     <span class="text-muted">Preencha o bônus.</span>
                                 </a>
                             </div>
 
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <a href="inicio.php?m=suporte" class="acesso">
+                                    <img src="../../images/logoMapTI.png" class="img-responsive" title="Suporte" width="83" height="83">
+                                    <h4>Suporte</h4>
+                                    <span class="text-muted">Encaminhe uma mensagem.</span>
+                                </a>
+                            </div>
                             <?php
                                         break;
                                     case "perfil":  $perfil = new modelPerfil();
@@ -315,32 +302,6 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
   </div>
 </div>
                     
-                    <!--  col-md-1 sidebar -->
-                    <!--<div class="col-sm-3 col-md-2" style="padding-left: 40px;">-->
-                    <!--<div class="col-sm-3 col-md-2 sidebar" style="padding-left: 40px;">-->
-<!--                        <ul class="nav nav-sidebar" style="font-size: 11px;">
-                            <li>&nbsp;</li>
-                            <li class="active">
-                                <img src="../../images/User-blue.png" width="150" height="150" title="<?php // echo $_SESSION['usuario']; ?>" class="img-circle">
-                            </li>
-                            <li>&nbsp;</li>
-                            <li>E-mail: <?php // echo $_SESSION['email']; ?></li>
-                            <li>&nbsp;</li>
-                                <?php
-//                                echo "Código do Usuário: ".$codigoUsuario;
-//                                $modelUsuario->setIdUsuario($_SESSION['idusuario']);
-//                                $modelUsuario->consultaUsuarioPerfil();
-                                ?>
-                        </ul>-->
-&nbsp;
-
-                    <!--</div>  col-sm-offset-3 col-md-10 col-md-offset-2 main -->
-<!--                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                             fim da alteração da parte de baixo 
-                        </div>-->
-
-
-                <!--</div>  fecha a coluna 9 -->
             </div> <!-- fecha o row -->
             
         </div> <!-- fecha o container fluid -->
@@ -363,18 +324,6 @@ $codigoUsuarioCodificado = filter_input(INPUT_GET, 'usuario');
     <img src="../../images/up.png" style="width:30px; height:30px">
 </div>
 
-    <?php
-//        if(filter_input(INPUT_GET, 'modal') === "sim"){
-////         echo "<h1 style='text-align: right;'>Contém o parâmetro</h1>";
-//         $perfiltel->deletaTelefone(filter_input(INPUT_GET, 'idtelefone'), filter_input(INPUT_GET, 'telefone'));
-         
-    ?>
-
-        <?php
-        
-//        }
-        
-        ?>
 
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
