@@ -99,8 +99,6 @@
 		<div class="bs-docs-header bs-docs-first">
 			<div class="container">
 <!--                            <p style="height: 20px;">&nbsp;</p>-->
-                            <div id="tituloPaginas"> Rede Social Clínica</div> <!-- <i class="fa fa-ticket"></i> -->
-                            <p style="font-family: garamond; font-size: 20px;">
                         <?php
                         
                         $texto->textoRedeSocialClinica();
@@ -116,7 +114,7 @@
 //                            echo "<br>";
 //                        }                        
                         ?>
-				</p>
+
 			</div>
 		</div>
 

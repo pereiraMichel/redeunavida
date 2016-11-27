@@ -126,63 +126,86 @@ class modelEndereco {
         echo "      <div class='form-group'>";
         echo "          <label for='estado' class='col-sm-2 control-label'>Estado:</label>";
         echo "              <div class='col-sm-2'>";
-        
-        include_once 'modelEstado.php';
-        if($this->codEstado != ""){//verifica se o código do estado está vazio.
-
-            $consultaEstado = new modelEstado();
-            $consultaEstado->setIdEstado($this->codEstado);
-            $consultaEstado->buscaEstado();
-        echo "              <div class='col-sm-3'>";
-
-        echo "                  <input type='button' value='...' class='btn btn-default' onclick='javascript:ativaSelecaoEstado()'>";
-
-                echo "<div style='display:none' id='selecionaEstado'>";
-
-                echo "  <select class='form-control' id='estado' name='estado'>";
-                    try{
-                        $sqlEstado = "SELECT * FROM tblestado";
-                        $resultadoEstado = mysql_query($sqlEstado) or die ("Problemas na consulta do estado. Erro: ".mysql_error());
-
-                        while($dadosEstado = mysql_fetch_array($resultadoEstado)){
-                            echo "<option class='form-control' name=".$dadosEstado['idEstado']." required onclick='javascript:emiteEstadoSelecionado(this.value)' onkeyup='javascript:emiteEstadoSelecionado(this.value)' onmouseover='javascript:emiteEstadoSelecionado(this.value)'>".$dadosEstado['sigla']."</option>";
-                        }
-
-                    } catch (Exception $ex) {
-                        echo "Problemas na consulta. Código E019.1. Erro: ".$ex->getMessage();
-                    }
-                echo "  </select>";
-                echo "</div>";//fecha o combo de abertura de seleção
-        }else{
-            echo "                  <select class='form-control' id='estado' name='estado'>";
-                try{
-                    $sqlEstado = "SELECT * FROM tblestado";
-                    $resultadoEstado = mysql_query($sqlEstado) or die("Erro na consulta. Motivo: ".mysql_error());
-
-                    while($dadosEstado = mysql_fetch_array($resultadoEstado)){
-                        echo "          <option class='form-control' name=".$dadosEstado['idEstado']." required>".$dadosEstado['sigla']."</option>";
-                    }
-
-                } catch (Exception $ex) {
-                    echo "Problemas na consulta. Código E019.1. Erro: ".$ex->getMessage();
-                }
-            echo "                  </select>";
-        }
+        echo "                  <select class='form-control' id='estado' name='estado'>";
+        echo "                      <option name=''>A preencher</option>";
+//        include_once 'modelEstado.php';
+//        if($this->codEstado != ""){//verifica se o código do estado está vazio.
+//            echo "Estado diferente de vazio";
+////            $consultaEstado = new modelEstado();
+////            $consultaEstado->setIdEstado($this->codEstado);
+////            $consultaEstado->buscaEstado();
+//        echo "<div class='col-sm-3'>";
+//        echo "  <input type='button' value='...' class='btn btn-default'>";// onclick='javascript:ativaSelecaoEstado()'
+//        echo "      <div style='display:none' id='selecionaEstado'>";
+//
+//                    try{
+//                        $sqlEstado = "SELECT * FROM estado";
+//                        $resultadoEstado = mysql_query($sqlEstado) or die ("Problemas na consulta do estado. Erro: ".mysql_error());
+//
+//                        while($dadosEstado = mysql_fetch_array($resultadoEstado)){
+//                            echo "<option class='form-control' name=".$dadosEstado['idEstado']." required onclick='javascript:emiteEstadoSelecionado(this.value)' onkeyup='javascript:emiteEstadoSelecionado(this.value)' onmouseover='javascript:emiteEstadoSelecionado(this.value)'>".$dadosEstado['sigla']."</option>";
+//                        }
+//
+//                    } catch (Exception $ex) {
+//                        echo "Problemas na consulta. Código E019.1. Erro: ".$ex->getMessage();
+//                    }
+//                echo "          </select>";
+//                echo "</div>";//fecha o combo de abertura de seleção
+//        }else{
+//            echo "Estado igual de vazio";
+//                try{
+//                    $sqlEstado = "SELECT * FROM estado";
+//                    $resultadoEstado = mysql_query($sqlEstado) or die("Erro na consulta. Motivo: ".mysql_error());
+//
+//                    if(mysql_num_rows($resultadoEstado) > 0){
+//                    
+//                        while($dadosEstado = mysql_fetch_array($resultadoEstado)){
+//                            echo "<option class='form-control' name=".$dadosEstado['idEstado']." required>".$dadosEstado['sigla']."</option>";
+//                        }
+//                    }
+//                    else{
+//                            echo "<option class='form-control' name=''>Banco Vazio</option>";
+//                        
+//                    }
+//
+//                } catch (Exception $ex) {
+//                    echo "Problemas na consulta. Código E019.1. Erro: ".$ex->getMessage();
+//                }
+//        }
+        echo "                  </select>";
         echo "              </div>";
+        echo "              <div class='form-group'>";
+        echo "                  <label for='cep' class='col-sm-2 control-label'>CEP:</label>";
+        echo "                      <div class='col-sm-3'>";
+        echo "                          <input type='cep' class='form-control' id='cep' value='".$this->cep."' name='cep' placeholder='CEP'>";
+        echo "                      </div>";
+        echo "              </div>";
+        echo "      <div style='height: 40px'>&nbsp;</div>";
+
+//        echo "              </div>";
+//        echo "      </div>";
+        
+
+//        echo "      <div class='form-group'>";
+//        echo "              <div class='col-sm-12' style='text-align:right'>";
+//        echo "                  <button class='btn btn-primary btn-xs'>Salvar</button>";
+//        echo "              </div>";
+//        echo "      </div>";
         echo "      <div class='form-group'>";
-        echo "          <label for='cep' class='col-sm-2 control-label'>CEP:</label>";
-        echo "              <div class='col-sm-3'>";
-        echo "                  <input type='cep' class='form-control' id='cep' value='".$this->cep."' name='cep' placeholder='CEP'>";
+//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+        echo "                  <button class='btn btn-primary' disabled>Salvar</button>";
         echo "              </div>";
         echo "      </div>";
-        
-        echo "              </div>";
-        echo "      </div>";
-        
-
+        echo "      <div style='height: 20px'>&nbsp;</div>";
         echo "      <div class='form-group'>";
-        echo "              <div class='col-sm-12' style='text-align:right'>";
-        echo "                  <button class='btn btn-primary btn-xs'>Salvar</button>";
+//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                   | <a href='inicio.php?m=perfilsv' class='btn btn-default'>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfilend' class='btn btn-default active'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perfiltel' class='btn btn-default' autocomplete='off'>Telefones</a> | ";
+        echo "                  <a href='inicio.php?m=trocasenha' class='btn btn-default' autocomplete='off'>Troca de Senha</a> | ";
         echo "              </div>";
         echo "      </div>";
         
@@ -386,7 +409,7 @@ class modelEndereco {
         $conexao = new conectaBanco();
         $conexao->conecta();
         try{
-            $sql = "SELECT * FROM tblendereco WHERE codPerfil=".$_SESSION['idusuario'];
+            $sql = "SELECT * FROM endereco WHERE codusuario=".$_SESSION['idusuario'];
             $resultado = mysql_query($sql) or die ("Não foi possível consultar o endereço. Erro: ".mysql_error());
             
             if($resultado){

@@ -26,7 +26,7 @@ private $nomeTipo;
 	}
 
 	public function verificaTipoUsuario(){
-		$sqlTipoUsuario = "SELECT * FROM tipousuario WHERE nomeTipo = '".$this->$nomeTipo."'";
+		$sqlTipoUsuario = "SELECT * FROM ".TPUSUARIO." WHERE nomeTipo = '".$this->nomeTipo."'";
 
 		try{
 
@@ -37,6 +37,48 @@ private $nomeTipo;
 		}
 	}
 
+    public function tabelaTipoUsuario(){
+
+        $conexao = new conectaBanco();
+        $conexao->conecta();
+
+        try {
+            $sqlTipoTelefone = "SELECT  * FROM tipousuario";
+            $resultadoTipoTelefone = mysql_query($sqlTipoTelefone) or die("Erro no comando SQL. Verifique sob o erro: " . mysql_error());
+
+            echo "<table class='table'>";
+            echo "  <tr>";
+            echo "      <td>";
+            echo "          <b>Código</b>";
+            echo "      </td>";
+            echo "      <td>";
+            echo "          <b>Nome</b>";
+            echo "      </td>";
+            echo "  </tr>";
+            while($dadosTipoTelefone = mysql_fetch_array($resultadoTipoTelefone)){
+            echo "  <tr>";
+            echo "      <td>";
+            echo            $dadosTipoTelefone['idTipo'];
+            echo "      </td>";
+            echo "      <td>";
+            echo            $dadosTipoTelefone['nomeTipo'];
+            echo "      </td>";
+            echo "  </tr>";
+            }
+            echo "</table>";
+            echo "      <div style='height: 40px'>&nbsp;</div>";
+            echo "      <div class='form-group'>";
+            echo "              <div class='col-sm-10' style='text-align:right'>";
+            echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+            echo "              </div>";
+            echo "      </div>";
+
+        } catch (Exception $ex) {
+            echo "Não foi possível efetuar a consulta. Erro exception: " . $ex->getMessage();
+        }
+    }
+        
+        
 }
 
 

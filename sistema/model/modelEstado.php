@@ -39,7 +39,7 @@ class modelEstado {
         
         try{
             
-            $sql = "SELECT * FROM tblestado WHERE idEstado = ".$this->idEstado;
+            $sql = "SELECT * FROM estado WHERE idEstado = ".$this->idEstado;
             $resultado = mysql_query($sql) or die ("Houve um erro na consulta. Erro: ".mysql_error());
             
             if($resultado){

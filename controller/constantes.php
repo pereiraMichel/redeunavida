@@ -58,6 +58,9 @@
     define('TAREFAS', 'Tarefas');
     define('CONFIGUSUARIO', 'Configuração de Usuários');
     define('CONFIGUSUARIOSITE', 'Configuração de Usuários do Site');
+    define('SETENIOMENU', 'Setênio');
+    define('TIPOTELEFONEMENU', 'Tipo de Telefone');
+    define('TIPOUSUARIOMENU', 'Tipo de Usuário');
     define('RELATORIOBONUS', 'Relatório de Bônus');
     define('RELATORIOTAREFAS', 'Relatório de Tarefas');
     define('RELATORIOJORNADAS', 'Relatório de Jornadas');
@@ -68,6 +71,8 @@
 
     //Links
     define ('HOMELINK', 'index.php');
+    define ('APRESENTA', 'apresentacao.php');
+    define ('ESTEDIA', 'estedia.php');
     define ('JORNADAREALLINK', 'jornadareal.php');
     define ('MEDITACAOLINK', 'meditacao.php');
     define ('MEDITCRISTALINK', 'meditcrista.php');

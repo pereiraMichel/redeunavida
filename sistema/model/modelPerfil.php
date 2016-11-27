@@ -122,7 +122,7 @@ class modelPerfil {
 
         $this->consultaUltimoRegistro();
         try {
-            $sql = "INSERT INTO tblperfil(idPerfil, nome, descricao, dataNascimento, idade, codUsuario, codSetenio) "
+            $sql = "INSERT INTO perfil(idPerfil, nome, descricao, dataNascimento, idade, codUsuario, codSetenio) "
                     . "VALUES (" . $this->idPerfil . ", '" . $this->nomeUsuario . "', '" . $this->descricao . "', '" . $this->dataNascimento . "', $this->idade, " . $this->codUsuario . ", " . $this->codSetenio . ")";
 
 //            echo $sql;
@@ -152,7 +152,7 @@ class modelPerfil {
         }
     }
 
-    public function validaCamposPerfil($nome, $dataNascimento, $idade, $codSetenio, $sobreVoce, $codUsuario) {
+    public function validaCamposPerfil($nome, $dataNascimento, $tipoUsuario, $codSetenio, $sobreVoce, $codUsuario) {
 
         if ($nome != "") {
 //            echo "Nome digitado: ".$nome;
@@ -196,17 +196,16 @@ class modelPerfil {
                             DATE_FORMAT(l.dataCadastro,'%d/%m/%Y') AS dataCadastro, p.idPerfil, 
                             p.nome, p.descricao, 
                             DATE_FORMAT(p.dataNascimento,'%d/%m/%Y') AS dataNascimento, 
-                            p.idade, s.setenio, tu.nomeTipo
+                            s.setenio, tu.nomeTipo
                     FROM tblusuario l
                     INNER JOIN perfil p on l.idUsuario = p.codUsuario
                     INNER JOIN tipousuario tu on tu.idTipo = l.codTipoUsuario
                     INNER JOIN setenio s on p.codSetenio = s.idsetenio
                     WHERE l.idUsuario = ".$idusuario;
+//            echo $sql."<br>";
             $resultado = mysql_query($sql) or die("Erro no comando SQL. Verifique sob o erro: " . mysql_error());
             $dados = mysql_fetch_array($resultado);
-//                    INNER JOIN tblendereco e on p.idPerfil = e.codPerfil
-//                    INNER JOIN tblestado es on e.codEstado = es.idEstado
-//, e.endereco, e.numero, e.complemento, e.bairro, e.cidade, e.cep, es.sigla            
+//           
             if ($dados > 0) {
 
                 echo "<div class='row' align='left' style='padding-left: 15px;'>";
@@ -232,13 +231,13 @@ class modelPerfil {
                 echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4' style='padding-left: 15px;'>";
                 echo "      <h5>";
-                echo            $dados['emailUsuario'];
+                echo            $dados['email'];
                 echo "      </h5>";
                 echo "  </div>";
                 echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
                 echo "      <h5>";
                 echo "          <abbr title='Tipo de Acesso'>";
-                echo                $dados['nomeTipoUsuario'];
+                echo                $dados['nomeTipo'];
                 echo "          </abbr>";
                 echo "      </h5>";
                 echo "  </div>";
@@ -246,12 +245,16 @@ class modelPerfil {
                 echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h5>";
-                echo "          <b>Data de nascimento</b>: ".$dados['dataNascimento'];
+                if ($dados['dataNascimento'] === "" or $dados['dataNascimento'] === "00/00/0000"){
+                    echo "          <b>Data de nascimento</b>: Não preenchida.";
+                }else{
+                    echo "          <b>Data de nascimento</b>: ".$dados['dataNascimento'];
+                }
                 echo "      </h5>";
                 echo "  </div>";
                 echo "  <div class='col-xs-2 col-md-2'>";
                 echo "      <h5>";
-                echo "          <b>Idade</b>: ".$dados['idade'];
+                echo "          <b>Tipo de Usuário</b>: ".$dados['nomeTipo'];
                 echo "      </h5>";
                 echo "  </div>";
                 echo "  <div class='col-xs-6 col-md-6'>";
@@ -260,60 +263,28 @@ class modelPerfil {
                 echo "      </h5>";
                 echo "  </div>";
                 echo "</div>";
-                echo "<div class='row' align='left' style='padding-left: 15px;'>";
-//                echo "  <div class='col-xs-4 col-md-4'>";
-//                echo "      <h5>";
-//                echo "          <b>Endereço</b>: ".$dados['endereco'].", ".$dados['numero'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "  <div class='col-xs-2 col-md-2'>";
-//                echo "      <h5>";
-//                echo "          <b>Complemento</b>: ".$dados['complemento'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "  <div class='col-xs-6 col-md-6'>";
-//                echo "      <h5>";
-//                echo "          <b>CEP</b>: ".$dados['cep'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "</div>";
-//                echo "<div class='row' align='left'>";
-//                echo "  <div class='col-xs-4 col-md-4'>";
-//                echo "      <h5>";
-//                echo "          <b>Bairro</b>: ".$dados['bairro'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "  <div class='col-xs-2 col-md-2'>";
-//                echo "      <h5>";
-//                echo "          <b>Cidade</b>: ".$dados['cidade'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "  <div class='col-xs-6 col-md-6'>";
-//                echo "      <h5>";
-//                echo "          <b>Estado</b>: ".$dados['sigla'];
-//                echo "      </h5>";
-//                echo "  </div>";
-//                echo "</div>";
-
-//                echo "<div class='row' align='left'>";
-                echo "  <div class='col-xs-12 col-md-12' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-12 col-md-12' style='padding-left: 15px; text-align: justify;'>";
                 echo "      <h5>";
                 echo "          <b>Telefones</b>: ";
                 echo "      </h5>";
-                echo "  </div>";
-                if($dados['idPerfil'] != ""){
-                $sqlTelefone = "SELECT telefone FROM telefone WHERE codPerfil = ".$dados['idPerfil'];
+                $sqlTelefone = "SELECT telefone FROM telefone t "
+                        . "INNER JOIN tblusuario tu ON t.codUsuario = tu.idUsuario "
+                        . "INNER JOIN perfil p ON p.codUsuario = tu.idUsuario";
                 $resultadoTelefone = mysql_query($sqlTelefone) or die("Houve um erro no SQL da consulta do perfil. Erro: ".mysql_error());
                 
+                if(mysql_num_rows($resultadoTelefone) > 0){
+                
                 while($dadosTelefone = mysql_fetch_array($resultadoTelefone)){
-                    echo "  <div class='col-xs-1 col-md-1'>";
                     echo "      <h5>";
                     echo            $dadosTelefone['telefone'];
                     echo "      </h5>";
-                    echo "  </div>";
                 }
-                echo "</div>";
+                }else{
+                    echo "      <h5>";
+                    echo "           Telefone(s) Inexistente(s).";
+                    echo "      </h5>";
                 }
+                echo "  </div>";
                 echo "<div class='row' align='left' style='padding-left: 15px;'>";
                 echo "  <div class='col-xs-4 col-md-4'>";
                 echo "      <h5>";
@@ -327,7 +298,7 @@ class modelPerfil {
                 echo "<div class='col-xs-12 col-md-12'><p style='height: 30px;'>&nbsp;</p></div>";
                 echo "<div class='col-xs-12 col-md-12' align='left'>";
                 echo "  <div class='btn-group' role='group' aria-label='...'>";
-                echo "      <a href='inicio.php?menu=perfilsv' style='text-decoration: none;'>";
+                echo "      <a href='inicio.php?m=perfsv' style='text-decoration: none;'>";
                 echo "          <button class='btn btn-default'>";
                 echo "              Sobre você";
                 echo "          </button>";
@@ -337,12 +308,12 @@ class modelPerfil {
 //                echo "              Seu endereço";
 //                echo "          </button>";
 //                echo "      </a>";
-                echo "      <a href='inicio.php?menu=perfiltel' style='text-decoration: none;'>";
+                echo "      <a href='inicio.php?m=perftel' style='text-decoration: none;'>";
                 echo "          <button class='btn btn-default'>";
                 echo "              Telefones";
                 echo "          </button>";
                 echo "      </a>";
-                echo "      <a href='inicio.php?menu=trocasenha' style='text-decoration: none;'>";
+                echo "      <a href='inicio.php?m=trocasenha' style='text-decoration: none;'>";
                 echo "          <button class='btn btn-default'>";
                 echo "              Troca de Senha";
                 echo "          </button>";
@@ -368,6 +339,8 @@ class modelPerfil {
 
         try {
             $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM perfil p "
+                    . "INNER JOIN tblusuario u ON p.codUsuario = u.idUsuario "
+                    . "INNER JOIN tipousuario tp ON tp.idTipo = u.codTipoUsuario "
                     . "INNER JOIN setenio s ON s.idSetenio = p.codSetenio "
                     . " WHERE p.codUsuario = " . $_SESSION['idusuario'];
 //            echo $sqlConsultaPerfil."<br>";
@@ -380,7 +353,7 @@ class modelPerfil {
                 $dataNascimento = $array['dataNascimento'];
 //                $dataNascimentoFormatada = date("d/m/Y", strtotime($dataNascimento));
                 $setenio = $array['setenio'];
-                $idade = $array['idade'];
+                $tipoUsuario = $array['nomeTipo'];
                 $sobreVoce = $array['descricao'];
             } else {
                 echo "Vazio";
@@ -416,10 +389,10 @@ class modelPerfil {
         echo "              </div>";
         echo "      </div>";
         echo "      <div class='form-group'>";
-        echo "          <label for='idade' class='col-sm-2 control-label'>Idade:</label>";
+        echo "          <label for='idade' class='col-sm-2 control-label'>Tipo de Usuário:</label>";
         echo "              <div class='col-sm-2'>";
 //        echo "                  <div id='idade'></div>";
-        echo "                  <input type='text' class='form-control' name='idade' id='idade' value='" . $idade . "'>";
+        echo "                  <input type='text' class='form-control' name='tipoUsuario' id='tipoUsuario' value='" . $tipoUsuario . "'>";
         echo "              </div>";
         echo "      </div>";
         echo "      <div class='form-group'>";
@@ -435,12 +408,22 @@ class modelPerfil {
         echo "                  <button class='btn btn-primary'>Salvar</button>";
         echo "              </div>";
         echo "      </div>";
+        echo "      <div style='height: 20px'>&nbsp;</div>";
+        echo "      <div class='form-group'>";
+//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                   | <a href='inicio.php?m=perfilsv' class='btn btn-default active''>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfilend' class='btn btn-default'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perfiltel' class='btn btn-default' autocomplete='off'>Telefones</a> | ";
+        echo "                  <a href='inicio.php?m=trocasenha' class='btn btn-default' autocomplete='off'>Troca de Senha</a> | ";
+        echo "              </div>";
+        echo "      </div>";
         if ($_POST) {
             $nome = filter_input(INPUT_POST, "nomeUsuario");
 //            echo "<br>Recebido o nome: ".$nome;
             $dataNascimento = filter_input(INPUT_POST, "dataNascimento");
 //            echo "<br>Recebido a data de nascimento: ".$dataNascimento;
-            $idade = filter_input(INPUT_POST, "idade");
+            $tipoUsuario = filter_input(INPUT_POST, "tipoUsuario");
 //            echo "<br>Recebido a idade: ".$idade;
             $codSetenio = filter_input(INPUT_POST, 'codSetenio');
 //            echo "<br>Recebido o código do setênio: ".$codSetenio;
@@ -449,12 +432,12 @@ class modelPerfil {
             $codUsuario = $_SESSION['idusuario'];
 //            echo "<br>Recebido o código do usuário: ".$codUsuario;
 
-            echo "      <div class='form-group'>";
-//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
-            echo "              <div class='col-sm-10' style='text-align:center'>";
-            echo $this->validaCamposPerfil($nome, $dataNascimento, $idade, $codSetenio, $sobreVoce, $codUsuario);
-            echo "              </div>";
-            echo "      </div>";
+//            echo "      <div class='form-group'>";
+////        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+//            echo "              <div class='col-sm-10' style='text-align:center'>";
+            echo $this->validaCamposPerfil($nome, $dataNascimento, $tipoUsuario, $codSetenio, $sobreVoce, $codUsuario);
+//            echo "              </div>";
+//            echo "      </div>";
         }
 
 

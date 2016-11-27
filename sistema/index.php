@@ -8,6 +8,7 @@ ini_set('error_log', dirname(__FILE__).'/error_log.txt');
 error_reporting(E_ALL);
 
 require_once 'classes/classes.php';
+require_once './classes/usuario.class.php';
 require_once 'model/modelUsuario.php';
 require_once '../controller/constantes.php';
 include_once './classes/paragem.inc.php';
@@ -29,7 +30,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 //    $controleUsuario->setSenha($senha);
 //
 //    if ($controleUsuario->validaUsuario()) {
-        $modelUsuario = new modelUsuario();
+        $modelUsuario = new usuario();
         $modelUsuario->setSenha($senha);
         $modelUsuario->validaUser($nomeMail);
 //    }

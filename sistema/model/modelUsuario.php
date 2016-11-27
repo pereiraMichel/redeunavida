@@ -58,7 +58,7 @@ class modelUsuario {
         try{
             $sql = "SELECT * "
                     . "FROM tblusuario l "
-                    . "INNER JOIN tblperfil p ON p.codUsuario = l.idUsuario "
+                    . "INNER JOIN tbHoelperfil p ON p.codUsuario = l.idUsuario "
                     . "INNER JOIN tblsetenio s ON p.codSetenio = s.idsetenio "
                     . "WHERE l.idUsuario = ".$this->idUsuario;
             
@@ -123,47 +123,27 @@ class modelUsuario {
         
     }
     
-    public function ultimoRegistro(){
-        $conecta = new conectaBanco();
-        $conecta->conecta();
-        try{
-            
-            $sql = "SELECT MAX(idUsuario) AS idUsuario FROM tblusuario";
-            $resultado = mysql_query($sql);
-            $dados = mysql_fetch_array($resultado);
-            $novoId = $dados['idUsuario'] + 1;
-            
-            $this->idUsuario = $novoId;
-            
-//            mysql_close($resultado);
-        } catch (Exception $ex) {
-            echo "Houve um erro no novo ID. Erro: ".$ex->getMessage();
-        }
-        
-//        $conecta->desconecta($conecta);
-    }
-    
     public function cadastraUsuario(){
         $enviado = false;
         $conecta = new conectaBanco();
         $conecta->conecta();
-        
-        $this->ultimoRegistro();
+        $this->idUsuario = ultimoId:: ultimoId("idUsuario", "tblusuario");
+        //$this->ultimoRegistro();
         
         $this->dataUltimaAlteracao = $this->dataCadastro;
         
         try{
-            $sql = "INSERT INTO tblusuario (idUsuario, nomeUsuario, email, senha, dataCadastro, dataUltimaAlteracao, codTipoUsuario) "
+            $sql = "INSERT INTO tblusuario (idUsuario, nomeUsuario, email, senha, dataCadastro, dataAlteracao, codTipoUsuario) "
                     . "VALUES ("
                     . $this->idUsuario.", "
                     . "'".$this->usuario."', "
                     . "'".$this->email."', "
                     . "'".$this->senha."', "
                     . "'".$this->dataCadastro."', "
-                    . "'".$this->dataUltimaAlteracao."', "
+                    . "'".$this->dataCadastro."', "
                     . $this->codTipoUsuario.")";
             
-            
+            echo $sql;
             $resultado = mysql_query($sql) or die ("<br>Erro: ".  mysql_error());
             
             if($resultado){
@@ -177,7 +157,6 @@ class modelUsuario {
         }
         
     }
-
     
     public function formularioCadastro(){
         echo "<div class='tab-pane active' id='tab1'>";
@@ -214,12 +193,12 @@ class modelUsuario {
         echo "      <select name='tipoAcesso' class='form-control'>";
         
         try{
-            $sqlAcesso = "SELECT * FROM tbltipousuario";
+            $sqlAcesso = "SELECT * FROM tipousuario";
             $resultadoAcesso = mysql_query($sqlAcesso) or die ("Problemas na execução do MySQL. Erro: ".mysql_error());
             if($resultadoAcesso){
                 
                 while($dadosAcesso = mysql_fetch_array($resultadoAcesso)){
-                    echo "<option value='".$dadosAcesso['idTipoUsuario']."'>".$dadosAcesso['nomeTipoUsuario']."</option>";
+                    echo "<option value='".$dadosAcesso['idTipo']."'>".$dadosAcesso['nomeTipo']."</option>";
                 }
                 
             }
@@ -302,7 +281,6 @@ class modelUsuario {
         echo "</div>";
         
     }
-    
     
     public function mensagem($mensagem){
 

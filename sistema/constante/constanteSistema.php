@@ -1,6 +1,6 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); //define a pasta raiz do sistema
+//define('__ROOT__', dirname(dirname(__FILE__))); //define a pasta raiz do sistema
 
 //CÓDIGOS DE ERROS EM RELAÇÃO A TABELAS E CLASSES
 
@@ -42,3 +42,22 @@ define('EXCEPTION_INC', 'Houve um erro ao incluir. Exception: ');
 define('EXCEPTION_ALT', 'Houve um erro ao alterar. Exception: ');
 define('EXCEPTION_EXC', 'Houve um erro ao excluir. Exception: ');
 
+//TABELAS BANCO DE DADOS
+
+//define('USUARIO','tblusuario');
+//define('PERFIL','perfil');
+//define('FOTO','foto');
+//define('CONTRIBUINTE','contribuinte');
+//define('JORNADA','jornada');
+//define('TBLPERIODICA','tabelaperiodica');
+//define('PARAGEM','paragem');
+//define('SITE','usuariosite');
+//define('TPLANC','tipolancamento');
+//define('CONTABIL','contabil');
+//define('SETENIO','setenio');
+//define('END','endereco');
+//define('UNIDADE','unidade');
+//define('TELEFONE','telefone');
+//define('TPTELEFONE','tipotelefone');
+//define('TPUSUARIO','tipousuario');
+//define('TAREFA','tarefa');

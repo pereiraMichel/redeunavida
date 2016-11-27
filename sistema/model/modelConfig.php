@@ -36,104 +36,104 @@ class modelConfig {
     }
 
         
-    public function telaNovoUsuario(){
-        $conexao = new conectaBanco();
-        $conexao->conecta();
-        
-        echo "<div class='col-xs-9 col-sm-9 placeholder'>";
-        echo "<a href='#novoUsuario' role='button' data-toggle='modal' class='text-link' style='text-decoration: none;'>";
-        echo "  <button class='btn btn-primary'>Novo Usuário</button>";
-        echo "</a>";
-        echo "<br><br>";
-        echo "  <table class='table table-hover'>";
-        echo "      <tr>";
-        echo "          <td>";
-        echo "              <b>Nome</b>";
-        echo "          </td>";
-        echo "          <td>";
-        echo "              <b>E-mail</b>";
-        echo "          </td>";
-        echo "          <td>";
-        echo "              <b>Acesso</b>";
-        echo "          </td>";
-        echo "          <td>";
-        echo "              <b>Data Cadastro</b>";
-        echo "          </td>";
-        echo "          <td>";
-        echo "              <b>Controle</b>";
-        echo "          </td>";
-        echo "      </tr>";
-
-        try{
-            $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblloginsystems l "
-                    . "INNER JOIN tbltipousuario t ON l.codTipoUsuario = t.idTipoUsuario";
-            $resultado = mysql_query($sql) or die ("Erro na execução da tabela, fora da sintaxe do MySQL. Erro: ".mysql_error());
-            if ($resultado){
-                while($dados = mysql_fetch_array($resultado)){
-                    echo "<input type='hidden' value='".$dados['idUsuario']."'>";
-                    echo "      <tr>";
-                    echo "          <td>";
-                    echo                $dados['nomeUsuario'];
-                    echo "          </td>";
-                    echo "          <td>";
-                    echo                $dados['emailUsuario'];
-                    echo "          </td>";
-                    echo "          <td>";
-                    echo                $dados['nomeTipoUsuario'];
-                    echo "          </td>";
-                    echo "          <td>";
-                    echo                $dados['dataCadastro'];
-                    echo "          </td>";
-                    echo "          <td>";
-                                    $idusuarioSelecionado = $dados['idUsuario'];
-                                    $usuarioSelecionado = $dados['nomeUsuario'];
-                    echo "              <a role='button' href='inicio.php?menu=configuracoes&tarefa=usersistema&idusuario=".$idusuarioSelecionado."&modalaltera=sim' aria=expanded='false' style='text-decoration: none;'>";
-                    echo "                      <img src='../../images/editar.png' class='img-responsive' title='Alterar'>";
-                    echo "              </a>";
-                    echo "              <a href='inicio.php?menu=configUsuario&idusuario=".$idusuarioSelecionado."&nomeUsuario=".$usuarioSelecionado."&modal=sim' data-toggle='modal' class='text-link' style='text-decoration: none;'>";
-                    echo "                      <img src='../../images/botaoexcluir.png' class='img-responsive' title='Excluir' width='24' height='24'>";
-//                     data-target='#excluiUsuario'
-                    echo "              </a>";
-                    echo "          </td>";
-                    echo "      </tr>";
-                    
-                }
-            }
-        } catch (Exception $ex) {
-            echo "Erro na transação. Motivo: ".$ex->getMessage();
-        }
-        
-        echo "  </table>";
-        echo "</div>";
-        
-        if(filter_input(INPUT_GET, 'sucessoalteracao')=="sim"){
-            echo "<br/>";
-            echo "<div class='col-xs-12 col-sm-12 col-md-12' style='text-align: left;'>";
-            echo "  <label class='label label-success'>Alteração efetuada com sucesso!</label>";
-            echo "</div>";
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?menu=configuracoes&tarefa=usersistema'>";
-        }
-        
-        
-        $this->novoModalUsuario();
-        $this->modalExcluiUsuario("configUsuario");
-        $this->modalEditaUsuario();
-        
-        
-        if(filter_input(INPUT_GET, 'alteracao') == "sim"){
-
-            $this->autorizadaAlteracao();
-//            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
-        }
-//        if (filter_input(INPUT_GET, 'altera') == "sim"){
-//            $this->alteraUsuario("tblloginsystems");
-//            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
+//    public function telaNovoUsuario(){
+//        $conexao = new conectaBanco();
+//        $conexao->conecta();
+//        
+//        echo "<div class='col-xs-9 col-sm-9 placeholder'>";
+//        echo "<a href='#novoUsuario' role='button' data-toggle='modal' class='text-link' style='text-decoration: none;'>";
+//        echo "  <button class='btn btn-primary'>Novo Usuário</button>";
+//        echo "</a>";
+//        echo "<br><br>";
+//        echo "  <table class='table table-hover'>";
+//        echo "      <tr>";
+//        echo "          <td>";
+//        echo "              <b>Nome</b>";
+//        echo "          </td>";
+//        echo "          <td>";
+//        echo "              <b>E-mail</b>";
+//        echo "          </td>";
+//        echo "          <td>";
+//        echo "              <b>Acesso</b>";
+//        echo "          </td>";
+//        echo "          <td>";
+//        echo "              <b>Data Cadastro</b>";
+//        echo "          </td>";
+//        echo "          <td>";
+//        echo "              <b>Controle</b>";
+//        echo "          </td>";
+//        echo "      </tr>";
+//
+//        try{
+//            $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblusuario l "
+//                    . "INNER JOIN tipousuario t ON l.codTipoUsuario = t.idTipo";
+//            $resultado = mysql_query($sql) or die ("Erro na execução da tabela, fora da sintaxe do MySQL. Erro: ".mysql_error());
+//            if ($resultado){
+//                while($dados = mysql_fetch_array($resultado)){
+//                    echo "<input type='hidden' value='".$dados['idUsuario']."'>";
+//                    echo "      <tr>";
+//                    echo "          <td>";
+//                    echo                $dados['nomeUsuario'];
+//                    echo "          </td>";
+//                    echo "          <td>";
+//                    echo                $dados['email'];
+//                    echo "          </td>";
+//                    echo "          <td>";
+//                    echo                $dados['nomeTipo'];
+//                    echo "          </td>";
+//                    echo "          <td>";
+//                    echo                $dados['dataCadastro'];
+//                    echo "          </td>";
+//                    echo "          <td>";
+//                                    $idusuarioSelecionado = $dados['idUsuario'];
+//                                    $usuarioSelecionado = $dados['nomeUsuario'];
+//                    echo "              <a role='button' href='inicio.php?m=configuracoes&t=usersistema&idusuario=".$idusuarioSelecionado."&modalaltera=sim' aria=expanded='false' style='text-decoration: none;'>";
+//                    echo "                      <img src='../../images/editar.png' class='img-responsive' title='Alterar'>";
+//                    echo "              </a>";
+//                    echo "              <a href='inicio.php?m=configUsuario&idusuario=".$idusuarioSelecionado."&nomeUsuario=".$usuarioSelecionado."&modal=sim' data-toggle='modal' class='text-link' style='text-decoration: none;'>";
+//                    echo "                      <img src='../../images/botaoexcluir.png' class='img-responsive' title='Excluir' width='24' height='24'>";
+////                     data-target='#excluiUsuario'
+//                    echo "              </a>";
+//                    echo "          </td>";
+//                    echo "      </tr>";
+//                    
+//                }
+//            }
+//        } catch (Exception $ex) {
+//            echo "Erro na transação. Motivo: ".$ex->getMessage();
 //        }
-        if (filter_input(INPUT_GET, 'exclui') == "sim"){
-            $this->excluiUsuario("tblloginsystems");
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configuracoes&tarefa=usersistema'>";
-        }
-    }
+//        
+//        echo "  </table>";
+//        echo "</div>";
+//        
+//        if(filter_input(INPUT_GET, 'sucessoalteracao')=="sim"){
+//            echo "<br/>";
+//            echo "<div class='col-xs-12 col-sm-12 col-md-12' style='text-align: left;'>";
+//            echo "  <label class='label label-success'>Alteração efetuada com sucesso!</label>";
+//            echo "</div>";
+//            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?m=configuracoes&t=usersistema'>";
+//        }
+//        
+//        
+//        $this->novoModalUsuario();
+//        $this->modalExcluiUsuario("configUsuario");
+//        $this->modalEditaUsuario();
+//        
+//        
+//        if(filter_input(INPUT_GET, 'alteracao') == "sim"){
+//
+//            $this->autorizadaAlteracao();
+////            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
+//        }
+////        if (filter_input(INPUT_GET, 'altera') == "sim"){
+////            $this->alteraUsuario("tblloginsystems");
+////            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuario'>";
+////        }
+//        if (filter_input(INPUT_GET, 'exclui') == "sim"){
+//            $this->excluiUsuario("tblloginsystems");
+//            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?m=configuracoes&t=usersistema'>";
+//        }
+//    }
     
     public function formularioEdicao($nomeUsuario, $emailUsuario, $idTipoUsuario, $tipoUsuario){
         $conexao = new conectaBanco();
@@ -197,9 +197,9 @@ class modelConfig {
 
         //chama o arquivo junto ao banco de dados
         try{
-            $sqlConsulta = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro, DATE_FORMAT(l.dataUltimaAlteracao, '%d/%m/%Y') AS dataAlteracao
-                            FROM tblloginsystems l 
-                            INNER JOIN tbltipousuario t ON l.codTipoUsuario = t.idTipoUsuario
+            $sqlConsulta = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro, DATE_FORMAT(l.dataAlteracao, '%d/%m/%Y') AS dataAlteracao
+                            FROM tblusuario l 
+                            INNER JOIN tipousuario t ON l.codTipoUsuario = t.idTipoUsuario
                             WHERE l.idUsuario=".filter_input(INPUT_GET, 'idusuario');
             $resultadoConsulta = mysql_query($sqlConsulta) or die("Houve um problema no SQL de consulta. Erro: ".mysql_error());
             $dadosConsulta = mysql_fetch_array($resultadoConsulta);
@@ -264,7 +264,7 @@ class modelConfig {
                 }
 
                 try{
-                    $sql = "UPDATE tblloginsystems 
+                    $sql = "UPDATE ".USUARIO." 
                             SET 
                             nomeUsuario='".$nomeEdicao."', 
                             emailUsuario='".$emailEdicao."',
@@ -334,12 +334,12 @@ class modelConfig {
         echo "              <b>Data Cadastro</b>";
         echo "          </td>";
         echo "          <td>";
-        echo "              <b>Controle</b>";
+        echo "              <b>&nbsp;</b>";
         echo "          </td>";
         echo "      </tr>";
 
         try{
-            $sql = "SELECT * FROM tblloginsite l ";
+            $sql = "SELECT * FROM usuariosite l ";
             $resultado = mysql_query($sql) or die ("Erro na execução da tabela, fora da sintaxe do MySQL. Erro: ".mysql_error());
             if ($resultado){
                 while($dados = mysql_fetch_array($resultado)){
@@ -382,8 +382,8 @@ class modelConfig {
         $this->modalExcluiUsuarioSite();
         
         if (filter_input(INPUT_GET, 'exclui') == "sim"){
-            $this->excluiUsuario("tblloginsite");
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?menu=configUsuarioSite'>";
+            $this->excluiUsuario("usuariosite");
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=inicio.php?m=configUsuarioSite'>";
 
 
         }
@@ -391,7 +391,7 @@ class modelConfig {
     }
     
     public function novoModalUsuario(){
-        echo "<form name='novoUsuario' action='inicio.php?menu=configuracoes' method='post' class='form-horizontal'>";
+        echo "<form name='novoUsuario' action='inicio.php?m=configuracoes&t=usersistema' method='post' class='form-horizontal'>";
         echo "    <div class='modal fade' id='novoUsuario' tabindex='-1' role='dialog' aria-labelledby='modalAdesao'>";
         echo "        <div class='modal-dialog' role='document'>";
         echo "            <div class='modal-content'>";
@@ -427,6 +427,7 @@ class modelConfig {
             $cadUsuario->setEmail($email);
             $cadUsuario->setCodTipoUsuario($tipoAcesso);
             $cadUsuario->setDataCadastro($dataCadastro);
+            $cadUsuario->setDataUltimaAlteracao($dataCadastro);
             
             if($this->verificaUsuario($usuario)){
                 $cadUsuario->mensagem("Não foi possível efetuar o cadastro.<br>Usuário existente!");
@@ -472,11 +473,13 @@ class modelConfig {
             $tipoAcesso = filter_input(INPUT_POST, 'tipoAcesso');
             $dataCadastro = filter_input(INPUT_POST, 'dataSql');
             
+            $cadUsuario = new modelUsuario();
             $cadUsuario->setUsuario($usuario);
             $cadUsuario->setSenha($senha);
             $cadUsuario->setEmail($email);
             $cadUsuario->setCodTipoUsuario($tipoAcesso);
             $cadUsuario->setDataCadastro($dataCadastro);
+            
             
             if($this->verificaUsuario($usuario)){
                 $cadUsuario->mensagem("Não foi possível efetuar o cadastro.<br>Usuário existente!");
@@ -596,7 +599,7 @@ class modelConfig {
         
         try{
             $sql = "SELECT * "
-                    . "FROM tblloginsystems "
+                    . "FROM tblusuario "
                     . "WHERE nomeUsuario = '".$usuario."' ";
 
             $resultado = mysql_query($sql) or die ("Erro na execução do SQL. Descrição: ".mysql_error());
@@ -615,6 +618,18 @@ class modelConfig {
     
     public function telaTrocaSenha(){
         
+        echo "  <div class='form-group'>";
+        echo "      <div class='row' style='padding-left: 15px;'>";
+        echo "          <div class='col-xs-12 col-md-12' align='center'>";
+        echo "              <h3>";
+        echo "                  Usuário: ".$_SESSION['usuario'];
+        echo "              </h3>";
+        echo "          </div>";
+        echo "          <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
+        echo "              &nbsp;";
+        echo "          </div>";
+        echo "      </div>";
+        echo "   </div>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-2 col-md-2'>";
         echo "  </div>";
@@ -646,15 +661,25 @@ class modelConfig {
         echo "          </div>";
         echo "          <div class='form-group'>";
         echo "              <a href='inicio.php' style='text-decoration: none;'>";
-        echo "                  <button type='button' class='btn btn-default btn-sm'>Voltar</button>";
+        echo "                  <button type='button' class='btn btn-default'>Voltar</button>";
         echo "              </a>";
         echo "              <a href='#' style='text-decoration: none;'>";
-        echo "                  <button type='submit' class='btn btn-primary btn-sm'>Alterar</button>";
+        echo "                  <button type='submit' class='btn btn-primary' disabled>Salvar</button>";
         echo "              </a>";
+        echo "          </div>";
+        echo "          <div style='height: 40px'>&nbsp;</div>";
+        echo "          <div class='form-group' align='left'>";
+        echo "              <div class='col-sm-12' style='text-align: center;'>";
+        echo "                   | <a href='inicio.php?m=perf' class='btn btn-default'>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfend' class='btn btn-default'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perftel' class='btn btn-default'>Telefones</a> | ";
+        echo "                  <a href='#' class='btn btn-default active'>Troca de Senha</a> | ";
+        echo "              </div>";
         echo "          </div>";
         echo "      </form>";
         echo "  </div>";
         echo "  <div class='col-xs-2 col-md-2'>";
+        echo "      &nbsp;";
         echo "  </div>";
         echo "</div>";
         
@@ -679,7 +704,7 @@ class modelConfig {
             $conexao->conecta();
             
             try{
-                $sqlVerifSenha = "SELECT * FROM tblloginsystems 
+                $sqlVerifSenha = "SELECT * FROM ".USUARIO." 
                                   WHERE idUsuario = ".$idusuario;
                 
                 $resultadoVerifSenha = mysql_query($sqlVerifSenha) or die ("Erro na verificação da senha anterior. Erro: ".mysql_error());
@@ -690,7 +715,7 @@ class modelConfig {
 //                    mysql_close($resultadoVerifSenha);//fecha o sql anterior
                     //Comando para alteração da senha
                     try{
-                        $sql = "UPDATE tblloginsystems SET senha = '".$this->senha."' WHERE idUsuario = ".$idusuario;
+                        $sql = "UPDATE ".USUARIO." SET senha = '".$this->senha."' WHERE idUsuario = ".$idusuario;
                         $resultado = mysql_query($sql) or die ("Houve um erro no SQL. Verifique sob o erro ".mysql_error());
                         
                         if($resultado){
@@ -724,37 +749,10 @@ class modelConfig {
     }
     
     public function telaInicialConfig(){
-        echo "<div class='row' id='telaEscolha'>";
-        echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
-        echo "      <div class='text-center'>";
-        echo "          <a href='inicio.php?menu=configuracoes&tarefa=usersistema' target='_self'>";
-        echo "              <img src='../img/groupIcon2.png' title='Usuários do Sistema' width='90' height='90' class='img-rounded'>";
-        echo "              <h5>Usuários do Sistema</h5>";
-        echo "          </a>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
-        echo "      <div class='text-center'>";
-        echo "          <a href='inicio.php?menu=configuracoes&tarefa=usersite' target='_self'>";
-        echo "              <img src='../img/groupIcon1.png' title='Usuários do Site' width='90' height='90' class='img-rounded'>";
-        echo "              <h5>Usuários do Site</h5>";
-        echo "          </a>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "</div>";
-        echo "<br/><br/>";
-        echo "<div class='row'>";
-        echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
-        echo "      <a href='inicio.php' target='_self'>";
-        echo "          <button class='btn btn-default'>";
-        echo "              Sair";
-        echo "          </button>";
-        echo "      </a>";
-        echo "  </div>";
-        echo "</div>";
+    
+        
         
     }
-
     
 
     

@@ -83,9 +83,46 @@ class modelBonus {
         
     public function metodoAutomatico(){
         
+        $link = filter_input(INPUT_GET, 'me');
+        
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12'>";
-        echo "      <form class='form-horizontal' name='formBonus' action='inicio.php?menu=bonus&tarefa=registros&metodo=automatico' method='post'>";
+        echo "      <form class='form-horizontal' name='formBonus' action='#' method='post'>";
+        echo "          <div class='form-group'>";
+        echo "              <label class='col-sm-2 control-label'>";
+        echo "                  Meditação";
+        echo "              </label>";
+        echo "              <div class='col-sm-2'>";
+        echo "                  <select name='meditacao' class='form-control' onselect='javascript:preenchimento(".$link.", this.value)'>";
+        echo "                      <option value='pm'>PM</option>";
+        echo "                      <option value='pn'>PN</option>";
+        echo "                      <option value='corpo'>Corpo</option>";
+        echo "                  </select>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='form-group'>";
+        echo "              <label class='col-sm-2 control-label'>";
+        echo "                  &nbsp;";
+        echo "              </label>";
+        echo "              <div class='col-sm-2'>";
+        echo "                  <select name='tipoMeditacao' class='form-control'>";
+        echo "                      <option value='sonho'>Sonho</option>";
+        echo "                      <option value='completacao'>Completação</option>";
+        echo "                      <option value='retrospectiva'>Retrospectiva</option>";
+        echo "                      <option value='exercicio'>Exercício</option>";
+        echo "                  </select>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "      </form>";
+        echo "  </div>";
+        echo "</div>";
+        
+    }
+    
+    public function metodoManual(){
+        echo "<div class='row'>";
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "      <form class='form-horizontal' name='formBonus' action='#' method='post'>";
         echo "          <div class='form-group'>";
         echo "              <label class='col-sm-2 control-label'>";
         echo "                  Meditação";
@@ -111,16 +148,11 @@ class modelBonus {
         
     }
     
-    public function metodoManual(){
-        
-    }
-    
     public function registroBonus(){
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12 placeholder'>";
         echo "      <div class='text-center'>";
-//        echo "              <img src='../img/registro1.jpg' title='Registros' width='150' height='150' class='img-responsive'>";
-        echo "              <h4><b>Registro de Bônus - RUV Tabuleta</b></h4>";
+        echo "          <h4><b>Registro de Bônus - RUV Tabuleta</b></h4>";
         echo "      </div>";
         echo "  </div>";
         echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
@@ -131,17 +163,17 @@ class modelBonus {
         echo "  <div class='col-xs-6 col-sm-6 col-md-6'>";
         echo "      <div align='left'>";
         
-        $metodo = filter_input(INPUT_GET, 'metodo');
+        $metodo = filter_input(INPUT_GET, 'me');
         
         if($metodo != ""){
             $this->metodo($metodo);
-            
         }else{
-            echo "          <div class='radio'>";
-            echo "              <input type='radio' name='preenchimento' id='automatico' value='automatico' onclick='javascript:direcionaBonus()'> Automático";
-            echo "              <br/>";
-            echo "              <input type='radio' name='preenchimento' id='manual' value='manual' onclick='javascript:direcionaBonus()'> Manual";
-            echo "          </div>";
+            echo "      <div class='radio'>";
+            echo "          <input type='radio' name='preenchimento' id='automatico' value='automatico' onclick='direcionaBonus(this.value)'> Automático";
+//            echo "          <br/>";
+            echo "          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            echo "          <input type='radio' name='preenchimento' id='manual' value='manual' onclick='direcionaBonus(this.value)'> Manual";
+            echo "      </div>";
         }
         echo "      </div>";
         echo "  </div>";
@@ -156,7 +188,7 @@ class modelBonus {
         
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12'>";
-        echo "      <a href='inicio.php?menu=bonus' target='_self'>";
+        echo "      <a href='inicio.php?m=bonus' target='_self'>";
         echo "          <button class='btn btn-default'>";
         echo "              Sair";
         echo "          </button>";

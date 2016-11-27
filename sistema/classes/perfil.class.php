@@ -16,10 +16,55 @@ class perfil {
     private $idperfil;
     private $nome;
     private $descricao;
+    private $dataAlteracao;
+    private $dataNascimento;
+    private $profissao;
+    private $estadoCivil;
+    private $motivacao;
     private $codUsuario;
     private $codSetenio;
     
     
+    function getDataAlteracao() {
+        return $this->dataAlteracao;
+    }
+
+    function getDataNascimento() {
+        return $this->dataNascimento;
+    }
+
+    function getProfissao() {
+        return $this->profissao;
+    }
+
+    function getEstadoCivil() {
+        return $this->estadoCivil;
+    }
+
+    function getMotivacao() {
+        return $this->motivacao;
+    }
+
+    function setDataAlteracao($dataAlteracao) {
+        $this->dataAlteracao = $dataAlteracao;
+    }
+
+    function setDataNascimento($dataNascimento) {
+        $this->dataNascimento = $dataNascimento;
+    }
+
+    function setProfissao($profissao) {
+        $this->profissao = $profissao;
+    }
+
+    function setEstadoCivil($estadoCivil) {
+        $this->estadoCivil = $estadoCivil;
+    }
+
+    function setMotivacao($motivacao) {
+        $this->motivacao = $motivacao;
+    }
+
     function getIdperfil() {
         return $this->idperfil;
     }
@@ -61,14 +106,49 @@ class perfil {
     }
 
     public function verificaPerfil(){
+        $sql = "SELECT COUNT(idPerfil) AS idPerfil FROM perfil WHERE codUsuario = ".$this->codUsuario;
         
-    }
-    
-    public function ultimoId(){
+        try{
+            $resultado = mysql_query($sql) or die("Verifica Perfil. ".RETURN_SQL.mysql_error());
+
+            $dados = mysql_fetch_array($resultado);
+
+            if($dados > 0){
+//                echo "indo para a edição do perfil.";
+                $this->editPerfil();
+            }else{
+                $this->novoPerfil();
+            }
+            
+        } catch (Exception $ex) {
+            echo "Erro na execução da verificação do perfil do usuário. Erro: ".$ex->getMessage();
+        }
         
     }
     
     public function novoPerfil(){
+        $this->idperfil = ultimoId::ultimoIdBanco('idPerfil', 'perfil');
+        
+        if($this->dataNascimento === "0000-00-00"){
+            $this->setCodSetenio(1);
+        }
+        
+        $sqlNovoPerfil = "INSERT INTO perfil(idPerfil, nome, descricao, dataAlteracao, dataNascimento, profissao, estadoCivil, motivacao, codUsuario, codSetenio) VALUES (".$this->idperfil.", '".$this->nome."', '".$this->descricao."', '".$this->dataAlteracao."', '".$this->dataNascimento."', '".$this->profissao."', '".$this->estadoCivil."', '".$this->motivacao."', ".$this->codUsuario.", ".$this->codSetenio.")";
+        
+//        echo "";
+        
+        try{
+            $resultadoNovoPerfil = mysql_query($sqlNovoPerfil) or die ("Novo Perfil. ".RETURN_SQL.mysql_error());
+
+            if($resultadoNovoPerfil){
+                
+                echo "Sucesso!";
+            }
+            
+        } catch (Exception $ex) {
+            echo "Erro na execução do novo perfil do usuário. Descrição: ".$ex->getMessage();
+
+        }
         
     }
     
@@ -78,6 +158,237 @@ class perfil {
     
     public function deletePerfil(){
         
+    }
+    
+    public function telaPerfilPrincipal() {
+
+        $idusuario = $_SESSION['idusuario'];
+
+        $conexao = new conectaBanco();
+        $conexao->conecta();
+
+        try {
+            $sql = "SELECT  l.nomeUsuario, l.email,
+                            DATE_FORMAT(l.dataCadastro,'%d/%m/%Y') AS dataCadastro, p.idPerfil, 
+                            p.nome, p.descricao, 
+                            DATE_FORMAT(p.dataNascimento,'%d/%m/%Y') AS dataNascimento, 
+                            s.setenio, tu.nomeTipo
+                    FROM tblusuario l
+                    INNER JOIN perfil p on l.idUsuario = p.codUsuario
+                    INNER JOIN tipousuario tu on tu.idTipo = l.codTipoUsuario
+                    INNER JOIN setenio s on p.codSetenio = s.idsetenio
+                    WHERE l.idUsuario = ".$idusuario;
+//            echo $sql."<br>";
+            $resultado = mysql_query($sql) or die("Erro no comando SQL. Verifique sob o erro: " . mysql_error());
+            $dados = mysql_fetch_array($resultado);
+//           
+            if ($dados > 0) {
+                $_SESSION['perfil'] = $dados['idPerfil'];
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-4 col-md-4'>";
+                echo "      <h3>";
+                echo "          Usuário: ".$dados['nomeUsuario'];
+                echo "      </h3>";
+                echo "  </div>";
+                echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
+                echo "      &nbsp;";
+                echo "  </div>";
+                echo "</div>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-4 col-md-4' style='padding-left: 15px;'>";
+                echo "      <h5>";
+                echo "          <input type='text' name='email' id='email' placeholder='".$dados['email']."' class='form-control'>";
+                echo "      </h5>";
+                echo "  </div>";
+                echo "  <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
+                echo "      <h5>";
+                echo "          <abbr title='Tipo de Acesso'>";
+                echo                $dados['nomeTipo'];
+                echo "          </abbr>";
+                echo "      </h5>";
+                echo "  </div>";
+                echo "</div>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-4 col-md-4'>";
+                echo "      <h5>";
+                if ($dados['dataNascimento'] === "" or $dados['dataNascimento'] === "00/00/0000"){
+                    echo "          <input type='text' placeholder='Data de nascimento não preenchida.' name='dataNascimento' id='dataNascimento' class='form-control'>";
+                }else{
+                    echo "          <input type='text' placeholder='".$dados['dataNascimento']."' name='dataNascimento' id='dataNascimento' class='form-control'>";
+                }
+                echo "      </h5>";
+                echo "  </div>";
+                echo "  <div class='col-xs-2 col-md-2'>";
+                echo "      <h5>";
+                echo "          &nbsp;";
+//                echo "          <b>Tipo de Usuário</b>: ".$dados['nomeTipo'];
+                echo "      </h5>";
+                echo "  </div>";
+                echo "  <div class='col-xs-6 col-md-6'>";
+                echo "      <h5>";
+                echo "          <b>Setênio</b>: ".$dados['setenio'];
+                echo "      </h5>";
+                echo "  </div>";
+                echo "</div>";
+                echo "<div class='row' align='left' style='padding-left: 15px;'>";
+                echo "  <div class='col-xs-4 col-md-4'>";
+                echo "      <h5>";
+                echo "          <b>Data de Cadastro</b>: ".$dados['dataCadastro'];
+                echo "      </h5>";
+                echo "  </div>";
+                echo "  <div class='col-xs-8 col-md-8'>";
+                echo "      &nbsp;";
+                echo "  </div>";
+                echo "</div>";
+                echo "<div class='row' align='left'>";// style='padding-left: 15px;'
+                echo "  <div class='col-xs-12 col-md-12'>";
+                echo "      <div class='form-group'>";
+//                echo "          <label for='descricao' class='col-sm-4 control-label'>Sobre você:</label>";
+                echo "              <div class='col-sm-5'>";
+                echo "                  <textarea class='form-control' placeholder='Sobre você' cols='10' rows='5' id='descricao' name='descricao'>" . $dados['descricao'] . "</textarea>";
+                echo "              </div>";
+                echo "      </div>";
+                echo "  </div>";
+                echo "</div>";
+                echo "<div class='col-xs-12 col-md-12'><p style='height: 30px;'>&nbsp;</p></div>";
+                echo "<div class='col-xs-9 col-md-9' align='left'>";
+                echo "  <div class='btn-group' role='group' aria-label='...'>";
+                echo "      <a href='#' style='text-decoration: none;' disabled>";
+                echo "          <button class='btn btn-default' disabled>";
+                echo "              Sobre você";
+                echo "          </button>";
+                echo "      </a>";
+                echo "      <a href='inicio.php?m=perfend' style='text-decoration: none;'>";
+                echo "          <button class='btn btn-default'>";
+                echo "              Seu endereço";
+                echo "          </button>";
+                echo "      </a>";
+                echo "      <a href='inicio.php?m=perftel' style='text-decoration: none;'>";
+                echo "          <button class='btn btn-default'>";
+                echo "              Telefones";
+                echo "          </button>";
+                echo "      </a>";
+                echo "      <a href='inicio.php?m=trocasenha' style='text-decoration: none;'>";
+                echo "          <button class='btn btn-default'>";
+                echo "              Troca de Senha";
+                echo "          </button>";
+                echo "      </a>";
+                echo "  </div>";
+                echo "</div>";
+                
+                
+            } else {//Direcionar para Sobre você
+                echo "Perfil não preenchido. Preencha os campos para atualização.";
+                echo "<p style='height: 30px;'>&nbsp;</p>";
+                $this->telaPerfil();
+            }
+        } catch (Exception $ex) {
+            echo "Não foi possível efetuar a consulta. Erro exception: " . $ex->getMessage();
+        }
+    }
+    
+
+    public function telaPerfil() {
+
+        $conecta = new conectaBanco();
+        $conecta->conecta();
+
+        try {
+            $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM perfil p "
+                    . "INNER JOIN tblusuario u ON p.codUsuario = u.idUsuario "
+                    . "INNER JOIN tipousuario tp ON tp.idTipo = u.codTipoUsuario "
+                    . "INNER JOIN setenio s ON s.idSetenio = p.codSetenio "
+                    . " WHERE p.codUsuario = " . $_SESSION['idusuario'];
+//            echo $sqlConsultaPerfil."<br>";
+            $resultadoConsulta = mysql_query($sqlConsultaPerfil) or die ("Não foi possível executar a ação devido ao erro de comando SQL. Erro: ".mysql_error());
+
+            if ($resultadoConsulta > 0) {
+                $array = mysql_fetch_array($resultadoConsulta);
+//                echo $array['nome'];
+                $nomeUsuario = $array['nome'];
+                $dataNascimento = $array['dataNascimento'];
+//                $dataNascimentoFormatada = date("d/m/Y", strtotime($dataNascimento));
+                $setenio = $array['setenio'];
+                $tipoUsuario = $array['nomeTipo'];
+                $sobreVoce = $array['descricao'];
+//                $codPerfil = $array['codPerfil'];
+            } else {
+                echo "Vazio";
+            }
+        } catch (Exception $ex) {
+            echo "Houve um erro. Erro: " . $ex->getMessage();
+        }
+
+        echo "<div class='col-xs-9 col-sm-9 placeholder'>";
+        echo "  <form class='form-horizontal' style='font-size: 12px;' method='post' name='formperfil' action='inicio.php?menu=perfilsv'>";
+        echo "      <div class='form-group'>";
+        echo "          <label for='nome' class='col-sm-2 control-label'>Nome:</label>";
+        echo "              <div class='col-sm-8'>";
+        echo "                  <input type='text' name='nomeUsuario' class='form-control' id='nomeUsuario' placeholder='Nome' required onkeyup='javascript:validaForm(this.value)' value='" . $nomeUsuario . "'>";
+        echo "              </div>";
+        echo "              <div class='col-sm-2' style='display:none' id='ok' name='ok'>";
+        echo "                  <img src='../../images/ok.png' width='30' height='30' title='Ok'>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div class='form-group'>";
+        echo "          <label for='dataNascimento' class='col-sm-2 control-label'>Data de Nascimento:</label>";
+        echo "              <div class='col-sm-3'>";
+                            if($dataNascimento != ""){
+        echo "                  <input type='text' class='form-control' id='dataNascimento' name='dataNascimento' value='" . $dataNascimento . "'>";
+                            }else{
+        echo "                  <input type='date' class='form-control' id='dataNascimento' name='dataNascimento' onmouseout='javascript:calculaIdade(this.value)' onkeyup='javascript:calculaIdade(this.value) value='" . $dataNascimento . "'>";
+                            }
+        echo "              </div>";
+        echo "          <label for='setenio' class='col-sm-2 control-label'>Setênio:</label>";
+        echo "              <div class='col-sm-2'>";
+        echo "                  <input type='text' class='form-control' id='setenio' disabled value='" . $setenio . "'>";
+        echo "                  <input type='hidden' class='form-control' id='codSetenio' name='codSetenio'>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div class='form-group'>";
+        echo "          <label for='idade' class='col-sm-2 control-label'>Tipo de Usuário:</label>";
+        echo "              <div class='col-sm-2'>";
+//        echo "                  <div id='idade'></div>";
+        echo "                  <input type='text' class='form-control' name='tipoUsuario' id='tipoUsuario' value='" . $tipoUsuario . "'>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div class='form-group'>";
+        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-8'>";
+        echo "                  <textarea class='form-control' cols='10' rows='5' id='descricao' name='descricao'>" . $sobreVoce . "</textarea>";
+        echo "              </div>";
+        echo "      </div>";
+
+        echo "      <div class='form-group'>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+        echo "                  <button class='btn btn-primary'>Salvar</button>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div style='height: 20px'>&nbsp;</div>";
+        echo "      <div class='form-group'>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                   | <a href='inicio.php?m=perf' class='btn btn-default active''>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfend' class='btn btn-default'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perftel' class='btn btn-default' autocomplete='off'>Telefones</a> | ";
+        echo "                  <a href='inicio.php?m=trocasenha' class='btn btn-default' autocomplete='off'>Troca de Senha</a> | ";
+        echo "              </div>";
+        echo "      </div>";
+        if ($_POST) {
+            $nome = filter_input(INPUT_POST, "nomeUsuario");
+            $dataNascimento = filter_input(INPUT_POST, "dataNascimento");
+            $tipoUsuario = filter_input(INPUT_POST, "tipoUsuario");
+            $codSetenio = filter_input(INPUT_POST, 'codSetenio');
+            $sobreVoce = filter_input(INPUT_POST, 'descricao');
+            $codUsuario = $_SESSION['idusuario'];
+            echo $this->validaCamposPerfil($nome, $dataNascimento, $tipoUsuario, $codSetenio, $sobreVoce, $codUsuario);
+        }
+
+
+        //Preenche a tabela do perfil
+
+        echo "  </form>";
+        echo "</div>";
     }
     
 }

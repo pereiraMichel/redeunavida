@@ -136,9 +136,10 @@ class balancete {
     public function novoBalancete(){
         //$this->ultimoId();
 
-        $this->idBalancete = ultimoId::buscaUltimoId('idBalancete', 'balancete');
+        $this->idBalancete = ultimoId::ultimoId('idBalancete', 'balancete');
 
-        $sqlNovoBalancete = "INSERE_BALANCETE(".$this->idBalancete.", ".$this->anoMes.", ".$this->mes.", ".$this->data.", ".$this->descricao.", ".$this->entrada.", ".$this->saida.", ".$this->saldo.", ".$this->codUsuario.")";
+        $sqlNovoBalancete = "INSERT INTO balancete (idBalancete, anoMes, mes, data, descricao, entrada, saida, saldo, codUsuario) VALUES (".$this->idBalancete.", '".$this->anoMes."', '".$this->mes."', '".$this->data."', '".$this->descricao."', ".$this->entrada.", ".$this->saida.", ".$this->saldo.", ".$this->codUsuario.")";
+//        $sqlNovoBalancete = "INSERE_BALANCETE(".$this->idBalancete.", ".$this->anoMes.", ".$this->mes.", ".$this->data.", ".$this->descricao.", ".$this->entrada.", ".$this->saida.", ".$this->saldo.", ".$this->codUsuario.")";
         try{
             $resultNovoBalancete = mysql_query($sqlNovoBalancete) or die(RETURN_SQL.mysql_error());
             if(!$resultNovoBalancete){
@@ -151,7 +152,8 @@ class balancete {
     }
     
     public function editBalancete(){
-        $sqlEditBalancete = "EDIT_BALANCETE(".$this->idBalancete.", ".$this->anoMes.", ".$this->mes.", ".$this->data.", ".$this->descricao.", ".$this->entrada.", ".$this->saida.", ".$this->saldo.", ".$this->codUsuario.")";
+        $sqlEditBalancete = "UPDATE balancete SET anoMes='".$this->anoMes."', mes='".$this->mes."', data='".$this->data."', descricao='".$this->descricao."', entrada=".$this->entrada.", saida=".$this->saida.", saldo=".$this->saldo.", codUsuario=".$this->codUsuario." WHERE idBalancete=".$this->idBalancete;
+//        $sqlEditBalancete = "EDIT_BALANCETE(".$this->idBalancete.", ".$this->anoMes.", ".$this->mes.", ".$this->data.", ".$this->descricao.", ".$this->entrada.", ".$this->saida.", ".$this->saldo.", ".$this->codUsuario.")";
 
         try{
             $resultEditBalancete = mysql_query($sqlEditBalancete) or die(RETURN_SQL.mysql_error());
@@ -165,7 +167,8 @@ class balancete {
     }
 
     public function deleteBalancete(){
-        $sqlDeleteBalancete = "DELETE_BALANCETE(".$this->idBalancete.")";
+        $sqlDeleteBalancete = "DELETE FROM balancete WHERE idBalancete=".$this->idBalancete;
+//        $sqlDeleteBalancete = "DELETE_BALANCETE(".$this->idBalancete.")";
         try{
             $resultDeleteBalancete = mysql_query($sqlDeleteBalancete) or die(RETURN_SQL.mysql_error());
             if(!$resultDeleteBalancete){

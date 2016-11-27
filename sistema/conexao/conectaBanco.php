@@ -9,11 +9,11 @@ class conectaBanco {
 //        private $senha = "y9kwbLCk";
 //        private $servidor = "mysql111.prv.f1.k8.com.br";
 //        private $database = "redeunaviva";
-    // Internto
+    // Interno
         private $usuario = "root";
         private $senha = "m1ch3l4p";
         private $servidor = "localhost";
-        private $database = "ruv";
+        private $database = "redeunaviva";
     
 //y9kwbLCk    
     public function conecta(){

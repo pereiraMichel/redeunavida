@@ -52,7 +52,7 @@ class calendarioRuv {
 
     
     
-    public function configuracaoCalendario(){
+    public function configuracaoCalendario($pagina){
         date_default_timezone_set('America/Sao_Paulo');
         
         $estacao = 0;
@@ -295,10 +295,44 @@ class calendarioRuv {
             $anoLetivo++;
         }
 //        echo "<br>Mês RUV: ".$mesRuv;
-        $this->preencheCalendario($anoLetivo, $codEstacao, $mesRuv, $semana, $dias, "&nbsp;");
-        
+        if($pagina === "calendario"){
+            $this->preencheCalendario($anoLetivo, $codEstacao, $mesRuv, $semana, $dias, "&nbsp;");
+        }else if($pagina === "estedia"){
+            $this->preencheTempo($anoLetivo, $codEstacao, $mesRuv, $semana, $dias);
+        }
     }
     
+    public function preencheTempo($ano, $estacao, $mes, $semana, $dia){
+        date_default_timezone_set('America/Sao_Paulo');
+
+        $larguraColuna = 5;
+        
+        $dataJava = date('N');
+        
+        $dataSemanaJava = array(
+            0 => 'Domingo',
+            1 => '2ª feira',
+            2 => '3ª feira',
+            3 => '4ª feira',
+            4 => '5ª feira',
+            5 => '6ª feira',
+            6 => 'Sábado'
+        );
+        
+        $dataSemanaNumerica = array(
+            0 => '1',
+            1 => '2',
+            2 => '3',
+            3 => '4',
+            4 => '5',
+            5 => '6',
+            6 => '7'
+            
+        );
+        $this->tempoRuv($ano, $estacao, $mes, $semana, $dataSemanaNumerica[$dataJava]);
+    }
+
+
     public function preencheCalendario($ano, $estacao, $mes, $semana, $dia, $mensagem){
         date_default_timezone_set('America/Sao_Paulo');
 
@@ -542,6 +576,41 @@ class calendarioRuv {
         
     }
     
-    
+    public function tempoRuv($ano, $estacao, $mes, $semana, $diaSemana){
+//        echo "<meta http-equiv='refresh' content='5;url=estedia.php'>";
+        
+        $dia = date('d')-0;
+        $data = date('n');
+        
+        $anoJava = date('Y');
+        $mesJava = array(
+            1 => "Janeiro",
+            2 => "Fevereiro",
+            3 => "Março",
+            4 => 'Abril',
+            5 => 'Maio',
+            6 => 'Junho',
+            7 => 'Julho',
+            8 => 'Agosto',
+            9 => 'Setembro',
+            10 => 'Outubro',
+            11 => 'Novembro',
+            12 => 'Dezembro'
+            
+        );
+//        echo "<div style='text-align: center;'>";
+        echo "          <table style='color: red; font-weight: bold;' width='100%'>";
+        echo "              <tr>";
+        echo "                  <td>";
+        echo "                      <p style='color: red;'>Dia: ".$dia." de ".$mesJava[$data]." de ".$anoJava."</p>";
+        echo "                  </td>";
+        echo "                  <td>";
+        echo "                      <div>Tempo-RUV: ".$ano."-".$estacao.$mes.$semana.".".$diaSemana."</div>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "          </table>";
+//        echo "</div>";
+        
+    }
     
 }

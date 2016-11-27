@@ -20,7 +20,7 @@ class classTexto {
         echo "  <li>&nbsp;</li>";
         echo "  <li>3. Seus dois ciclos principais são o diário e o semanal. O diário implica na valorização da prática individual e o semanal, no encontro grupal dos afins para a troca de experiência.</li>";
         echo "  <li>&nbsp;</li>";
-        echo "  <li>4. Concebemos a Jornada diária, com dois portais de mudança de consciência como momentos propícios para atividades específicas de autoconhecimento e autotransformação. O portal da noite (PN), onde se realiza a retrospectiva do dia, e o portal da manhã (PM), onde se registra os sonhos. Há recursos próprios para incentivar exercícios de autoterapia com estes conteúdos.</li>";
+        echo "  <li>4. Concebemos a Jornada diária, com dois portais de mudança de consciência como momentos propícios para atividades específicas de autoconhecimento e autotransformação. O portal da noite (PN), onde se realiza a retrospectiva do dia, e o portal da manhã (PM), onde se registram os sonhos. Há recursos próprios para incentivar exercícios de autoterapia com estes conteúdos.</li>";
         echo "</ul>";
         echo "</div>";
         echo "<div class='col-xs-6 col-sm-7' align='center' style='padding-left: 0; margin-left: 0; width: 50%; heigth: 50%;'>";
@@ -100,7 +100,7 @@ class classTexto {
         echo "              <br><br>";
         echo "              15. Há um encontro mensal, aos domingos, de 9 às 13h, em que se concentra a transmissão do programa do mês. Caso haja vagas, quem frequenta o grupo semanal poderá também participar do grupo mensal, sem custo adicional.</li>";
         echo "              <li>&nbsp;</li>";
-        echo "              <li>16. O investimento financeiro é R$ 50,00 (cinquenta reais) por encontro, pagos mensalmente, no início do período. Em cada estação há 2 meses de 4 semanas, cujo valor é de R$ 200,00 (duzentos reais), e 1 mês de 5 semanas, cujo valor de investimento é de R$ 250,00 (duzentos e cinquenta reais). Este valor é o mesmo para o grupo semanal e para o grupo mensal.</li>";
+        echo "              <li>16. O investimento financeiro é de R$ 50,00 (cinquenta reais) por encontro, pagos mensalmente, no início do período. Em cada estação há 2 meses de 4 semanas, cujo valor é de R$ 200,00 (duzentos reais), e 1 mês de 5 semanas, cujo valor de investimento é de R$ 250,00 (duzentos e cinquenta reais). Este valor é o mesmo para o grupo semanal e para o grupo mensal.</li>";
         echo "              <li>&nbsp;</li>";
         echo "              <li>17. A Jornada Real é parte de um projeto maior – a RedeUnaViva, uma rede espiritual a serviço de uma cultura de paz, organizada sem fins lucrativos. Suas atividades são focalizadas por colaboradores que se dedicam em regime de doação voluntária. A RUV será melhor detalhada em momento oportuno.</li>";
         echo "          </ul>";
@@ -498,12 +498,12 @@ class classTexto {
         echo "              <li style='font-size: 20px;'>";
         echo "              <br><br>";
 //        echo "                  <b>Texto do Evangelho desta semana - 28/08/2016</b><br>";
-        echo "                  <b>Texto do Evangelho desta semana - domingo - 16.10.2016</b><br>";
-        echo "                  <b>MC 121</b><br>";
+        echo "                  <b>Texto do Evangelho desta semana - domingo - 20.11.2016<br>";
+        echo "                  MC 114</b><br>";
         echo "              <br><br>";
-        echo "                  <a role='button' href='downloads/meditacaocrista/MC110Paragem122Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (23.10.2016).";
+        echo "                  <a role='button' href='downloads/meditacaocrista/MC115Paragem133Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (27.11.2016).";
         echo "              <br><br>";
-        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC109Paragem121.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (16.10.2016).";
+        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC114Paragem132.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (20.11.2016).";
         echo "              <br><br>";
         echo "                  Clique na tabela ao lado para fazer download da MC.";
 //        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC107Paragem113.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira passado para fazer o download da MC do domingo anterior (02.10.2016).";
@@ -526,7 +526,7 @@ class classTexto {
         echo "              <table class='table' style='height: 10px; font-family: garamond; font-size: 16px;'>";
         echo "                  <tr>";
         echo "                      <td colspan='10' style='text-align: center; font-weight: bold; font-size: 18px; background-color: #00FFFF;'>";
-        echo "                          Clique no numero (acompanhado) da data para fazer download";
+        echo "                          Clique no número (acompanhado) da data para fazer download";
         echo "                      </td>";
         echo "                  </tr>";
         echo "                  <tr>";
@@ -628,7 +628,39 @@ class classTexto {
         echo "                          <a href='meditcrista.php?s=109' id='linkDownloads'>109<p style='font-size: 13px;'>16.10.2016</p></a>";
         echo "                      </td>";
         echo "                      <td width='55'>";
-        echo "                          110";
+        echo "                          <a href='meditcrista.php?s=110' id='linkDownloads'>110<p style='font-size: 13px;'>23.10.2016</p></a>";
+        echo "                      </td>";
+        echo "                  </tr>";
+        echo "                  <tr style='text-align: center; background-color: #E0FFFF; height: 60px;'>";
+        echo "                      <td>";
+        echo "                           <a href='meditcrista.php?s=111' id='linkDownloads'>111<p style='font-size: 13px;'>30.10.2016</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='meditcrista.php?s=112' id='linkDownloads'>112<p style='font-size: 13px;'>06.11.2016</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='meditcrista.php?s=113' id='linkDownloads'>113<p style='font-size: 13px;'>13.11.2016</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='meditcrista.php?s=114' id='linkDownloads'>114<p style='font-size: 13px;'>20.11.2016</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          115";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          116";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                          117";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          118";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          119";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                          120";
         echo "                      </td>";
         echo "                  </tr>";
         echo "              </table>";
@@ -1280,13 +1312,13 @@ class classTexto {
         echo "          Início da próxima Jornada de Meditação, em <b>21 de setembro de 2016</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Dia e horário: <b>4as feiras, de 14:30h às 16h00h</b>.<br><br>";
+        echo "          Dia e horário: <b>4as feiras, de 14:30h às 16h</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
         echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a> (ver à esquerda da barra horizontal, na base desta página ou no mapa, na aba “Contato”).<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond  ".$espacamento.";
-        echo "          Somos um grupo de voluntários que não recebe por qualquer serviço prestado. A cobrança visa unicamente a cobrir as despesas de aluguel da sala e gastos para o nosso desenvolvimento.<br><br>";
+        echo "          Somos um grupo de voluntários que não recebe por qualquer serviço prestado. A cobrança visa unicamente cobrir as despesas de aluguel da sala e gastos para o nosso desenvolvimento.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
         echo "          Investimento: <b>R$ 120,00 </b>(por mês, a cada 4 semanas) ou <b>R$ 240,00</b>, a ser pago juntamente, com a sua inscrição.<br><br>";
@@ -1297,6 +1329,103 @@ class classTexto {
         echo "  </div>";
         echo "</div>";
     }
+    
+    public function textoApresentacao(){
+//        echo "<meta http-equiv='refresh' content='5;url=apresentacao.php'>";
+    $fonteGaramond = "font-family: garamond";
+    $tamanhoFonte = "font-size: 20px";
+    $espacamento = "padding-left: 50px";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div class='text-center' style='font-family: garamond; color: #1f226d;'>";
+//        echo "  <div class='text-center' style='font-family: garamond; color: #3F6CA1;'>";
+        echo "      <span style='color: #1f226d; font-size: 30px;'>";
+        echo "          <b>Apresentação do Site</b><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+        echo "<p style='height: 50px;'>&nbsp;</p>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          1. Seja muito bem-vinda(o) à nossa página na internet. Esta apresentação visa facilitar sua primeira navegação pelo site.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          2. Possa sua sintonia nesta visita gerar algum benefício para você ou para qualquer outro ser humano.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          3. A <font style='color: red; font-weight: bold;'>RedeUnaViva</font> (RUV) tem por objetivo cooperar para a instalação e expansão de uma Cultura de Paz. Tem como instrumento principal para alcançar tal fim o trabalho de autoconhecimento do seu participante. Visa resultar melhor qualidade de convivência nos nossos grupos de relacionamento pessoal - família, trabalho e sociedade.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          4. Todo os que contribuem para o funcionamento da RUV trabalham em regime de voluntariado, dispensando qualquer tipo de remuneração financeira.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          5. Para conhecer o conteúdo do site, você NÃO precisa usar os botões à direita, no alto. Comece pelas nove abas do menu que se encontra na barra horizontal inferior, a partir de Home.<br><br>";
+        echo "      </span>";
+//        echo "<hr style='border-color: #1f226d;'>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          6. <a href='index.php' style='color: red; text-decoration: none; font-weight: bold;'>Home</a> abre o site e expõe, em banners sequenciados, um resumo da nossa proposta.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          7. <span style='color: red; text-decoration: none; font-weight: bold;'>Apresentação</span> é esta aba do menu em que você se encontra agora.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          8. <span style='color: red; font-weight: bold;'>Programação</span> apresenta nossas cinco atividades principais, cada uma com um texto explicativo: <a href='jornadareal.php' style='font-weight: bold; text-decoration: none;'>Jornada Real</a>; <a href='meditacao.php' style='font-weight: bold; text-decoration: none;'>Jornada de Meditação</a>; <a href='meditcrista.php' style='font-weight: bold; text-decoration: none;'>Meditação Cristã</a>; <a href='redesocialclinica.php' style='font-weight: bold; text-decoration: none;'>Rede Social Clínica</a>; <a href='retiro.php' style='font-weight: bold; text-decoration: none;'>Retiro</a>. E ainda <em>a página</em> <a href='estedia.php' style='font-weight: bold; text-decoration: none;'>Este Dia</a>, em que atualizamos alguma mensagem ou alguma informação que mereça destaque. Nesta página é, ainda, veiculada uma mensagem de celebração, seja por data especial, seja pelo aniversário de pessoa querida vinculada a nós.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          9. Na aba <span style='color: red; font-weight: bold;'>Tempo</span> estão a <font style='font-weight: bold;'>Semana RedeUnaViva</font> - informativo dos horários das atividades (de frequência semanal, mensal e trimestral) nos respectivos dias da semana; a <a href='agenda.php' style='font-weight: bold; text-decoration: none;'>Agenda</a> - os eventos dispostos nos dias do ano-RUV, isto é, de setembro de um ano (início do ano, primavera) a setembro do ano seguinte (fim do ano, inverno). E o <a href='calendario.php' style='font-weight: bold; text-decoration: none;'>Calendário</a> - mostra a data-RUV, e os critérios de marcação desta data.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          10. Na aba <span style='color: red; font-weight: bold;'>Mais</span> encontram-se atividades e grupos afins recomendados.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          11. Na <a href='galeria.php' style='color: red; text-decoration: none; font-weight: bold;'>Galeria</a> fotos expõem um pouco da nossa experiência.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          12. <a href='quemsomos.php' style='color: red; text-decoration: none; font-weight: bold;'>Quem somos</a> identifica o grupo responsável pela RUV.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          13. Através da aba <a href='contato.php' style='color: red; text-decoration: none; font-weight: bold;'>Contato</a> abrimos via de comunicação com os visitantes para receber sua mensagem (com perguntas, sugestões, comentários e outros). Nesta página há o endereço e mapa de localização da nossa sede.<br><br>";
+        echo "      </span>";
+        echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+        echo "          14. O <a href='https://redeunavivablog.wordpress.com/' style='color: red; text-decoration: none; font-weight: bold;' target='_blank'>Blog</a> como outro canal de comunicação, está sendo preparado para compartilhamento corrido em tempo real.<br><br>";
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+    }
+    
+    public function textoEsteDia(){
+//        echo "<meta http-equiv='refresh' content='5;url=estedia.php'>";
+    $fonteGaramond = "font-family: garamond";
+    $tamanhoFonte = "font-size: 20px";
+    $espacamento = "padding-left: 50px";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "  <div class='text-center' style='font-family: garamond; color: #1f226d;'>";
+//        echo "  <div class='text-center' style='font-family: garamond; color: #3F6CA1;'>";
+        echo "      <span style='color: #1f226d; font-size: 30px;'>";
+        echo "          <b>Este Dia</b><br>";
+        echo "      </span>";
+        echo "      <p style='height: 30px;'>&nbsp;</p>";
+        echo "      <span style='color: #1f226d; font-size: 18px; font-weight: bold; text-align: center;'>";
+        echo "          Hoje é o dia, o precioso tempo de nascer e acordar, de viver e fazer, de morrer e recolher-se<br><br>Que seja auspicioso, a caminho da Autorrealização<br>";
+        echo "      </span>";
+        echo "      <p style='height: 30px;'>&nbsp;</p>";
+        echo "      <span style='color: #1f226d; font-size: 18px; font-weight: bold; text-align: center;'>";
+        $calendario = new calendarioRuv();
+        $calendario->configuracaoCalendario("estedia");
+        echo "      </span>";
+        echo "  </div>";
+        echo "</div>";
+
+//        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+//        echo "  <div align='justify'>";
+//        echo "  <p style='height: 50px;'>&nbsp;</p>";
+//        echo "      <span style='font-size: 25px; '>";//antes, era 14, fora da fonte garamond ".$espacamento.";
+//        echo "          Aniversariante:";
+//        echo "      </span>";
+//        echo "  </div>";
+//        echo "</div>";
+    }
+    
     public function textoRodaDosSonhos(){
     $fonteGaramond = "font-family: garamond";
     $tamanhoFonte = "font-size: 20px";
@@ -1352,6 +1481,9 @@ class classTexto {
     $fonteGaramond = "font-family: garamond";
     $tamanhoFonte = "font-size: 20px";
     $espacamento = "padding-left: 50px";
+        echo "<div id='tituloPaginas'> Atendimento Psicológico</div>";
+        echo "  <p style='font-family: garamond; font-size: 20px;'>";
+
         echo "<p style='height: 30px;'>&nbsp;</p>";
         echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
         echo "  <div align='justify'>";
@@ -1359,8 +1491,18 @@ class classTexto {
         echo "          Compartilhando o entendimento de que a psicoterapia é promotora da saúde física, emocional e psíquica, a RUV oferece o serviço de atendimento psicoterapêutico através da Rede Social Clínica. O serviço se destina àqueles cuja condição financeira não se adequa aos valores praticados usualmente no mercado. A Rede Social Clínica é formada por psicólogos e terapeutas - membros da RUV - que dispõem de horários específicos para esse atendimento. Na entrevista inicial é acordado o valor do serviço, assim como também são transmitidas as regras do contrato.";
         echo "      </span>";
         echo "  </div>";
+        echo "<p style='height: 30px;'>&nbsp;</p>";
+        echo "<div id='tituloPaginas'> Atendimento Médico</div>";
+        echo "  <p style='font-family: garamond; font-size: 20px;'>";
+        echo "<p style='height: 30px;'>&nbsp;</p>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='".$fonteGaramond."; color: #1f226d;'>";
+        echo "  <div align='justify'>";
+        echo "      <span style='font-size: 20px; '>";
+        echo "          A Rede Social Clínica também oferece a possibilidade de atendimento médico clínico pautado na visão holística da saúde. Valorizando os cuidados preventivos cotidianos, a consulta clínica oferecida pela RUV prioriza orientações nutricionais, inclusão de hábitos de vida compatíveis com a saúde  e  prescrição de medicamentos de natureza fitoterápica e homeopática sempre que possível e necessário, sem exclusão de remédios convencionais.";
+        echo "      </span>";
+        echo "  </div>";
         
-        echo "  <div style='height: 20px;'>&nbsp;</div>";
+        echo "  <div style='height: 50px;'>&nbsp;</div>";
         echo "  <div class='alert alert-info' role='alert'>";
         echo "      <div class='text-center' style='font-family: garamond; font-size: 20px;'>";
         echo "          Contato para marcar entrevista ou para outras informações no telefone (21) 2266-5690";
@@ -1368,6 +1510,7 @@ class classTexto {
         echo "  </div>";
         
         echo "</div>";
+        echo "</p>";
     }
     public function textoTranscursoTranspessoal(){
     $fonteGaramond = "font-family: garamond";
@@ -1393,7 +1536,7 @@ class classTexto {
         echo "          O empenho desta teoria, em afinidade com a proposta transpessoal, visa a integração entre a psicologia ocidental, mais formal, e a abordagem espiritual desenvolvida pelas Tradições da Sabedoria Antiga. Além de beber nas fontes da psicanálise e da psicologia analítica, que centram seu trabalho terapêutico no modelo clássico da relação terapeuta-paciente, busquei sua complementação no investimento psicológico da introspecção, sustentado por estes sistemas espirituais, ao longo de milênios. Eles promovem o autoconhecimento para além das fronteiras do ego, a partir da especialíssima e diferente relação a dois - a do mestre com o discípulo.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; '>";
-        echo "          Os quatro pilares em que se assenta o Transcuro transpessoal são:<br><br>";
+        echo "          Os quatro pilares em que se assenta o Transcurso transpessoal são:<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px; margin-left: 25px;'>";
         echo "          Psicodinâmica do ego<br/>";

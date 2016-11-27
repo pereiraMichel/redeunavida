@@ -3,17 +3,17 @@
 class ultimoId{
 
 
-    public function ultimoId($id, $tabela){
+    public static function ultimoIdBanco($id, $tabela){
     	
         $sqlUltimoNumero = "SELECT MAX(".$id.") AS ".$id." FROM ".$tabela;
         
         try{
             
-            $resultUltimoNum = mysql_query($sqlUltimoNumero) or die (RETURN_SQL.mysl_error());
+            $resultUltimoNum = mysql_query($sqlUltimoNumero) or die ("Último ID. ".RETURN_SQL.mysl_error());
 
-            $dados = mysql_fetch_array(resultUltimoNum);
+            $dados = mysql_fetch_array($resultUltimoNum);
 
-            $novoId = $dados['id'] + 1;
+            $novoId = $dados[$id] + 1;
 
             return $novoId;
 

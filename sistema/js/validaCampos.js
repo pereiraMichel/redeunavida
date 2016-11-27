@@ -326,15 +326,22 @@ function calculaCalendario(){
     
 }
 
-function direcionaBonus(){
-    var automatico = document.getElementById("automatico").checked;
-    var manual = document.getElementById("manual").checked;
-    
-    if(automatico){
+function direcionaBonus(link){
+//    alert(link);
+//    var automatico = document.getElementById("auto").checked;
+//    var manual = document.getElementById("manual").checked;
+//    
+//    if(automatico){
 //        alert("Chamou a função automatico");
-        window.location.href="inicio.php?menu=bonus&tarefa=registros&metodo=automatico";
-    }else if(manual){
-//        alert("Chamou a função manual");
-        window.location.href="inicio.php?menu=bonus&tarefa=registros&metodo=manual";
-    }
+        window.location.href="inicio.php?m=bonus&t=registros&me="+link;
+//    }else if(manual){
+////        alert("Chamou a função manual");
+//        window.location.href="inicio.php?m=bonus&t=registros&me=manual";
+//    }
+}
+
+function preenchimento(me, link){
+//    alert(link);
+    window.location.href="inicio.php?m=bonus&t=registros&me="+me+"&med="+link;
+    
 }

@@ -42,6 +42,8 @@ class modelTelefone {
     }
     
     public function consultaUltimoRegistro(){
+        $conecta = new conectaBanco();
+        $conecta->conecta();
         try{
             $sql = "SELECT MAX(idTelefone) AS idTelefone FROM tbltelefone";
             $resultado = mysql_query($sql);
@@ -58,6 +60,8 @@ class modelTelefone {
     }
     
     public function verificaTelefone(){
+        $conecta = new conectaBanco();
+        $conecta->conecta();
         try{
             $sqlVerificaTelefone="SELECT telefone FROM tbltelefone WHERE telefone = '".$this->telefone."'";
             $resultadoVerifica = mysql_query($sqlVerificaTelefone);
@@ -76,16 +80,19 @@ class modelTelefone {
     }
 
     public function consultaTelefonePessoal(){
+        $conecta = new conectaBanco();
+        $conecta->conecta();
         
                 try{
-                    $sqlTelefone = "SELECT * FROM tbltelefone t "
-                            . "INNER JOIN tbltipotelefone tp ON tp.idTipoTelefone = t.codTipoTelefone "
-                            . "WHERE t.codPerfil = ".$_SESSION['idusuario']." "
+                    $sqlTelefone = "SELECT * FROM telefone t "
+                            . "INNER JOIN tipotelefone tp ON tp.idTipoTelefone = t.tipoTelefone "
+                            . "WHERE t.codUsuario = ".$_SESSION['idusuario']." "
                             . "ORDER BY t.idTelefone";
                     
-                    $resultadoTelefone = mysql_query($sqlTelefone);
+//                    echo $sqlTelefone."<br>";
+                    $resultadoTelefone = mysql_query($sqlTelefone) or die("Erro no comando SQL. Descrição: ".mysql_error());
 
-                        
+                    if(mysql_num_rows($resultadoTelefone) > 0){
                         while($dadosTelefone = mysql_fetch_array($resultadoTelefone)){
                             echo "                      <tr>";
                             echo "                          <td name='Telefone'>";
@@ -112,6 +119,13 @@ class modelTelefone {
                             echo "                          </td>";
                             echo "                      </tr>";
                         }
+                    }else{
+                        echo "<tr>";
+                        echo "  <td colspan='4'>";
+                        echo "      &nbsp;";
+                        echo "  </td>";
+                        echo "</tr>";
+                    }
                         
                 } catch (Exception $ex) {
                     echo "Erro ao efetuar a consulta. Código do erro: ".$ex->getMessage();
@@ -122,6 +136,9 @@ class modelTelefone {
     
     public function cadastraTelefone(){
         
+        $conecta = new conectaBanco();
+        $conecta->conecta();
+
         if($this->verificaTelefone()){
             echo "<br />";
             echo "<p class='alert alert-danger'>";
@@ -135,7 +152,7 @@ class modelTelefone {
         $this->consultaUltimoRegistro();
         
         try{
-            $sql = "INSERT INTO tbltelefone (idTelefone, telefone, codTipoTelefone, codPerfil) "
+            $sql = "INSERT INTO telefone (idTelefone, telefone, codTipoTelefone, codUsuario) "
                     . "VALUES (".$this->idTelefone.", '".$this->telefone."', ".$this->codTipoTelefone.", ".$this->codPerfil.")";
             
             $resultado = mysql_query($sql) or die("<h1 style='text-align: right;'>Erro. Motivo: ".mysql_error()."</h1>");
@@ -169,11 +186,17 @@ class modelTelefone {
         echo "                  <select class='form-control' id='tipoTelefone' name='tipoTelefone'>";
 
                                     try{
-                                        $sql = "SELECT * FROM tbltipotelefone";
+                                        $sql = "SELECT * FROM tipotelefone";
                                         $resultado = mysql_query($sql);
+                                        if(mysql_fetch_row($resultado) > 0){
 
                                         while($dados = mysql_fetch_array($resultado)){
                                             echo "<option name=".$dados['idTipoTelefone'].">".$dados['nomeTipoTelefone']."</option>";
+                                        }
+                                        
+                                        }else{
+                                            echo "<option name=''>Vazio</option>";
+                                            
                                         }
 
                                     } catch (Exception $ex) {
@@ -205,6 +228,27 @@ class modelTelefone {
         echo "                      </tr>";
         //Consulta os telefones cadastrados
         $this->consultaTelefonePessoal();
+        echo "                  </table>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div style='height: 40px'>&nbsp;</div>";
+        echo "      <div class='form-group'>";
+//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+        echo "                  <button class='btn btn-primary' disabled>Salvar</button>";
+        echo "              </div>";
+        echo "      </div>";
+        echo "      <div style='height: 40px'>&nbsp;</div>";
+        echo "      <div class='form-group'>";
+//        echo "          <label for='descricao' class='col-sm-2 control-label'>Sobre você:</label>";
+        echo "              <div class='col-sm-10' style='text-align:right'>";
+        echo "                   | <a href='inicio.php?m=perfilsv' class='btn btn-default'>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfilend' class='btn btn-default'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perfiltel' class='btn btn-default active'>Telefones</a> | ";
+        echo "                  <a href='inicio.php?m=trocasenha' class='btn btn-default'>Troca de Senha</a> | ";
+        echo "              </div>";
+        echo "      </div>";
         
         if($_POST){
 
@@ -225,9 +269,6 @@ class modelTelefone {
                 $this->cadastraTelefone();
                 echo "<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=".$PHP_SELF."'>";
         }
-        echo "                  </table>";
-        echo "              </div>";
-        echo "      </div>";
         echo "  </form>";
         echo "</div>";
         

@@ -32,17 +32,17 @@ class telas {
     echo "              </a>";
     echo "              <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?m=perfilsv'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perf'>";
     echo "                          Sobre você";
     echo "                      </a>";
     echo "                  </li>";
-//    echo "                  <li>";
-//    echo "                      <a tabindex='0' href='inicio.php?menu=perfilend'>";
-//    echo "                          Seu endereço";
-//    echo "                      </a>";
-//    echo "                  </li>";
     echo "                  <li>";
-    echo "                      <a tabindex='0' href='inicio.php?m=perfiltel'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perfend'>";
+    echo "                          Seu endereço";
+    echo "                      </a>";
+    echo "                  </li>";
+    echo "                  <li>";
+    echo "                      <a tabindex='0' href='inicio.php?m=perftel'>";
     echo "                          Telefones";
     echo "                      </a>";
     echo "                  </li>";
@@ -95,7 +95,7 @@ class telas {
     echo "                  </li>";
     
     echo "                  <li id='relatorio'>";
-    echo "                      <a tabindex='0' href='inicio.php?m=relatorios'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=relat'>";
     echo "                          <i class='fa fa-list'></i> Relatórios";
     echo "                      </a>";
 //    echo "                      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
@@ -129,7 +129,7 @@ class telas {
 
                 if($autoriza){
                     echo "  <li id='configuracoes'>";
-                    echo "      <a tabindex='0' href='inicio.php?m=configuracoes'>";
+                    echo "      <a tabindex='0' href='inicio.php?m=config'>";
                     echo "          <i class='fa fa-windows'></i> Configurações";
                     echo "      </a>";
 //                    echo "      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";

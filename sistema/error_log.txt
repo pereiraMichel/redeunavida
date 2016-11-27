@@ -66,3 +66,59 @@
 [12-Sep-2016 23:21:07 UTC] PHP Strict standards:  Non-static method paragem::teste() should not be called statically in C:\wamp\www\redeunaviva\sistema\index.php on line 91
 [12-Sep-2016 23:21:07 UTC] PHP Stack trace:
 [12-Sep-2016 23:21:07 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:54 UTC] PHP Warning:  mysql_connect():  in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 22
+[07-Nov-2016 17:17:55 UTC] PHP Stack trace:
+[07-Nov-2016 17:17:55 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:55 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:17:55 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:17:55 UTC] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:22
+[07-Nov-2016 17:17:55 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 23
+[07-Nov-2016 17:17:55 UTC] PHP Stack trace:
+[07-Nov-2016 17:17:55 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:55 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:17:55 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:17:55 UTC] PHP   4. mysql_select_db() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:23
+[07-Nov-2016 17:17:55 UTC] PHP Warning:  mysql_set_charset() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 24
+[07-Nov-2016 17:17:55 UTC] PHP Stack trace:
+[07-Nov-2016 17:17:55 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:55 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:17:55 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:17:55 UTC] PHP   4. mysql_set_charset() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:24
+[07-Nov-2016 17:17:59 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[07-Nov-2016 17:17:59 UTC] PHP Stack trace:
+[07-Nov-2016 17:17:59 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:59 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:17:59 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95
+[07-Nov-2016 17:17:59 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[07-Nov-2016 17:17:59 UTC] PHP Stack trace:
+[07-Nov-2016 17:17:59 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:17:59 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:17:59 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95
+[07-Nov-2016 17:19:02 UTC] PHP Warning:  mysql_connect():  in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 22
+[07-Nov-2016 17:19:02 UTC] PHP Stack trace:
+[07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:19:02 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:19:02 UTC] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:22
+[07-Nov-2016 17:19:02 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 23
+[07-Nov-2016 17:19:02 UTC] PHP Stack trace:
+[07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:19:02 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:19:02 UTC] PHP   4. mysql_select_db() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:23
+[07-Nov-2016 17:19:02 UTC] PHP Warning:  mysql_set_charset() expects parameter 2 to be resource, boolean given in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 24
+[07-Nov-2016 17:19:02 UTC] PHP Stack trace:
+[07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:19:02 UTC] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:86
+[07-Nov-2016 17:19:02 UTC] PHP   4. mysql_set_charset() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:24
+[07-Nov-2016 17:19:02 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[07-Nov-2016 17:19:02 UTC] PHP Stack trace:
+[07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:19:02 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95
+[07-Nov-2016 17:19:02 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php on line 95
+[07-Nov-2016 17:19:02 UTC] PHP Stack trace:
+[07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
+[07-Nov-2016 17:19:02 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95

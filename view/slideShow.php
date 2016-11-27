@@ -456,6 +456,48 @@ class slideShow {
         switch($pagina){
             case "home":    
                 $marcaHome = "class='active'";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
+                $marcaRetiro = "";
+                $marcaSemanaRuv = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaSobreMais = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "apresentacao":    
+                $marcaHome = "";
+                $marcaApresenta = "class='active'";
+                $marcaEsteDia = "";
+                $marcaJR = "";
+                $marcaMeditacao = "";
+                $marcaMeditacaoCrista = "";
+                $marcaRedeSocialClinica = "";
+                $marcaRetiro = "";
+                $marcaSemanaRuv = "";
+                $marcaAgenda = "";
+                $marcaCalendario = "";
+                $marcaSobreMais = "";
+                $marcaYoga = "";
+                $marcaRodaSonhos = "";
+                $marcaTranscurso = "";
+                $marcaGaleria = "";
+                $marcaQuemSomos = "";
+                $marcaContato = "";
+                break;
+            case "estedia":    
+                $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "class='active'";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -474,6 +516,8 @@ class slideShow {
                 break;
             case "jornadaReal": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "class='active'";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -492,6 +536,8 @@ class slideShow {
                 break;
             case "meditacao": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "class='active'";
                 $marcaMeditacaoCrista = "";
@@ -510,6 +556,8 @@ class slideShow {
                 break;
             case "meditacaoCrista": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "class='active'";
@@ -528,6 +576,8 @@ class slideShow {
                 break;
             case "redeSocialClinica": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -546,6 +596,8 @@ class slideShow {
                 break;
             case "retiro": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -564,6 +616,8 @@ class slideShow {
                 break;
             case "semanaruv": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -582,6 +636,8 @@ class slideShow {
                 break;
             case "agenda": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -600,6 +656,8 @@ class slideShow {
                 break;
             case "calendario": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -618,6 +676,8 @@ class slideShow {
                 break;
             case "sobremais": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -636,6 +696,8 @@ class slideShow {
                 break;
             case "yoga": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -654,6 +716,8 @@ class slideShow {
                 break;
             case "rodaSonhos": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -672,6 +736,8 @@ class slideShow {
                 break;
             case "transcurso": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -690,6 +756,8 @@ class slideShow {
                 break;
             case "galeria": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -708,6 +776,8 @@ class slideShow {
                 break;
             case "quemSomos": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -726,6 +796,8 @@ class slideShow {
                 break;
             case "contato": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -744,6 +816,8 @@ class slideShow {
                 break;
             case "formAdesao" || "downloads" || "arqVerao" || "arqOutono" || "arqInverno" || "arqPrimavera" || "meditCrista" || "consultaSetenio": 
                 $marcaHome = "";
+                $marcaApresenta = "";
+                $marcaEsteDia = "";
                 $marcaJR = "";
                 $marcaMeditacao = "";
                 $marcaMeditacaoCrista = "";
@@ -761,10 +835,10 @@ class slideShow {
                 $marcaContato = "";
                 break;
         }
-        $this->telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
+        $this->telaMenuBaixo($marcaHome, $marcaApresenta, $marcaEsteDia, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato);
     }
     
-    public function telaMenuBaixo($marcaHome, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
+    public function telaMenuBaixo($marcaHome, $marcaApresenta, $marcaEsteDia, $marcaJR, $marcaMeditacao, $marcaMeditacaoCrista, $marcaRedeSocialClinica, $marcaRetiro, $marcaSemanaRuv, $marcaAgenda, $marcaCalendario, $marcaSobreMais, $marcaYoga, $marcaRodaSonhos, $marcaTranscurso, $marcaGaleria, $marcaQuemSomos, $marcaContato){
         
         echo "<div class='container-fluid'>";
         echo "  <div class='navbar-header'>";
@@ -794,12 +868,22 @@ class slideShow {
         echo "                  Home"; //<i class="fa icon-home"></i> Home
         echo "              </a>";
         echo "          </li>";
+        echo "          <li id='home' ".$marcaApresenta.">";
+        echo "              <a href='".APRESENTA."' id='linkMenu'>";
+        echo "                  Apresentação"; //<i class="fa icon-home"></i> Home
+        echo "              </a>";
+        echo "          </li>";
         echo "          <li class='dropdown'>";
         echo "              <a data-toggle='dropdown' class='dropdown-toggle' id='linkMenu'>";
         echo "                  Programação";
         echo "                  <span class='caret'></span>";
         echo "              </a>"; //<i class="fa fa-puzzle-piece"></i> 
         echo "              <ul class='dropdown-menu' role='menu'>";
+        echo "          <li ".$marcaEsteDia.">";
+        echo "              <a tabindex='0' href='".ESTEDIA."' target='_self' id='linkMenu'>";
+        echo "                  Este Dia";
+        echo "              </a>";
+        echo "          </li>";
         echo "          <li ".$marcaJR.">";
         echo "              <a tabindex='0' href='".JORNADAREALLINK."' target='_self' id='linkMenu'>";
         echo "                  Jornada Real";

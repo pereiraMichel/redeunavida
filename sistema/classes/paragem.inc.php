@@ -129,7 +129,11 @@ class paragem {
     }
 
     public function novaParagem(){
-        $sqlNovaParagem = "INSERE_PARAGEM(".$this->idParagem.", ".$this->paragem.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
+        
+        $this->idParagem = ultimoId::ultimoId('idParagem', 'paragem');
+        
+        $sqlNovaParagem = "INSERT INTO paragem (idParagem, paragem, anoRuv, mesRuv, mes, dia, diaSemana, hora, duracao, nivel, dataAlteracao, codUsuario) VALUES (".$this->idParagem.", '".$this->paragem."', ".$this->anoRuv.", ".$this->mesRuv.", ".$this->mes.", ".$this->dia.", ".$this->diaSemana.", ".$this->hora.", ".$this->nivel.", ".$this->dataAlteracao.", ".$this->codUsuario.")";
+//        $sqlNovaParagem = "INSERE_PARAGEM(".$this->idParagem.", ".$this->paragem.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
         try{
             $resultNovo = mysql_query($sqlNovaParagem) or die(RETURN_SQL.mysql_error());
             if(!$resultNovo){
@@ -142,7 +146,8 @@ class paragem {
     }
         
     public function editParagem(){
-        $sqlEditTelefone = "EDIT_PARAGEM(".$this->idTelefone.", ".$this->telefone.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
+        $sqlEditTelefone = "UPDATE paragem SET paragem='".$this->paragem."', anoRuv='".$this->anoRuv."', mes='".$this->mes."' codUsuario=".$this->codUsuario.")";
+//        $sqlEditTelefone = "EDIT_PARAGEM(".$this->idTelefone.", ".$this->telefone.", ".$this->tipoTelefone.", ".$this->codUsuario.")";
         try{
             $resultEdit = mysql_query($sqlEditTelefone) or die(RETURN_SQL.mysql_error());
             if(!$resultEdit){
@@ -155,7 +160,8 @@ class paragem {
     }
     
     public function deleteParagem(){
-        $sqlDeleteParagem = "DELETE_PARAGEM(".$this->idParagem.")";
+        $sqlDeleteParagem = "DELETE FROM paragem WHERE idParagem=".$this->idParagem;
+//        $sqlDeleteParagem = "DELETE_PARAGEM(".$this->idParagem.")";
         try{
             $resultDelete = mysql_query($sqlDeleteParagem) or die(RETURN_SQL.mysql_error());
             if(!$resultDelete){
