@@ -485,7 +485,7 @@ class usuario {
                 $_SESSION['idusuario'] = $dados['idUsuario'];//Não está gravando
                 $_SESSION['usuario'] = $dados['nomeUsuario'];
                 $_SESSION['email'] = $dados['email'];
-                $_SESSION['codTipoUsuario'] = $dados['codTipoUsuario'];
+                $_SESSION['codTipoUsuario'] = $dados['codTipo'];
                 $_SESSION['logado'] = true;
                 
                 $identifUsuario = base64_encode($_SESSION['idusuario']);

@@ -345,3 +345,12 @@ function preenchimento(me, link){
     window.location.href="inicio.php?m=bonus&t=registros&me="+me+"&med="+link;
     
 }
+
+function direcionaPP(link){
+    if(link === "depois"){
+        window.location.href="inicio.php";
+    }else if(link === "sim"){
+        window.location.href="inicio.php?m=pp&t=ppnovo";
+    }
+}
+

@@ -122,3 +122,123 @@
 [07-Nov-2016 17:19:02 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
 [07-Nov-2016 17:19:02 UTC] PHP   2. modelUsuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:34
 [07-Nov-2016 17:19:02 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\model\modelUsuario.php:95
+[14-Dec-2016 16:57:20 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[14-Dec-2016 16:57:21 UTC] PHP Stack trace:
+[14-Dec-2016 16:57:21 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[14-Dec-2016 16:57:21 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[16-Dec-2016 16:37:37 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[16-Dec-2016 16:37:37 UTC] PHP Stack trace:
+[16-Dec-2016 16:37:37 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[16-Dec-2016 16:37:37 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[17-Dec-2016 19:30:24 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[17-Dec-2016 19:30:24 UTC] PHP Stack trace:
+[17-Dec-2016 19:30:24 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[17-Dec-2016 19:30:24 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[19-Dec-2016 17:33:58 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[19-Dec-2016 17:33:58 UTC] PHP Stack trace:
+[19-Dec-2016 17:33:58 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[19-Dec-2016 17:33:58 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[21-Dec-2016 20:43:49 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[21-Dec-2016 20:43:49 UTC] PHP Stack trace:
+[21-Dec-2016 20:43:49 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[21-Dec-2016 20:43:49 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[22-Dec-2016 16:08:48 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[22-Dec-2016 16:08:48 UTC] PHP Stack trace:
+[22-Dec-2016 16:08:48 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[22-Dec-2016 16:08:48 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[23-Dec-2016 13:10:50 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[23-Dec-2016 13:10:50 UTC] PHP Stack trace:
+[23-Dec-2016 13:10:50 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[23-Dec-2016 13:10:50 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[26-Dec-2016 15:42:59 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[26-Dec-2016 15:42:59 UTC] PHP Stack trace:
+[26-Dec-2016 15:42:59 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[26-Dec-2016 15:42:59 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[27-Dec-2016 13:16:08 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[27-Dec-2016 13:16:08 UTC] PHP Stack trace:
+[27-Dec-2016 13:16:08 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[27-Dec-2016 13:16:08 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[27-Dec-2016 14:05:40 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[27-Dec-2016 14:05:41 UTC] PHP Stack trace:
+[27-Dec-2016 14:05:41 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[27-Dec-2016 14:05:41 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[27-Dec-2016 14:06:41 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[27-Dec-2016 14:06:41 UTC] PHP Stack trace:
+[27-Dec-2016 14:06:41 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[27-Dec-2016 14:06:41 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[27-Dec-2016 14:07:41 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[27-Dec-2016 14:07:41 UTC] PHP Stack trace:
+[27-Dec-2016 14:07:41 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[27-Dec-2016 14:07:41 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[27-Dec-2016 14:13:09 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[27-Dec-2016 14:13:09 UTC] PHP Stack trace:
+[27-Dec-2016 14:13:09 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[27-Dec-2016 14:13:09 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[28-Dec-2016 15:17:59 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[28-Dec-2016 15:17:59 UTC] PHP Stack trace:
+[28-Dec-2016 15:17:59 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[28-Dec-2016 15:17:59 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[29-Dec-2016 17:34:30 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[29-Dec-2016 17:34:30 UTC] PHP Stack trace:
+[29-Dec-2016 17:34:30 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[29-Dec-2016 17:34:30 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[30-Dec-2016 17:52:37 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[30-Dec-2016 17:52:37 UTC] PHP Stack trace:
+[30-Dec-2016 17:52:37 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[30-Dec-2016 17:52:37 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[30-Dec-2016 21:02:12 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[30-Dec-2016 21:02:12 UTC] PHP Stack trace:
+[30-Dec-2016 21:02:12 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[30-Dec-2016 21:02:12 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[02-Jan-2017 14:22:44 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[02-Jan-2017 14:22:44 UTC] PHP Stack trace:
+[02-Jan-2017 14:22:44 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[02-Jan-2017 14:22:44 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[03-Jan-2017 12:05:26 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[03-Jan-2017 12:05:26 UTC] PHP Stack trace:
+[03-Jan-2017 12:05:26 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[03-Jan-2017 12:05:26 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[04-Jan-2017 15:42:33 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[04-Jan-2017 15:42:33 UTC] PHP Stack trace:
+[04-Jan-2017 15:42:33 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[04-Jan-2017 15:42:33 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[04-Jan-2017 20:51:40 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[04-Jan-2017 20:51:40 UTC] PHP Stack trace:
+[04-Jan-2017 20:51:40 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[04-Jan-2017 20:51:40 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[05-Jan-2017 14:07:39 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[05-Jan-2017 14:07:39 UTC] PHP Stack trace:
+[05-Jan-2017 14:07:39 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[05-Jan-2017 14:07:39 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[06-Jan-2017 00:09:57 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[06-Jan-2017 00:09:57 UTC] PHP Stack trace:
+[06-Jan-2017 00:09:57 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[06-Jan-2017 00:09:57 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[06-Jan-2017 14:49:19 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[06-Jan-2017 14:49:19 UTC] PHP Stack trace:
+[06-Jan-2017 14:49:19 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[06-Jan-2017 14:49:19 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[07-Jan-2017 14:44:10 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[07-Jan-2017 14:44:10 UTC] PHP Stack trace:
+[07-Jan-2017 14:44:10 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[07-Jan-2017 14:44:10 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[08-Jan-2017 18:45:13 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[08-Jan-2017 18:45:13 UTC] PHP Stack trace:
+[08-Jan-2017 18:45:13 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[08-Jan-2017 18:45:13 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[09-Jan-2017 01:24:54 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[09-Jan-2017 01:24:54 UTC] PHP Stack trace:
+[09-Jan-2017 01:24:54 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[09-Jan-2017 01:24:54 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[09-Jan-2017 11:30:49 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[09-Jan-2017 11:30:49 UTC] PHP Stack trace:
+[09-Jan-2017 11:30:49 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[09-Jan-2017 11:30:49 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[09-Jan-2017 11:57:54 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[09-Jan-2017 11:57:54 UTC] PHP Stack trace:
+[09-Jan-2017 11:57:54 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[09-Jan-2017 11:57:54 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[09-Jan-2017 11:59:36 UTC] PHP Notice:  Undefined index: codTipo in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 488
+[09-Jan-2017 11:59:36 UTC] PHP Stack trace:
+[09-Jan-2017 11:59:36 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[09-Jan-2017 11:59:36 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35

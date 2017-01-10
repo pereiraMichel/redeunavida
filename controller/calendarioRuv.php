@@ -7,6 +7,17 @@
  */
 class calendarioRuv {
     
+    private $codusuario;
+    
+    function getCodusuario() {
+        return $this->codusuario;
+    }
+
+    function setCodusuario($codusuario) {
+        $this->codusuario = $codusuario;
+    }
+
+        
     public function anoBisexto(){
         date_default_timezone_set('America/Sao_Paulo');
         //if ( (($ano%4) == 0 && ($ano%100) != 0) || ($ano%400) == 0 )
@@ -23,34 +34,6 @@ class calendarioRuv {
         }
         
     }
-    
-//    function diffDate($d1, $d2, $type='', $sep='-'){
-//     $d1 = explode($sep, $d1);
-//     $d2 = explode($sep, $d2);
-//     switch ($type){
-//        case 'A':
-//            $X = 31536000;
-//            break;
-//        case 'M':
-//            $X = 2592000;
-//            break;
-//        case 'D':
-//            $X = 86400;
-//            break;
-//        case 'H':
-//            $X = 3600;
-//            break;
-//        case 'MI':
-//            $X = 60;
-//            break;
-//        default:
-//            $X = 1;
-//     }
-//     return floor($value);
-////     return floor(((mktime(0, 0, 0, $d2[1], $d2[2], $d2[0])) – (mktime(0, 0, 0, $d1[1], $d1[2], $d1[0]))/$X)));
-//    }
-
-    
     
     public function configuracaoCalendario($pagina){
         date_default_timezone_set('America/Sao_Paulo');
@@ -288,17 +271,25 @@ class calendarioRuv {
                 }
 
         $anoLetivo = date('y');
+        $diaInicio = "18";
+        $mesInicio = "09";
 //        if ((date('y') >= "15" || $mes >= "09") || (date('y') == "16" || $mes <= "09")){
-        if ((date('y') >= "18" || $mes >= "09")){
+        if ((date('d') >= "18" || $mes >= "09")){
+//        if ((date('d') >= "18" || $mes >= "09")){
             $anoLetivo = $anoLetivo{1};
         }else{
-            $anoLetivo++;
+            $anoLetivo = $anoLetivo{1} - 1;
         }
+//        $anoLetivo = date('y');
 //        echo "<br>Mês RUV: ".$mesRuv;
         if($pagina === "calendario"){
             $this->preencheCalendario($anoLetivo, $codEstacao, $mesRuv, $semana, $dias, "&nbsp;");
         }else if($pagina === "estedia"){
             $this->preencheTempo($anoLetivo, $codEstacao, $mesRuv, $semana, $dias);
+        }else if($pagina === "ppMeditacao"){
+            $this->calendarioPP($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
+        }else if($pagina === "paragempresenca"){
+            $this->calendarioParagem($semana, $mesRuv, $codEstacao);
         }
     }
     
@@ -341,7 +332,7 @@ class calendarioRuv {
         $dataJava = date('N');
         
         $dataSemanaJava = array(
-            0 => 'Domingo',
+            7 => 'Domingo',
             1 => '2ª feira',
             2 => '3ª feira',
             3 => '4ª feira',
@@ -351,7 +342,7 @@ class calendarioRuv {
         );
         
         $dataSemanaNumerica = array(
-            0 => '1',
+            7 => '1',
             1 => '2',
             2 => '3',
             3 => '4',
@@ -395,6 +386,7 @@ class calendarioRuv {
         echo "                  </td>";
         echo "                  <td>";
         echo "                      <label style='color: #0000FF' for='dias'><b>".$dataSemanaNumerica[$dataJava]."</b></label>"; //era $dia
+//        echo "                      <label style='color: #0000FF' for='dias'><b>".$dataSemanaNumerica[$dataJava]."</b></label>"; //era $dia
         echo "                  </td>";
         echo "              </tr>";
         //Quarta linha
@@ -610,6 +602,80 @@ class calendarioRuv {
         echo "              </tr>";
         echo "          </table>";
 //        echo "</div>";
+        
+    }
+    
+    public function calendarioPP($anoLetivo, $mesRuv, $estacao, $semana, $dias = null){
+        $pp = new ppMeditacao();
+        $dataJava = date('N');
+        
+        $dataSemanaJava = array(
+            7 => 'Domingo',
+            1 => '2ª feira',
+            2 => '3ª feira',
+            3 => '4ª feira',
+            4 => '5ª feira',
+            5 => '6ª feira',
+            6 => 'Sábado'
+        );
+        
+        $dataSemanaNumerica = array(
+            7 => '1',
+            1 => '2',
+            2 => '3',
+            3 => '4',
+            4 => '5',
+            5 => '6',
+            6 => '7'
+            
+        );
+        $dias = $dataSemanaNumerica[$dataJava];
+//        echo "Ano Letivo: ".$anoLetivo."<br>";
+//        echo "Mês RUV: ".$mesRuv."<br>";
+//        echo "Estação: ".$estacao."<br>";
+//        echo "Semana: ".$semana."<br>";
+//        echo "Dias: ".$dias."<br>";
+        echo "<label>Semana | Calendário RUV: ".$estacao.$mesRuv.$semana."</label>";
+//        echo "<br><label>Dia: ".$dias."</label>";
+        
+        $paragem = $estacao.$mesRuv.$semana;
+        
+        $pp->setDiaAnoRuv($anoLetivo);
+        $pp->setDataRegistro(date("d/m/Y"));
+//        $pp->setDiaMesRuv($mesRuv);
+        $pp->setParagem($paragem);
+        $pp->setDiaRuv($dias); 
+        $pp->setCodusuario($this->codusuario);
+        
+        $pp->telaPP();
+        
+//        echo "<script>alert(".$anoLetivo.")</script>"; //Está indo normal.
+        
+    }
+    public function calendarioParagem($semana, $mesRuv, $estacao){
+        $paragem = new ParagemPresenca();
+        
+        $parag = $estacao.$mesRuv.$semana;
+        
+        $paragem->setParagem($parag);
+
+//        echo "Ano Letivo: ".$anoLetivo."<br>";
+//        echo "Mês RUV: ".$mesRuv."<br>";
+//        echo "Estação: ".$estacao."<br>";
+//        echo "Semana: ".$semana."<br>";
+//        echo "Dias: ".$dias."<br>";
+        echo "<label>Paragem: ".$parag."</label>";
+
+        $paragem->telaNovaParagem();
+        
+//        $pp = $estacao.$mesRuv.$semana;
+//        
+//        $paragem->setDiaAnoRuv($anoLetivo);
+//        $paragem->setDiaMesRuv($mesRuv);
+//        
+//        $paragem->telaNovoPP();
+        
+//        echo "<script>alert(".$anoLetivo.")</script>"; //Está indo normal.
         
     }
     
