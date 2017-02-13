@@ -95,7 +95,7 @@ class telas {
     echo "                  </li>";
     
     echo "                  <li id='relatorio'>";
-    echo "                      <a tabindex='0' href='inicio.php?m=relat'>";
+    echo "                      <a tabindex='0' href='inicio.php?m=rela'>";
     echo "                          <i class='fa fa-list'></i> Relatórios";
     echo "                      </a>";
 //    echo "                      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";

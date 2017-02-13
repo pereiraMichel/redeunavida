@@ -119,7 +119,7 @@ class usuario {
         
         $this->idUsuario = ultimoId::ultimoIdBanco('idUsuario', 'tblusuario');
         
-        $sqlNovoUsuario = "INSERT INTO tblusuario(idUsuario, nomeUsuario, email, senha, dataCadastro, dataAlteracao, codTipoUsuario) VALUES (".$this->idUsuario.", '".$this->nomeUsuario."', '".$this->email."', '".$this->senha."', '".$this->dataCadastro."', '".$this->dataAlteracao."', ".$this->codTipoUsuario.")";
+        $sqlNovoUsuario = "INSERT INTO tblusuario(idUsuario, nomeUsuario, email, senha, dataCadastro, dataAlteracao, codTipo) VALUES (".$this->idUsuario.", '".$this->nomeUsuario."', '".$this->email."', '".$this->senha."', '".$this->dataCadastro."', '".$this->dataAlteracao."', ".$this->codTipoUsuario.")";
         
 //        echo "SQL Usuário: ".$sqlNovoUsuario."<br>";
         
@@ -155,7 +155,7 @@ class usuario {
     
     public function editUsuario(){
         
-        $sqlEditUsuario = "UPDATE tblusuario SET nomeUsuario='".$this->nomeUsuario."', email='".$this->email."', dataAlteracao='".$this->dataAlteracao."', codTipoUsuario=".$this->codTipoUsuario." WHERE idUsuario=".$this->idUsuario;
+        $sqlEditUsuario = "UPDATE tblusuario SET nomeUsuario='".$this->nomeUsuario."', email='".$this->email."', dataAlteracao='".$this->dataAlteracao."', codTipo=".$this->codTipoUsuario." WHERE idUsuario=".$this->idUsuario;
 //        echo "SQL: ".$sqlEditUsuario."<br>";
         try{
              mysql_query($sqlEditUsuario) or die("Edição do Usuário. ".RETURN_SQL.mysql_error());//$resultadoEditUsuario =
@@ -167,20 +167,29 @@ class usuario {
     }
     
     public function deleteUsuario(){
+        $conecta = new conectaBanco();
+        $conecta->conecta();
         
-        $sqlDeleteUsuario = "DELETE FROM tblusuario WHERE idUsuario=".$this->idUsuario;
+        $f = filter_input(INPUT_GET, 'f');
+        $id = filter_input(INPUT_GET, 'id');
         
-        try{
-            $resultadoDeleteUsuario = mysql_query($sqlDeleteUsuario) or die(RETURN_SQL.mysql_error());
-            
-            if(mysql_fetch_lengths($resultadoDeleteUsuario) > 0){
-                echo "Excluído com sucesso";
-            }
-            
-            mysql_close($resultadoDeleteUsuario);
-            
-        } catch (Exception $ex) {
+        if($f === "e"){
+            $sqlDeleteUsuario = "DELETE FROM tblusuario WHERE idUsuario=".$id;
+            $sqlDeletePerfil = "DELETE FROM perfil WHERE codUsuario = ".$id;
+        
+            try{
+                mysql_query($sqlDeletePerfil) or die("Deleta perfil. ".RETURN_SQL.mysql_error()); //$resultadoDeletePerfil = 
+                $resultadoDeleteUsuario = mysql_query($sqlDeleteUsuario) or die("Deleta usuário. ".RETURN_SQL.mysql_error());
 
+                if($resultadoDeleteUsuario > 0){
+                    return true;
+                }
+                return false;
+//                mysql_close($resultadoDeleteUsuario);
+
+            } catch (Exception $ex) {
+                echo "Exception ativado. Descrição: ".$ex->getMessage();
+            }
         }
         
     }
@@ -218,11 +227,11 @@ class usuario {
             
             if($acesso === "SISTEMA"){
                 $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblusuario l "
-                        . "INNER JOIN tipousuario t ON l.codTipoUsuario = t.idTipo "
+                        . "INNER JOIN tipousuario t ON l.codTipo = t.idTipo "
                         . "WHERE t.nomeTipo <> 'SITE'";
             }else if($acesso === "SITE"){
                 $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblusuario l "
-                        . "INNER JOIN tipousuario t ON l.codTipoUsuario = t.idTipo "
+                        . "INNER JOIN tipousuario t ON l.codTipo = t.idTipo "
                         . "WHERE t.nomeTipo = 'SITE'";
                 
             }
@@ -263,8 +272,8 @@ class usuario {
         echo "      <div class='form-group'>";
         echo "              <div class='col-sm-9' style='text-align:right'>";
         echo "                   | <a href='inicio.php?m=config&t=usis&f=n' class='btn btn-primary'>Novo</a> | ";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=a' id='altera' name='altera' class='btn btn-default' disabled>Alterar</a> | ";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=e' id='exclui' name='exclui' class='btn btn-default' disabled>Excluir</a>";
+        echo "                  <a href='inicio.php?m=config&t=usis&f=a&id=$idusuarioSelecionado' id='altera' name='altera' class='btn btn-default' disabled>Alterar</a> | ";
+        echo "                  <a href='inicio.php?m=config&t=usis&f=e&id=$idusuarioSelecionado' id='exclui' name='exclui' class='btn btn-default' disabled>Excluir</a>";
         echo "                  <a href='inicio.php?m=config&t=usis&f=d' id='detalhes' name='detalhes' class='btn btn-default' disabled>Detalhes</a>";
         echo "              </div>";
         echo "      </div>";
@@ -276,14 +285,23 @@ class usuario {
         echo "                  <a href='inicio.php?m=config' id='voltar' name='voltar' class='btn btn-default'>Voltar</a>";
         echo "              </div>";
         echo "      </div>";
-        
-        if(filter_input(INPUT_GET, 'sucessoalteracao')=="sim"){
-            echo "<br/>";
-            echo "<div class='col-xs-12 col-sm-12 col-md-12' style='text-align: left;'>";
-            echo "  <label class='label label-success'>Alteração efetuada com sucesso!</label>";
+
+        if($this->deleteUsuario()){
+            echo "<div class='col-sm-12'>";
+            echo "  <label class='alert alert-success'>Excluído com sucesso</label>";
+            echo "  <meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
             echo "</div>";
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?m=config&t=usis'>";
         }
+//        
+//        if(filter_input(INPUT_GET, 'sucessoalteracao')=="sim"){
+//            echo "<br/>";
+//            echo "<div class='col-xs-12 col-sm-12 col-md-12' style='text-align: left;'>";
+//            echo "  <label class='label label-success'>Alteração efetuada com sucesso!</label>";
+//            echo "</div>";
+//            echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=inicio.php?m=config&t=usis'>";
+//        }
+        
+//        $this->editUsuario();
         
     }
    
@@ -336,6 +354,25 @@ class usuario {
         
     }
     public function telaAlteraUsuario(){
+        $conecta = new conectaBanco();
+        $conecta->conecta();
+        
+        $id = filter_input(INPUT_GET, 'id');
+        
+        $sqlUsuario = "SELECT * 
+                       FROM tblusuario t
+                       INNER JOIN tipousuario tp ON t.codTipo = tp.idTipo
+                       WHERE idUsuario = ".$id;
+        
+        try{
+            $resultadoSqlUsuario = mysql_query($sqlUsuario) or die ("Erro no comando SQL de consulta usuário. Descrição: ".mysql_error());
+            
+            
+            
+        } catch (Exception $ex) {
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
+        }
+        
         echo "<div class='col-xs-1 col-sm-1 placeholder'>";
         echo "  &nbsp;";
         echo "</div>";
@@ -347,18 +384,7 @@ class usuario {
         echo "</div>";
         
     }
-    public function telaExcluiUsuario(){
-        echo "<div class='col-xs-1 col-sm-1 placeholder'>";
-        echo "  &nbsp;";
-        echo "</div>";
-        echo "<div class='col-xs-10 col-sm-10 placeholder'>";
-        echo "  Exclusão do Usuário ".$this->nomeUsuario;
-        echo "</div>";
-        echo "<div class='col-xs-1 col-sm-1 placeholder'>";
-        echo "  &nbsp;";
-        echo "</div>";
-        
-    }
+    
     public function telaDetalhesUsuario(){
         echo "<div class='col-xs-1 col-sm-1 placeholder'>";
         echo "  &nbsp;";

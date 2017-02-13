@@ -142,7 +142,8 @@ class perfil {
 
             if($resultadoNovoPerfil){
                 
-                echo "Sucesso!";
+                echo "<br><br><label class='alert alert-success'>Cadastrado com sucesso!</label>";
+                echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
             }
             
         } catch (Exception $ex) {
@@ -152,13 +153,138 @@ class perfil {
         
     }
     
-    public function editPerfil(){
+    public function telaTrocaSenha(){
+        
+        echo "  <div class='form-group'>";
+        echo "      <div class='row' style='padding-left: 15px;'>";
+        echo "          <div class='col-xs-12 col-md-12' align='center'>";
+        echo "              <h3>";
+        echo "                  Usuário: ".$_SESSION['usuario'];
+        echo "              </h3>";
+        echo "          </div>";
+        echo "          <div class='col-xs-8 col-md-8' style='padding-left: 15px;'>";
+        echo "              &nbsp;";
+        echo "          </div>";
+        echo "      </div>";
+        echo "   </div>";
+        echo "<div class='row'>";
+        echo "  <div class='col-xs-2 col-md-2'>";
+        echo "  </div>";
+        echo "  <div class='col-xs-8 col-md-8'>";
+        echo "      <form class='form-horizontal' action='inicio.php?menu=trocasenha' method='post'>";
+        echo "          <div class='form-group'>";
+        echo "              <label for='senhaantiga' class='col-sm-4 control-label'>";
+        echo "                  Senha antiga:";
+        echo "              </label>";
+        echo "              <div class='col-sm-4'>";
+        echo "                  <input type='password' name='senhaantiga' id='senhaantiga' class='form-control'>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='form-group'>";
+        echo "              <label for='senhanova' class='col-sm-4 control-label'>";
+        echo "                  Senha nova:";
+        echo "              </label>";
+        echo "              <div class='col-sm-4'>";
+        echo "                  <input type='password' name='senhanova' id='senhanova' class='form-control'>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='form-group'>";
+        echo "              <label for='senhanova' class='col-sm-4 control-label'>";
+        echo "                  Confirme sua senha:";
+        echo "              </label>";
+        echo "              <div class='col-sm-4'>";
+        echo "                  <input type='password' name='confirmasenha' id='confirmasenha' class='form-control'>";
+        echo "              </div>";
+        echo "          </div>";
+        echo "          <div class='form-group'>";
+        echo "              <a href='inicio.php' style='text-decoration: none;'>";
+        echo "                  <button type='button' class='btn btn-default'>Voltar</button>";
+        echo "              </a>";
+        echo "              <a href='#' style='text-decoration: none;'>";
+        echo "                  <button type='submit' class='btn btn-primary' disabled>Salvar</button>";
+        echo "              </a>";
+        echo "          </div>";
+        echo "          <div style='height: 40px'>&nbsp;</div>";
+        echo "          <div class='form-group' align='left'>";
+        echo "              <div class='col-sm-12' style='text-align: center;'>";
+        echo "                   | <a href='inicio.php?m=perf' class='btn btn-default'>Sobre Você</a> | ";
+        echo "                  <a href='inicio.php?m=perfend' class='btn btn-default'>Seu Endereço</a> | ";
+        echo "                  <a href='inicio.php?m=perftel' class='btn btn-default'>Telefones</a> | ";
+        echo "                  <a href='#' class='btn btn-default active'>Troca de Senha</a> | ";
+        echo "              </div>";
+        echo "          </div>";
+        echo "      </form>";
+        echo "  </div>";
+        echo "  <div class='col-xs-2 col-md-2'>";
+        echo "      &nbsp;";
+        echo "  </div>";
+        echo "</div>";
+        
+        if($_POST){
+            
+            $senhaAntiga = filter_input(INPUT_POST, 'senhaantiga');
+            $senhaNova = filter_input(INPUT_POST, 'senhanova');
+            $confirmaSenha = filter_input(INPUT_POST, 'confirmasenha');
+            $idusuario = $_SESSION['idusuario'];
+            
+            $senhaVerificacao = md5($senhaAntiga);
+            
+            $this->setSenha($senhaNova);
+            
+            if($confirmaSenha != $senhaNova){
+                echo "<p class='bg-danger'><label class='label label-danger'>As senhas não conferem. Verifique a nova senha e a confirmação.</label></p>";
+                echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=inicio.php?menu=trocasenha'>";
+            }else{
+            
+            
+            $conexao = new conectaBanco();
+            $conexao->conecta();
+            
+            try{
+                $sqlVerifSenha = "SELECT * FROM ".USUARIO." 
+                                  WHERE idUsuario = ".$idusuario;
+                
+                $resultadoVerifSenha = mysql_query($sqlVerifSenha) or die ("Erro na verificação da senha anterior. Erro: ".mysql_error());
+                $dadosVerifSenha = mysql_fetch_array($resultadoVerifSenha);
+                
+                if($senhaVerificacao === $dadosVerifSenha['senha']){//se a senha for igual ao do sistema
+//                    mysql_close($dadosVerifSenha);
+//                    mysql_close($resultadoVerifSenha);//fecha o sql anterior
+                    //Comando para alteração da senha
+                    try{
+                        $sql = "UPDATE ".USUARIO." SET senha = '".$this->senha."' WHERE idUsuario = ".$idusuario;
+                        $resultado = mysql_query($sql) or die ("Houve um erro no SQL. Verifique sob o erro ".mysql_error());
+                        
+                        if($resultado){
+                            echo "<p class='bg-success'><label class='label label-success'>Senha alterada com sucesso!</label></p>";
+                            echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=inicio.php'>";
+                        }
+                    } catch (Exception $e) {
+                        echo "Não foi possível alterar a senha. Erro: ".$e->getMessage();
+                    }
+                    
+                    
+                }else{
+//                    
+//                    echo "<br>Usuário: ".$idusuario;
+//                    echo "<br>Senha a verificar: ".$senhaVerificacao;
+//                    echo "<br>Senha do sistema: ".$dadosVerifSenha['senha'];
+                    
+                echo "<p class='bg-danger'><label class='label label-danger'>A senha informada não confere. Verifique a sua senha ou contate o seu administrador.</label></p>";
+                echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=inicio.php?menu=trocasenha'>";
+                }
+                
+                
+            } catch (Exception $ex) {
+                echo "Não foi possível executar a operação. Erro: ".$ex->getMessage();
+            }
+            }
+            
+        }
+        
         
     }
-    
-    public function deletePerfil(){
-        
-    }
+
     
     public function telaPerfilPrincipal() {
 
@@ -175,7 +301,7 @@ class perfil {
                             s.setenio, tu.nomeTipo
                     FROM tblusuario l
                     INNER JOIN perfil p on l.idUsuario = p.codUsuario
-                    INNER JOIN tipousuario tu on tu.idTipo = l.codTipoUsuario
+                    INNER JOIN tipousuario tu on tu.idTipo = l.codTipo
                     INNER JOIN setenio s on p.codSetenio = s.idsetenio
                     WHERE l.idUsuario = ".$idusuario;
 //            echo $sql."<br>";
@@ -296,7 +422,7 @@ class perfil {
         try {
             $sqlConsultaPerfil = "SELECT *, DATE_FORMAT(p.dataNascimento, '%d/%m/%Y') AS dataNascimento FROM perfil p "
                     . "INNER JOIN tblusuario u ON p.codUsuario = u.idUsuario "
-                    . "INNER JOIN tipousuario tp ON tp.idTipo = u.codTipoUsuario "
+                    . "INNER JOIN tipousuario tp ON tp.idTipo = u.codTipo "
                     . "INNER JOIN setenio s ON s.idSetenio = p.codSetenio "
                     . " WHERE p.codUsuario = " . $_SESSION['idusuario'];
 //            echo $sqlConsultaPerfil."<br>";
@@ -381,7 +507,7 @@ class perfil {
             $codSetenio = filter_input(INPUT_POST, 'codSetenio');
             $sobreVoce = filter_input(INPUT_POST, 'descricao');
             $codUsuario = $_SESSION['idusuario'];
-            echo $this->validaCamposPerfil($nome, $dataNascimento, $tipoUsuario, $codSetenio, $sobreVoce, $codUsuario);
+            $this->validaCamposPerfil($nome, $dataNascimento, $tipoUsuario, $codSetenio, $sobreVoce, $codUsuario);
         }
 
 

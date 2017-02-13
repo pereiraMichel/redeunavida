@@ -15,20 +15,15 @@ include_once '../classes/setenio.inc.php';
 include_once '../classes/tipotelefone.class.php';
 include_once '../classes/tipousuario.inc.php';
 include_once '../classes/ppMeditacao.class.php';
-//include_once '../classes/ppMed1.class.php';
 include_once '../classes/ppPortais.class.php';
+include_once '../classes/bonus.class.php';
 include_once '../classes/ParagemPresenca.class.php';
 include_once '../classes/autoavaliacao.class.php';
+include_once '../classes/relatorios.class.php';
 include_once '../../controller/constantes.php';
 include_once '../constante/constanteSistema.php';
 include_once '../../controller/metodos.php';
-//include_once '../model/modelUsuario.php';
-//include_once '../model/modelPerfil.php';
-//include_once '../model/modelTelefone.php';
-//include_once '../model/modelEndereco.php';
 include_once '../model/modelConfig.php';
-//include_once '../model/modelSuporte.php';
-//include_once '../model/modelBonus.php';
 include_once '../model/modelAtividades.php';
 include_once '../erros/erros.php';
 include_once '../conexao/conectaBanco.php';
@@ -36,6 +31,7 @@ include_once '../classes/configuracao.class.php';
 include_once '../classes/usuario.class.php';
 require_once 'telas.php';
 require_once '../../controller/calendarioRuv.php';
+require_once '../../lib/mpdf/mpdf.php';
 
 //error_reporting(0);
 
@@ -106,8 +102,8 @@ $tipousuario = new tipousuario();
         
         <link rel="stylesheet" href="../../css/bootstrap-responsive_1.css">
 	<!--<link rel="stylesheet" href="../../css/bootstrap.min.css">-->
-	<link rel="stylesheet" href="../../css/docs.css">
-	<link rel="stylesheet" href="../../css/bootstrap.css">
+	    <link rel="stylesheet" href="../../css/docs.css">
+	    <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/styleme.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -194,7 +190,7 @@ $tipousuario = new tipousuario();
                                 break;
                             case "ativ": echo "<div align='center'><h5><b>".ATIVIDADES."</b></h5></div>";
                                 break;
-                            case "bonu": echo "<div align='center'><h5><b>".BONUS."</b></h5></div>";
+                            case "bonu": echo "<div align='center'><h5><b>Tabela de ".BONUS."</b></h5></div>";
                                 break;
                             case "tare": echo "<div align='center'><h5><b>".TAREFAS."</b></h5></div>";
                                 break;
@@ -207,18 +203,25 @@ $tipousuario = new tipousuario();
                                 }else if ($tarefa == "usit"){
                                     echo "<div align='center'><h5><b>".CONFIGUSUARIOSITE."</b></h5></div>";
                                 }else if ($tarefa === "set"){
-                                    echo "<div align='center'><h5><b>".SETENIOMENU."</b></h5></div>";
+                                    echo "<div align='center'><h5><b>Setênio</b></h5></div>";
                                 }else if ($tarefa === "tipotelefone"){
-                                    echo "<div align='center'><h5><b>".TIPOTELEFONEMENU."</b></h5></div>";
+                                    echo "<div align='center'><h5><b>Tipo de Telefone</b></h5></div>";
                                 }else if ($tarefa === "tipousuario"){
-                                    echo "<div align='center'><h5><b>".TIPOUSUARIOMENU."</b></h5></div>";
+                                    echo "<div align='center'><h5><b>Tipo de Usuários</b></h5></div>";
                                 }
                                 
                                 break;
                             case "rela":
                                 echo "<div align='center'>";
                                 echo "<img src='../img/tarefas2.png' class='img-responsive' title='Paragem' width='40' height='40'>";
-                                echo "<h5><b>Relatórios</b></h5>";
+                                switch ($tarefa){
+                                    default:
+                                        echo "<h5><b>Relatórios</b></h5>";
+                                        break;
+                                    case "pp":
+                                        echo "<h5><b>Relatórios - Meditação | Portal</b></h5>";
+                                        break;
+                                }
                                 echo "</div>";
                                 break;
                             case "relbonus": echo "<div align='center'><h5><b>".RELATORIOBONUS."</b></h5></div>";
@@ -253,19 +256,33 @@ $tipousuario = new tipousuario();
                                 break;
                             case "pp": 
                                     echo "<div align='center'>";
-                                    echo "<img src='../img/registrar2.png' class='img-responsive' title='Paragem' width='40' height='40'>";
+                                    echo "<img src='../img/meditacao.jpg' class='img-responsive' title='Paragem' width='45' height='45'>";
                                     if($tarefa === "" or $tarefa === null){
-                                        echo "<div align='center'><h5><b>PP - Meditação | Portais</b></h5></div>";
+                                        echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
                                     }else if ($tarefa === "npp"){
                                         echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
                                     }else if ($tarefa === "p1"){
                                         echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
-                                    }else if ($tarefa === "p2"){
+                                    }else if($tarefa === "auto"){
+                                        echo "<div align='center'><h5><b>PP - Meditação - Automático</b></h5></div>";
+                                    }else if($tarefa === "manual"){
+                                        echo "<div align='center'><h5><b>PP - Meditação - Manual</b></h5></div>";
+                                    }
+                                    echo "</div>";
+                                break;
+                            case "port": 
+                                    echo "<div align='center'>";
+                                    echo "<img src='../img/portal_blue.png' class='img-responsive' title='Paragem' width='45' height='45'>";
+                                    if($tarefa === "" or $tarefa === null){
+                                        echo "<div align='center'><h5><b>PP - Portal</b></h5></div>";
+                                    }else if ($tarefa === "npp"){
+                                        echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
+                                    }else if ($tarefa === "p1"){
                                         echo "<div align='center'><h5><b>PP - Portais</b></h5></div>";
                                     }else if($tarefa === "auto"){
-                                        echo "<div align='center'><h5><b>PP - Meditação | Portais - Automático</b></h5></div>";
+                                        echo "<div align='center'><h5><b>PP - Portais - Automático</b></h5></div>";
                                     }else if($tarefa === "manual"){
-                                        echo "<div align='center'><h5><b>PP - Meditação | Portais - Manual</b></h5></div>";
+                                        echo "<div align='center'><h5><b>PP - Portais - Manual</b></h5></div>";
                                     }
                                     echo "</div>";
                                 break;
@@ -274,12 +291,6 @@ $tipousuario = new tipousuario();
                                     echo "<img src='../img/estatistica9.png' class='img-responsive' title='Revisão' width='50' height='50'>";
                                     if($tarefa === "" or $tarefa === null){
                                         echo "<div align='center'><h5><b>Revisão</b></h5></div>";
-//                                    }else if ($tarefa === "npp"){
-//                                        echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
-//                                    }else if ($tarefa === "p1"){
-//                                        echo "<div align='center'><h5><b>PP - Preenchimento 1</b></h5></div>";
-//                                    }else if ($tarefa === "p2"){
-//                                        echo "<div align='center'><h5><b>PP - Preenchimento 2</b></h5></div>";
                                     }
                                     echo "</div>";
                                 break;
@@ -290,10 +301,6 @@ $tipousuario = new tipousuario();
                                         echo "<h5><b>Auto Avaliação</b></h5>";
                                     }else if ($tarefa === "naval"){
                                         echo "<div align='center'><h5><b>Nova Auto Avaliação</b></h5></div>";
-//                                    }else if ($tarefa === "p1"){
-//                                        echo "<div align='center'><h5><b>PP - Preenchimento 1</b></h5></div>";
-//                                    }else if ($tarefa === "p2"){
-//                                        echo "<div align='center'><h5><b>PP - Preenchimento 2</b></h5></div>";
                                     }
                                     echo "</div>";
                                 break;
@@ -312,87 +319,94 @@ $tipousuario = new tipousuario();
 
 
                         <div class="row placeholders">
+                            <div class="col-sm-12">
                             <!-- altere a parte de baixo em cada menu -->
                             <?php
                             
                                 switch ($menu){
-                                    case "":
+                                    default:
                                                     
 
                             ?>
                             
-                            <div class="col-xs-6 col-sm-4 placeholder">
-                                <a href="inicio.php?m=perf" class="acesso">
-                                    <img src="../img/usuario.png" title="Perfil" class="img-responsive" width="50" height="50">
-                                    <h4>Seu Perfil</h4>
-                                    <!--<span class="text-muted">Altere o seu perfil.</span>-->
+                            <div class="col-xs-4 col-sm-4 placeholder">
+                                <a href="inicio.php?m=taref" class="acesso">
+                                    <!--<i class='fa fa-cloud'></i>-->
+                                    <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="45" height="45">
+                                    <h4>Tarefas</h4>
+                                    <!--<span class="text-muted">Encaminhe uma mensagem.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=para" class="acesso">
-                                    <img src="../img/colaboradores.png" class="img-responsive" title="Paragem-Presença" width="50" height="50">
+                                    <img src="../img/colaboradores.png" class="img-responsive" title="Paragem-Presença" width="45" height="45">
                                     <h4>Paragem-Presença</h4>
                                     <!--<span class="text-muted">Preencha a Paragem-Presença.</span>-->
                                 </a>
                             </div>
-                            <div class="col-xs-6 col-sm-4 placeholder">
+
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=rela" class="acesso">
-                                    <img src="../img/tarefas2.png" class="img-responsive" title="Relatórios" width="53" height="53">
+                                    <img src="../img/tarefas2.png" class="img-responsive" title="Relatórios" width="45" height="45">
                                     <h4>Relatórios</h4>
                                     <!--<span class="text-muted">Consulte os relatórios.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+
+                            <!-- Segunda fileira // Fecha col-sm-12 \\-->
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=aval" class="acesso">
-                                    <img src="../img/infografico.png" class="img-responsive" title="Auto Avaliação" width="50" height="50">
+                                    <img src="../img/infografico.png" class="img-responsive" title="Auto Avaliação" width="45" height="45">
                                     <h4>Auto Avaliação</h4>
                                     <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=pp" class="acesso">
-                                    <img src="../img/registrar2.png" class="img-responsive" title="PP" width="60" height="60">
-                                    <h4>PP</h4>
+                                    <img src="../img/meditacao.jpg" class="img-responsive" title="Meditação" width="45" height="45">
+                                    <h4>Meditação</h4>
                                     <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+                            <div class="col-xs-4 col-sm-4 placeholder">
+                                <a href="inicio.php?m=port" class="acesso">
+                                    <img src="../img/portal_blue.png" class="img-responsive" title="Portal" width="45" height="45">
+                                    <h4>Portal</h4>
+                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
+                                </a>
+                            </div>
+
+                            <!-- Terceira fileira -->
+                            <div class="col-xs-4 col-sm-4 placeholder">
+                                &nbsp;
+                            </div>
+
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=bonu" class="acesso">
-                                    <!--<i class='fa fa-cloud'></i>-->
-                                    <img src="../img/tasks.png" class="img-responsive" title="Tabuleta de Bônus" width="63" height="63">
+                                    <img src="../img/tasks.png" class="img-responsive" title="Tabuleta de Bônus" width="45" height="45">
                                     <h4>Tabela de Bônus</h4>
-                                    <!--<span class="text-muted">Encaminhe uma mensagem.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=revi" class="acesso">
-                                    <img src="../img/estatistica9.png" class="img-responsive" title="Revisão" width="50" height="50">
+                                    <img src="../img/estatistica9.png" class="img-responsive" title="Revisão" width="45" height="45">
                                     <h4>Revisão</h4>
-                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
+                            <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=config" class="acesso">
-                                    <img src="../img/panelControl.png" class="img-responsive" title="Configurações" width="60" height="60">
+                                    <img src="../img/panelControl.png" class="img-responsive" title="Configurações" width="45" height="45">
                                     <h4>Configurações</h4>
-                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
 
-                            <div class="col-xs-6 col-sm-4 placeholder">
-                                <a href="inicio.php?m=taref" class="acesso">
-                                    <!--<i class='fa fa-cloud'></i>-->
-                                    <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="63" height="63">
-                                    <h4>Tarefas</h4>
-                                    <!--<span class="text-muted">Encaminhe uma mensagem.</span>-->
-                                </a>
-                            </div>
+
                             <?php
                                         break;
                                     case "perf":    $perfil->telaPerfilPrincipal();
@@ -424,12 +438,12 @@ $tipousuario = new tipousuario();
                                                 case "a":
                                                     $usuario_class->telaAlteraUsuario();
                                                     break;
-                                                case "e":
-                                                    $usuario_class->telaExcluiUsuario();
-                                                    break;
-                                                case "d":
-                                                    $usuario_class->telaDetalhesUsuario();
-                                                    break;
+//                                                case "e":
+//                                                    $usuario_class->telaExcluiUsuario();
+//                                                    break;
+//                                                case "d":
+//                                                    $usuario_class->telaDetalhesUsuario();
+//                                                    break;
                                             }
                                             
                                         }else if ($tarefa == "usit"){
@@ -440,8 +454,18 @@ $tipousuario = new tipousuario();
                                             $tipotelefone->tabelaTipoTelefone();
                                         }else if($tarefa === "tipousuario"){
                                             $tipousuario->tabelaTipoUsuario();
+                                        }else if($tarefa === "perf"){
+                                            $perfil->telaPerfilPrincipal();
+                                        }else if($tarefa === "perfsv"){
+                                            $perfil->telaPerfil();
+                                        }else if($tarefa === "perfend"){
+                                            $perfil->preencheEndereco();
+                                        }else if($tarefa === "perftel"){
+                                            $perfil->telaTelefone();
+                                        }else if($tarefa === "trocasenha"){
+                                            $perfil->telaTrocaSenha();
                                         }
-                                        
+
                                         break;
                                     case "pp":      $pp = new ppMeditacao();
                                                     $pp->setCodusuario($_SESSION['idusuario']);
@@ -473,14 +497,57 @@ $tipousuario = new tipousuario();
                                                     
 //                                                    $pp->telaPP();
                                                             break;
-                                    case "relat":   $erro = new erros();
-                                                            $erro->error404();
+                                    case "port":      $pp = new ppMeditacao();
+                                                    $pp->setCodusuario($_SESSION['idusuario']);
+                                                    $cal = new calendarioRuv();
+                                                    
+                                                    switch($tarefa){
+                                                        default: 
+                                                            $cal->setCodusuario($_SESSION['idusuario']);
+                                                            $cal->configuracaoCalendario("ppPortal");
+//                                                            $pp->telaPP();
+                                                            break;
+                                                        
+                                                        case "mp":
+                                                            $cal->setCodusuario($_SESSION['idusuario']);
+                                                            $cal->configuracaoCalendario("ppMeditacao");
+//                                                            $pp->telaNovoPP();
+                                                            break;
+                                                        case "p1":
+                                                            $pp1 = new ppMed1();
+                                                            $pp1->setCodusuario($_SESSION['idusuario']);
+                                                            $pp1->telaPP1();
+                                                            break;
+                                                        case "p2":
+                                                            $pp2 = new ppMed2();
+                                                            $pp2->setCodusuario($_SESSION['idusuario']);
+                                                            $pp2->telaPP2();
+                                                            break;
+                                                    }
+                                                    
+//                                                    $pp->telaPP();
+                                                            break;
+                                    case "rela":   
+                                        $r = new relatorios();
+                                        $r->setCodusuario($_SESSION['idusuario']);
+                                        switch ($tarefa){
+                                            default :
+                                                $r->telaRelatorios();
+                                            break;
+                                        
+                                            case "pp":
+                                                $r->telaOpcoes("pp");
+                                            break;
+                                            
+                                        
+                                        }
                                                             break;
                                     case "suporte":   $erro = new erros();
                                                             $erro->error404();
                                                             break;
-                                    case "bonu":   $bonus = new modelBonus();
-                                                    $bonus->telaBonus();
+                                    case "bonu":   $bonus = new bonus();
+                                                    $bonus->setCodusuario($_SESSION['idusuario']);
+                                                   $bonus->telaInicialBonus();
                                                     
 //                                                    if($m === "auto"){
 //                                                        $bonus->metodoAutomatico();
@@ -559,6 +626,7 @@ $tipousuario = new tipousuario();
   </div>
 </div>
                     
+            </div> <!-- fecha o row -->
             </div> <!-- fecha o row -->
             
         </div> <!-- fecha o container fluid -->

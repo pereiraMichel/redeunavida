@@ -1290,3 +1290,29 @@ div.WordSection1
     color: #000;
     font-weight: normal;
 }
+
+
+fieldset{
+    width: 750px;
+    margin: 10px auto;
+    color: #444;
+    border: 5px solid #ccc;
+    font-family: Helvetica;
+    padding: 15px;
+}
+ 
+h1{
+    text-align: center;
+}
+ 
+p.sub-titulo{
+    font-size: 20px;
+}
+ 
+.direita{
+    text-align: right;
+}
+ 
+.center{
+    text-align: center;
+}

@@ -57,10 +57,8 @@ class modelBonus {
         echo "<br/><br/>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
-        echo "      <a href='javascript: history.go(-1)' target='_self'>";
-        echo "          <button class='btn btn-default'>";
-        echo "              Sair";
-        echo "          </button>";
+        echo "      <a href='inicio.php' class='btn btn-default'>";
+        echo "          Voltar";
         echo "      </a>";
         echo "  </div>";
         echo "</div>";

@@ -68,6 +68,15 @@ class configuracao {
 //        echo "  </div>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=perf'>";
+        echo "              <img src='../img/usuario.png' title='Perfil' class='img-rounded' width='90' height='90'>";
+        echo "              <h5>Seu Perfil</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "</div>";
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
         echo "          &nbsp;";
 //        echo "          <a href='inicio.php?menu=configuracoes&tarefa=setenio' target='_self'>";
 //        echo "              <img src='../img/groupIcon1.png' title='Setênio' width='90' height='90' class='img-rounded'>";
@@ -75,12 +84,6 @@ class configuracao {
 //        echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
-        echo "      <div class='text-center'>";
-        echo "          &nbsp;";
-        echo "      </div>";
-        echo "  </div>";
-        echo "</div>";
         echo "<br/><br/>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";

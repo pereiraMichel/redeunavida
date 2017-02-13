@@ -91,8 +91,8 @@ class setenio {
             echo "          Idade Final";
             echo "      </td>";
             echo "  </tr>";
-            echo "<tr>";
             while($dadosSetenio = mysql_fetch_array($resultadoSetenio)){
+            echo "  <tr>";
                 echo "<td>";
                 echo    $dadosSetenio['setenio'];
                 echo "</td>";
@@ -102,8 +102,8 @@ class setenio {
                 echo "<td>";
                 echo    $dadosSetenio['idadeFinal'];
                 echo "</td>";
-            }
             echo "  </tr>";
+            }
             echo "</table>";
             echo "      <div style='height: 40px'>&nbsp;</div>";
             echo "      <div class='form-group'>";
