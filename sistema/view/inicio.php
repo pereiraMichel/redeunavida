@@ -174,7 +174,12 @@ $tipousuario = new tipousuario();
     <h5 class="panel-title">
                     <?php
                         switch ($menu){
-                            case "": echo "<div align='center'><h5><b>Acessos</b></h5></div>";
+                            case "": 
+                                echo "<div align='center'><h5><b>Tesouro de Bônus</b></h5></div>";
+                                echo "<div class='col-sm-12'>";
+                                echo "  <div align='right'><h5><b>Índice de Investimento: </b></h5></div>";
+                                echo "  <div align='right'><h5><b>Grau de Bônus: </b></h5></div>";
+                                echo "</div>";
                                 break;
                             case "perf": echo "<div align='center'><h5><b>".PERFIL."</b></h5></div>";
                                 break;
@@ -328,81 +333,131 @@ $tipousuario = new tipousuario();
                                                     
 
                             ?>
-                            
+
+                            <div class="col-sm-12 placeholder">
+                                <table class='table'>
+                                    <tr>
+                                        <td>
+                                            <a href="inicio.php?m=reg">
+                                                <h5 style='font-weight: bold;'>
+                                                    <img src="../img/tasks.png" class="img-responsive" title="Relatórios" width="25" height="25">
+                                                    Registro
+                                                </h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <h5 style='font-weight: bold;'>
+                                                    Meditação
+                                                </h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <h5 style='font-weight: bold;'>
+                                                    Prática dos Portais
+                                                </h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <h5 style='font-weight: bold;'>
+                                                    Presença Paragens
+                                                </h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <h5 style='font-weight: bold;'>
+                                                    Tarefas
+                                                </h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <h5 style='font-weight: bold;'>
+                                                    Serviços e Extras
+                                                </h5>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=taref" class="acesso">
-                                    <!--<i class='fa fa-cloud'></i>-->
                                     <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="45" height="45">
                                     <h4>Tarefas</h4>
-                                    <!--<span class="text-muted">Encaminhe uma mensagem.</span>-->
                                 </a>
                             </div>
-
+                            -->
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=para" class="acesso">
                                     <img src="../img/colaboradores.png" class="img-responsive" title="Paragem-Presença" width="45" height="45">
                                     <h4>Paragem-Presença</h4>
-                                    <!--<span class="text-muted">Preencha a Paragem-Presença.</span>-->
                                 </a>
                             </div>
+-->
 
-                            <div class="col-xs-4 col-sm-4 placeholder">
+                            <div class="col-sm-4 placeholder">
                                 <a href="inicio.php?m=rela" class="acesso">
                                     <img src="../img/tarefas2.png" class="img-responsive" title="Relatórios" width="45" height="45">
-                                    <h4>Relatórios</h4>
-                                    <!--<span class="text-muted">Consulte os relatórios.</span>-->
+                                    <h5 style="font-weight: bold;">Relatórios</h5>
                                 </a>
                             </div>
 
 
                             <!-- Segunda fileira // Fecha col-sm-12 \\-->
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=aval" class="acesso">
                                     <img src="../img/infografico.png" class="img-responsive" title="Auto Avaliação" width="45" height="45">
                                     <h4>Auto Avaliação</h4>
-                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
-
+-->
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=pp" class="acesso">
                                     <img src="../img/meditacao.jpg" class="img-responsive" title="Meditação" width="45" height="45">
                                     <h4>Meditação</h4>
-                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
-
+-->
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=port" class="acesso">
                                     <img src="../img/portal_blue.png" class="img-responsive" title="Portal" width="45" height="45">
                                     <h4>Portal</h4>
-                                    <!--<span class="text-muted">Preencha o bônus.</span>-->
                                 </a>
                             </div>
-
+-->
                             <!-- Terceira fileira -->
-                            <div class="col-xs-4 col-sm-4 placeholder">
+<!--                            
+                            <div class="col-sm-4 placeholder">
                                 &nbsp;
                             </div>
-
-                            <div class="col-xs-4 col-sm-4 placeholder">
+-->
+                            <div class="col-sm-4 placeholder">
                                 <a href="inicio.php?m=bonu" class="acesso">
                                     <img src="../img/tasks.png" class="img-responsive" title="Tabuleta de Bônus" width="45" height="45">
-                                    <h4>Tabela de Bônus</h4>
+                                    <h5 style="font-weight: bold;">Tabela de Bônus</h5>
                                 </a>
                             </div>
-
+<!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=revi" class="acesso">
                                     <img src="../img/estatistica9.png" class="img-responsive" title="Revisão" width="45" height="45">
                                     <h4>Revisão</h4>
                                 </a>
                             </div>
-
+-->
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=config" class="acesso">
                                     <img src="../img/panelControl.png" class="img-responsive" title="Configurações" width="45" height="45">
-                                    <h4>Configurações</h4>
+                                    <h5 style="font-weight: bold;">Configurações</h5>
                                 </a>
                             </div>
 
@@ -483,21 +538,21 @@ $tipousuario = new tipousuario();
                                                             $cal->configuracaoCalendario("ppMeditacao");
 //                                                            $pp->telaNovoPP();
                                                             break;
-                                                        case "p1":
-                                                            $pp1 = new ppMed1();
-                                                            $pp1->setCodusuario($_SESSION['idusuario']);
-                                                            $pp1->telaPP1();
-                                                            break;
-                                                        case "p2":
-                                                            $pp2 = new ppMed2();
-                                                            $pp2->setCodusuario($_SESSION['idusuario']);
-                                                            $pp2->telaPP2();
-                                                            break;
+//                                                        case "p1":
+//                                                            $pp1 = new ppMed1();
+//                                                            $pp1->setCodusuario($_SESSION['idusuario']);
+//                                                            $pp1->telaPP1();
+//                                                            break;
+//                                                        case "p2":
+//                                                            $pp2 = new ppMed2();
+//                                                            $pp2->setCodusuario($_SESSION['idusuario']);
+//                                                            $pp2->telaPP2();
+//                                                            break;
                                                     }
                                                     
 //                                                    $pp->telaPP();
                                                             break;
-                                    case "port":      $pp = new ppMeditacao();
+                                    case "port":      $pp = new ppPortais();
                                                     $pp->setCodusuario($_SESSION['idusuario']);
                                                     $cal = new calendarioRuv();
                                                     
@@ -508,21 +563,21 @@ $tipousuario = new tipousuario();
 //                                                            $pp->telaPP();
                                                             break;
                                                         
-                                                        case "mp":
-                                                            $cal->setCodusuario($_SESSION['idusuario']);
-                                                            $cal->configuracaoCalendario("ppMeditacao");
+//                                                        case "mp":
+//                                                            $cal->setCodusuario($_SESSION['idusuario']);
+//                                                            $cal->configuracaoCalendario("ppMeditacao");
 //                                                            $pp->telaNovoPP();
-                                                            break;
-                                                        case "p1":
-                                                            $pp1 = new ppMed1();
-                                                            $pp1->setCodusuario($_SESSION['idusuario']);
-                                                            $pp1->telaPP1();
-                                                            break;
-                                                        case "p2":
-                                                            $pp2 = new ppMed2();
-                                                            $pp2->setCodusuario($_SESSION['idusuario']);
-                                                            $pp2->telaPP2();
-                                                            break;
+//                                                            break;
+//                                                        case "p1":
+//                                                            $pp1 = new ppMed1();
+//                                                            $pp1->setCodusuario($_SESSION['idusuario']);
+//                                                            $pp1->telaPP1();
+//                                                            break;
+//                                                        case "p2":
+//                                                            $pp2 = new ppMed2();
+//                                                            $pp2->setCodusuario($_SESSION['idusuario']);
+//                                                            $pp2->telaPP2();
+//                                                            break;
                                                     }
                                                     
 //                                                    $pp->telaPP();

@@ -211,7 +211,7 @@ class ppPortais {
 */
 
     public function formPortal(){
-            echo "<form name='formPortal' action='inicio.php?m=pp&tab=portal' method='post'>";
+            echo "<form name='formPortal' action='inicio.php?m=port&tab=portal' method='post'>";
             $this->portaisCheck();
             echo "          <table class='table'>";
             echo "              <tr>";
@@ -254,21 +254,21 @@ class ppPortais {
             echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='sonho' id='sonho' onchange='calculaPortal()'>";//preencheSonho(this.value)
+            echo "                      <select class='form-control' name='sonho' id='sonho' onchange='calculaPortal()' required>";//preencheSonho(this.value)
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='compSonho' id='compSonho' onchange='calculaPortal()'>";// onchange='preencheBonusPortal(this.value)'
+            echo "                      <select class='form-control' name='compSonho' id='compSonho' onchange='calculaPortal()' required>";// onchange='preencheBonusPortal(this.value)'
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='corpo' id='corpo' onchange='calculaPortal()'>";// onchange='calculaBonusPortal(this.value)'
+            echo "                      <select class='form-control' name='corpo' id='corpo' onchange='calculaPortal()' required>";// onchange='calculaBonusPortal(this.value)'
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Nenhum</option>";
             echo "                          <option value='2'>Abaixo de 20 min</option>";
@@ -277,21 +277,21 @@ class ppPortais {
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='retrospectiva' id='retrospectiva' onchange='calculaPortal()'>";// onchange='preencheBonusPortal(this.value)'
+            echo "                      <select class='form-control' name='retrospectiva' id='retrospectiva' onchange='calculaPortal()' required>";// onchange='preencheBonusPortal(this.value)'
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='compRetrospectiva' id='compRetrospectiva' onchange='calculaPortal()'>";
+            echo "                      <select class='form-control' name='compRetrospectiva' id='compRetrospectiva' onchange='calculaPortal()' required>";
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='bonusPortais' id='bonusPortais' class='form-control' style='width: 150px;' readonly='readonly' value='0'>";
+            echo "                      <input type='text' name='bonusPortais' id='bonusPortais' class='form-control' style='width: 150px;' readonly='readonly' value='0' required>";
             echo "                  </td>";
             echo "              </tr>";
             echo "              <tr>";
@@ -320,6 +320,7 @@ class ppPortais {
             echo "</form>";
 
         if($_POST){
+            $tab = filter_input(INPUT_GET, 'tab');
 //            $novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
             $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataPortalHoje'))));
 

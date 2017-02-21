@@ -451,6 +451,14 @@ function selecionaPPBonus(semana, pp){
     }
 }
 
+function selecionaPortalBonus(semana, pp){
+    if(semana !== "todos"){
+        window.location.href='inicio.php?m=port&tab=bonus&p='+pp+'&sem='+semana;
+    }else{
+        window.location.href='inicio.php?m=port&tab=bonus';
+    }
+}
+
 function preencheAutoManualPortal(){
     var auto = document.getElementById('auto');
     var manual = document.getElementById('manual');

@@ -275,7 +275,7 @@ class bonus {
                 echo "          <label>Semana</label>";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"por\")'>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPortalBonus(this.value, \"por\")'>";
                 if($p === "por"){
                 echo "              <option value='".$semana."'>".$semana."</option>";
                 }
