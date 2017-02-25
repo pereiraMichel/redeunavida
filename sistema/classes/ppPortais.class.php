@@ -20,6 +20,15 @@ class ppPortais {
     private $bonus;
     private $codusuario;
     private $dataRegistro;
+    private $dataRuv;
+
+    function getDataRuv(){
+        return $this->dataRuv;
+    }
+
+    function setDataRuv($dataRuv){
+        $this->dataRuv = $dataRuv;
+    }
     
     function getDataRegistro() {
         return $this->dataRegistro;
@@ -216,7 +225,7 @@ class ppPortais {
             echo "          <table class='table'>";
             echo "              <tr>";
             echo "                  <td>";
-            echo "                      <label>Data</label>";
+            echo "                      <label>Data RUV</label>";
             echo "                  </td>";
             echo "                  <td>";
             echo "                      <label>Semana</label>";
@@ -245,30 +254,32 @@ class ppPortais {
             echo "              </tr>";
             echo "              <tr style='text-align: center;'>";
             echo "                  <td>";
-            echo "                      <input type='text' name='dataPortalHoje' id='dataPortalHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA'>";
+            echo "                      <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 100px;' $desativaData placeholder='DD/MM/AAAA' onchange='preencheDataRuv(this.value, \"dataRuv\")' onkeypress='mascaraData(this)'>";
+
+            echo "                      <input type='hidden' name='dataPortalHoje' id='dataPortalHoje' value='".date('d/m/Y')."' class='form-control' style='width: 100px;' $desativaData placeholder='DD/MM/AAAA'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".  $this->diaAnoRuv."-".$this->semana."' style='width: 80px;'>";
+            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".  $this->diaAnoRuv."-".$this->semana."' style='width: 70px;' onchange='preencheDataRuv(this.value, \"semana\")'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;'>";
+            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 40px;' onchange='preencheDataRuv(this.value, \"dia\")'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='sonho' id='sonho' onchange='calculaPortal()' required>";//preencheSonho(this.value)
-            echo "                          <option value='0'>&nbsp;</option>";
+            echo "                      <select class='form-control' name='sonho' id='sonho' onchange='calculaPortal()'>";//preencheSonho(this.value)
+            echo "                          <option value=''>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='compSonho' id='compSonho' onchange='calculaPortal()' required>";// onchange='preencheBonusPortal(this.value)'
-            echo "                          <option value='0'>&nbsp;</option>";
+            echo "                      <select class='form-control' name='compSonho' id='compSonho' onchange='calculaPortal()'>";// onchange='preencheBonusPortal(this.value)'
+            echo "                          <option value=''>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='corpo' id='corpo' onchange='calculaPortal()' required>";// onchange='calculaBonusPortal(this.value)'
+            echo "                      <select class='form-control' name='corpo' id='corpo' onchange='calculaPortal()'>";// onchange='calculaBonusPortal(this.value)'
             echo "                          <option value='0'>&nbsp;</option>";
             echo "                          <option value='1'>Nenhum</option>";
             echo "                          <option value='2'>Abaixo de 20 min</option>";
@@ -277,21 +288,21 @@ class ppPortais {
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='retrospectiva' id='retrospectiva' onchange='calculaPortal()' required>";// onchange='preencheBonusPortal(this.value)'
-            echo "                          <option value='0'>&nbsp;</option>";
+            echo "                      <select class='form-control' name='retrospectiva' id='retrospectiva' onchange='calculaPortal()'>";// onchange='preencheBonusPortal(this.value)'
+            echo "                          <option value=''>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <select class='form-control' name='compRetrospectiva' id='compRetrospectiva' onchange='calculaPortal()' required>";
-            echo "                          <option value='0'>&nbsp;</option>";
+            echo "                      <select class='form-control' name='compRetrospectiva' id='compRetrospectiva' onchange='calculaPortal()'>";
+            echo "                          <option value=''>&nbsp;</option>";
             echo "                          <option value='1'>Sim</option>";
             echo "                          <option value='0'>Não</option>";
             echo "                      </select>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='bonusPortais' id='bonusPortais' class='form-control' style='width: 150px;' readonly='readonly' value='0' required>";
+            echo "                      <input type='text' name='bonusPortais' id='bonusPortais' class='form-control' style='width: 50px;' readonly='readonly' value='0'>";
             echo "                  </td>";
             echo "              </tr>";
             echo "              <tr>";
@@ -323,6 +334,7 @@ class ppPortais {
             $tab = filter_input(INPUT_GET, 'tab');
 //            $novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
             $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataPortalHoje'))));
+            $dataRUVConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataRuv'))));
 
             $this->dataRegistro = addslashes($dataConvertida);
 //            $this->diaAnoRuv = addslashes(filter_input(INPUT_POST, 'diaAnoRuv'));
@@ -335,8 +347,61 @@ class ppPortais {
             $this->compRetrospectiva = addslashes(filter_input(INPUT_POST, 'compRetrospectiva'));
             $this->bonus = addslashes(filter_input(INPUT_POST, 'bonusPortais'));
             $this->codusuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
+            $this->dataRuv = $dataRUVConvertida;
+
             if($tab === "portal"){
-                $this->novoPortal();
+                
+                if(empty($this->sonho)){
+                    echo "<label class='alert alert-danger'>Sonho não selecionado. Por favor, selecione 'Sim' ou 'Não'.</label>";
+                }else if (empty($this->compSonho)){
+                    echo "<label class='alert alert-danger'>Completação do Sonho não selecionado. Por favor, selecione 'Sim' ou 'Não'.</label>";
+                }else if (empty($this->corpo)){
+                    echo "<label class='alert alert-danger'>Corpo não selecionado. Por favor, selecione 'Sim' ou 'Não'.</label>";
+
+                }else if (empty($this->retrospectiva)){
+                    echo "<label class='alert alert-danger'>Retrospectiva não selecionada. Por favor, selecione 'Sim' ou 'Não'.</label>";
+                }else if (empty($this->compRetrospectiva)){
+                    echo "<label class='alert alert-danger'>Completação da Retrospectiva não selecionado. Por favor, selecione 'Sim' ou 'Não'.</label>";
+
+                }else{
+                    if($this->sonho === "1"){
+                        $this->sonho = "Sim";
+                    }else{
+                        $this->sonho = "Não";
+                    }
+
+                    if($this->compSonho === "1"){
+                        $this->compSonho = "Sim";
+                    }else{
+                        $this->compSonho = "Não";
+                    }
+
+                    if($this->corpo === "0"){
+                        $this->corpo = "Nenhum";
+                    }else if($this->corpo === "1"){
+                        $this->corpo = "Abaixo de 20 min";
+                    }else if($this->corpo === "2"){
+                        $this->corpo = "Maior ou igual a 20 min e menor que 40 min";
+                    }else if($this->corpo === "3"){
+                        $this->corpo = "Igual ou acima de 40 min";
+                    }
+
+                    if($this->retrospectiva === "1"){
+                        $this->retrospectiva = "Sim";
+                    }else{
+                        $this->retrospectiva = "Não";
+                    }
+
+                    if($this->compRetrospectiva === "1"){
+                        $this->compRetrospectiva = "Sim";
+                    }else{
+                        $this->compRetrospectiva = "Não";
+                    }
+
+
+                    $this->novoPortal();
+                }
+
             }
         }
         
@@ -421,7 +486,7 @@ class ppPortais {
 
     public function telaConsultaPortal(){
         echo "<div class='col-sm-12'>";
-        echo "<label class='alert alert-info' role='alert' style='width: 100%;'>Portal</label>";
+//        echo "<label class='alert alert-info' role='alert' style='width: 100%;'>Portal</label>";
 
         $conecta = new conectaBanco();
         $conecta->conecta();

@@ -18,8 +18,17 @@ class ppMeditacao {
     private $inicio;
     private $termino;
     private $codusuario;
+    private $dataRuv;
     
     
+    function getDataRuv(){
+        return $this->dataRuv;
+    }
+
+    function setDataRuv($dataRuv){
+        $this->dataRuv = $dataRuv;
+    }
+
     function getInicio() {
         return $this->inicio;
     }
@@ -155,8 +164,8 @@ class ppMeditacao {
         
         $this->idpp = ultimoId::ultimoIdBanco("idpp", "pp");
         
-        $sqlInserePP = "INSERT INTO pp (idpp, diaAnoRuv, diaRuv, paragem, dataRegistro, duracao, nivel, bonus, periodo, inicio, termino, codusuario) 
-                        VALUES (".$this->idpp.", ".$this->diaAnoRuv.", ".$this->diaRuv.", '".$this->paragem."', '".$this->dataRegistro."', ".$this->duracao.", ".$this->nivel.", ".$this->bonus.", '".$this->periodo."', '".$this->inicio."', '".$this->termino."', ".$this->codusuario.")";
+        $sqlInserePP = "INSERT INTO pp (idpp, diaAnoRuv, diaRuv, paragem, dataRegistro, duracao, nivel, bonus, periodo, inicio, termino, codusuario, dataRuv) 
+                        VALUES (".$this->idpp.", ".$this->diaAnoRuv.", ".$this->diaRuv.", '".$this->paragem."', '".$this->dataRegistro."', ".$this->duracao.", ".$this->nivel.", ".$this->bonus.", '".$this->periodo."', '".$this->inicio."', '".$this->termino."', ".$this->codusuario.", '".$this->dataRuv."')";
 //        echo $sqlInserePP."<br>";
         try{
             $resultadoInserePP = mysql_query($sqlInserePP) or die ("Erro comando SQL (Inclusão PP). Descrição: ".mysql_error());
@@ -359,7 +368,7 @@ class ppMeditacao {
             }
             
 //            echo "<div role='tabpanel' class='tab-pane active' id='meditacao'>";
-            echo "<div class='col-sm-7'>";
+            echo "<div class='col-sm-8'>";
             echo "  <table>";
             echo "      <tr>";
             echo "          <td>";
@@ -406,7 +415,7 @@ class ppMeditacao {
     
     public function telaConsultaMeditacao(){
         echo "<div class='col-sm-12'>";
-        echo "<label class='alert alert-info' style='width: 100%;'>Meditação</label>";
+//        echo "<label class='alert alert-info' style='width: 100%;'>Meditação</label>";
 
         $conecta = new conectaBanco();
         $conecta->conecta();
@@ -422,8 +431,8 @@ class ppMeditacao {
                     echo "<table class='table table-striped'>";
                     echo "              <tr>";
                     echo "                  <td>";
-                    echo "                      <label>Data</label>";
-                    echo "                  </td>";
+                    echo "                      <label>Data RUV</label>";
+                    echo "                  <td>";
                     echo "                  <td>";
                     echo "                      <label>Semana</label>";
                     echo "                  </td>";
@@ -455,7 +464,7 @@ class ppMeditacao {
                     while($dadosPP = mysql_fetch_array($resultadoPP)){
                         echo "  <tr>";
                         echo "      <td>";
-                        echo            $dadosPP['dataMeditacao'];
+                        echo            $dadosPP['dataRuv'];
                         echo "      </td>";
                         echo "      <td>";
                         echo            $dadosPP['paragem'];
@@ -518,6 +527,7 @@ class ppMeditacao {
         $conecta->conecta();
         $tar = filter_input(INPUT_GET, "t");
         $tab = filter_input(INPUT_GET, 'tab');
+        $expRegHora = "__:__";
             
             if($tar === "auto"){
                 $desativaData = " readonly='readonly' ";
@@ -537,7 +547,7 @@ class ppMeditacao {
             echo "          <table class='table' style='text-align: justify;'>";
             echo "              <tr>";
             echo "                  <td>";
-            echo "                      <label>Data</label>";
+            echo "                      <label>Data RUV</label>";
             echo "                  </td>";
             echo "                  <td>";
             echo "                      <label>Semana</label>";
@@ -566,19 +576,22 @@ class ppMeditacao {
             echo "              </tr>";
             echo "              <tr style='text-align: center;'>";
             echo "                  <td>";
-            echo "                      <input type='text' name='dataHoje' id='dataHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required>";
+            echo "                      <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onchange='preencheDataRuv(this.value, \"dataRuv\" )' onkeypress='mascaraData(this)'>";
+
+            echo "                      <input type='hidden' name='dataHoje' id='dataHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$this->diaAnoRuv."-".$this->paragem."' style='width: 80px;' required>";
+            $semana = $this->diaAnoRuv."-".$this->paragem;
+            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$semana."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' required>";
+            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' required onchange='preencheDataRuv(this.value, \"dia\")'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='time' name='inicio' id='inicio' class='form-control' $marcaInicio required>";
+            echo "                      <input type='text' name='inicio' id='inicio' class='form-control' $marcaInicio required onkeypress='mascara(this)'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='time' name='termino' id='termino' class='form-control' onblur='calculaTempo()' onchange='calculaTempo()' onkeyup='calculaTempo()' required>";
+            echo "                      <input type='text' name='termino' id='termino' class='form-control' onblur='calculaTempo()' required onkeypress='mascara(this)'>"; // onchange='calculaTempo()' onkeyup='calculaTempo()'
             echo "                  </td>";
             echo "                  <td>";
             echo "                      <input type='text' name='duracao' id='duracao' class='form-control' style='width: 80px;' readonly='readonly' required>";
@@ -618,6 +631,7 @@ class ppMeditacao {
         if($_POST){
             $novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
             $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataHoje'))));
+            $dataRuvConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataRuv'))));
 
             $this->dataRegistro = addslashes($dataConvertida);
             $this->paragem = addslashes(filter_input(INPUT_POST, 'semana'));
@@ -629,6 +643,7 @@ class ppMeditacao {
             $this->termino = addslashes(filter_input(INPUT_POST, 'termino'));
             $this->diaRuv = addslashes(filter_input(INPUT_POST, 'dia'));
             $this->codusuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
+            $this->dataRuv = $dataRuvConvertida;
             if($tab === "meditacao"){
                 $this->verificaPP();
             }

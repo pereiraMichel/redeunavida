@@ -5,7 +5,7 @@
 //require_once __ROOT__.'/conexao/conectaBanco.php';
 //
 
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 
 include_once '../classes/ultimoId.inc.php';
 include_once '../classes/perfil.class.php';
@@ -108,6 +108,7 @@ $tipousuario = new tipousuario();
         <link rel="stylesheet" href="../css/styleme.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/estiloMenu.css">
+        <link rel="stylesheet" href="../css/simple-sidebar.css">
         <!--<link rel="stylesheet" href="../../css/bootstrap-submenu.css">-->
         
 <!--        <script src="../../js/jquery.js" defer=""></script>-->
@@ -168,6 +169,92 @@ $tipousuario = new tipousuario();
 
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-sm-2">
+                        <div id="sidebar-wrapper" style="background-color: #D9EDF7">
+                            <ul class="sidebar-nav" style="color: #1f226d; font-weight: bold;" id="menuRuv">
+                                <li class="sidebar-brand">
+                                    <p style="font-size: 13px;">
+                                        <img src="../../images/logoRUV50x51.png" width="35" height="36">
+                                        MENU RUV
+                                    </p>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="collapse" data-target="#menuRegistro" data-parent="#menuRuv" class="collapsed">
+                                        Registro 
+                                            <span class="caret"></span>
+                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <div id="menuRegistro" class="collapse" style="height: 0px;">
+                                        <ul class="nav nav-list">
+                                            <li>
+                                                <a href="inicio.php?m=pp" style="font-size: 12px;">
+                                                    Meditação
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="inicio.php?m=port" style="font-size: 12px;">
+                                                    Prática dos Portais
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" style="font-size: 12px;">
+                                                    Paragem Presenças
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" style="font-size: 12px;">
+                                                    Tarefas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" style="font-size: 12px;">
+                                                    Serviços e Extras
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="inicio.php?m=rela">Relatório</a>
+                                </li>
+                                <li>
+                                    <a href="inicio.php?m=bonu">Tabela de Bônus</a>
+                                </li>
+                                <li>
+                                    <a href="inicio.php?m=config">Configurações</a>
+                                </li>
+                                <li>
+                                    <a href="#">&nbsp;</a>
+                                </li>
+<!--                                <li>
+                                    <a href="#">
+                                    <?php
+                                        //$variavel = "17:21";
+                                        //echo substr($variavel, 0, 2); // pega somente 17
+
+                                        //Identifica o navegador
+                                        $navegador = $_SERVER['HTTP_USER_AGENT'];
+
+                                        if(preg_match('/Firefox/i', $navegador)){
+                                            //echo "É Firefox";
+                                        }
+                                    ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">&nbsp;</a>
+                                </li> -->
+                                <li style="color: #1f226d; font-weight: bold;">
+                                    Índice de Investimento: 
+                                </li>
+                                <li style="color: #1f226d; font-weight: bold;">
+                                    Grau de Bônus: 
+                                </li>
+                            </ul>
+                        </div>
+                              </div>
+                    <div class="col-sm-10">
+
 
 <div class="panel panel-info">
   <div class="panel-heading">
@@ -176,10 +263,10 @@ $tipousuario = new tipousuario();
                         switch ($menu){
                             case "": 
                                 echo "<div align='center'><h5><b>Tesouro de Bônus</b></h5></div>";
-                                echo "<div class='col-sm-12'>";
-                                echo "  <div align='right'><h5><b>Índice de Investimento: </b></h5></div>";
-                                echo "  <div align='right'><h5><b>Grau de Bônus: </b></h5></div>";
-                                echo "</div>";
+//                                echo "<div class='col-sm-12'>";
+//                                echo "  <div align='right'><h5><b>Índice de Investimento: </b></h5></div>";
+//                                echo "  <div align='right'><h5><b>Grau de Bônus: </b></h5></div>";
+//                                echo "</div>";
                                 break;
                             case "perf": echo "<div align='center'><h5><b>".PERFIL."</b></h5></div>";
                                 break;
@@ -263,15 +350,15 @@ $tipousuario = new tipousuario();
                                     echo "<div align='center'>";
                                     echo "<img src='../img/meditacao.jpg' class='img-responsive' title='Paragem' width='45' height='45'>";
                                     if($tarefa === "" or $tarefa === null){
-                                        echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Meditação</b></h5></div>";
                                     }else if ($tarefa === "npp"){
                                         echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
                                     }else if ($tarefa === "p1"){
                                         echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
                                     }else if($tarefa === "auto"){
-                                        echo "<div align='center'><h5><b>PP - Meditação - Automático</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Meditação - Automático</b></h5></div>";
                                     }else if($tarefa === "manual"){
-                                        echo "<div align='center'><h5><b>PP - Meditação - Manual</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Meditação - Manual</b></h5></div>";
                                     }
                                     echo "</div>";
                                 break;
@@ -279,15 +366,15 @@ $tipousuario = new tipousuario();
                                     echo "<div align='center'>";
                                     echo "<img src='../img/portal_blue.png' class='img-responsive' title='Paragem' width='45' height='45'>";
                                     if($tarefa === "" or $tarefa === null){
-                                        echo "<div align='center'><h5><b>PP - Portal</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Prática dos Portais</b></h5></div>";
                                     }else if ($tarefa === "npp"){
                                         echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
                                     }else if ($tarefa === "p1"){
                                         echo "<div align='center'><h5><b>PP - Portais</b></h5></div>";
                                     }else if($tarefa === "auto"){
-                                        echo "<div align='center'><h5><b>PP - Portais - Automático</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Prática dos Portais - Automático</b></h5></div>";
                                     }else if($tarefa === "manual"){
-                                        echo "<div align='center'><h5><b>PP - Portais - Manual</b></h5></div>";
+                                        echo "<div align='center'><h5><b>Prática dos Portais - Manual</b></h5></div>";
                                     }
                                     echo "</div>";
                                 break;
@@ -335,55 +422,60 @@ $tipousuario = new tipousuario();
                             ?>
 
                             <div class="col-sm-12 placeholder">
-                                <table class='table'>
-                                    <tr>
-                                        <td>
-                                            <a href="inicio.php?m=reg">
-                                                <h5 style='font-weight: bold;'>
-                                                    <img src="../img/tasks.png" class="img-responsive" title="Relatórios" width="25" height="25">
-                                                    Registro
-                                                </h5>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <h5 style='font-weight: bold;'>
-                                                    Meditação
-                                                </h5>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <h5 style='font-weight: bold;'>
-                                                    Prática dos Portais
-                                                </h5>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <h5 style='font-weight: bold;'>
-                                                    Presença Paragens
-                                                </h5>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <h5 style='font-weight: bold;'>
-                                                    Tarefas
-                                                </h5>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <h5 style='font-weight: bold;'>
-                                                    Serviços e Extras
-                                                </h5>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="text-decoration: none;">
+                                    <img src="../img/registrar2.png" class="img-responsive" title="Relatórios" width="45" height="45">
+                                    <h5 style='font-weight: bold;'>
+                                        Registro
+                                    </h5>
+                                </a>
+                                <div class="collapse" id="collapseExample">
+                                      <div> <!--  class="well" -->
+                                        <table class='table'>
+                                            <tr>
+                                                <td>
+                                                    <a href="inicio.php?m=pp" class="acesso" style="font-weight: bold;">
+                                                        <img src="../img/meditacao.jpg" class="img-responsive" title="Meditação" width="60" height="60">
+                                                        <h5>Meditação</h5>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="inicio.php?m=port" class="acesso">
+                                                        <img src="../img/portal_blue.png" class="img-responsive" title="Portal" width="75" height="75">
+                                                        <h5>Prática dos Portais</h5>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                <a href="inicio.php?m=para" class="acesso" style="font-weight: bold;">
+                                                    <img src="../img/colaboradores.png" class="img-responsive" title="Paragem Presenças" width="43" height="43">
+                                                    <h5>Paragem Presenças</h5>
+                                                </a>
+                                                </td>
+                                                <td>
+                                                    <a href="inicio.php?m=taref" class="acesso">
+                                                        <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="42" height="42">
+                                                        <h5>Tarefas</h5>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="inicio.php?m=servt" class="acesso">
+                                                        <img src="../img/text-icon.png" class="img-responsive" title="Tarefas" width="42" height="42">
+                                                        <h5 style='font-weight: bold;'>
+                                                            Serviços e Extras
+                                                        </h5>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                      </div>
+                                </div>                            
 
                             </div>
+
+                            <div class="col-sm-12 placeholder">
+                                &nbsp;
+                            </div>
+
+
 <!--
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=taref" class="acesso">
@@ -687,6 +779,8 @@ $tipousuario = new tipousuario();
         </div> <!-- fecha o container fluid -->
         </div> <!-- fecha o container fluid -->
         </div> <!-- fecha o container fluid -->
+
+        </div> <!-- fecha o col-sm-7 -->
 
 
 <!-- Parte de baixo da página -->
