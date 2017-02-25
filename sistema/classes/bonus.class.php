@@ -164,7 +164,7 @@ class bonus {
 
 
         echo "<div class='col-sm-12'>";
-        echo "  <label class='alert alert-info' role='alert' style='width: 100%;'>Meditação</label>";
+//        echo "  <label class='alert alert-info' role='alert' style='width: 100%;'>Meditação</label>";
             if(mysql_num_rows($resultadoMeditacao) > 0){
                 
                 $dadosTotal = mysql_fetch_array($resultadoResumoMeditacao);
@@ -254,7 +254,7 @@ class bonus {
         //PORTAL
         
         echo "<div class='col-sm-12'>";
-        echo "  <label class='alert alert-info' role='alert' style='width: 100%;'>Portal</label>";
+//        echo "  <label class='alert alert-info' role='alert' style='width: 100%;'>Portal</label>";
             if(mysql_num_rows($resultadoResumoPortal) > 0){
                 $dadosTotalPortal = mysql_fetch_array($resultadoResumoPortal);
                 $somaPercentualPortal = $dadosTotalPortal['totalBonusPortal']/42;
@@ -275,7 +275,7 @@ class bonus {
                 echo "          <label>Semana</label>";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"por\")'>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPortalBonus(this.value, \"por\")'>";
                 if($p === "por"){
                 echo "              <option value='".$semana."'>".$semana."</option>";
                 }

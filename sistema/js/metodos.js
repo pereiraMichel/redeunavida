@@ -148,6 +148,7 @@ function preencheAutoManualPP(){
 function calculaTempo(){
 //    var hora = null;
     var min = null;
+    var duracao = document.getElementById('duracao');
 
     var inicio = document.getElementById('inicio').value;//pega os valores do início, em formato HH:mm
     var termino = document.getElementById('termino').value;//pega os valores do término, em formato HH:mm
@@ -195,11 +196,19 @@ function calculaTempo(){
     }else{
         min = calculoMinuto;
     }
-    document.getElementById('duracao').value = diferencaTempo;
+
+    if(diferencaTempo === null){
+        diferencaTempo = 0;
+        duracao.value = diferencaTempo;
+    }else{
+        duracao.value = diferencaTempo;
+    }
 //    alert(diferencaTempo);
     calculaBonusMeditacao(min);
     conferePeriodo(hora1, min1);
 }
+
+
 
 function calculaBonusMeditacao(minuto){
     var inputBonus = document.getElementById('bonus');
@@ -335,13 +344,53 @@ function calculaPortal(){
 //    var bonus;
 
 //    bonus = parseInt(sSonho.value) + parseInt(compSonho.value) + parseInt(corpo.value) + parseInt(retro.value) + parseInt(compRetro.value);
+
+    if(sSonho === ""){
+        vSonho.value = 0;
+    }else {
+        vSonho.value = sSonho;
+    }
+
+    if(compSonho === ""){
+        vCompSonho.value = 0;
+    }else {
+        vCompSonho.value = compSonho;
+    }
+
+    if(retro === ""){
+        vRetro.value = 0;
+    }else {
+        vRetro.value = retro;
+    }
+
+    if(compRetro === ""){
+        vCompRetro.value = 0;
+    }else{
+        vCompRetro.value = compRetro;
+    }
+
     
-    vSonho.value = sSonho;
-    vCompSonho.value = compSonho;
-    vCorpo.value = corpo;
-    vRetro.value = retro;
-    vCompRetro.value = compRetro;
-    
+    if(corpo === "0"){
+        vCorpo.value = 0;
+    }else if(corpo === "1"){
+        vCorpo.value = 0;
+    }else if(corpo === "2"){
+        vCorpo.value = 0;
+    }else if(corpo === "3"){
+        vCorpo.value = 1;
+    }else if(corpo === "4"){
+        vCorpo.value = 2;
+    }
+
+/*
+        vSonho.value = sSonho;
+        vCompSonho.value = compSonho;
+        vCorpo.value = corpo;
+        vRetro.value = retro;
+        vCompRetro.value = compRetro;
+
+
+*/  
     valorTotalPortal(vSonho.value, vCompSonho.value, vCorpo.value, vRetro.value, vCompRetro.value);
     
 }
@@ -349,30 +398,43 @@ function calculaPortal(){
 function valorTotalPortal(s, vcs, c, r, vcr){
     var valorBonus = document.getElementById('bonusPortais');
     var bonus = 0;
-    var corpo;
+
+//    alert(vcs); //Está indo normalmente
+
     
-    if(c === "0"){
-        corpo = 0;
-    }else if(c === "1"){
-        corpo = 0;
-    }else if(c === "2"){
-        corpo = 0;
-    }else if(c === "3"){
-        corpo = 1;
-    }else if(c === "4"){
-        corpo = 2;
-    }
-    
-    if(vcs === "" || c === "" || r === "" || vcr === ""){
-        bonus = s;
-//    }else if(c === "" || r === "" || vcr === ""){
-//        bonus = parseInt(s) + parseInt(vcs);
-    }else{
-        bonus = bonus + parseInt(s) + parseInt(vcs) + parseInt(corpo) + parseInt(r) + parseInt(vcr); //verificar se recebe string ou int
-    }
+//    if(vcs === "" || c === "" || r === "" || vcr === ""){
+//        bonus = s;
+//    }else{
+//    bonus = parseInt(bonus) + parseInt(s) + parseInt(vcs) + parseInt(corpo) + parseInt(r) + parseInt(vcr); //verificar se recebe string ou int
+//    }
+
+    bonus = parseInt(bonus) + parseInt(s) + parseInt(vcs) + parseInt(c) + parseInt(r) + parseInt(vcr);
+
     valorBonus.value = bonus;
     
 }
+
+function mascara(t){
+    var mask = "__:__";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
+
+ function mascaraData(t){
+    var mask = "__/__/____";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
 
 function preencheBonusPortal(selecao){
     var valorBonus = document.getElementById('bonusPortais');
@@ -451,6 +513,14 @@ function selecionaPPBonus(semana, pp){
     }
 }
 
+function selecionaPortalBonus(semana, pp){
+    if(semana !== "todos"){
+        window.location.href='inicio.php?m=port&tab=bonus&p='+pp+'&sem='+semana;
+    }else{
+        window.location.href='inicio.php?m=port&tab=bonus';
+    }
+}
+
 function preencheAutoManualPortal(){
     var auto = document.getElementById('auto');
     var manual = document.getElementById('manual');
@@ -461,4 +531,55 @@ function preencheAutoManualPortal(){
         document.location.href='inicio.php?m=port&tab=portal&t=manual';
     }
     
+}
+
+function preencheDataRuv(campo, id){
+
+    var semanaRuv = document.getElementById('semana');
+    var diaRuvCampo = document.getElementById('dia');
+    var dataRuv = document.getElementById('dataRuv');
+
+    var diaRuv = null;
+    var mesRuv = null;
+    var anoRuv = null;
+    var estacao = null;
+    var semana = null;
+    
+    if(id === "dataRuv"){
+//        alert("É dataRuv"); //Funciona perfeitamente
+        anoRuv = campo.substring(9, 10);
+        mesRuv = campo.substring(4, 5);
+        diaRuv = campo.substring(1, 2);
+
+        estacao = semanaRuv.value.substring(2, 3);
+        semana = semanaRuv.value.substring(4, 5);
+
+        diaRuvCampo.value = diaRuv;
+        semanaRuv.value = anoRuv + "-" + estacao + mesRuv + semana;
+
+//Ok. Preenchido corretamente.
+    }else if(id === "semana"){
+
+        mesRuv = campo.substring(3, 4);
+        anoRuv = campo.substring(0, 1);
+
+        diaRuv = diaRuvCampo.value;
+
+        dataRuv.value = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv;
+
+    }else if(id === "dia"){
+
+        mesRuv = dataRuv.value.substring(4, 5); //Correto
+        anoRuv = dataRuv.value.substring(9, 10);//Correto
+        diaRuv = campo;
+
+        dataRuv.value = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv;
+
+    }
+/*
+
+    var mesRuv = semanaRuv.substring(3, 4);
+    var anoRuv = semanaRuv.substring(0, 1);
+
+    dataRuv = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv; */
 }

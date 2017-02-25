@@ -651,6 +651,7 @@ class calendarioRuv {
         
         $pp->setDiaAnoRuv($anoLetivo);
         $pp->setDataRegistro(date("d/m/Y"));
+        $pp->setDataRuv("0".$dias."/0".$mesRuv."/201".$anoLetivo);
 //        $pp->setDiaMesRuv($mesRuv);
         $pp->setParagem($paragem);
         $pp->setDiaRuv($dias); 
@@ -700,6 +701,7 @@ class calendarioRuv {
         $portal->setDiaAnoRuv($anoLetivo);
         $portal->setDiaRuv($dias);
         $portal->setSemana($paragem);
+        $portal->setDataRuv("0".$dias."/0".$mesRuv."/201".$anoLetivo);
         $portal->setCodusuario($this->codusuario);
         $portal->telaPortais();
         
