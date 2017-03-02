@@ -87,8 +87,11 @@ if($_GET){
         case "127":
             $texto->downloaPdf("MC127Paragem232.pdf");
             break;
-//        case "127":
-//            $texto->downloaPdf("MC128Paragem233.pdf");
+        case "128":
+            $texto->downloaPdf("MC128Paragem233.pdf");
+            break;
+//        case "129":
+//            $texto->downloaPdf("MC129Paragem234.pdf");
 //            break;
     }
             echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";

@@ -268,18 +268,7 @@ class ppMeditacao {
                     $this->telaMeditacao();
                     echo "</div>";
                     break;
-//                    
-//                case "portal":
-//                    echo "<div id='portais'>";
-//                    $portais = new ppPortais();
-//                    $portais->setDiaAnoRuv($this->diaAnoRuv);
-//                    $portais->setDiaRuv($this->diaRuv);
-//                    $portais->setSemana($this->paragem);
-//                    $portais->setCodusuario($this->codusuario);
-//                    $portais->telaPortais();
-//                    echo "</div>";
-//                    break;
-                
+
                 case "registros":
                     $this->telaRegistros();
                     break;

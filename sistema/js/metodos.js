@@ -576,6 +576,20 @@ function preencheDataRuv(campo, id){
         dataRuv.value = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv;
 
     }
+
+    function preencheAutoManualTarefas(){
+        alert("Chamou a função");
+        var auto = document.getElementById('auto');
+        var manual = document.getElementById('manual');
+
+        if(auto.checked){
+            document.location.href='inicio.php?m=taref&t=auto';
+        }else if(manual.checked){
+            document.location.href='inicio.php?m=taref&t=manual';
+        }
+
+    }
+
 /*
 
     var mesRuv = semanaRuv.substring(3, 4);

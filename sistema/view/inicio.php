@@ -20,6 +20,7 @@ include_once '../classes/bonus.class.php';
 include_once '../classes/ParagemPresenca.class.php';
 include_once '../classes/autoavaliacao.class.php';
 include_once '../classes/relatorios.class.php';
+include_once '../classes/tarefas.class.php';
 include_once '../../controller/constantes.php';
 include_once '../constante/constanteSistema.php';
 include_once '../../controller/metodos.php';
@@ -83,7 +84,8 @@ $telefone = new telefone();
 $setenio = new setenio();
 $tipotelefone = new tipotelefone();
 $tipousuario = new tipousuario();
-
+$tarefas = new tarefas();
+$cal = new calendarioRuv();
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +204,7 @@ $tipousuario = new tipousuario();
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-size: 12px;">
+                                                <a href="inicio.php?m=taref" style="font-size: 12px;">
                                                     Tarefas
                                                 </a>
                                             </li>
@@ -433,27 +435,27 @@ $tipousuario = new tipousuario();
                                         <table class='table'>
                                             <tr>
                                                 <td>
-                                                    <a href="inicio.php?m=pp" class="acesso" style="font-weight: bold;">
+                                                    <a href="inicio.php?m=pp" class="acesso">
                                                         <img src="../img/meditacao.jpg" class="img-responsive" title="Meditação" width="60" height="60">
-                                                        <h5>Meditação</h5>
+                                                        <h5 style="font-weight: bold;">Meditação</h5>
                                                     </a>
                                                 </td>
                                                 <td>
                                                     <a href="inicio.php?m=port" class="acesso">
                                                         <img src="../img/portal_blue.png" class="img-responsive" title="Portal" width="75" height="75">
-                                                        <h5>Prática dos Portais</h5>
+                                                        <h5 style="font-weight: bold;">Prática dos Portais</h5>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                <a href="inicio.php?m=para" class="acesso" style="font-weight: bold;">
+                                                <a href="inicio.php?m=para" class="acesso">
                                                     <img src="../img/colaboradores.png" class="img-responsive" title="Paragem Presenças" width="43" height="43">
-                                                    <h5>Paragem Presenças</h5>
+                                                    <h5 style="font-weight: bold;">Paragem Presenças</h5>
                                                 </a>
                                                 </td>
                                                 <td>
                                                     <a href="inicio.php?m=taref" class="acesso">
                                                         <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="42" height="42">
-                                                        <h5>Tarefas</h5>
+                                                        <h5 style="font-weight: bold;">Tarefas</h5>
                                                     </a>
                                                 </td>
                                                 <td>
@@ -475,24 +477,6 @@ $tipousuario = new tipousuario();
                                 &nbsp;
                             </div>
 
-
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=taref" class="acesso">
-                                    <img src="../img/cupomFiscal.png" class="img-responsive" title="Tarefas" width="45" height="45">
-                                    <h4>Tarefas</h4>
-                                </a>
-                            </div>
-                            -->
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=para" class="acesso">
-                                    <img src="../img/colaboradores.png" class="img-responsive" title="Paragem-Presença" width="45" height="45">
-                                    <h4>Paragem-Presença</h4>
-                                </a>
-                            </div>
--->
-
                             <div class="col-sm-4 placeholder">
                                 <a href="inicio.php?m=rela" class="acesso">
                                     <img src="../img/tarefas2.png" class="img-responsive" title="Relatórios" width="45" height="45">
@@ -500,52 +484,12 @@ $tipousuario = new tipousuario();
                                 </a>
                             </div>
 
-
-                            <!-- Segunda fileira // Fecha col-sm-12 \\-->
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=aval" class="acesso">
-                                    <img src="../img/infografico.png" class="img-responsive" title="Auto Avaliação" width="45" height="45">
-                                    <h4>Auto Avaliação</h4>
-                                </a>
-                            </div>
--->
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=pp" class="acesso">
-                                    <img src="../img/meditacao.jpg" class="img-responsive" title="Meditação" width="45" height="45">
-                                    <h4>Meditação</h4>
-                                </a>
-                            </div>
--->
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=port" class="acesso">
-                                    <img src="../img/portal_blue.png" class="img-responsive" title="Portal" width="45" height="45">
-                                    <h4>Portal</h4>
-                                </a>
-                            </div>
--->
-                            <!-- Terceira fileira -->
-<!--                            
-                            <div class="col-sm-4 placeholder">
-                                &nbsp;
-                            </div>
--->
                             <div class="col-sm-4 placeholder">
                                 <a href="inicio.php?m=bonu" class="acesso">
                                     <img src="../img/tasks.png" class="img-responsive" title="Tabuleta de Bônus" width="45" height="45">
                                     <h5 style="font-weight: bold;">Tabela de Bônus</h5>
                                 </a>
                             </div>
-<!--
-                            <div class="col-xs-4 col-sm-4 placeholder">
-                                <a href="inicio.php?m=revi" class="acesso">
-                                    <img src="../img/estatistica9.png" class="img-responsive" title="Revisão" width="45" height="45">
-                                    <h4>Revisão</h4>
-                                </a>
-                            </div>
--->
                             <div class="col-xs-4 col-sm-4 placeholder">
                                 <a href="inicio.php?m=config" class="acesso">
                                     <img src="../img/panelControl.png" class="img-responsive" title="Configurações" width="45" height="45">
@@ -585,12 +529,6 @@ $tipousuario = new tipousuario();
                                                 case "a":
                                                     $usuario_class->telaAlteraUsuario();
                                                     break;
-//                                                case "e":
-//                                                    $usuario_class->telaExcluiUsuario();
-//                                                    break;
-//                                                case "d":
-//                                                    $usuario_class->telaDetalhesUsuario();
-//                                                    break;
                                             }
                                             
                                         }else if ($tarefa == "usit"){
@@ -630,16 +568,6 @@ $tipousuario = new tipousuario();
                                                             $cal->configuracaoCalendario("ppMeditacao");
 //                                                            $pp->telaNovoPP();
                                                             break;
-//                                                        case "p1":
-//                                                            $pp1 = new ppMed1();
-//                                                            $pp1->setCodusuario($_SESSION['idusuario']);
-//                                                            $pp1->telaPP1();
-//                                                            break;
-//                                                        case "p2":
-//                                                            $pp2 = new ppMed2();
-//                                                            $pp2->setCodusuario($_SESSION['idusuario']);
-//                                                            $pp2->telaPP2();
-//                                                            break;
                                                     }
                                                     
 //                                                    $pp->telaPP();
@@ -707,7 +635,6 @@ $tipousuario = new tipousuario();
                                                             break;
                                                         
                                     case "para":            
-                                                        $cal = new calendarioRuv();
                                                         $paragemPresenca = new ParagemPresenca();
                                                         
                                                         $paragemPresenca->setCodusuario($_SESSION['idusuario']);
@@ -758,8 +685,11 @@ $tipousuario = new tipousuario();
 
                                                             }
                                                             break;
-                                    case "taref":   $erro = new erros();
-                                                            $erro->error404();
+                                    case "taref":
+                                                    $tarefas = new tarefas();
+                                                    $tarefas->setCodusuario($_SESSION['idusuario']); 
+                                                    $cal->configuracaoCalendario("tarefas");
+                                                    //$tarefas->telaInicialTarefas();
                                                             break;
 //                                    case "suporte":   $suporte = new modelSuporte();
 //                                                            $suporte->telaContato();

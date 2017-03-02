@@ -295,6 +295,8 @@ class calendarioRuv {
             $this->calendarioPortal($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }else if($pagina === "paragempresenca"){
             $this->calendarioParagem($semana, $mesRuv, $codEstacao);
+        }else if($pagina === "tarefas"){
+            $this->calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao);
         }
     }
     
@@ -731,6 +733,16 @@ class calendarioRuv {
         
 //        echo "<script>alert(".$anoLetivo.")</script>"; //Está indo normal.
         
+    }
+
+    public function calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao){
+        $tarefa = new tarefas();
+
+        $tarefa->setSemanaRuv($codEstacao.$mesRuv.$semana);
+        $tarefa->setAnoRuv($anoLetivo);
+        
+        $tarefa->telaTarefas();
+
     }
     
 }
