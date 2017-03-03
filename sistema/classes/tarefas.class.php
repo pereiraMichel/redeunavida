@@ -30,7 +30,6 @@ class tarefas{
 		$this->diaRuv = $diaruv;
 	}
 
-
 	function getCodUsuario(){
 		return $this->codusuario;
 	}
@@ -162,12 +161,6 @@ class tarefas{
             echo "              Bônus";
             echo "          </a>";
             echo "  </div>";
-/*			echo "<ul class='nav nav-tabs'>";
-			echo "	<li role='presentation' $tarActive><a href='inicio.php?m=taref&tab=tarefa'>Tarefas</a></li>";
-			echo "  <li role='presentation' $regActive><a href='inicio.php?m=taref&tab=registros'>Registros</a></li>";
-			echo "  <li role='presentation' $bonusActive><a href='inicio.php?m=taref&tab=bonus'>Bônus</a></li>";
-			echo "</ul>";*/
-
             echo "  <p style='height: 20px;'>&nbsp;</p>";
             
             switch ($tab){
@@ -193,7 +186,7 @@ class tarefas{
             }
             echo "</div>";//fecha o col-sm-12
             
-            echo "</div>";
+//            echo "</div>";
 
 	}
 
@@ -206,6 +199,12 @@ class tarefas{
 	}
 
 	public function telaInicialTarefas(){
+
+		$con = new conectaBanco();
+		$con->conecta();
+
+		$sqlTarefaSystem = "SELECT * FROM tarefasistema";
+
 		echo "<div class='col-sm-12'>";
         $tar = filter_input(INPUT_GET, "t");
         $tab = filter_input(INPUT_GET, 'tab');
@@ -229,73 +228,54 @@ class tarefas{
 //            $this->meditacaoBotao();
 //            $this->tarefaCheck();
 
+/*            echo "<table class='table' style='text-align: justify;'>";
+            echo "	<tr>";
+            echo "		<td width='90'>";
+			echo "			<label>Data RUV</label>";
+			echo "		</td>";
+			echo"		<td>";
+			echo "			<input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onchange='preencheDataRuv(this.value, \"dataRuv\" )' onkeypress='mascaraData(this)'>";
+			echo "		</td>";
+			echo "	</tr>";*/
 
-/*			echo "<!-- Tab panes -->";
-			echo "	<div class='tab-content'>";
+//			echo "<label>Semana<input type='text' name='semana' id='semana' class='form-control' value='".$semana."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'></label>";
 
-			switch ($tab) {
-				case 'registro':
-					echo "		<div role='tabpanel' class='tab-pane' id='registro'>";
-					echo "			Registro";
-					echo "		</div>";
-					break;
-				case 'bonus':
-					echo "		<div role='tabpanel' class='tab-pane' id='bonus'>";
-					echo "			Bônus";
-					echo "		</div>";
-					break;
-				
-				default:
-					echo "		<div role='tabpanel' class='tab-pane' id='tarefa'>";
-					echo "			Tarefas";
-					echo "		</div>";
-					break;
-			}
+//			echo "</table>";
 
-			echo "  </div>";			
-*/
+            echo "          <table class='table' style='text-align: justify; border: none;'>";
 
-			echo "<label>Data RUV";
+            echo "              <tr>";
+            echo "                  <td width='30'>";
+            echo "                      <label>Data</label>";
+            echo "					</td>";
+            echo "					<td width='100'>";
+            echo "                      <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onchange='preencheDataRuv(this.value, \"dataRuv\" )' onkeypress='mascaraData(this)'>";
+            echo "                      <input type='hidden' name='dataHoje' id='dataHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required>";
+
+            echo "                  </td>";
+            echo "                  <td width='30'>";
+            echo "                      <label>Semana RUV</label>";
+            echo "                  </td>";
+            echo "                  <td width='100'>";
+            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$semana."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'>";
+            echo "                  </td>";
+/*            echo "                  <td width='20'>";
+            echo "                      <label>Dia RUV</label>";
+            echo "                  </td>";
+            echo "                  <td width='100'>";
+            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' required onchange='preencheDataRuv(this.value, \"dia\")'>";
+            echo "                  </td>";*/
+            echo "				</tr>";
+
+            echo "          </table>";
 
             echo "          <table class='table' style='text-align: justify;'>";
 
-            echo "              <tr>";
-            echo "                  <td>";
-            echo "                      <label>Data RUV</label>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <label>Semana</label>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <label>Dia</label>";
-            echo "                  </td>";
-            echo "				</tr>";
-
-            echo "              <tr>";
-            echo "                  <td>";
-            echo "                      <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onchange='preencheDataRuv(this.value, \"dataRuv\" )' onkeypress='mascaraData(this)'>";
-
-            echo "                      <input type='hidden' name='dataHoje' id='dataHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$semana."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' required onchange='preencheDataRuv(this.value, \"dia\")'>";
-            echo "                  </td>";
-            echo "				</tr>";
-
             echo "				<tr>";
-/*            echo "                  <td>";
-            echo "                      <label>Semana RUV</label>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <label>Semana RUF</label>";
-            echo "                  </td>";*/
             echo "                  <td>";
             echo "                      <label>Discriminação da Tarefa</label>";
             echo "                  </td>";
-            echo "                  <td>";
+            echo "                  <td style='text-align: center;'>";
             echo "                      <label>Status</label>";
             echo "                  </td>";
             echo "                  <td colspan='2'>";
@@ -304,19 +284,33 @@ class tarefas{
             echo "              </tr>";
 
             echo "              <tr style='text-align: center;'>";
-/*            echo "                  <td>";
-            echo "                      <input type='text' name='semanaruv' id='semanaruv' class='form-control' style='width: 80px;' required>";
-            echo "                  </td>";
-            echo "                  <td>";
-            echo "                      <input type='text' name='semanaruf' id='semanaruf' class='form-control' style='width: 80px;' required>";
-            echo "                  </td>";*/
             echo "                  <td>";
            	echo "						<select name='tarefas' class='form-control'>";
            	echo "							<option name=''>Não selecionado</option>";
+           	
+           	try{
+
+           		$resultTarefaSystem = mysql_query($sqlTarefaSystem) or die("Erro no comando SQL de consulta Tarefas do Sistema. Erro: ".mysql_error());
+
+           		if(mysql_num_rows($resultTarefaSystem) > 0){
+
+           			while($dadosTarefaSist = mysql_fetch_array($resultTarefaSystem)){
+           				echo "<option value=".$dadosTarefaSist['idtarefasistema'].">".$dadosTarefaSist['tarefa']."</option>";
+           			}
+
+
+           		}
+
+           	}catch(Exception $ex){
+           		echo "Exception ativado. Descrição: ".$ex->getMessage();
+           	}
+
+
            	echo "						</select>";
             echo "                  </td>";
             echo "                  <td>";
-           	echo "						<input type='radio' name='opcao' value='sim'> Sim";
+
+           	echo "						<input type='radio' name='opcao' value='sim'> Sim   |   ";
            	echo "						<input type='radio' name='opcao' value='nao'> Não";
             echo "                  </td>";
 
@@ -366,7 +360,7 @@ class tarefas{
                 $this->verificaPP();
             }
         }
-		echo "</div>";
+		echo "</div>";//fecha a div col-sm-12
 	}
 
 	function tarefaCheck(){

@@ -189,27 +189,27 @@ $cal = new calendarioRuv();
                                     <div id="menuRegistro" class="collapse" style="height: 0px;">
                                         <ul class="nav nav-list">
                                             <li>
-                                                <a href="inicio.php?m=pp" style="font-size: 12px;">
+                                                <a href="inicio.php?m=pp" style="font-size: 12px; color: #1f226d;">
                                                     Meditação
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="inicio.php?m=port" style="font-size: 12px;">
+                                                <a href="inicio.php?m=port" style="font-size: 12px; color: #1f226d;">
                                                     Prática dos Portais
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-size: 12px;">
+                                                <a href="#" style="font-size: 12px; color: #1f226d;">
                                                     Paragem Presenças
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="inicio.php?m=taref" style="font-size: 12px;">
+                                                <a href="inicio.php?m=taref" style="font-size: 12px; color: #1f226d;">
                                                     Tarefas
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-size: 12px;">
+                                                <a href="#" style="font-size: 12px; color: #1f226d;">
                                                     Serviços e Extras
                                                 </a>
                                             </li>

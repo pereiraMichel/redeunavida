@@ -501,7 +501,7 @@ class classTexto {
         echo "                  <b>Texto do Evangelho desta semana - domingo - 26.02.2017<br>";
         echo "                  MC 233</b><br>";
         echo "              <br><br>";
-        echo "                  <a role='button' href='downloads/meditacaocrista/MC128Paragem233Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (26.02.2017).";
+        echo "                  <a role='button' href='downloads/meditacaocrista/MC129Paragem234Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (05.03.2017).";
         echo "              <br><br>";
         echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC128Paragem233.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (26.02.2017).";
         echo "              <br><br>";
