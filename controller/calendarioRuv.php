@@ -294,9 +294,11 @@ class calendarioRuv {
         }else if($pagina === "ppPortal"){
             $this->calendarioPortal($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }else if($pagina === "paragempresenca"){
-            $this->calendarioParagem($semana, $mesRuv, $codEstacao);
+            $this->calendarioParagem($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }else if($pagina === "tarefas"){
             $this->calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao);
+        }else if($pagina === "servicos"){
+            $this->calendarioServicos($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }
     }
     
@@ -708,40 +710,83 @@ class calendarioRuv {
         $portal->telaPortais();
         
     }
-    public function calendarioParagem($semana, $mesRuv, $estacao){
+    public function calendarioParagem($anoLetivo, $mesRuv, $codEstacao, $semana, $dias){
         $paragem = new ParagemPresenca();
         
-        $parag = $estacao.$mesRuv.$semana;
+        $semanaRuv = $estacao.$mesRuv.$semana;
         
-        $paragem->setParagem($parag);
+        $paragem->setSemanaRuv($semanaRuv);
 
-//        echo "Ano Letivo: ".$anoLetivo."<br>";
-//        echo "Mês RUV: ".$mesRuv."<br>";
-//        echo "Estação: ".$estacao."<br>";
-//        echo "Semana: ".$semana."<br>";
-//        echo "Dias: ".$dias."<br>";
-        echo "<label>Paragem: ".$parag."</label>";
-
-        $paragem->telaNovaParagem();
-        
-//        $pp = $estacao.$mesRuv.$semana;
-//        
-//        $paragem->setDiaAnoRuv($anoLetivo);
-//        $paragem->setDiaMesRuv($mesRuv);
-//        
-//        $paragem->telaNovoPP();
-        
-//        echo "<script>alert(".$anoLetivo.")</script>"; //Está indo normal.
+        $paragem->telaInicialPresencaParagem();
         
     }
 
     public function calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao){
+        $dataJava = date('N');
+        
+        $dataSemanaJava = array(
+            7 => 'Domingo',
+            1 => '2ª feira',
+            2 => '3ª feira',
+            3 => '4ª feira',
+            4 => '5ª feira',
+            5 => '6ª feira',
+            6 => 'Sábado'
+        );
+        
+        $dataSemanaNumerica = array(
+            7 => '1',
+            1 => '2',
+            2 => '3',
+            3 => '4',
+            4 => '5',
+            5 => '6',
+            6 => '7'
+            
+        );
+        $dias = $dataSemanaNumerica[$dataJava];
+
         $tarefa = new tarefas();
 
         $tarefa->setSemanaRuv($codEstacao.$mesRuv.$semana);
         $tarefa->setAnoRuv($anoLetivo);
+        $tarefa->setDiaRuv($dias);
         
         $tarefa->telaTarefas();
+
+    }
+    public function calendarioServicos($anoLetivo, $mesRuv, $codEstacao, $semana, $dias){
+        $dataJava = date('N');
+        
+        $dataSemanaJava = array(
+            7 => 'Domingo',
+            1 => '2ª feira',
+            2 => '3ª feira',
+            3 => '4ª feira',
+            4 => '5ª feira',
+            5 => '6ª feira',
+            6 => 'Sábado'
+        );
+        
+        $dataSemanaNumerica = array(
+            7 => '1',
+            1 => '2',
+            2 => '3',
+            3 => '4',
+            4 => '5',
+            5 => '6',
+            6 => '7'
+            
+        );
+        $dias = $dataSemanaNumerica[$dataJava];
+
+        $s = new servExtras();
+
+        $s->setSemanaRuv($codEstacao.$mesRuv.$semana);
+        $s->setAnoRuv($anoLetivo);
+        $s->setDiaRuv($dias);
+        
+        $s->telaServExtras();
 
     }
     

@@ -1,148 +1,157 @@
 <?php
 
-class tarefas{
+class servExtras{
 	
-	private $idtarefa;
+	private $idservicos;
 	private $dataRuv;
 	private $dataRegistro;
+	private $diaRuv;
 	private $semanaRuv;
-	private $semanaRuf;
-	private $tarefa;
-	private $status;
+	private $focalizacao;
+	private $opcaofocalizacao;
+	private $presenca;
+	private $opcaopresenca;
+	private $outros;
 	private $bonus;
 	private $codusuario;
-	private $anoRuv;
-	private $diaRuv;
-
-	function getAnoRuv(){
-		return $this->anoRuv;
-	}
-
-	function getDiaRuv(){
-		return $this->anoRuv;
-	}
-
-	function setAnoRuv($anoruv){
-		$this->anoRuv = $anoruv;
-	}
-
-	function setDiaRuv($diaruv){
-		$this->diaRuv = $diaruv;
-	}
-
-	function getCodUsuario(){
-		return $this->codusuario;
-	}
-
-	function setCodUsuario($codusuario){
-		$this->codusuario = $codusuario;
-	}
-
-	function getIdTarefa(){
-		return $this->idtarefa;
-	}
 
 	function getDataRuv(){
 		return $this->dataRuv;
+	}
+	
+	function setDataRuv($dataRuv){
+		$this->dataRuv = $dataRuv;
+	}
+
+	function getIdservicos(){
+		return $this->idservicos;
+	}
+
+	function setIdservicos($idservicos){
+		$this->idservicos = $idservicos;
 	}
 
 	function getDataRegistro(){
 		return $this->dataRegistro;
 	}
 
+	function setDataRegistro($dataRegistro){
+		$this->dataRegistro = $dataRegistro;
+	}
+
+	function getDiaRuv(){
+		return $this->diaRuv;
+	}
+
+	function setDiaRuv($diaRuv){
+		$this->diaRuv = $diaRuv;
+	}
+
 	function getSemanaRuv(){
 		return $this->semanaRuv;
-	}
-
-	function getSemanaRuf(){
-		return $this->semanaRuf;
-	}
-
-	function getTarefa(){
-		return $this->tarefa;
-	}
-
-	function getStatus(){
-		return $this->status;
-	}
-
-	function getBonus(){
-		return $this->bonus;
-	}
-
-	function setIdTarefa($idtarefa){
-		$this->idtarefa = $idtarefa;
-	}
-
-	function setDataRuv($dataruv){
-		$this->dataRuv = $dataruv;
-	}
-
-	function setDataRegistro($dataregistro){
-		$this->dataRegistro = $dataregistro;
 	}
 
 	function setSemanaRuv($semanaruv){
 		$this->semanaRuv = $semanaruv;
 	}
 
-	function setSemanaRuf($semanaruf){
-		$this->semanaRuf = $semanaruf;
+	function getFocalizacao(){
+		return $this->focalizacao;
 	}
 
-	function setTarefa($tarefa){
-		$this->tarefa = $tarefa;
+	function setFocalizacao($focalizacao){
+		$this->focalizacao = $focalizacao;
 	}
 
-	function setStatus($status){
-		$this->status = $status;
+	function getOpcaofocalizacao(){
+		return $this->opcaofocalizacao;
+	}
+
+	function setOpcaofocalizacao($opcaofocalizacao){
+		$this->opcaofocalizacao = $opcaofocalizacao;
+	}
+
+	function getPresenca(){
+		return $this->presenca;
+	}
+
+	function setPresenca($presenca){
+		$this->presenca = $presenca;
+	}
+
+	function getOpcaopresenca(){
+		return $this->opcaopresenca;
+	}
+
+	function setOpcaopresenca($opcaopresenca){
+		$this->opcaopresenca = $opcaopresenca;
+	}
+
+	function getOutros(){
+		return $this->outros;
+	}
+
+	function setOutros($outros){
+		$this->outros = $outros;
+	}
+
+	function getBonus(){
+		return $this->bonus;
 	}
 
 	function setBonus($bonus){
 		$this->bonus = $bonus;
 	}
 
+	function getCodusuario(){
+		return $this->codusuario;
+	}
 
-	public function telaTarefas(){
+	function setCodusuario($codusuario){
+		$this->codusuario = $codusuario;
+	}
+
+
+	public function telaInicialServ(){
         $tab = filter_input(INPUT_GET, 'tab');
         
         switch($tab){
             default :
-            	$tarActive = "class = 'active'";
+            	$servActive = "class = 'active'";
                 $regActive = "";
                 $bonusActive = "";
 
-                $taref = "btn-primary";
+                $serv = "btn-primary";
                 $reg = "btn-default";
                 $bns = "btn-default";
                 break;
                 
             case "tarefa":
-            	$tarActive = "class = 'active'";
+            	$servActive = "class = 'active'";
                 $regActive = "";
                 $bonusActive = "";
 
-                $taref = "btn-primary";
+                $serv = "btn-primary";
                 $reg = "btn-default";
                 $bns = "btn-default";
                 break;
             
             case "registros":
-            	$tarActive = "";
+            	$servActive = "";
                 $regActive = "class = 'active'";
                 $bonusActive = "";
 
-                $taref = "btn-default";
+                $serv = "btn-default";
                 $reg = "btn-primary";
                 $bns = "btn-default";
                 break;
             
             case "bonus":
-            	$tarActive = "";
+            	$servActive = "";
                 $regActive = "";
                 $bonusActive = "class = 'active'";
 
-                $taref = "btn-default";
+                $serv = "btn-default";
                 $reg = "btn-default";
                 $bns = "btn-primary";
                 break;
@@ -151,13 +160,13 @@ class tarefas{
             echo "<p style='height: 20px;'>&nbsp;</p>";
             echo "<div class='col-sm-12'>";
             echo "  <div class='btn-group btn-group-justified' role='group'>";
-            echo "          <a href='inicio.php?m=taref' class='btn $taref' style='width: 90px;'>";
-            echo "              Tarefas";
+            echo "          <a href='inicio.php?m=serv' class='btn $serv' style='width: 90px;'>";
+            echo "              Serviços e Extras";
             echo "          </a>";
-            echo "          <a href='inicio.php?m=taref&tab=registros' class='btn $reg' style='width: 90px;'>";
+            echo "          <a href='inicio.php?m=serv&tab=registros' class='btn $reg' style='width: 90px;'>";
             echo "              Registros";
             echo "          </a>";
-            echo "          <a href='inicio.php?m=taref&tab=bonus' class='btn $bns' style='width: 90px;'>";
+            echo "          <a href='inicio.php?m=serv&tab=bonus' class='btn $bns' style='width: 90px;'>";
             echo "              Bônus";
             echo "          </a>";
             echo "  </div>";
@@ -165,72 +174,25 @@ class tarefas{
             
             switch ($tab){
                 default:
-                    echo "<div id='tarefas'>";
-                    $this->telaInicialTarefas();
+                    echo "<div id='serv'>";
+                    $this->telaServExtras();
                     echo "</div>";
                     break;
 
                 case "registros":
-                    $this->telaRegistroTarefas();
+                    $this->telaRegistroServ();
                     break;
 
                 case "bonus":
-                    $this->telaBonusTarefas();
-/*                    echo "<div id='bonus'>";
-                    $bonus = new bonus();
-                    $bonus->setCodusuario($this->codusuario);
-                    $bonus->telaBonusTarefas();
-                    echo "</div>";*/
+                    $this->telaBonusServ();
                     break;
                     
             }
             echo "</div>";//fecha o col-sm-12
-            
-//            echo "</div>";
 
 	}
 
-	public function telaBonusTarefas(){
-		echo "Bônus Tarefas";
-	}
-
-	public function telaRegistroTarefas(){
-		$con = new conectaBanco();
-		$con->conecta();
-
-		$sqlRegistroTarefas = "	SELECT * FROM tarefas ta
-								INNER JOIN tarefasistema ts ON ta."; //falta completar
-
-		echo "<div class='col-sm-12'>";
-		echo "	<table class='table'>";
-		echo "		<tr>";
-		echo "			<td>";
-		echo "				Data";
-		echo "			</td>";
-		echo "			<td>";
-		echo "				Semana";
-		echo "			</td>";
-		echo "			<td>";
-		echo "				Tarefa";
-		echo "			</td>";
-		echo "			<td>";
-		echo "				Status";
-		echo "			</td>";
-		echo "			<td>";
-		echo "				Bônus";
-		echo "			</td>";
-		echo "		</tr>";
-
-
-
-
-		echo "	</table>";
-		echo "</div>";
-
-	}
-
-	public function telaInicialTarefas(){
-
+	public function telaServExtras(){
 		$con = new conectaBanco();
 		$con->conecta();
 
@@ -279,7 +241,7 @@ class tarefas{
             echo "          <table class='table' style='text-align: justify;'>";
             echo "				<tr>";
             echo "                  <td>";
-            echo "                      <label>Discriminação da Tarefa</label>";
+            echo "                      <label>Focalização</label>";
             echo "                  </td>";
             echo "                  <td style='text-align: center;'>";
             echo "                      <label>Status</label>";
@@ -369,67 +331,38 @@ class tarefas{
 		echo "</div>";//fecha a div col-sm-12
 	}
 
-	function tarefaCheck(){
-            $tar = filter_input(INPUT_GET, "t");
-            
-            $dataMarcada = "checked";
-            $nivelMarcado = "";
+	public function telaRegistrosServ(){
 
-            if($tar === "auto"){
-                $auto = "active";
-                $manual = "";
-                $check = "checked";
-            }else if ($tar === "manual"){
-                $manual = "active";
-                $auto = "";
-                $check = "";
-            }else{
-                $manual = "active";
-                $auto = "";
-                $check = "";
-            }
-            
-//            echo "<div role='tabpanel' class='tab-pane active' id='meditacao'>";
-            echo "<div class='col-sm-8'>";
-            echo "  <table>";
-            echo "      <tr>";
-            echo "          <td>";
-            echo "          <div class='btn-group' data-toggle='buttons'>";// btn-group-justified  role='group'
-            echo "              <label class='btn btn-default $auto'>";
-            echo "                  <input type='radio' name='opcao' id='auto' name='auto' onclick='preencheAutoManualTarefas()'> Automático";
-            echo "              </label>";
-            echo "              <label class='btn btn-default $manual' style='width: 95px;'>";
-            echo "                  <input type='radio' name='opcao' id='manual' name='manual' onclick='preencheAutoManualTarefas()'> Manual";
-            echo "              </label>";
-            echo "          </div>";
-            echo "          </td>";
-            echo "          <td>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "          <td>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "          <td>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "          <td>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "          <td>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "			<td>";
-            echo "				Semana RUV: ".$this->semanaRuv;
-            echo "			</td>";
-            echo "      </tr>";
-            echo "      <tr>";
-            echo "          <td colspan='7'>";
-            echo "              &nbsp;";
-            echo "          </td>";
-            echo "      </tr>";
-            echo "  </table>";
-            echo "</div>";
+		$con = new conectaBanco();
+		$con->conecta();
+
+		$sqlRegistro = "SELECT * FROM servicos WHERE codusuario = ".$this->codusuario;
+
+		echo "<div class='col-sm-12'>";
+		echo "	<table class='table'>";
+		echo "		<tr>";
+		echo "			<td>";
+		echo "				";
+		echo "			</td>";
+		echo "		</tr>";
+		echo "	</table>";
+		echo "</div>";
 
 	}
+
+	public function telaBonusServ(){
+
+	}
+
+	public function novoServico(){
+
+	}
+
+	public function excluirServico(){
+
+	}
+
+	public function
+
 
 }

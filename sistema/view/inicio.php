@@ -21,6 +21,7 @@ include_once '../classes/ParagemPresenca.class.php';
 include_once '../classes/autoavaliacao.class.php';
 include_once '../classes/relatorios.class.php';
 include_once '../classes/tarefas.class.php';
+include_once '../classes/servExtras.class.php';
 include_once '../../controller/constantes.php';
 include_once '../constante/constanteSistema.php';
 include_once '../../controller/metodos.php';
@@ -199,7 +200,7 @@ $cal = new calendarioRuv();
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-size: 12px; color: #1f226d;">
+                                                <a href="inicio.php?m=para" style="font-size: 12px; color: #1f226d;">
                                                     Paragem Presenças
                                                 </a>
                                             </li>
@@ -209,7 +210,7 @@ $cal = new calendarioRuv();
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-size: 12px; color: #1f226d;">
+                                                <a href="inicio.php?m=serv" style="font-size: 12px; color: #1f226d;">
                                                     Serviços e Extras
                                                 </a>
                                             </li>
@@ -286,8 +287,8 @@ $cal = new calendarioRuv();
                                 break;
                             case "bonu": echo "<div align='center'><h5><b>Tabela de ".BONUS."</b></h5></div>";
                                 break;
-                            case "tare": echo "<div align='center'><h5><b>".TAREFAS."</b></h5></div>";
-                                break;
+//                            case "tare": echo "<div align='center'><h5><b>".TAREFAS."</b></h5></div>";
+//                                break;
                             case "config": 
                                 
                                 if($tarefa == ""){
@@ -332,7 +333,11 @@ $cal = new calendarioRuv();
                                 break;
                             case "suporte": echo "<div align='center'><h5><b>".SUPORTE."</b></h5></div>";
                                 break;
-                            case "taref": echo "<div align='center'><h5><b>Tarefas</b></h5></div>";
+                            case "taref":
+                                    echo "<div align='center'>";
+                                    echo "  <img src='../img/text-icon.png' class='img-responsive' title='Tarefas' width='42' height='42' style='text-align: center;'>";
+                                     echo " <div align='center'><h5><b>Tarefas</b></h5></div>";
+                                     echo "</div>";
                                 break;
                             case "para": 
                                     echo "<div align='center'>";
@@ -369,10 +374,6 @@ $cal = new calendarioRuv();
                                     echo "<img src='../img/portal_blue.png' class='img-responsive' title='Paragem' width='45' height='45'>";
                                     if($tarefa === "" or $tarefa === null){
                                         echo "<div align='center'><h5><b>Prática dos Portais</b></h5></div>";
-                                    }else if ($tarefa === "npp"){
-                                        echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
-                                    }else if ($tarefa === "p1"){
-                                        echo "<div align='center'><h5><b>PP - Portais</b></h5></div>";
                                     }else if($tarefa === "auto"){
                                         echo "<div align='center'><h5><b>Prática dos Portais - Automático</b></h5></div>";
                                     }else if($tarefa === "manual"){
@@ -388,7 +389,7 @@ $cal = new calendarioRuv();
                                     }
                                     echo "</div>";
                                 break;
-                            case "aval": 
+/*                            case "aval": 
                                     echo "<div align='center'>";
                                     echo "<img src='../img/infografico.png' class='img-responsive' title='Revisão' width='50' height='50'>";
                                     if($tarefa === "" or $tarefa === null){
@@ -396,6 +397,16 @@ $cal = new calendarioRuv();
                                     }else if ($tarefa === "naval"){
                                         echo "<div align='center'><h5><b>Nova Auto Avaliação</b></h5></div>";
                                     }
+                                    echo "</div>";*/
+                                break;
+                            case "serv": 
+                                    echo "<div align='center'>";
+                                    echo "<img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='50' height='50'>";
+//                                    if($tarefa === "" or $tarefa === null){
+                                        echo "<h5><b>Serviços e Extras</b></h5>";
+/*                                    }else if ($tarefa === "naval"){
+                                        echo "<div align='center'><h5><b>Nova Auto Avaliação</b></h5></div>";
+                                    }*/
                                     echo "</div>";
                                 break;
                         }
@@ -459,8 +470,8 @@ $cal = new calendarioRuv();
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="inicio.php?m=servt" class="acesso">
-                                                        <img src="../img/text-icon.png" class="img-responsive" title="Tarefas" width="42" height="42">
+                                                    <a href="inicio.php?m=serv" class="acesso">
+                                                        <img src="../img/text-icon.png" class="img-responsive" title="Serviços e Extras" alt='Serviços e Extras' width="42" height="42">
                                                         <h5 style='font-weight: bold;'>
                                                             Serviços e Extras
                                                         </h5>
@@ -635,17 +646,17 @@ $cal = new calendarioRuv();
                                                             break;
                                                         
                                     case "para":            
-                                                        $paragemPresenca = new ParagemPresenca();
                                                         
-                                                        $paragemPresenca->setCodusuario($_SESSION['idusuario']);
+                                                        //$paragemPresenca->setCodusuario($_SESSION['idusuario']);
                                                             switch ($tarefa){
 
                                                                 default:
-                                                                    $paragemPresenca->telaParagemPresenca();
+                                                                    $cal->configuracaoCalendario("paragempresenca");
+                                                                    //$paragemPresenca->telaParagemPresenca();
                                                                     break;
                                                                 
-                                                                case "npar":
-                                                                    $cal->configuracaoCalendario("paragempresenca");
+/*                                                                case "npar":
+                                                                    
 //                                                                    $paragemPresenca->telaNovaParagem();
                                                                     break;
                                                                 
@@ -655,7 +666,7 @@ $cal = new calendarioRuv();
 
                                                                 case "exc":
                                                                     $paragemPresenca->telaExcluiParPresenca();
-                                                                    break;
+                                                                    break;*/
 
                                                             }
                                                             break;
@@ -690,6 +701,11 @@ $cal = new calendarioRuv();
                                                     $tarefas->setCodusuario($_SESSION['idusuario']); 
                                                     $cal->configuracaoCalendario("tarefas");
                                                     //$tarefas->telaInicialTarefas();
+                                                            break;
+                                    case "serv":
+                                                    $serv = new servExtras();
+                                                    $serv->setCodusuario($_SESSION['idusuario']); 
+                                                    $cal->configuracaoCalendario("servicos");
                                                             break;
 //                                    case "suporte":   $suporte = new modelSuporte();
 //                                                            $suporte->telaContato();
