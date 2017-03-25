@@ -713,9 +713,38 @@ class calendarioRuv {
     public function calendarioParagem($anoLetivo, $mesRuv, $codEstacao, $semana, $dias){
         $paragem = new ParagemPresenca();
         
-        $semanaRuv = $estacao.$mesRuv.$semana;
+        $dataJava = date('N');
         
+        $dataSemanaJava = array(
+            7 => 'Domingo',
+            1 => '2ª feira',
+            2 => '3ª feira',
+            3 => '4ª feira',
+            4 => '5ª feira',
+            5 => '6ª feira',
+            6 => 'Sábado'
+        );
+        
+        $dataSemanaNumerica = array(
+            7 => '1',
+            1 => '2',
+            2 => '3',
+            3 => '4',
+            4 => '5',
+            5 => '6',
+            6 => '7'
+            
+        );
+        $dias = $dataSemanaNumerica[$dataJava];
+
+//        $paragem->setAnoRuv($anoLetivo);
+        $paragem->setDiaRuv($dias);
+//        $paragem->setMesRuv($mesRuv);
+        $paragem->setCodusuario($this->codusuario);
+        $semanaRuv = $anoLetivo."-".$codEstacao.$mesRuv.$semana;
         $paragem->setSemanaRuv($semanaRuv);
+        $paragem->setDataRuv("0".$dias."/0".$mesRuv."/201".$anoLetivo);
+
 
         $paragem->telaInicialPresencaParagem();
         
@@ -751,7 +780,9 @@ class calendarioRuv {
         $tarefa->setSemanaRuv($codEstacao.$mesRuv.$semana);
         $tarefa->setAnoRuv($anoLetivo);
         $tarefa->setDiaRuv($dias);
-        
+        $tarefa->setMesRuv($mesRuv);
+        $tarefa->setCodusuario($this->codusuario);
+
         $tarefa->telaTarefas();
 
     }
@@ -782,11 +813,16 @@ class calendarioRuv {
 
         $s = new servExtras();
 
-        $s->setSemanaRuv($codEstacao.$mesRuv.$semana);
+        $semanaRuv = $anoLetivo."-".$codEstacao.$mesRuv.$semana;
+
+        $s->setSemanaRuv($semanaRuv);
         $s->setAnoRuv($anoLetivo);
         $s->setDiaRuv($dias);
+        $s->setMesRuv($mesRuv);
+        $s->setCodusuario($this->codusuario);
+        $s->setDataRuv("0".$dias."/0".$mesRuv."/201".$anoLetivo);
         
-        $s->telaServExtras();
+        $s->telaInicialServ();
 
     }
     

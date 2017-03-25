@@ -172,6 +172,8 @@ class ppMeditacao {
             if($resultadoInserePP){
                 echo "<label class='alert alert-success'>Salvo com sucesso!</label>";
                 echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=pp&tab=meditacao'>";
+                $atividade = new atividades();
+                $atividade->writeLog($_SESSION['usuario'], "Inclusão da Meditação. Semana: ".$this->paragem, "../controller/");
                 return true;
             }
             return false;
@@ -193,6 +195,9 @@ class ppMeditacao {
             $resultadoAlteraPP = mysql_query($sqlAlteraPP) or die ("Erro comando SQL (Alteração PP). Descrição: ".mysql_error());
             if($resultadoAlteraPP){
                 echo "Alterado com sucesso !";
+                $atividade = new atividades();
+                $atividade->writeLog($_SESSION['usuario'], "Alteração da Meditação. Semana: ".$this->paragem, "../controller/");
+
                 return true;
             }
             return false;
@@ -284,15 +289,8 @@ class ppMeditacao {
             }
             echo "</div>";//fecha o col-sm-12
             
-//            if($mens === "s"){
-//                echo "<label class='alert alert-success'>".$tabela." salvo com sucesso!</label>";
-//                echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=pp'>";
-//            }else if($mens === "n"){
-//                echo "<label class='alert alert-danger'>Ocorreu um erro ao salvar ".$tabela."</label>";
-//                echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=pp'>";
-//            }
             
-            echo "</div>";
+            echo "</div>"; // ?
             
     }
 
@@ -403,12 +401,14 @@ class ppMeditacao {
     }
     
     public function telaConsultaMeditacao(){
+        //$a = new atividades();
+
         echo "<div class='col-sm-12'>";
 //        echo "<label class='alert alert-info' style='width: 100%;'>Meditação</label>";
 
         $conecta = new conectaBanco();
         $conecta->conecta();
-        $sqlPP = "SELECT *, DATE_FORMAT(`dataRegistro`, '%d/%c/%Y') AS dataMeditacao 
+        $sqlPP = "SELECT *, DATE_FORMAT(`dataRegistro`, '%d/%c/%Y') AS dataMeditacao, DATE_FORMAT(`dataRuv`, '%d/%c/%Y') AS dataRuvFormnat 
                   FROM pp
                   WHERE codusuario = ".$this->codusuario;
         
@@ -444,16 +444,16 @@ class ppMeditacao {
                     echo "                      <label>Bônus</label>";
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo "                      <label>Período</label>";
+                    echo "                      <label>Operação</label>";
                     echo "                  </td>";
-                    echo "                  <td>";
+/*                    echo "                  <td>";
                     echo "                      <label>&nbsp;</label>";
-                    echo "                  </td>";
+                    echo "                  </td>";*/
                     echo "              </tr>";
                     while($dadosPP = mysql_fetch_array($resultadoPP)){
                         echo "  <tr>";
                         echo "      <td>";
-                        echo            $dadosPP['dataRuv'];
+                        echo            $dadosPP['dataRuvFormnat'];
                         echo "      </td>";
                         echo "      <td>";
                         echo            $dadosPP['paragem'];
@@ -498,7 +498,9 @@ class ppMeditacao {
                         echo "</label><br>";
                 }
                 echo "</div>";
-            
+                $a = new atividades();
+                $a->writeLog($_SESSION['usuario'], "Consulta de registros de Meditação.", "../controller/");
+
                 if($this->excluirMeditacao()){
                     echo "<label class='alert alert-success'>Meditação excluída com sucesso!</label>";
                     echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=pp&tab=registros'>";
@@ -511,6 +513,8 @@ class ppMeditacao {
     }
     
     public function telaMeditacao(){
+
+        $a = new atividades();
 
         $conecta = new conectaBanco();
         $conecta->conecta();
@@ -634,6 +638,7 @@ class ppMeditacao {
             $this->codusuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
             $this->dataRuv = $dataRuvConvertida;
             if($tab === "meditacao"){
+                $a->writeLog($_SESSION['usuario'], "Inclusão de Meditação.", "../controller/");
                 $this->verificaPP();
             }
         }
@@ -643,6 +648,7 @@ class ppMeditacao {
     public function excluirMeditacao(){
         $e = filter_input(INPUT_GET, 'e');
         $id = filter_input(INPUT_GET, 'id');
+        $a = new atividades();
         
 //        if($tabela === "meditacao"){
             if($e === "med"){
@@ -656,6 +662,7 @@ class ppMeditacao {
                     $resultadoDeletaPP = mysql_query($sqlDeletaPP) or die ("Erro no comando de exclusão. Descrição: ".mysql_error());
 
                     if($resultadoDeletaPP){
+                        $a->writeLog($_SESSION['usuario'], "Exclusão de Meditação.", "../controller/");
                         return true;
                     }else{
                         return false;

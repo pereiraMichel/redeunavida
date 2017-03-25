@@ -22,6 +22,7 @@ include_once '../classes/autoavaliacao.class.php';
 include_once '../classes/relatorios.class.php';
 include_once '../classes/tarefas.class.php';
 include_once '../classes/servExtras.class.php';
+include_once '../classes/atividades.class.php';
 include_once '../../controller/constantes.php';
 include_once '../constante/constanteSistema.php';
 include_once '../../controller/metodos.php';
@@ -49,11 +50,13 @@ $conectaBanco->iniciaSessao();
 //    
 //}
 $codAutoridade = (int) $_SESSION['codTipoUsuario'];
-
+$a = new atividades();
 $saida = filter_input(INPUT_GET, 'saida');
 
 if($saida == "sim"){
     $_SESSION['logado'] = false;
+
+    $a->writeLog($_SESSION['usuario'], "Saída do sistema", "../controller/");
     unset($_SESSION['idusuario']);
     unset($_SESSION['usuario']);
     unset($_SESSION['email']);
@@ -86,7 +89,9 @@ $setenio = new setenio();
 $tipotelefone = new tipotelefone();
 $tipousuario = new tipousuario();
 $tarefas = new tarefas();
+$servExtras = new servExtras();
 $cal = new calendarioRuv();
+$a = new atividades();
 ?>
 
 <!DOCTYPE html>
@@ -176,10 +181,10 @@ $cal = new calendarioRuv();
                         <div id="sidebar-wrapper" style="background-color: #D9EDF7">
                             <ul class="sidebar-nav" style="color: #1f226d; font-weight: bold;" id="menuRuv">
                                 <li class="sidebar-brand">
-                                    <p style="font-size: 13px;">
+                                    <a href='inicio.php' style="font-size: 13px;">
                                         <img src="../../images/logoRUV50x51.png" width="35" height="36">
                                         MENU RUV
-                                    </p>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="#" data-toggle="collapse" data-target="#menuRegistro" data-parent="#menuRuv" class="collapsed">
@@ -229,6 +234,16 @@ $cal = new calendarioRuv();
                                 <li>
                                     <a href="#">&nbsp;</a>
                                 </li>
+ <!--                               <li>
+                                    <a href="#">Atividades</a>
+                                </li>
+                                <li>
+                                    <?php 
+
+                                        //$a->readLog($_SESSION['usuario']); 
+
+                                    ?>
+                                </li>-->
 <!--                                <li>
                                     <a href="#">
                                     <?php
@@ -303,6 +318,10 @@ $cal = new calendarioRuv();
                                     echo "<div align='center'><h5><b>Tipo de Telefone</b></h5></div>";
                                 }else if ($tarefa === "tipousuario"){
                                     echo "<div align='center'><h5><b>Tipo de Usuários</b></h5></div>";
+                                }else if ($tarefa === "ativ"){
+                                    echo "<div align='center'><h5><b>Registro de Atividades</b></h5></div>";
+                                }else if ($tarefa === "xb"){
+                                    echo "<div align='center'><h5><b>Configurações de Bônus</b></h5></div>";
                                 }
                                 
                                 break;
@@ -335,7 +354,7 @@ $cal = new calendarioRuv();
                                 break;
                             case "taref":
                                     echo "<div align='center'>";
-                                    echo "  <img src='../img/text-icon.png' class='img-responsive' title='Tarefas' width='42' height='42' style='text-align: center;'>";
+                                    echo "  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='42' height='42' style='text-align: center;'>";
                                      echo " <div align='center'><h5><b>Tarefas</b></h5></div>";
                                      echo "</div>";
                                 break;
@@ -343,13 +362,13 @@ $cal = new calendarioRuv();
                                     echo "<div align='center'>";
                                     echo "<img src='../img/colaboradores.png' class='img-responsive' title='Paragem' width='40' height='40'>";
                                     if($tarefa === "" or $tarefa === null or $tarefa === " "){
-                                        echo "<h5><b>Paragem-Presença</b></h5>";
-                                    }else if($tarefa === "npar"){
-                                        echo "<h5><b>Nova Paragem-Presença</b></h5>";
-                                    }else if($tarefa === "edit"){
-                                        echo "<h5><b>Alterar Paragem-Presença</b></h5>";
-                                    }else if($tarefa === "exc"){
-                                        echo "<h5><b>Excluir Paragem-Presença</b></h5>";
+                                        echo "<h5><b>Presença-Paragens</b></h5>";
+//                                    }else if($tarefa === "npar"){
+//                                        echo "<h5><b>Nova Paragem-Presença</b></h5>";
+//                                    }else if($tarefa === "edit"){
+//                                        echo "<h5><b>Alterar Paragem-Presença</b></h5>";
+//                                    }else if($tarefa === "exc"){
+//                                        echo "<h5><b>Excluir Paragem-Presença</b></h5>";
                                     }
                                     echo "</div>";
                                 break;
@@ -381,32 +400,10 @@ $cal = new calendarioRuv();
                                     }
                                     echo "</div>";
                                 break;
-                            case "revi": 
-                                    echo "<div align='center'>";
-                                    echo "<img src='../img/estatistica9.png' class='img-responsive' title='Revisão' width='50' height='50'>";
-                                    if($tarefa === "" or $tarefa === null){
-                                        echo "<div align='center'><h5><b>Revisão</b></h5></div>";
-                                    }
-                                    echo "</div>";
-                                break;
-/*                            case "aval": 
-                                    echo "<div align='center'>";
-                                    echo "<img src='../img/infografico.png' class='img-responsive' title='Revisão' width='50' height='50'>";
-                                    if($tarefa === "" or $tarefa === null){
-                                        echo "<h5><b>Auto Avaliação</b></h5>";
-                                    }else if ($tarefa === "naval"){
-                                        echo "<div align='center'><h5><b>Nova Auto Avaliação</b></h5></div>";
-                                    }
-                                    echo "</div>";*/
-                                break;
                             case "serv": 
                                     echo "<div align='center'>";
-                                    echo "<img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='50' height='50'>";
-//                                    if($tarefa === "" or $tarefa === null){
-                                        echo "<h5><b>Serviços e Extras</b></h5>";
-/*                                    }else if ($tarefa === "naval"){
-                                        echo "<div align='center'><h5><b>Nova Auto Avaliação</b></h5></div>";
-                                    }*/
+                                    echo "  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='50' height='50'>";
+                                    echo "  <h5><b>Serviços e Extras</b></h5>";
                                     echo "</div>";
                                 break;
                         }
@@ -527,6 +524,7 @@ $cal = new calendarioRuv();
                                         
                                         if($tarefa == ""){
                                             $config->telaInicialConfig();
+
                                         }else if ($tarefa == "usis"){
                                             $funcao = filter_input(INPUT_GET, 'f');
                                             
@@ -534,9 +532,9 @@ $cal = new calendarioRuv();
                                                 default :
                                                     $usuario_class->tabelaUsuarioSistema("SISTEMA");
                                                     break;
-                                                case "n":
+/*                                                case "n":
                                                     $usuario_class->telaNovoUsuario();
-                                                    break;
+                                                    break;*/
                                                 case "a":
                                                     $usuario_class->telaAlteraUsuario();
                                                     break;
@@ -560,6 +558,12 @@ $cal = new calendarioRuv();
                                             $perfil->telaTelefone();
                                         }else if($tarefa === "trocasenha"){
                                             $perfil->telaTrocaSenha();
+                                        }else if($tarefa === "ativ"){
+                                            $a->setUsuario($_SESSION['usuario']);
+                                            $a->telaRegistroAtividades();
+                                        }else if($tarefa === "xb"){
+                                            $a->setUsuario($_SESSION['usuario']);
+                                            $a->telaConfigBonus();
                                         }
 
                                         break;
@@ -583,7 +587,8 @@ $cal = new calendarioRuv();
                                                     
 //                                                    $pp->telaPP();
                                                             break;
-                                    case "port":      $pp = new ppPortais();
+                                    case "port":      
+                                                    $pp = new ppPortais();
                                                     $pp->setCodusuario($_SESSION['idusuario']);
                                                     $cal = new calendarioRuv();
                                                     
@@ -591,59 +596,38 @@ $cal = new calendarioRuv();
                                                         default: 
                                                             $cal->setCodusuario($_SESSION['idusuario']);
                                                             $cal->configuracaoCalendario("ppPortal");
-//                                                            $pp->telaPP();
                                                             break;
-                                                        
-//                                                        case "mp":
-//                                                            $cal->setCodusuario($_SESSION['idusuario']);
-//                                                            $cal->configuracaoCalendario("ppMeditacao");
-//                                                            $pp->telaNovoPP();
-//                                                            break;
-//                                                        case "p1":
-//                                                            $pp1 = new ppMed1();
-//                                                            $pp1->setCodusuario($_SESSION['idusuario']);
-//                                                            $pp1->telaPP1();
-//                                                            break;
-//                                                        case "p2":
-//                                                            $pp2 = new ppMed2();
-//                                                            $pp2->setCodusuario($_SESSION['idusuario']);
-//                                                            $pp2->telaPP2();
-//                                                            break;
                                                     }
                                                     
-//                                                    $pp->telaPP();
-                                                            break;
+                                                    break;
                                     case "rela":   
-                                        $r = new relatorios();
-                                        $r->setCodusuario($_SESSION['idusuario']);
-                                        switch ($tarefa){
-                                            default :
-                                                $r->telaRelatorios();
-                                            break;
-                                        
-                                            case "pp":
-                                                $r->telaOpcoes("pp");
-                                            break;
+                                            $r = new relatorios();
+                                            $r->setCodusuario($_SESSION['idusuario']);
+                                            switch ($tarefa){
+                                                default :
+                                                    $r->telaRelatorios();
+                                                break;
                                             
-                                        
+                                                case "pp":
+                                                    $r->telaOpcoes("pp");
+                                                break;
+                                                
                                         }
                                                             break;
-                                    case "suporte":   $erro = new erros();
-                                                            $erro->error404();
+                                    case "suporte":   
+                                            $erro = new erros();
+                                            $erro->error404();
                                                             break;
-                                    case "bonu":   $bonus = new bonus();
-                                                    $bonus->setCodusuario($_SESSION['idusuario']);
-                                                   $bonus->telaInicialBonus();
+                                    case "bonu":   
+                                            $bonus = new bonus();
+                                            $bonus->setCodusuario($_SESSION['idusuario']);
+                                            $bonus->telaInicialBonus();
                                                     
-//                                                    if($m === "auto"){
-//                                                        $bonus->metodoAutomatico();
-//                                                    }else if($m === "manual"){
-//                                                        $bonus->metodoManual();
-//                                                    }
-                                                            break;
-                                    case "atividades":   $atividade = new modelAtividades();
-                                                            $atividade->telaInicialAtividades();
-                                                            break;
+                                                    break;
+                                    case "atividades":   
+                                            $atividade = new modelAtividades();
+                                            $atividade->telaInicialAtividades();
+                                                    break;
                                                         
                                     case "para":            
                                                         
@@ -651,23 +635,11 @@ $cal = new calendarioRuv();
                                                             switch ($tarefa){
 
                                                                 default:
+                                                                    $cal->setCodusuario($_SESSION['idusuario']);
                                                                     $cal->configuracaoCalendario("paragempresenca");
                                                                     //$paragemPresenca->telaParagemPresenca();
                                                                     break;
                                                                 
-/*                                                                case "npar":
-                                                                    
-//                                                                    $paragemPresenca->telaNovaParagem();
-                                                                    break;
-                                                                
-                                                                case "edit":
-                                                                    $paragemPresenca->telaEditParPresenca();
-                                                                    break;
-
-                                                                case "exc":
-                                                                    $paragemPresenca->telaExcluiParPresenca();
-                                                                    break;*/
-
                                                             }
                                                             break;
                                     case "aval":            
@@ -697,20 +669,15 @@ $cal = new calendarioRuv();
                                                             }
                                                             break;
                                     case "taref":
-                                                    $tarefas = new tarefas();
-                                                    $tarefas->setCodusuario($_SESSION['idusuario']); 
+                                                    //echo "<script>alert('".$_SESSION['idusuario']."')</script>";
+                                                    $cal->setCodusuario($_SESSION['idusuario']); 
                                                     $cal->configuracaoCalendario("tarefas");
                                                     //$tarefas->telaInicialTarefas();
-                                                            break;
+                                                    break;
                                     case "serv":
-                                                    $serv = new servExtras();
-                                                    $serv->setCodusuario($_SESSION['idusuario']); 
+                                                    $servExtras->setCodusuario($_SESSION['idusuario']); 
                                                     $cal->configuracaoCalendario("servicos");
-                                                            break;
-//                                    case "suporte":   $suporte = new modelSuporte();
-//                                                            $suporte->telaContato();
-//                                                            break;
-                                        
+                                                    break;
                                     
                                 }//fecha o switch
                             

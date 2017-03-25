@@ -21,6 +21,15 @@ class usuario {
     private $dataCadastro;
     private $dataAlteracao;
     private $codTipoUsuario;
+    private $codAlteraUsuario;
+
+    function getCodAlteraUsuario(){
+        return $this->codAlteraUsuario;
+    }
+
+    function setCodAlteraUsuario($codalterausuario){
+        $this->codAlteraUsuario = $codalterausuario;
+    }
     
     function getIdUsuario() {
         return $this->idUsuario;
@@ -257,7 +266,7 @@ class usuario {
                     echo "          <input type='radio' name='opcao' value='".$idusuarioSelecionado."' onclick='pegaUsuarioSist(this.value)'>";
                     echo "          </td>";
                     echo "      </tr>";
-                    
+
                 }
             }
         } catch (Exception $ex) {
@@ -272,9 +281,10 @@ class usuario {
         echo "      <div class='form-group'>";
         echo "              <div class='col-sm-9' style='text-align:right'>";
         echo "                   | <a href='inicio.php?m=config&t=usis&f=n' class='btn btn-primary'>Novo</a> | ";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=a&id=$idusuarioSelecionado' id='altera' name='altera' class='btn btn-default' disabled>Alterar</a> | ";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=e&id=$idusuarioSelecionado' id='exclui' name='exclui' class='btn btn-default' disabled>Excluir</a>";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=d' id='detalhes' name='detalhes' class='btn btn-default' disabled>Detalhes</a>";
+        echo "                  <button type='button' onclick='pegaIdAltera(idSelecionado.value)' id='altera' name='altera' class='btn btn-default' disabled>Alterar</button> | ";
+//        echo "                  <a href='inicio.php?m=config&t=usis&f=a' onclick='javascript:pegaIdAltera(idSelecionado.value)' id='altera' name='altera' class='btn btn-default' disabled>Alterar</a> | ";
+        echo "                  <a href='inicio.php?m=config&t=usis&f=e' id='exclui' name='exclui' class='btn btn-default' disabled>Excluir</a>";
+//        echo "                  <a href='inicio.php?m=config&t=usis&f=d' id='detalhes' name='detalhes' class='btn btn-default' disabled>Detalhes</a>";
         echo "              </div>";
         echo "      </div>";
         echo "<div class='col-xs-1 col-sm-1 placeholder'>";
@@ -292,6 +302,15 @@ class usuario {
             echo "  <meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
             echo "</div>";
         }
+
+/*        if($f === "a"){
+            $this->telaAlteraUsuario($idusuarioSelecionado);
+            //echo "<script>window.location.href='inicio.php?m=config&t=usis&f=a&id='".$idusuarioSelecionado."'</script>";
+        }else if($f === "e"){
+            $this->telaExcluirUsuario($idusuarioSelecionado);
+        }*/
+
+
 //        
 //        if(filter_input(INPUT_GET, 'sucessoalteracao')=="sim"){
 //            echo "<br/>";
@@ -354,6 +373,7 @@ class usuario {
         
     }
     public function telaAlteraUsuario(){
+        //echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=config&t=usis&f=a&id=4'>";
         $conecta = new conectaBanco();
         $conecta->conecta();
         
@@ -366,23 +386,131 @@ class usuario {
         
         try{
             $resultadoSqlUsuario = mysql_query($sqlUsuario) or die ("Erro no comando SQL de consulta usuário. Descrição: ".mysql_error());
-            
+
+            $dados_usuario = mysql_fetch_array($resultadoSqlUsuario);
+
+            $this->nomeUsuario = $dados_usuario['nomeUsuario'];
+            $this->email = $dados_usuario['email'];
+            $this->codAlteraUsuario = $dados_usuario['idUsuario'];
             
             
         } catch (Exception $ex) {
             echo "Exception ativado. Descrição: ".$ex->getMessage();
         }
         
-        echo "<div class='col-xs-1 col-sm-1 placeholder'>";
+/**/    echo "<div class='col-xs-2 col-sm-2 placeholder'>";
         echo "  &nbsp;";
         echo "</div>";
-        echo "<div class='col-xs-10 col-sm-10 placeholder'>";
-        echo "  Alteração do Usuário ".$this->nomeUsuario;
+        echo "<div class='col-xs-8 col-sm-8 placeholder'>";
+        echo "<form name='alteraUsuario' method='post' action='inicio.php?m=config&t=usis&f=a&id=$id' class='form-horizontal'>";
+        echo "  <div class='form-group'>";
+        echo "      <label for='nome_usuario' class='col-sm-3 control-label'>Usuário: </label>";
+        echo "      <div class='col-sm-5'>";
+        echo "          <input type='text' class='form-control' id='nome_usuario' name='nome_usuario' placeholder='".$this->nomeUsuario."' readonly='readonly' disabled>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='form-group'>";
+        echo "      <label for='email' class='col-sm-3 control-label'>E-mail: </label>";
+        echo "      <div class='col-sm-5'>";
+        echo "          <input type='text' class='form-control' id='email' name='email' value='".$this->email."'>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='form-group'>";
+        echo "      <label for='senha' class='col-sm-3 control-label'>Nova Senha: </label>";
+        echo "      <div class='col-sm-5'>";
+        echo "          <input type='password' class='form-control' id='senha' name='senha' placeholder='Máximo 10 caracteres.' maxlenght='10'>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='form-group'>";
+        echo "      <label for='tipousuario' class='col-sm-3 control-label'>Tipo Usuário: </label>";
+        echo "      <div class='col-sm-5'>";
+        echo "      <select name='tipousuario' class='form-control'>";
+        echo "          <option value='".$dados_usuario['idTipo']."'>".$dados_usuario['nomeTipo']."</option>";
+        echo "          <option value=''></option>";
+        try{
+            $sqlTipoUsuario = "SELECT * FROM tipousuario";
+
+            $resultadoTipoUsuario = mysql_query($sqlTipoUsuario) or die("Erro no comando SQL. Erro: ".mysql_error());
+
+            while($dados_tipousuario = mysql_fetch_array($resultadoTipoUsuario)){
+                echo "<option value='".$dados_tipousuario['idTipo']."'>".$dados_tipousuario['nomeTipo']."</option>";
+            }
+
+        }catch(Exception $e){
+            echo "Exception ativado. Descrição: ".$e->getMessage();
+        }
+
+
+        echo "      </select>";
+        echo "      </div>";
+        echo "  </div>";//fecha o form-group
+        echo "<input type='hidden' class='form-control' id='codusuario' name='codusuario' placeholder='".$this->codAlteraUsuario."'>";
+        echo "<input type='hidden' class='form-control' id='dataAlteracao' name='dataAlteracao' value='".date('Y-m-d')."'>";
+        echo "  <div class='form-group'>";
+        echo "      <a href='inicio.php?m=config&t=usis' class='btn btn-default'>Cancelar</a> ";
+        echo "      <button class='btn btn-primary' type='submit' style='width: 80px;'>Salvar</button>";
+        echo "  </div>";
+        echo "</form>";
+        echo "<br>";
+
+
+
         echo "</div>";
-        echo "<div class='col-xs-1 col-sm-1 placeholder'>";
+        echo "<div class='col-xs-2 col-sm-2 placeholder'>";
         echo "  &nbsp;";
         echo "</div>";
-        
+
+
+        if($_POST){
+
+            $this->setDataAlteracao(addslashes(filter_input(INPUT_POST, 'dataAlteracao')));
+            //$this->codAlteraUsuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
+            $this->setEmail(addslashes(filter_input(INPUT_POST, 'email')));
+            $this->setCodTipoUsuario(addslashes(filter_input(INPUT_POST, 'tipousuario')));
+            $this->setSenha(addslashes(filter_input(INPUT_POST, 'senha')));
+
+/*            echo "Data Alteração: ".$this->dataAlteracao."<br>";
+            echo "Código Usuário: ".$this->codAlteraUsuario."<br>";
+            echo "E-mail: ".$this->email."<br>";
+            echo "Código Tipo Usuário: ".$this->codTipoUsuario."<br>";
+            echo "Senha: ".$this->senha."<br>";*/
+
+
+            if($this->alteraUsuario()){
+                echo "<label class='alert alert-success'>Usuário alterado com sucesso!</label>";
+                echo "<meta http-equiv='refresh' content='2;url='inicio.php?m=config'>";
+            }else{
+                echo "<label class='alert alert-danger'>Erro ao alterar o usuário.</label>";
+            }
+
+
+        }
+
+    }
+
+    public function alteraUsuario(){
+        if(!empty($this->senha)){
+            $alteraSenha = ", senha = '".$this->senha."'";
+        }else{
+            $alteraSenha = "";
+        }
+
+
+        try{
+            $sqlAlteraUsuario = "UPDATE tblusuario SET email = '".$this->email."', dataAlteracao = '".$this->dataAlteracao."', codTipo = ".$this->codTipoUsuario."$alteraSenha  WHERE idUsuario = ".$this->codAlteraUsuario;
+
+            //echo "<br>SQL: ".$sqlAlteraUsuario;
+
+            $resultadoAlteracao = mysql_query($sqlAlteraUsuario) or die ("Erro no comando SQL de alteração do usuário. Descrição: ".mysql_error());
+
+            if($resultadoAlteracao){
+                return true;
+            }
+            return false;
+
+        }catch(Exception $e){
+            echo "Exception ativado. Descrição: ".$e->getMessage();
+        }
     }
     
     public function telaDetalhesUsuario(){
@@ -497,11 +625,12 @@ class usuario {
         $conecta->conecta();
         
         try{
-            $sql = "SELECT * "
-                    . "FROM tblusuario "
-                    . "WHERE (nomeUsuario = '".$usuario."' "
-                    . "OR email = '".$usuario."') "
-                    . "AND senha = '".$this->senha."'";
+            $sql = "SELECT u.*, tp.nomeTipo "
+                    . "FROM tblusuario u "
+                    . "INNER JOIN tipousuario tp ON u.codTipo = tp.idtipo "
+                    . "WHERE (u.nomeUsuario = '".$usuario."' "
+                    . "OR u.email = '".$usuario."') "
+                    . "AND u.senha = '".$this->senha."'";
 
             $resultado = mysql_query($sql) or die("||| Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
             $dados = mysql_fetch_array($resultado);
@@ -512,11 +641,18 @@ class usuario {
                 $_SESSION['usuario'] = $dados['nomeUsuario'];
                 $_SESSION['email'] = $dados['email'];
                 $_SESSION['codTipoUsuario'] = $dados['codTipo'];
+                $_SESSION['nomeTipo'] = $dados['nomeTipo'];
                 $_SESSION['logado'] = true;
                 
                 $identifUsuario = base64_encode($_SESSION['idusuario']);
                 
+                $atividade = new atividades();
+                $atividade->writeLog($_SESSION['usuario'], "Entrada no sistema", "controller/");
+                //$atividade->writeUsuarioXml($_SESSION['usuario'], "Entrada no sistema", date('d/m/Y'), date('H:i:s'));
+
                 header("Location: ../sistema/view/inicio.php");//?usuario=".$identifUsuario
+
+
 //                echo "<br>Sessão ID: ".$_SESSION['idusuario'];//Os campos estão OK
 //                echo "<br>Sessão Usuário: ".$_SESSION['usuario'];
 //                echo "<br>Sessão E-mail: ".$_SESSION['email'];

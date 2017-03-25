@@ -21,12 +21,28 @@ class telas {
     echo "  <div class='collapse navbar-collapse' style='padding-right: 20px;'>";
     echo "      <ul class='nav navbar-nav navbar-right' id='menu' style='font-size: 12px; padding-right: 20px;'>";
     
-    echo "          <li id='perfil' class='dropdown'>";
-    echo "              <a tabindex='0' data-toggle='dropdown'>";
+    echo "          <li>";
+    echo "              <div class='btn-group'  style='padding-top: 5px;'>";
+    echo "                  <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style='width: 100px; height: 50px;'>";
+    echo "                      <i class='fa fa-user'></i>  ".$usuario." <span class='caret'></span>";
+    echo "                  </button>";
+    echo "                  <ul class='dropdown-menu'>";
+    echo "                      <li><a href='inicio.php?m=perf'>Sobre você</a></li>";
+    echo "                      <li><a href='inicio.php?m=perfend'>Seu endereço</a></li>";
+    echo "                      <li><a href='inicio.php?m=perftel'>Telefones</a></li>";
+    echo "                      <li><a href='inicio.php?m=trocasenha'>Troca de senha</a></li>";
+    echo "                      <li role='separator' class='divider'></li>";
+    echo "                      <li><a href='inicio.php?saida=sim' class='text-danger' style='padding-right: 15px;'><i class='fa fa-power-off'></i> Sair</a></li>";
+    echo "                  </ul>";
+    echo "              </div>";
+    echo "          </li>";
+
+//    echo "          <li id='perfil' class='dropdown'>";
+//    echo "              <a tabindex='0' data-toggle='dropdown'>";
 //    echo "                  <a class='navbar-band' href='#'>";
 ////    echo                        $foto->consultaFoto();
 //    echo "                  </a> ";
-    echo "                  <i class='fa fa-user'></i> ";
+/*    echo "                  <i class='fa fa-user'></i> ";
     echo                        $usuario;
     echo "                  <span class='caret'></span>";
     echo "              </a>";
@@ -60,7 +76,7 @@ class telas {
     echo "                      </a>";
     echo "                  </li>";
     echo "              </ul>";
-    echo "          </li>";//fecha li perfil
+    echo "          </li>";//fecha li perfil*/
 
 
     echo "          <li class='dropdown mega-dropdown'>";//inicia li MenuBar

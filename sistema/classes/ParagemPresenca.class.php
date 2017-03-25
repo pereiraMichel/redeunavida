@@ -16,6 +16,15 @@ class ParagemPresenca {
     private $bonus;
     private $dataRegistro;
     private $codusuario;
+    private $diaRuv;
+
+    function getDiaRuv(){
+        return $this->diaRuv;
+    }
+
+    function setDiaRuv($diaruv){
+        $this->diaRuv = $diaruv;
+    }
 
     function getIdpresparagem() {
         return $this->idpresparagem;
@@ -129,13 +138,13 @@ class ParagemPresenca {
             echo "<p style='height: 20px;'>&nbsp;</p>";
             echo "<div class='col-sm-12'>";
             echo "  <div class='btn-group btn-group-justified' role='group'>";
-            echo "          <a href='inicio.php?m=prespara' class='btn $pp' style='width: 90px;'>";
+            echo "          <a href='inicio.php?m=para' class='btn $pp' style='width: 90px;'>";
             echo "              Presença-Paragem";
             echo "          </a>";
-            echo "          <a href='inicio.php?m=prespara&tab=registros' class='btn $reg' style='width: 90px;'>";
+            echo "          <a href='inicio.php?m=para&tab=registros' class='btn $reg' style='width: 90px;'>";
             echo "              Registros";
             echo "          </a>";
-            echo "          <a href='inicio.php?m=prespara&tab=bonus' class='btn $bns' style='width: 90px;'>";
+            echo "          <a href='inicio.php?m=para&tab=bonus' class='btn $bns' style='width: 90px;'>";
             echo "              Bônus";
             echo "          </a>";
             echo "  </div>";
@@ -153,7 +162,10 @@ class ParagemPresenca {
                     break;
 
                 case "bonus":
-                    $this->telaBonusTarefas();
+                    clearstatcache();
+                    $b = new bonus();
+                    $b->setCodusuario($this->codusuario);
+                    $b->telaBonusPresParagem();
                     break;
                     
             }
@@ -170,7 +182,7 @@ class ParagemPresenca {
         $sqlInsereParPres = "INSERT INTO presparagem 
                              (idpresparagem, dataRuv, semanaRuv, pp, status, bonus, dataRegistro, codUsuario) 
                              VALUES
-                             (".$this->idpresparagem.", '".$this->dataRuv."', '".$this->semanaRuv."', ".$this->pp.", '".$this->status."', ".$this->bonus.", '".$this->dataRegistro."', ".$this->codusuario." )";
+                             (".$this->idParPre.", '".$this->dataRuv."', '".$this->semanaRuv."', ".$this->pp.", '".$this->status."', ".$this->bonus.", '".$this->dataRegistro."', ".$this->codusuario." )";
         
 //        echo $sqlInsereParPres."<br>";
         
@@ -179,7 +191,10 @@ class ParagemPresenca {
             $resultadoInsereParPres = mysql_query($sqlInsereParPres) or die("Problemas de inserir, no comando SQL. Erro: ".mysql_error());
             
             if($resultadoInsereParPres){
-                return true;
+                //return true;
+                echo "<label class='alert alert-success'>Incluso com sucesso!</label>";
+                echo "<meta http-equiv='refresh' url='3;inicio.php?m=para'>";
+
             }
             return false;
         } catch (Exception $ex) {
@@ -191,43 +206,54 @@ class ParagemPresenca {
         
         $conecta = new conectaBanco();
         $conecta->conecta();
-        $sqlExcluiParPres = "DELETE FROM paragem WHERE idParagem = ".$this->idParPre;
-        
-        try{
-            
-            $resultadoExclusaoParPres = mysql_query($sqlExcluiParPres) or die("Problemas na exclusão, no comando SQL. Erro: ".mysql_error());
-            
-            if($resultadoExclusaoParPres){
-                return true;
+
+        $id = filter_input(INPUT_GET, 'id');
+
+        if(!empty($id)){
+
+            $sqlExcluiParPres = "DELETE FROM presparagem WHERE idpresparagem = ".$id;
+
+            try{
+                
+                $resultadoExclusaoParPres = mysql_query($sqlExcluiParPres) or die("Problemas na exclusão, no comando SQL. Erro: ".mysql_error());
+                
+                if($resultadoExclusaoParPres){
+                    return true;
+                }
+                return false;
+            } catch (Exception $ex) {
+                echo "Exception ativado (Excluir Paragem-Presença). Erro: ".$ex->getMessage();
             }
-            return false;
-        } catch (Exception $ex) {
-            echo "Exception ativado (Excluir Paragem-Presença). Erro: ".$ex->getMessage();
         }
-        
+
+
     }
     
     public function registroPresencaParagem(){
         
         $conecta = new conectaBanco();
         $conecta->conecta();
-        $sqlTelaPP = "SELECT * FROM paragem WHERE codUsuario = ".$this->codusuario;
+        $sqlTelaPP = "  SELECT p.*, DATE_FORMAT(p.dataRuv, '%d/%m/%Y') as dataRuvFormat, t.descricao FROM presparagem p 
+                        INNER JOIN tabpresparagem t ON p.pp = t.idtabpresparagem 
+                        WHERE p.codUsuario = ".$this->codusuario;
         
-        $sqlSomaTotal = "SELECT SUM(total) AS totalGeral FROM paragem WHERE codUsuario = ".$this->codusuario."";
+        $sqlSomaTotal = "SELECT SUM(bonus) AS totalGeral FROM presparagem WHERE codUsuario = ".$this->codusuario."";
         
         try{
+//            echo "SQL consulta paragem: ".$sqlTelaPP."<br>";
             $resultadoTelaParagem = mysql_query($sqlTelaPP) or die("Erro na execução do comando SQL de consulta paragem. Descrição: ".mysql_error());
-            
-            $resultadoSomaTotal = mysql_query($sqlSomaTotal) or die("Erro na execução do comando SQL do valor total. Descrição: ".mysql_error());
-           $dadosValorTotal = mysql_fetch_array($resultadoSomaTotal);//pega o valor total da sql 2
+
+
+//            $resultadoSomaTotal = mysql_query($sqlSomaTotal) or die("Erro na execução do comando SQL do valor total. Descrição: ".mysql_error());
+//           $dadosValorTotal = mysql_fetch_array($resultadoSomaTotal);//pega o valor total da sql 2
            
-           $percentual = $dadosValorTotal['totalGeral']/(18*11.5);
-           $p = $percentual * 100;
+//           $percentual = $dadosValorTotal['totalGeral']/(18*11.5);
+//           $p = $percentual * 100;
            
             echo "<div class='col-sm-12'>";
-            echo "<p style='height: 10px;'>&nbsp;</p>";
+//            echo "<p style='height: 0px;'>&nbsp;</p>";
             if(mysql_num_rows($resultadoTelaParagem) > 0){
-            echo "<div class='col-sm-4'>";
+/*            echo "<div class='col-sm-4'>";
             echo "  <label>Total Geral: ".$dadosValorTotal['totalGeral']."</label>";
             echo "</div>";
             echo "<div class='col-sm-4'>";
@@ -235,64 +261,66 @@ class ParagemPresenca {
             echo "</div>";
             echo "<div class='col-sm-4'>";
             echo "  <label>&nbsp;</label>";
-            echo "</div>";
-            echo "<p style='height: 30px;'>&nbsp;</p>";
+            echo "</div>";*/
+            echo "<p style='height: 10px;'>&nbsp;</p>";
                 echo "<table class='table'>";
                 echo "  <tr>";
                 echo "      <td>";
-                echo "          Semana";
+                echo "          Data RUV";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          Paragem";
+                echo "          Semana RUV";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          Seleção";
+                echo "          Presença-Paragem";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          Total";
+                echo "          Status";
                 echo "      </td>";
                 echo "      <td>";
-                echo "          Selecione";
+                echo "          Bônus";
+                echo "      </td>";
+                echo "      <td>";
+                echo "          &nbsp;";
                 echo "      </td>";
                 echo "  </tr>";
                 while($dadosPP = mysql_fetch_array($resultadoTelaParagem)){
                     echo "  <tr>";
                     echo "      <td>";
-                    echo            $dadosPP['semana'];
+                    echo            $dadosPP['dataRuvFormat'];
                     echo "      </td>";
                     echo "      <td>";
-                    echo            $dadosPP['paragem'];
+                    echo            $dadosPP['semanaRuv'];
                     echo "      </td>";
                     echo "      <td>";
-                    echo            $dadosPP['selecao'];
+                    echo            $dadosPP['descricao'];
                     echo "      </td>";
                     echo "      <td>";
-                    echo            $dadosPP['total'];
+                    echo            $dadosPP['status'];
                     echo "      </td>";
                     echo "      <td>";
-                                    $idparagem = $dadosPP['idParagem'];
-                    echo "          <input type='radio' name='opcao' value='".$idparagem."' onclick='editaPP(this.value)'>";
+                    echo            $dadosPP['bonus'];
+                    echo "      </td>";
+                    echo "      <td>";
+                    $idpresparagem = $dadosPP['idpresparagem'];
+                    echo "      <a href='inicio.php?m=para&tab=registros&e=s&id=".$idpresparagem."' alt='Excluir' title='Excluir'>";
+                    echo "          <img src='../../images/botaoexcluir.png' id='excluir' title='Excluir'>";
+                    echo "      </a>";
+                    echo "      <input type='hidden' name='idpresparagem' id='idpresparagem' value='".$idpresparagem."'>";
                     echo "      </td>";
                     echo "  </tr>";
                 }
                 echo "</table>";
-                echo "<input type='hidden' name='idpp' id='idpp'>";
-                echo "<a class='btn btn-primary' href='inicio.php?m=para&t=npar' id='novopp'>Novo PP</a> | ";
-                echo "<a class='btn btn-default' href='javascript:pegaPP(".$idparagem.")' id='btEdita' disabled>Editar</a> | ";
-                echo "<a class='btn btn-default' href='javascript:pegaPPExcluir(".$idparagem.")' id='btExcluir' disabled>Excluir</a> | ";
-                echo "<a class='btn btn-default' href='inicio.php'>Voltar</a>";
-                echo "<input type='hidden' id='ppSelecionado' name='ppSelecionado'>";
+                //echo "<a class='btn btn-default' href='inicio.php'>Voltar</a>";
             }else{
                 echo "<label><h3>Ops!</h3> Não localizamos a sua paragem-presença. Vamos preencher?</label><br>";
                 echo "<div style='height: 40px;'>&nbsp;</div>";
-//                echo "<div class='btn-group' data-toggle='buttons'>";
-                echo "  <a class='btn btn-default' style='width: 80px;' href='inicio.php?m=para&t=npar'>";
+                echo "  <a class='btn btn-default' style='width: 80px;' href='inicio.php?m=para'>";
                 echo "      Vamos !";
                 echo "  </a>";
                 echo "  <a class='btn btn-default' style='width: 80px;' href='inicio.php'>";
                 echo "      Depois";
                 echo "  </a>";
-//                echo "</div>";
             }
             
             echo "</div>";
@@ -300,14 +328,21 @@ class ParagemPresenca {
         } catch (Exception $ex) {
             echo "Chamada de exception. Descrição: ".$ex->getMessage();
         }
+
+        if($this->excluiParPres()){
+            echo "<br><br>";
+            echo "<label class='alert alert-success'>Excluído com sucesso!.</label>";
+            echo "<meta http-equiv='refresh' content='1;url=inicio.php?m=para&tab=registros'>";
+        }
+
+        echo "</div>";//fecha a div col-sm-12
+        
     }
     
     public function telaNovaParagemPresenca(){
 
         $con = new conectaBanco();
         $con->conecta();
-
-        $sqlTabPP = "SELECT * FROM tabpp";
 
         echo "<div class='col-sm-12'>";
         $tar = filter_input(INPUT_GET, "t");
@@ -328,7 +363,7 @@ class ParagemPresenca {
             
             $semana = $this->anoRuv."-".$this->semanaRuv;
 
-            echo "<form name='formTarefas' action='inicio.php?m=taref' method='post'>";
+            echo "<form name='formTarefas' action='inicio.php?m=para' method='post'>";
             echo "          <table class='table' style='text-align: justify; border: none;'>";
             echo "              <tr>";
             echo "                  <td width='30'>";
@@ -343,7 +378,7 @@ class ParagemPresenca {
             echo "                      <label>Semana RUV</label>";
             echo "                  </td>";
             echo "                  <td width='100'>";
-            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$semanaRuv."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'>";
+            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$this->semanaRuv."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")' onkeypress='mascaraSemana(this)'>";
             echo "                  </td>";
             echo "                  <td width='20'>";
             echo "                      <label>Dia RUV</label>";
@@ -372,21 +407,23 @@ class ParagemPresenca {
             echo "              <tr style='text-align: center;'>";
             echo "                  <td>";
             echo "                      <select name='tarefas' class='form-control'>";
-            echo "                          <option name=''>Não selecionado</option>";
-            echo "                          <option name=''></option>";
-            
+            echo "                          <option value=''>Não selecionado</option>";
+            echo "                          <option value=''></option>";
+           
             try{
 
-                $resultTabPP = mysql_query($sqlTabPP) or die("Erro no comando SQL de consulta Tarefas do Sistema. Erro: ".mysql_error());
+                $sqlTabPP = "SELECT * FROM tabpresparagem";
+
+                $resultTabPP = mysql_query($sqlTabPP) or die ("Erro no comando SQL de consulta Tarefas do Sistema. Erro: ".mysql_error());
 
                 if(mysql_num_rows($resultTabPP) > 0){
 
                     while($dadosTabPP = mysql_fetch_array($resultTabPP)){
-                        echo "<option value=".$dadosTabPP['idtabpp'].">".$dadosTabPP['descricao']."</option>";
-                    }
+                       echo "<option value=".$dadosTabPP['idtabpresparagem'].">".$dadosTabPP['descricao']."</option>";
+                    } // fecha while
 
 
-                }
+                } // fecha if mysql_num_rows
 
             }catch(Exception $ex){
                 echo "Exception ativado. Descrição: ".$ex->getMessage();
@@ -397,12 +434,12 @@ class ParagemPresenca {
             echo "                  </td>";
             echo "                  <td>";
 
-            echo "                      <input type='radio' name='opcao' value='sim'> Sim   |   ";
-            echo "                      <input type='radio' name='opcao' value='nao'> Não";
+            echo "                      <input type='radio' name='opcao' value='Sim' onchange='calculaBonusTarefa(this.value)'> Sim   |   ";
+            echo "                      <input type='radio' name='opcao' value='Não' onchange='calculaBonusTarefa(this.value)'> Não";
             echo "                  </td>";
 
             echo "                  <td colspan='3'>";
-            echo "                      <input type='text' name='bonus' id='bonus' class='form-control' style='width: 80px;' required>";
+            echo "                      <input type='text' name='bonus' id='bonus' class='form-control' readonly='readonly' style='width: 80px;' required>";
             echo "                  </td>";
             echo "              </tr>";
             echo "              <tr>";
@@ -428,122 +465,24 @@ class ParagemPresenca {
             echo "</form>";
 
         if($_POST){
-            $novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
+            //$novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
             $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataHoje'))));
             $dataRuvConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataRuv'))));
 
-            $this->dataRegistro = addslashes($dataConvertida);
-            $this->paragem = addslashes(filter_input(INPUT_POST, 'semana'));
-            $this->duracao = addslashes(filter_input(INPUT_POST, 'duracao'));
-            $this->nivel = addslashes($novoNivel);
+            $this->dataRuv = addslashes($dataRuvConvertida);
+            $this->semanaRuv = addslashes(filter_input(INPUT_POST, 'semana'));
+            $this->pp = addslashes(filter_input(INPUT_POST, 'tarefas'));
+            $this->status = addslashes(filter_input(INPUT_POST, 'opcao'));
             $this->bonus = addslashes(filter_input(INPUT_POST, 'bonus'));
-            $this->periodo = addslashes(filter_input(INPUT_POST, 'periodo'));
-            $this->inicio = addslashes(filter_input(INPUT_POST, 'inicio'));
-            $this->termino = addslashes(filter_input(INPUT_POST, 'termino'));
-            $this->diaRuv = addslashes(filter_input(INPUT_POST, 'dia'));
+            $this->dataRegistro = addslashes($dataConvertida);
             $this->codusuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
-            $this->dataRuv = $dataRuvConvertida;
-            if($tab === "meditacao"){
-                $this->verificaPP();
-            }
-        }
-        echo "</div>";//fecha a div col-sm-12
-    }
 
-    public function telaExcluiParPresenca(){
-        $conecta = new conectaBanco();
-        $conecta->conecta();
-        
-        $id = filter_input(INPUT_GET, 'id');
-        
-        $sqlParPre = "SELECT * FROM paragem WHERE idParagem = ".$id;
-        
-        $resultadoParPre = mysql_query($sqlParPre) or die("Error. Descrição: ".mysql_error());
-        
-        $dadosParPre = mysql_fetch_array($resultadoParPre);
-        
-//        echo "Paragem marcada: ".$this->paragem."<br>";
-        echo "<form name='formEditParagem' class='form-horizontal' action='inicio.php?m=para&t=exc&id=".$id."' method='post'>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          Semana";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-        echo "          <label>".$dadosParPre['semana']."</label>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          Paragem";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-        echo "          <label>".$dadosParPre['paragem']."</label>";
-//        echo "          <input type='checkbox' name='checkparagem' id='checkparagem' onclick='preencheParagem(this.value)'> Automático";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          Selecione";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-//        echo "          <input type='text' name='selecao' id='selecao' class='form-control'>";// value='".$this->paragem."'
-        echo "          <label>".$dadosParPre['selecao']."</label>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          Total";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-        echo "          <label>".$dadosParPre['total']."</label>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          &nbsp;";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-        
-        echo "          <input type='hidden' name='data' id='data' class='form-control' value='".date('Y-m-d')."'>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-2 control-label'>";
-        echo "          &nbsp;";
-        echo "      </label>";
-        echo "      <div class='col-sm-2'>";
-        
-        echo "          <input type='hidden' name='codusuario' id='codusuario' class='form-control' value='".$_SESSION['idusuario']."'>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <label class='col-sm-4 control-label'>";
-        echo "          Deseja excluir a informação acima ?";
-        echo "      </label>";
-        echo "  </div>";
-        echo "  <div class='form-group'>";
-        echo "      <div class='col-sm-10' style='text-align: center;'>";
-        echo "          <a href='inicio.php?m=para' class='btn btn-default'>Não</a>";
-        echo "          <button class='btn btn-primary' type='submit'>Sim</button>";
-        echo "      </div>";
-        echo "  </div>";
-        echo "</form>";
-        
-        if($_POST){
-            $idParagem = $id;
-            
-            $this->setIdParPre($idParagem);
-//            
-//            echo "Usuário post: ".$codusuario;
-//            echo "<br>Usuário: ".$this->codusuario;
-            
-            if ($this->excluiParPres()){
-                echo "<label class='alert alert-success'>Excluído com sucesso!</label>";
-                echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=para'>";
+            if(empty($this->dataRuv) or empty($this->semanaRuv) or empty($this->pp) or empty($this->status) or empty($this->bonus)){
+                echo "<label class='alert alert-danger'>Favor preencher todos os dados.</label>";
+            }else{
+                $this->insereParPres();
             }
-            
         }
-        
     }
     //put your code here
 }

@@ -6,8 +6,11 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__).'/error_log.txt');
 error_reporting(E_ALL);
+//date_format_timezone_set('Ameria/Sao_paulo');
+
 
 require_once 'classes/classes.php';
+require_once 'classes/atividades.class.php';
 require_once './classes/usuario.class.php';
 require_once 'model/modelUsuario.php';
 require_once '../controller/constantes.php';
@@ -33,6 +36,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
         $modelUsuario = new usuario();
         $modelUsuario->setSenha($senha);
         $modelUsuario->validaUser($nomeMail);
+
 //    }
 }
 

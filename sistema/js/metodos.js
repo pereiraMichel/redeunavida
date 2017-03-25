@@ -9,7 +9,12 @@ function pegaUsuarioSist(usuario){
     $('#altera').removeAttr('disabled');
     $('#exclui').removeAttr('disabled');
     $('#detalhes').removeAttr('disabled');
-//    window.location.href='inicio.php?m=config&t=usis&e=s&id='+usuario;
+    //window.location.href='inicio.php?m=config&t=usis&e=s&id='+usuario;
+}
+
+function pegaIdAltera(id){
+	//alert(id);
+	window.location.href="inicio.php?m=config&t=usis&f=a&id="+id;
 }
 
 function pegaParagemPP(paragem){
@@ -436,6 +441,17 @@ function mascara(t){
     }
  }
 
+ function mascaraSemana(t){
+    var mask = "_-___";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
+
 function preencheBonusPortal(selecao){
     var valorBonus = document.getElementById('bonusPortais');
     var bonus = 0;
@@ -521,6 +537,22 @@ function selecionaPortalBonus(semana, pp){
     }
 }
 
+function selecionaTarefaBonus(semana, pp){
+    if(semana !== "todos"){
+        window.location.href='inicio.php?m=taref&tab=bonus&p='+pp+'&sem='+semana;
+    }else{
+        window.location.href='inicio.php?m=taref&tab=bonus';
+    }
+}
+
+function selecionaPresParagemBonus(semana, pp){
+    if(semana !== "todos"){
+        window.location.href='inicio.php?m=para&tab=bonus&p='+pp+'&sem='+semana;
+    }else{
+        window.location.href='inicio.php?m=para&tab=bonus';
+    }
+}
+
 function preencheAutoManualPortal(){
     var auto = document.getElementById('auto');
     var manual = document.getElementById('manual');
@@ -577,6 +609,15 @@ function preencheDataRuv(campo, id){
 
     }
 
+
+/*
+
+    var mesRuv = semanaRuv.substring(3, 4);
+    var anoRuv = semanaRuv.substring(0, 1);
+
+    dataRuv = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv; */
+}
+
     function preencheAutoManualTarefas(){
         alert("Chamou a função");
         var auto = document.getElementById('auto');
@@ -590,10 +631,26 @@ function preencheDataRuv(campo, id){
 
     }
 
-/*
+    function validaServicos(valor){
+        
 
-    var mesRuv = semanaRuv.substring(3, 4);
-    var anoRuv = semanaRuv.substring(0, 1);
+        if(valor === "focalizacao"){
+            document.location.href="inicio.php?m=serv&tipo=focal";
+        }else if(valor === "presenca"){
+            document.location.href="inicio.php?m=serv&tipo=pres";
+        }else{
+            document.location.href="inicio.php?m=serv";
+        }
 
-    dataRuv = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv; */
-}
+    }
+
+    function calculaBonusTarefa(valor){
+        //alert(valor);
+        var campoBonus = document.getElementById('bonus');
+
+        if(valor === "Sim"){
+            campoBonus.value = 3;
+        }else{
+            campoBonus.value = 0;
+        }
+    }

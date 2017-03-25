@@ -15,6 +15,8 @@ class configuracao {
 
     
     public function telaInicialConfig(){
+
+        //echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=config'>";
         
         echo "<div class='row' id='telaEscolha'>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
@@ -74,17 +76,35 @@ class configuracao {
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "</div>";
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=ativ' target='_self'>";
+        echo "              <img src='../img/registro1.jpg' title='Atividades' width='90' height='90' class='img-rounded'>";
+        echo "              <h5>Atividades</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        $nomeTipoUsuario = $_SESSION['nomeTipo'];
+
+        if(($nomeTipoUsuario === "ADMINISTRADOR") OR ($nomeTipoUsuario === "ANALISTA")){
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=xb' target='_self'>";
+        echo "              <img src='../img/servicos.png' title='Configurações de Bônus' alt='Configurações de Bônus' width='90' height='90' class='img-rounded'>";
+        echo "              <h5>Configurações de Bônus</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        }
+        
+        echo "<br/><br/>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          &nbsp;";
-//        echo "          <a href='inicio.php?menu=configuracoes&tarefa=setenio' target='_self'>";
-//        echo "              <img src='../img/groupIcon1.png' title='Setênio' width='90' height='90' class='img-rounded'>";
-//        echo "              <h5>Setênio</h5>";
-//        echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "<br/><br/>";
+        echo "</div>";
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12' style='height: 30px;'>&nbsp;</div>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
         echo "      <a href='inicio.php' target='_self'>";
