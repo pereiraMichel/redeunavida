@@ -65,7 +65,13 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <script src="js/validaCampos.js"></script>        
+        <script src="js/validaCampos.js"></script>
+
+        <script>
+            function focus(){
+                document.getElementById('login').focus();
+            }
+        </script>
 
         <!--<link rel="stylesheet" href="slide.php" type="text/css" />-->
         <?php
@@ -79,8 +85,12 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
             body {
                 padding-top: 30px;
                 padding-bottom: 30px;
-                background-color: <?php echo AZULINFO; ?>;
-                background-image: url(img/quantum.jpg);
+/*                background-color: rgba(86, 96, 204, 0.9);*/
+/*                background-color: <?php //echo AZULINFO; ?>;*/
+/*                background-image: url(img/fundo_site.png); */
+/*                background-image: url(img/quantum.jpg); */
+/*                background-image: url(img/abstrato.png);*/
+                background-color: rgba(255,255,255,.7);
                 background-repeat: no-repeat;
             }
 
@@ -88,7 +98,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 
     </head>
 
-    <body>
+    <body onload="focus()">
 
                 <?php
                 $titulo = new classes();
@@ -98,7 +108,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
                 
                 ?>
 
-        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms" style="background-color: rgba(30, 109, 255, 0.7); height: 550px; padding-top: 10px;">
             <div class="row">
                 <div class="text-center">
                     <div class="col-sm-4">
@@ -108,7 +118,7 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
 
                         <!--<p style="height: 125px;">&nbsp;</p>-->
 <!--                        <div style="background-image: url('../images/acessoRestritoMAPTI.png'); background-repeat: no-repeat; width: 250px;">&nbsp;</div>-->
-<img src="../images/logoRUV350x250.png" width="290" height="210">
+                        <img src="../images/logoRUV350x250.png" width="240" height="180">
                         <!--<div style="color: #fff;">ACESSO RESTRITO</div>-->
                         <p style="height: 20px;">&nbsp;</p>
                         <?php
@@ -138,21 +148,22 @@ if (strlen($nomeMail) != 0 || strlen($senha) != 0) {
                             </a>
                         </div>
                     </div>
+
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        &nbsp;
+                    </div>
+                    <!--<hr/>-->
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="text-center">
+                            <label class="label label-primary">Acesso ao Sistema RUV</label>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
 
-        <footer>
-
-            <p style="height: 40px"></p>
-            <!--<hr/>-->
-            <div class="col-sm-12 col-xs-12 col-md-12">
-                <div class="text-center">
-                    <label class="label label-primary">Acesso ao Sistema RUV</label>
-                </div>
-            </div>
-        </footer>        
 
     </body>
 </html>

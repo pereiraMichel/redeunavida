@@ -9,7 +9,7 @@ class telas {
 //    $foto = new modelFoto();
 //    $foto->setIdUsuario($idUsuario);
     
-    echo "<nav class='navbar navbar-default navbar-fixed-top' role='navigation' style='background-color: #D9EDF7'>";
+    echo "<nav class='navbar navbar-default navbar-fixed-top' role='navigation' style='background-color: #D9EDF7;'>"; //rgba(6, 151, 255, 1);
     echo "  <div class='navbar-header navbar-text-top'>";
     echo "      <div class='col-sm-2' style='height: 25px;'>";
     echo "          <div style='padding: 10px 100px 0px 0px;'>";
@@ -22,15 +22,15 @@ class telas {
     echo "      <ul class='nav navbar-nav navbar-right' id='menu' style='font-size: 12px; padding-right: 20px;'>";
     
     echo "          <li>";
-    echo "              <div class='btn-group'  style='padding-top: 5px;'>";
-    echo "                  <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style='width: 100px; height: 50px;'>";
+    echo "              <div class='btn-group' style='padding-top: 5px;'>";
+    echo "                  <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style='width: 80px; height: 40px; font-size: 12px;'>";
     echo "                      <i class='fa fa-user'></i>  ".$usuario." <span class='caret'></span>";
     echo "                  </button>";
     echo "                  <ul class='dropdown-menu'>";
-    echo "                      <li><a href='inicio.php?m=perf'>Sobre você</a></li>";
-    echo "                      <li><a href='inicio.php?m=perfend'>Seu endereço</a></li>";
-    echo "                      <li><a href='inicio.php?m=perftel'>Telefones</a></li>";
-    echo "                      <li><a href='inicio.php?m=trocasenha'>Troca de senha</a></li>";
+    echo "                      <li><a href='inicio.php?m=config&t=perf'>Sobre você</a></li>";
+    echo "                      <li><a href='inicio.php?m=config&t=perfend'>Seu endereço</a></li>";
+    echo "                      <li><a href='inicio.php?m=config&t=perftel'>Telefones</a></li>";
+    echo "                      <li><a href='inicio.php?m=config&t=trocasenha'>Troca de senha</a></li>";
     echo "                      <li role='separator' class='divider'></li>";
     echo "                      <li><a href='inicio.php?saida=sim' class='text-danger' style='padding-right: 15px;'><i class='fa fa-power-off'></i> Sair</a></li>";
     echo "                  </ul>";
@@ -79,6 +79,7 @@ class telas {
     echo "          </li>";//fecha li perfil*/
 
 
+/*
     echo "          <li class='dropdown mega-dropdown'>";//inicia li MenuBar
     echo "              <a id='menu-toggle' class='btn btn-dark btn-lg toggle dropdown-toggle' data-toggle='dropdown'>";
     echo "                  <i class='fa fa-bars'></i>";
@@ -91,56 +92,15 @@ class telas {
     echo "                  </li>";
     
     echo "                  <li id='atividade'>";
-//    echo "                  <li class='dropdown-submenu' id='atividade'>";
-//    echo "                      <a tabindex='0' class='dropdown-toggle' role='button' data-toggle='dropdown'>";
     echo "                      <a tabindex='-1' href='inicio.php?m=atividades'>";
     echo "                          <i class='fa fa-archive'></i> Atividades";
     echo "                      </a>";
-//    echo "                      <ul class='dropdown-menu mega-dropdown-menu' style='font-size: 12px;'>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=bonus'>";
-//    echo "                                  <i class='fa fa-group'></i> Tabuleta de Bônus";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=tarefa'>";
-//    echo "                                  <i class='fa fa-clock-o'></i> Tarefas";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                      </ul>";
     echo "                  </li>";
     
     echo "                  <li id='relatorio'>";
     echo "                      <a tabindex='0' href='inicio.php?m=rela'>";
     echo "                          <i class='fa fa-list'></i> Relatórios";
     echo "                      </a>";
-//    echo "                      <ul class='dropdown-menu' role='menu' style='font-size: 12px;'>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=relbonus'>";
-//    echo "                                  Bônus";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=reltarefas'>";
-//    echo "                                  Tarefas";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=reljornadas'>";
-//    echo "                                  Jornadas";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=relparagem'>";
-//    echo "                                  Paragem";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                          <li>";
-//    echo "                              <a tabindex='0' href='inicio.php?menu=relusuarios'>";
-//    echo "                                  Usuários";
-//    echo "                              </a>";
-//    echo "                          </li>";
-//    echo "                      </ul>";//fecha submenu relatórios
     echo "                   </li>";//fecha relatórios
 
                 if($autoriza){
@@ -167,7 +127,7 @@ class telas {
     echo "                  </li>";//fecha li suporte
     
     echo "              </ul>";//fecha ul MenuBar (dropdown-menu)
-    echo "          </li>";//fecha li bar
+    echo "          </li>";//fecha li bar*/
     echo "      </ul>";//Fecha ul navbar
     echo "  </div>";
     echo "</nav>";

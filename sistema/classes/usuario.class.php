@@ -81,6 +81,7 @@ class usuario {
 
     function setSenha($senha) {
         $this->senha = md5($senha);
+//        $this->senha = $senha;
     }
 
     function setDataCadastro($dataCadastro) {
@@ -125,41 +126,43 @@ class usuario {
     }
     
     public function novoUsuario(){
-        
-        $this->idUsuario = ultimoId::ultimoIdBanco('idUsuario', 'tblusuario');
-        
-        $sqlNovoUsuario = "INSERT INTO tblusuario(idUsuario, nomeUsuario, email, senha, dataCadastro, dataAlteracao, codTipo) VALUES (".$this->idUsuario.", '".$this->nomeUsuario."', '".$this->email."', '".$this->senha."', '".$this->dataCadastro."', '".$this->dataAlteracao."', ".$this->codTipoUsuario.")";
-        
-//        echo "SQL Usuário: ".$sqlNovoUsuario."<br>";
-        
-        
+
+        $con = new conectaBanco();
+        $con->conecta();
+
+        $sqlConsultaUsuario = "SELECT * FROM tblusuario WHERE email = '".$this->email."'";
+
         try{
-            $resultadoNovoUsuario = mysql_query($sqlNovoUsuario) or die ("Novo Usuário. ".RETURN_SQL.mysql_error());
+            $resultadoSQLConsultaUser = mysql_query($sqlConsultaUsuario) or die ("Erro no comando SQL. Descrição: ".mysql_error());
 
-            if($resultadoNovoUsuario){
-                $perfil = new perfil();
+            if(mysql_num_rows($resultadoSQLConsultaUser) > 0){
+                echo "<label class='alert alert-danger'>Existe outro usuário com o e-mail informado.</label>";
+                //echo mysql_num_rows($resultadoSQLConsultaUser);
+                return false;
+            }else{
 
-                $perfil->setNome($this->nomeUsuario);
-                $perfil->setCodUsuario($this->idUsuario);
-                $perfil->setDataAlteracao($this->dataAlteracao);
-                $perfil->setCodSetenio(0);
-                $perfil->setDataNascimento("0000-00-00");
-                $perfil->setDescricao("");
-                $perfil->setEstadoCivil("");
-                $perfil->setMotivacao("");
-                $perfil->setProfissao("");
-                $perfil->novoPerfil();
+                $this->idUsuario = ultimoId::ultimoIdBanco('idUsuario', 'tblusuario');
+                $id = $this->idUsuario;
+                
+                $sqlNovoUsuario = "INSERT INTO tblusuario(idUsuario, nomeUsuario, email, senha, dataCadastro, dataAlteracao, codTipo) VALUES (".$this->idUsuario.", '".$this->nomeUsuario."', '".$this->email."', '".$this->senha."', '".$this->dataCadastro."', '".$this->dataAlteracao."', ".$this->codTipoUsuario.")";
+                
+                //echo "SQL Usuário: ".$sqlNovoUsuario."<br>";
+                
+                try{
+                    $resultadoNovoUsuario = mysql_query($sqlNovoUsuario) or die ("Novo Usuário. ".RETURN_SQL.mysql_error());
 
+                    if($resultadoNovoUsuario){
+                        return true;
+                    }else{
+                        echo "<br><label>Comando não executado.</label>";
+                    }
+                } catch (Exception $ex) {
+                    echo "Erro na execução do novo usuário. Descrição: ".$ex->getMessage();
+                }
             }
-
-//            mysql_close($resultadoNovoUsuario);
-            
-        } catch (Exception $ex) {
-            echo "Erro na execução do novo usuário. Descrição: ".$ex->getMessage();
-
+        }catch(Exception $ex){
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
         }
-        
-        
     }
     
     public function editUsuario(){
@@ -168,7 +171,8 @@ class usuario {
 //        echo "SQL: ".$sqlEditUsuario."<br>";
         try{
              mysql_query($sqlEditUsuario) or die("Edição do Usuário. ".RETURN_SQL.mysql_error());//$resultadoEditUsuario =
-             
+             $a->writeLog($_SESSION['usuario'], "Alteração do Usuário ".$this->nomeUsuario, "../controller/");
+                         
             
         } catch (Exception $ex) {
             echo "Erro na execução da alteração do usuário. Descrição: ".$ex->getMessage();
@@ -178,6 +182,8 @@ class usuario {
     public function deleteUsuario(){
         $conecta = new conectaBanco();
         $conecta->conecta();
+
+        $a = new atividades();
         
         $f = filter_input(INPUT_GET, 'f');
         $id = filter_input(INPUT_GET, 'id');
@@ -185,13 +191,24 @@ class usuario {
         if($f === "e"){
             $sqlDeleteUsuario = "DELETE FROM tblusuario WHERE idUsuario=".$id;
             $sqlDeletePerfil = "DELETE FROM perfil WHERE codUsuario = ".$id;
+
+            $sqlConsultaUsuario = "SELECT * FROM tblusuario WHERE idUsuario = ".$id;
         
             try{
-                mysql_query($sqlDeletePerfil) or die("Deleta perfil. ".RETURN_SQL.mysql_error()); //$resultadoDeletePerfil = 
+                $r = mysql_query($sqlConsultaUsuario) or die("Consulta Usuário. ".RETURN_SQL.mysql_error());
+
+                $dataUser = mysql_fetch_array($r);
+
+                $resultadoDeletePerfil = mysql_query($sqlDeletePerfil) or die("Deleta perfil. ".RETURN_SQL.mysql_error());
                 $resultadoDeleteUsuario = mysql_query($sqlDeleteUsuario) or die("Deleta usuário. ".RETURN_SQL.mysql_error());
 
-                if($resultadoDeleteUsuario > 0){
-                    return true;
+                if($resultadoDeleteUsuario){
+                    echo "<div class='col-sm-12'>";
+                    echo "  <label class='alert alert-success'>Excluindo perfil e usuário...</label><br>";
+                    echo "  <label class='alert alert-success'>Excluído com sucesso !</label><br>";
+                    $a->writeLog($_SESSION['usuario'], "Exclusão do Usuário ".$dataUser['nomeUsuario'], "../controller/");
+                    echo "  <meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
+                    echo "</div>";
                 }
                 return false;
 //                mysql_close($resultadoDeleteUsuario);
@@ -203,17 +220,73 @@ class usuario {
         
     }
     
-    public function tabelaUsuarioSistema($acesso){
+    public function tabelaUsuarioSistema(){
         
         $conexao = new conectaBanco();
         $conexao->conecta();
         
+        $tipoUsuarioSelecionado = filter_input(INPUT_GET, "tpu");
+
+        if($tipoUsuarioSelecionado === "todos" or $tipoUsuarioSelecionado === null or $tipoUsuarioSelecionado === ""){
+            $sqlPreencheCampo = "SELECT * tipousuario";
+            $sqlEscolha = "";
+        }else{
+            $sqlPreencheCampo = "SELECT * FROM tipousuario WHERE nomeTipo = ".$tipoUsuarioSelecionado;
+            $sqlEscolha = " WHERE t.nomeTipo = '".$tipoUsuarioSelecionado."'";
+        }
+
+            $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro 
+                    FROM tblusuario l 
+                    INNER JOIN tipousuario t ON l.codTipo = t.idTipo 
+                    ".$sqlEscolha;
+
+            //echo $sql;
+            //echo $sqlPreencheCampo;;
+
         echo "<div class='col-xs-1 col-sm-1 placeholder'>";
         echo "  &nbsp;";
         echo "</div>";
         echo "<div class='col-xs-10 col-sm-10 placeholder'>";
+//        echo "<label class='alert alert-danger'>Em teste</label>";
         echo "<br><br>";
         echo "  <table class='table table-hover'>";
+        echo "      <tr>";
+        echo "          <td colspan='3'>";
+        echo "              <label>Tipo de usuários: ";
+        echo "          </td>";
+        echo "          <td colspan='2'>";
+        echo "              <select name='tpusuarios' id='tpusuarios' class='form-control' onchange='selectUsuarios(this.value)'>";
+
+        if(!empty($tipoUsuarioSelecionado)){
+                    echo "<option value='".$tipoUsuarioSelecionado."'>".$tipoUsuarioSelecionado."</option>";
+        }
+
+        echo "                  <option value=''></option>";
+        echo "                  <option value='TODOS'>Todos</option>";
+
+        $sqlTipoUsuario = "SELECT * FROM tipousuario";
+
+        try{
+
+            $resultadoTipoUsuario = mysql_query($sqlTipoUsuario) or die("Erro no comando SQL do tipo de usuário. Erro: ".mysql_error());
+
+            while($dadosTipoUsuario = mysql_fetch_array($resultadoTipoUsuario)){
+                echo "<option value='".$dadosTipoUsuario['nomeTipo']."'>".$dadosTipoUsuario['nomeTipo']."</option>";
+            }
+
+        }catch(Exception $ex){
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
+        }
+
+
+        echo "              </select>";
+        echo "          </td>";
+        echo "      </tr>";
+        echo "      <tr>";
+        echo "          <td colspan='5'>";
+        echo "              &nbsp;";
+        echo "          </td>";
+        echo "      </tr>";
         echo "      <tr>";
         echo "          <td>";
         echo "              <b>Nome</b>";
@@ -234,18 +307,9 @@ class usuario {
 
         try{
             
-            if($acesso === "SISTEMA"){
-                $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblusuario l "
-                        . "INNER JOIN tipousuario t ON l.codTipo = t.idTipo "
-                        . "WHERE t.nomeTipo <> 'SITE'";
-            }else if($acesso === "SITE"){
-                $sql = "SELECT l.*, t.*, DATE_FORMAT(l.dataCadastro, '%d/%m/%Y') AS dataCadastro FROM tblusuario l "
-                        . "INNER JOIN tipousuario t ON l.codTipo = t.idTipo "
-                        . "WHERE t.nomeTipo = 'SITE'";
-                
-            }
+            //echo "Tipo Usuário: ".$tipoUsuarioSelecionado."<br>";
             $resultado = mysql_query($sql) or die ("Erro na execução da tabela, fora da sintaxe do MySQL. Erro: ".mysql_error());
-            if ($resultado){
+            if (mysql_num_rows($resultado) > 0){
                 while($dados = mysql_fetch_array($resultado)){
                     echo "<input type='hidden' value='".$dados['idUsuario']."'>";
                     echo "      <tr>";
@@ -268,6 +332,12 @@ class usuario {
                     echo "      </tr>";
 
                 }
+            }else{
+                echo "<tr>";
+                echo "  <td colspan='5'>";
+                echo "      <label class='alert alert-warning'>Não contém usuários para a consulta.</label>";
+                echo "  </td>";
+                echo "</tr>";
             }
         } catch (Exception $ex) {
             echo "Erro na transação. Motivo: ".$ex->getMessage();
@@ -280,10 +350,10 @@ class usuario {
         
         echo "      <div class='form-group'>";
         echo "              <div class='col-sm-9' style='text-align:right'>";
-        echo "                   | <a href='inicio.php?m=config&t=usis&f=n' class='btn btn-primary'>Novo</a> | ";
-        echo "                  <button type='button' onclick='pegaIdAltera(idSelecionado.value)' id='altera' name='altera' class='btn btn-default' disabled>Alterar</button> | ";
+        echo "                   | <a href='inicio.php?m=config&t=usis&f=n' class='btn btn-default'><img src='../img/icon-people.png' width='20' height='20'> Novo</a> | ";
+        echo "                  <button type='button' onclick='pegaIdAltera(idSelecionado.value)' id='altera' name='altera' class='btn btn-default' disabled><img src='../img/editar.png' width='20' height='20'> Alterar</button> | ";
 //        echo "                  <a href='inicio.php?m=config&t=usis&f=a' onclick='javascript:pegaIdAltera(idSelecionado.value)' id='altera' name='altera' class='btn btn-default' disabled>Alterar</a> | ";
-        echo "                  <a href='inicio.php?m=config&t=usis&f=e' id='exclui' name='exclui' class='btn btn-default' disabled>Excluir</a>";
+        echo "                  <button type='button' id='exclui' onclick='pegaIdExclui(idSelecionado.value)' name='exclui' class='btn btn-default' disabled><img src='../img/botaoexcluir.png' width='20' height='20'> Excluir</a>";
 //        echo "                  <a href='inicio.php?m=config&t=usis&f=d' id='detalhes' name='detalhes' class='btn btn-default' disabled>Detalhes</a>";
         echo "              </div>";
         echo "      </div>";
@@ -292,16 +362,15 @@ class usuario {
         echo "</div>";
         echo "      <div class='form-group'>";
         echo "              <div class='col-sm-12' style='text-align:right'>";
-        echo "                  <a href='inicio.php?m=config' id='voltar' name='voltar' class='btn btn-default'>Voltar</a>";
+        echo "      <a href='inicio.php?m=config' class='btn btn-default' target='_self' title='Voltar' alt='Voltar'>";
+        echo "          <img src='../img/btn_back.png' width='25' height='25'>";
+        echo "      </a>";
+        echo "          <br><label style='padding-right: 8px;'>Voltar</label>";
         echo "              </div>";
         echo "      </div>";
 
-        if($this->deleteUsuario()){
-            echo "<div class='col-sm-12'>";
-            echo "  <label class='alert alert-success'>Excluído com sucesso</label>";
-            echo "  <meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
-            echo "</div>";
-        }
+/*        if($this->deleteUsuario()){
+        }*/
 
 /*        if($f === "a"){
             $this->telaAlteraUsuario($idusuarioSelecionado);
@@ -326,9 +395,8 @@ class usuario {
    
     
     public function telaNovoUsuario(){
-        
-//        echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=config&t=usis&f=n'";
-        
+        $a = new atividades();
+
         $conecta = new conectaBanco();
         $conecta->conecta();
         echo "<div class='col-xs-12 col-sm-12 placeholder'>";
@@ -339,13 +407,39 @@ class usuario {
         echo "  &nbsp;";
         echo "</div>";
         echo "<div class='col-xs-8 col-sm-8 placeholder'>";
-        echo "<form name='novoUsuario' action='#' method='post' class='form-horizontal'>";
+        echo "<form name='novoUsuario' id='novoUsuario' action='inicio.php?m=config&t=usis&f=n' method='post' class='form-horizontal'>";
         $this->telaFormulario();
         echo "<p style='height: 20px;'>&nbsp;</p>";
         
         echo "  <div style='text-align: center;'>";
-        echo "      <a class='btn btn-default' href='inicio.php?m=config&t=usis'>Fechar</a>";
-        echo "      <button type='submit' class='btn btn-primary'>Salvar</button>";
+        echo "      <table class='table'>";
+        echo "          <tr>";
+        echo "                  <td style='text-align: right;'>";
+        echo "                      <a href='inicio.php?m=config&t=usis' class='btn btn-default' title='Voltar' alt='Voltar'>";
+        echo "                          <img src='../img/btn_back.png' width='25' height='25'>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <button type='button' class='btn btn-default' id='salvar' name='salvar' onclick='enviaForm(\"novoUsuario\")'>";// onclick='enviaForm(\"novoUsuario\")'
+        echo "                          <img src='../img/save2.png' width='25' height='25'>";
+        echo "                      </button>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "              <tr>";
+        echo "                  <td style='text-align: right;'>";
+        echo "                      <a href='inicio.php?m=config&t=usis' title='Voltar' alt='Voltar'>";
+        echo "                          <label>Voltar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <a href='#' onclick='enviaForm(\"novoUsuario\")' title='Salvar' alt='Salvar'>";
+        echo "                          <label>Salvar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "          </tr>";
+        echo "      </table>";
+//        echo "      <a class='btn btn-default' href='inicio.php?m=config&t=usis'>Fechar</a>";
+//        echo "      <button type='submit' class='btn btn-primary'>Salvar</button>";
         echo "  </div>";
         echo "</form>";
         
@@ -363,7 +457,29 @@ class usuario {
             $this->setDataCadastro($dataCadastro);
             $this->setDataAlteracao($dataCadastro);
             
-            $this->verificaUsuario($email);
+            if($this->novoUsuario()){
+                $perfil = new perfil();
+
+                $perfil->setNome($this->nomeUsuario);
+                $perfil->setCodUsuario($this->idUsuario);
+                $perfil->setDataAlteracao($this->dataAlteracao);
+                $perfil->setCodSetenio(0);
+                $perfil->setDataNascimento("0000-00-00");
+                $perfil->setDescricao("");
+                $perfil->setEstadoCivil("");
+                $perfil->setMotivacao("");
+                $perfil->setProfissao("");
+                $perfil->setBoolUsuario("usuario");
+                
+                if($perfil->novoPerfil()){
+                    $a->writeLog($_SESSION['usuario'], "Inclusão do Usuário ".$this->nomeUsuario, "../controller/");
+                    echo "<p style=''>&nbsp;</p>";
+                    echo "<label class='alert alert-success'>Salvo com sucesso! Aguarde 2 segundos.</label>";
+                    echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
+                }
+
+            }
+//            $this->verificaUsuario($email);
             
         }
         echo "</div>";
@@ -397,12 +513,12 @@ class usuario {
         } catch (Exception $ex) {
             echo "Exception ativado. Descrição: ".$ex->getMessage();
         }
-        
+
 /**/    echo "<div class='col-xs-2 col-sm-2 placeholder'>";
         echo "  &nbsp;";
         echo "</div>";
         echo "<div class='col-xs-8 col-sm-8 placeholder'>";
-        echo "<form name='alteraUsuario' method='post' action='inicio.php?m=config&t=usis&f=a&id=$id' class='form-horizontal'>";
+        echo "<form name='formAlteraUsuario' id='formAlteraUsuario' method='post' action='inicio.php?m=config&t=usis&f=a&id=$id' class='form-horizontal'>";
         echo "  <div class='form-group'>";
         echo "      <label for='nome_usuario' class='col-sm-3 control-label'>Usuário: </label>";
         echo "      <div class='col-sm-5'>";
@@ -412,13 +528,13 @@ class usuario {
         echo "  <div class='form-group'>";
         echo "      <label for='email' class='col-sm-3 control-label'>E-mail: </label>";
         echo "      <div class='col-sm-5'>";
-        echo "          <input type='text' class='form-control' id='email' name='email' value='".$this->email."'>";
+        echo "          <input type='text' class='form-control' id='email' name='email' value='".$this->email."' onkeydown='enterTab(\"senha\", event)'>";
         echo "      </div>";
         echo "  </div>";
         echo "  <div class='form-group'>";
         echo "      <label for='senha' class='col-sm-3 control-label'>Nova Senha: </label>";
         echo "      <div class='col-sm-5'>";
-        echo "          <input type='password' class='form-control' id='senha' name='senha' placeholder='Máximo 10 caracteres.' maxlenght='10'>";
+        echo "          <input type='password' class='form-control' id='senha' name='senha' placeholder='Máximo 8 caracteres.' maxlenght='8' onkeydown='enterTab(\"salvar\", event)'>";
         echo "      </div>";
         echo "  </div>";
         echo "  <div class='form-group'>";
@@ -447,8 +563,34 @@ class usuario {
         echo "<input type='hidden' class='form-control' id='codusuario' name='codusuario' placeholder='".$this->codAlteraUsuario."'>";
         echo "<input type='hidden' class='form-control' id='dataAlteracao' name='dataAlteracao' value='".date('Y-m-d')."'>";
         echo "  <div class='form-group'>";
-        echo "      <a href='inicio.php?m=config&t=usis' class='btn btn-default'>Cancelar</a> ";
-        echo "      <button class='btn btn-primary' type='submit' style='width: 80px;'>Salvar</button>";
+        echo "      <table class='table'>";
+        echo "          <tr>";
+        echo "                  <td style='text-align: right;'>";
+        echo "                      <a href='inicio.php?m=config&t=usis' class='btn btn-default' title='Voltar' alt='Voltar'>";
+        echo "                          <img src='../img/btn_back.png' width='25' height='25'>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <button type='button' class='btn btn-default' id='salvar' name='salvar' onclick='enviaForm(\"formAlteraUsuario\");'>";//enviaForm(\"alteraUsuario\"); //alert(\"Chamou a função\")
+        echo "                          <img src='../img/save2.png' width='25' height='25'>";
+        echo "                      </button>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "              <tr>";
+        echo "                  <td style='text-align: right;'>";
+        echo "                      <a href='inicio.php?m=config&t=usis' title='Voltar' alt='Voltar'>";
+        echo "                          <label>Voltar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <a href='#' onclick='enviaForm(\"formAlteraUsuario\");' title='Salvar' alt='Salvar'>";
+        echo "                          <label>Salvar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "          </tr>";
+        echo "      </table>";
+//        echo "      <a href='inicio.php?m=config&t=usis' class='btn btn-default'>Cancelar</a> ";
+//        echo "      <button class='btn btn-primary' type='submit' style='width: 80px;'>Salvar</button>";
         echo "  </div>";
         echo "</form>";
         echo "<br>";
@@ -478,7 +620,7 @@ class usuario {
 
             if($this->alteraUsuario()){
                 echo "<label class='alert alert-success'>Usuário alterado com sucesso!</label>";
-                echo "<meta http-equiv='refresh' content='2;url='inicio.php?m=config'>";
+                echo "<meta http-equiv='refresh' content='2;url='inicio.php?m=config&t=usis'>";
             }else{
                 echo "<label class='alert alert-danger'>Erro ao alterar o usuário.</label>";
             }
@@ -533,14 +675,14 @@ class usuario {
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 12px;'>" . NOME . "</label>";
         echo "   <div class='col-sm-5'>";
-        echo "      <input type='text' name='nome' id='nome'  placeholder='Nome' class='form-control' />";
+        echo "      <input type='text' name='nome' id='nome'  placeholder='Nome' class='form-control' onkeydown='enterTab(\"senha\", event)' />";
         echo "   </div>";
         echo "</div>";
         
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 12px;'>" . SENHA . "</label>";
         echo "   <div class='col-sm-5'>";
-        echo "      <input type='password' name='text' id='senha' class='form-control' maxlenght='8' />";
+        echo "      <input type='password' name='senha' id='senha' class='form-control' maxlenght='8' onkeydown='enterTab(\"email\", event)' />";
         echo "   </div>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 12px;'>&nbsp;</label>";
         echo "   <div class='col-sm-5' style='color: red; text-align: left;'>";
@@ -551,7 +693,7 @@ class usuario {
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 12px;'>" . EMAIL . "</label>";
         echo "   <div class='col-sm-5'>";
-        echo "      <input type='email' name='email' id='email' placeholder='E-mail' class='form-control' />";
+        echo "      <input type='email' name='email' id='email' onkeydown='enterTab(\"salvar\", event)' placeholder='E-mail' class='form-control' />";
         echo "   </div>";
         echo "</div>";
 
@@ -581,7 +723,7 @@ class usuario {
         
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-2 control-label' style='font-size: 11px;'>" . DATA . "</label>";
-        echo "   <div class='col-sm-2'>";
+        echo "   <div class='col-sm-3'>";
         echo "      <input type='text' name='data' id='data' value='".date("d/m/Y")."' class='form-control' readonly />";
         echo "   </div>";
         echo "</div>";
@@ -632,7 +774,9 @@ class usuario {
                     . "OR u.email = '".$usuario."') "
                     . "AND u.senha = '".$this->senha."'";
 
-            $resultado = mysql_query($sql) or die("||| Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
+                    //echo "SQL comando Usuário: ".$sql;
+
+            $resultado = mysql_query($sql) or die("Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
             $dados = mysql_fetch_array($resultado);
 
             if($dados > 0){
@@ -659,6 +803,7 @@ class usuario {
 //                echo "<br>Sessão Senha: ".$_SESSION['codTipoUsuario'];
             }else{
                 header("Location: ../sistema/index.php?erro=1");//Erro usuário
+                //echo "Comando não executado";
 
             }
             

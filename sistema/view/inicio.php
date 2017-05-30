@@ -1,11 +1,18 @@
 <?php
 
+
+$temp_dir = '../../lib/mpdf/ttfonts';
+define('_MPDF_TTFONTDATAPATH',$temp_dir);
+//define('_MPDF_TTFONTDATAPATH',Yii::getAlias('@runtime/mpdf'));
 //define('__ROOT__', dirname(dirname(__FILE__)));
 //
 //require_once __ROOT__.'/conexao/conectaBanco.php';
 //
-
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
+//set_error_handler("var_dump");
+
+ob_start();
 
 include_once '../classes/ultimoId.inc.php';
 include_once '../classes/perfil.class.php';
@@ -23,6 +30,10 @@ include_once '../classes/relatorios.class.php';
 include_once '../classes/tarefas.class.php';
 include_once '../classes/servExtras.class.php';
 include_once '../classes/atividades.class.php';
+include_once '../classes/Pesquisas.class.php';
+include_once '../classes/import.class.php';
+include_once '../classes/grupos.class.php';
+//include_once '../relatorios/relatorio.php';
 include_once '../../controller/constantes.php';
 include_once '../constante/constanteSistema.php';
 include_once '../../controller/metodos.php';
@@ -43,6 +54,7 @@ $modeloTelas = new telas();
 //$modelUsuario = new modelUsuario();
 $conectaBanco = new conectaBanco();
 $conectaBanco->iniciaSessao();
+
 //if(session_cache_expire(10)){//define o tempo para manter a sessão, em minutos
 //    $_SESSION['logado'] = false;
 //    session_destroy();
@@ -50,6 +62,7 @@ $conectaBanco->iniciaSessao();
 //    
 //}
 $codAutoridade = (int) $_SESSION['codTipoUsuario'];
+
 $a = new atividades();
 $saida = filter_input(INPUT_GET, 'saida');
 
@@ -92,6 +105,10 @@ $tarefas = new tarefas();
 $servExtras = new servExtras();
 $cal = new calendarioRuv();
 $a = new atividades();
+$pesquisa = new Pesquisas();
+$bonus = new bonus();
+$grupos = new grupos();
+
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +116,7 @@ $a = new atividades();
 <head>
 	<meta charset="UTF-8">
 
-	<title><?php echo TITULOSISTEMA;?></title>
+	<title>Sistema RUV</title>
 
         <link rel="stylesheet" href="../../assets/css/font-awesome.min.css"> <!-- Responsável por emitir figuras -->
         <link rel="stylesheet" href="../../css/font-awesome.min.css"> <!-- Responsável por emitir figuras -->
@@ -117,6 +134,9 @@ $a = new atividades();
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/estiloMenu.css">
         <link rel="stylesheet" href="../css/simple-sidebar.css">
+        <link rel="stylesheet" href="../css/jquery-ui.css">
+        <link rel="stylesheet" href="../css/jquery-ui.mnin.css">
+        <link rel="stylesheet" href="../css/jquery-ui.structure.css">
         <!--<link rel="stylesheet" href="../../css/bootstrap-submenu.css">-->
         
 <!--        <script src="../../js/jquery.js" defer=""></script>-->
@@ -127,16 +147,70 @@ $a = new atividades();
         <script src="../../js/modal.js" defer=""></script>
         <script src="../../js/bootstrap-submenu.js" defer=""></script>
         <script src="../js/metodos.js" defer=""></script>
+        <script src="../js/jquery-ui.js" defer=""></script>
 
-        
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
- 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
-  
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+         
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
 
         <script>
             $('.dropdown-submenu > a').submenupicker();
         </script>
+
+        <script>
+        $(function() {
+            $("#calendario").datepicker({
+                closeText: "Fechar", // Display text for close link
+                prevText: "Mês Anterior", // Display text for previous month link
+                nextText: "Próximo Mês", // Display text for next month link
+                monthNames: [ "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ], // Names of months for drop-down and formatting
+                monthNamesShort: [ "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez" ], // For formatting
+                dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ], // For formatting
+                dayNamesShort: [ "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab" ], // For formatting
+                dayNamesMin: [ "Dom","Seg","Ter","Qua","Qui","Sex","Sab" ], // Column headings for days starting at Sunday
+                dateFormat: 'dd/mm/yy',
+                language: 'pt-BR'
+            });
+            $("#calendarioInicial").datepicker({
+                closeText: "Fechar", // Display text for close link
+                prevText: "Mês Anterior", // Display text for previous month link
+                nextText: "Próximo Mês", // Display text for next month link
+                monthNames: [ "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ], // Names of months for drop-down and formatting
+                monthNamesShort: [ "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez" ], // For formatting
+                dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ], // For formatting
+                dayNamesShort: [ "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab" ], // For formatting
+                dayNamesMin: [ "Dom","Seg","Ter","Qua","Qui","Sex","Sab" ], // Column headings for days starting at Sunday
+                dateFormat: 'dd/mm/yy',
+                language: 'pt-BR'
+            });
+            $("#calendarioFinal").datepicker({
+//                showOn: "button",
+//                buttonImage: "calendario.png",
+//                showButtonPanel: true,
+//                buttonImageOnly: true,
+                closeText: "Fechar", // Display text for close link
+                prevText: "Mês Anterior", // Display text for previous month link
+                nextText: "Próximo Mês", // Display text for next month link
+                monthNames: [ "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ], // Names of months for drop-down and formatting
+                monthNamesShort: [ "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez" ], // For formatting
+                dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ], // For formatting
+                dayNamesShort: [ "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab" ], // For formatting
+                dayNamesMin: [ "Dom","Seg","Ter","Qua","Qui","Sex","Sab" ], // Column headings for days starting at Sunday
+                dateFormat: 'dd/mm/yy',
+                language: 'pt-BR'
+            });
+        });
+        </script>        
 
         <script type="text/javascript">
                 jQuery(document).ready(function($) {
@@ -151,9 +225,10 @@ $a = new atividades();
 
             }        
         </script>
-        
+       
 </head>
 <body onload="hora()">
+<!-- <meta http-equiv="refresh" content="5;url=inicio.php"> -->
 
     <?php
 
@@ -165,7 +240,7 @@ $a = new atividades();
     ?>
 
 	<header id="header">
-            
+
             <?php
                 $modeloTelas->menuSuperior($autoriza, $_SESSION['usuario'], $_SESSION['idusuario']);
             
@@ -178,62 +253,79 @@ $a = new atividades();
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div id="sidebar-wrapper" style="background-color: #D9EDF7">
-                            <ul class="sidebar-nav" style="color: #1f226d; font-weight: bold;" id="menuRuv">
+                        <div id="sidebar-wrapper" style="background-color: rgba(6, 151, 255, 1); width: 220px;">
+                            <ul class="sidebar-nav" style="color: #1f226d; font-weight: bold;" id="menuRuv"> <!--  # -->
                                 <li class="sidebar-brand">
-                                    <a href='inicio.php' style="font-size: 13px;">
+                                    <a href='inicio.php' style="font-size: 12px; color: #fff;">
                                         <img src="../../images/logoRUV50x51.png" width="35" height="36">
                                         MENU RUV
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" data-toggle="collapse" data-target="#menuRegistro" data-parent="#menuRuv" class="collapsed">
+                                    <a href="#" data-toggle="collapse" data-target="#menuRegistro" data-parent="#menuRuv" class="collapsed" style="color: #000; font-size: 12px; font-weight: bold;">
+                                        <img src="../img/registrar2.png" title="Registro" width="30" height="30">
                                         Registro 
                                             <span class="caret"></span>
-                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                            <span style="font-size: 12px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
                                     <div id="menuRegistro" class="collapse" style="height: 0px;">
                                         <ul class="nav nav-list">
                                             <li>
                                                 <a href="inicio.php?m=pp" style="font-size: 12px; color: #1f226d;">
+                                                    <img src='../img/meditacao.jpg' title='Meditação' width='20' height='20'>
                                                     Meditação
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="inicio.php?m=port" style="font-size: 12px; color: #1f226d;">
+                                                    <img src='../img/portal_blue.png' title='Prática dos Portais' width='20' height='30'>
                                                     Prática dos Portais
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="inicio.php?m=para" style="font-size: 12px; color: #1f226d;">
-                                                    Paragem Presenças
+                                                    <img src='../img/colaboradores.png' title='Serviços e Extras' width='20' height='20'>
+                                                    Presença-Paragens
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="inicio.php?m=taref" style="font-size: 12px; color: #1f226d;">
+                                                    <img src='../img/cupomFiscal.png' title='Tarefas' width='20' height='20' style='text-align: center;'>
                                                     Tarefas
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="inicio.php?m=serv" style="font-size: 12px; color: #1f226d;">
-                                                    Serviços e Extras
+                                                    <img src='../img/text-icon.png' title='Serviços e Extras' width='20' height='20'> Serviços e Extras
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
+                                <!--<li>
+                                    <a href="inicio.php?m=pesq" style="color: #000; font-size: 12px; font-weight: bold;">Pesquisas</a>
+                                </li>-->
                                 <li>
-                                    <a href="inicio.php?m=rela">Relatório</a>
+                                    <a href="inicio.php?m=rela" style="color: #000; font-size: 12px; font-weight: bold;">
+                                    <img src='../img/tarefas2.png' title='Paragem' width='20' height='20'>
+                                        Relatório
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="inicio.php?m=bonu">Tabela de Bônus</a>
+                                    <a href="inicio.php?m=bonu" style="color: #000; font-size: 12px; font-weight: bold;">
+                                    <img src="../img/tasks.png" title="Tabuleta de Bônus" width="20" height="20">
+                                        Tabela de Bônus
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="inicio.php?m=config">Configurações</a>
+                                    <a href="inicio.php?m=config" style="color: #000; font-size: 12px; font-weight: bold;">
+                                        <img src="../img/panelControl.png" title="Configurações" width="20" height="20">
+                                        Configurações
+                                    </a>
                                 </li>
-                                <li>
+<!--                                <li>
                                     <a href="#">&nbsp;</a>
-                                </li>
+                                </li> -->
  <!--                               <li>
                                     <a href="#">Atividades</a>
                                 </li>
@@ -262,12 +354,12 @@ $a = new atividades();
                                 <li>
                                     <a href="#">&nbsp;</a>
                                 </li> -->
-                                <li style="color: #1f226d; font-weight: bold;">
+<!--                                <li style="color: #1f226d; font-weight: bold;">
                                     Índice de Investimento: 
                                 </li>
                                 <li style="color: #1f226d; font-weight: bold;">
                                     Grau de Bônus: 
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                               </div>
@@ -275,7 +367,7 @@ $a = new atividades();
 
 
 <div class="panel panel-info">
-  <div class="panel-heading">
+  <div class="panel-heading"> <!--  style="background-color: rgba(111, 162, 255, 0.7);"  -->
     <h5 class="panel-title">
                     <?php
                         switch ($menu){
@@ -285,16 +377,6 @@ $a = new atividades();
 //                                echo "  <div align='right'><h5><b>Índice de Investimento: </b></h5></div>";
 //                                echo "  <div align='right'><h5><b>Grau de Bônus: </b></h5></div>";
 //                                echo "</div>";
-                                break;
-                            case "perf": echo "<div align='center'><h5><b>".PERFIL."</b></h5></div>";
-                                break;
-                            case "perfsv": echo "<div align='center'><h5><b>".PERFILSV."</b></h5></div>";
-                                break;
-                            case "perfend": echo "<div align='center'><h5><b>".PERFILEND."</b></h5></div>";
-                                break;
-                            case "perftel": echo "<div align='center'><h5><b>".PERFILTEL."</b></h5></div>";
-                                break;
-                            case "trocasenha": echo "<div align='center'><h5><b>".PERFILTROCASENHA."</b></h5></div>";
                                 break;
                             case "mensagem": echo "<div align='center'><h5><b>".MENSAGENS."</b></h5></div>";
                                 break;
@@ -322,18 +404,53 @@ $a = new atividades();
                                     echo "<div align='center'><h5><b>Registro de Atividades</b></h5></div>";
                                 }else if ($tarefa === "xb"){
                                     echo "<div align='center'><h5><b>Configurações de Bônus</b></h5></div>";
+                                }else if($tarefa === "perf"){
+                                    echo "<div align='center'><h5><b>Perfil - Sobre Você</b></h5></div>";
+                                }else if($tarefa === "perfsv"){
+                                    echo "<div align='center'><h5><b>".PERFILSV."</b></h5></div>";    
+                                }else if( $tarefa === "perfend"){
+                                    echo "<div align='center'><h5><b>".PERFILEND."</b></h5></div>";
+                                }else if($tarefa ===  "perftel"){
+                                    echo "<div align='center'><h5><b>".PERFILTEL."</b></h5></div>";
+                                }else if($tarefa === "trocasenha"){
+                                    echo "<div align='center'><h5><b>".PERFILTROCASENHA."</b></h5></div>";
+                                }else if($tarefa === "bon"){
+                                    echo "<div align='center'>";
+                                    echo "<img src='../img/estatistica6.png' class='img-responsive' title='Bonificação' alt='Bonificação' width='50' height='50'>";
+                                    echo "<h5><b>Bonificação</b></h5>";
+                                    echo "</div>";
+                                }else if($tarefa === "grupos"){
+                                    echo "<div align='center'><h5 style='font-weight: bold;'>GRUPOS</h5></div>";
                                 }
                                 
                                 break;
                             case "rela":
                                 echo "<div align='center'>";
-                                echo "<img src='../img/tarefas2.png' class='img-responsive' title='Paragem' width='40' height='40'>";
+                                echo "<img src='../img/tarefas2.png' class='img-responsive' width='40' height='40'>";
                                 switch ($tarefa){
                                     default:
                                         echo "<h5><b>Relatórios</b></h5>";
                                         break;
-                                    case "pp":
-                                        echo "<h5><b>Relatórios - Meditação | Portal</b></h5>";
+                                    case "medit":
+                                        echo "<h5><b>Relatórios - Meditação</b></h5>";
+                                        break;
+                                    case "port":
+                                        echo "<h5><b>Relatórios - Prática dos Portais</b></h5>";
+                                        break;
+                                    case "para":
+                                        echo "<h5><b>Relatórios - Paragem-Presença</b></h5>";
+                                        break;
+                                    case "tare":
+                                        echo "<h5><b>Relatórios - Tarefas</b></h5>";
+                                        break;
+                                    case "serv":
+                                        echo "<h5><b>Relatórios - Serviços e Extras</b></h5>";
+                                        break;
+                                    case "usu":
+                                        echo "<h5><b>Relatórios - Usuários</b></h5>";
+                                        break;
+                                    case "ind":
+                                        echo "<h5><b>Relatórios - Índice</b></h5>";
                                         break;
                                 }
                                 echo "</div>";
@@ -353,44 +470,180 @@ $a = new atividades();
                             case "suporte": echo "<div align='center'><h5><b>".SUPORTE."</b></h5></div>";
                                 break;
                             case "taref":
+                                    echo "<table>";
+                                    echo "  <tr>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=para' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/colaboradores.png' class='img-responsive' title='Presença-Paragens' width='20' height='20'>";
+                                    echo "                  <h6><b>Presença-Paragens</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=serv' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='20' height='20'>";
+                                    echo "                  <h6><b>Serviços e Extras</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='30%' style='background-color: rgba(255,255,255,0.5);' valign='center'>";
+
                                     echo "<div align='center'>";
                                     echo "  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='42' height='42' style='text-align: center;'>";
                                      echo " <div align='center'><h5><b>Tarefas</b></h5></div>";
                                      echo "</div>";
+
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=pp' style='text-decoration: none'>";
+                                    echo "              <img src='../img/meditacao.jpg' class='img-responsive' title='Meditação' width='35' height='35'>";
+                                    echo "              <div align='center'><h6><b>Meditação</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=port' style='text-decoration: none'>";
+                                    echo "              <img src='../img/portal_blue.png' class='img-responsive' title='Prática dos Portais' width='40' height='40'>";
+                                    echo "              <h6><b>Prática dos Portais</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "  </tr>";
+                                    echo "</table>";
+
                                 break;
                             case "para": 
+
+                                    echo "<table>";
+                                    echo "  <tr>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=taref' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='22' height='22' style='text-align: center;'>";
+                                    echo "                  <div align='center'><h6><b>Tarefas</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=serv' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='20' height='20'>";
+                                    echo "                  <h6><b>Serviços e Extras</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='30%' style='background-color: rgba(255,255,255,0.5);' valign='center'>";
+
                                     echo "<div align='center'>";
                                     echo "<img src='../img/colaboradores.png' class='img-responsive' title='Paragem' width='40' height='40'>";
-                                    if($tarefa === "" or $tarefa === null or $tarefa === " "){
                                         echo "<h5><b>Presença-Paragens</b></h5>";
-//                                    }else if($tarefa === "npar"){
-//                                        echo "<h5><b>Nova Paragem-Presença</b></h5>";
-//                                    }else if($tarefa === "edit"){
-//                                        echo "<h5><b>Alterar Paragem-Presença</b></h5>";
-//                                    }else if($tarefa === "exc"){
-//                                        echo "<h5><b>Excluir Paragem-Presença</b></h5>";
-                                    }
                                     echo "</div>";
+
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=pp' style='text-decoration: none'>";
+                                    echo "              <img src='../img/meditacao.jpg' class='img-responsive' title='Meditação' width='35' height='35'>";
+                                    echo "              <div align='center'><h6><b>Meditação</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=port' style='text-decoration: none'>";
+                                    echo "              <img src='../img/portal_blue.png' class='img-responsive' title='Prática dos Portais' width='40' height='40'>";
+                                    echo "              <h6><b>Prática dos Portais</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "  </tr>";
+                                    echo "</table>";
+
                                 break;
                             case "pp": 
-                                    echo "<div align='center'>";
-                                    echo "<img src='../img/meditacao.jpg' class='img-responsive' title='Paragem' width='45' height='45'>";
-                                    if($tarefa === "" or $tarefa === null){
-                                        echo "<div align='center'><h5><b>Meditação</b></h5></div>";
-                                    }else if ($tarefa === "npp"){
-                                        echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
-                                    }else if ($tarefa === "p1"){
-                                        echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
-                                    }else if($tarefa === "auto"){
-                                        echo "<div align='center'><h5><b>Meditação - Automático</b></h5></div>";
-                                    }else if($tarefa === "manual"){
-                                        echo "<div align='center'><h5><b>Meditação - Manual</b></h5></div>";
-                                    }
-                                    echo "</div>";
+
+                                    echo "<table>";
+                                    echo "  <tr>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=taref' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='22' height='22' style='text-align: center;'>";
+                                    echo "                  <div align='center'><h6><b>Tarefas</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=serv' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='20' height='20'>";
+                                    echo "                  <h6><b>Serviços e Extras</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='30%' style='background-color: rgba(255,255,255,0.5);' valign='center'>";
+
+                                    echo "          <div align='center'>";
+                                    echo "              <img src='../img/meditacao.jpg' class='img-responsive' title='Meditação' width='45' height='45'>";
+                                            if($tarefa === "" or $tarefa === null){
+                                                echo "<div align='center'><h5><b>Meditação</b></h5></div>";
+                                            }else if ($tarefa === "npp"){
+                                                echo "<div align='center'><h5><b>Novo PP</b></h5></div>";
+                                            }else if ($tarefa === "p1"){
+                                                echo "<div align='center'><h5><b>PP - Meditação</b></h5></div>";
+                                            }else if($tarefa === "auto"){
+                                                echo "<div align='center'><h5><b>Meditação - Automático</b></h5></div>";
+                                            }else if($tarefa === "manual"){
+                                                echo "<div align='center'><h5><b>Meditação - Manual</b></h5></div>";
+                                            }
+                                    echo "      </div>";
+
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=port' style='text-decoration: none'>";
+                                    echo "              <img src='../img/portal_blue.png' class='img-responsive' title='Paragem' width='35' height='35'>";
+                                    echo "              <div align='center'><h6><b>Prática dos Portais</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=para' style='text-decoration: none'>";
+                                    echo "              <img src='../img/colaboradores.png' class='img-responsive' title='Presença-Paragens' width='20' height='20'>";
+                                    echo "              <h6><b>Presença-Paragens</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "  </tr>";
+                                    echo "</table>";
                                 break;
                             case "port": 
+                                    echo "<table>";
+                                    echo "  <tr>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=taref' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='22' height='22' style='text-align: center;'>";
+                                    echo "                  <div align='center'><h6><b>Tarefas</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=serv' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='20' height='20'>";
+                                    echo "                  <h6><b>Serviços e Extras</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='30%' style='background-color: rgba(255,255,255,0.5);' valign='center'>";
+
                                     echo "<div align='center'>";
-                                    echo "<img src='../img/portal_blue.png' class='img-responsive' title='Paragem' width='45' height='45'>";
+                                    echo "<img src='../img/portal_blue.png' class='img-responsive' title='Prática dos Portais' width='45' height='45'>";
                                     if($tarefa === "" or $tarefa === null){
                                         echo "<div align='center'><h5><b>Prática dos Portais</b></h5></div>";
                                     }else if($tarefa === "auto"){
@@ -399,11 +652,79 @@ $a = new atividades();
                                         echo "<div align='center'><h5><b>Prática dos Portais - Manual</b></h5></div>";
                                     }
                                     echo "</div>";
+
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=pp' style='text-decoration: none'>";
+                                    echo "              <img src='../img/meditacao.jpg' class='img-responsive' title='Meditação' width='35' height='35'>";
+                                    echo "              <div align='center'><h6><b>Meditação</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=para' style='text-decoration: none'>";
+                                    echo "              <img src='../img/colaboradores.png' class='img-responsive' title='Presença-Paragens' width='20' height='20'>";
+                                    echo "              <h6><b>Presença-Paragens</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "  </tr>";
+                                    echo "</table>";
+
                                 break;
                             case "serv": 
+                                    echo "<table>";
+                                    echo "  <tr>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=para' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/colaboradores.png' class='img-responsive' title='Presença-Paragem' width='20' height='20'>";
+                                    echo "                  <h6><b>Presença-Paragens</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=taref' style='text-decoration: none'>";
+                                    echo "                  <img src='../img/cupomFiscal.png' class='img-responsive' title='Tarefas' width='22' height='22' style='text-align: center;'>";
+                                    echo "                  <div align='center'><h6><b>Tarefas</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='30%' style='background-color: rgba(255,255,255,0.5);' valign='center'>";
+
                                     echo "<div align='center'>";
                                     echo "  <img src='../img/text-icon.png' class='img-responsive' title='Serviços e Extras' width='50' height='50'>";
                                     echo "  <h5><b>Serviços e Extras</b></h5>";
+                                    echo "</div>";
+
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=pp' style='text-decoration: none'>";
+                                    echo "              <img src='../img/meditacao.jpg' class='img-responsive' title='Meditação' width='35' height='35'>";
+                                    echo "              <div align='center'><h6><b>Meditação</b></h6></div>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "      <td width='12%'>";
+                                    echo "          <div align='center'>";
+                                    echo "              <a href='inicio.php?m=port' style='text-decoration: none'>";
+                                    echo "              <img src='../img/portal_blue.png' class='img-responsive' title='Prática dos Portais' width='40' height='40'>";
+                                    echo "              <h6><b>Prática dos Portais</b></h6>";
+                                    echo "              </a>";
+                                    echo "          </div>";
+                                    echo "      </td>";
+                                    echo "  </tr>";
+                                    echo "</table>";
+
+                                break;
+                            case "pesq": 
+                                    echo "<div align='center'>";
+                                    echo "  <img src='../img/zoom.png' class='img-responsive' title='Serviços e Extras' width='50' height='50'>";
+                                    echo "  <h5><b>Pesquisas</b></h5>";
                                     echo "</div>";
                                 break;
                         }
@@ -433,7 +754,7 @@ $a = new atividades();
 
                             <div class="col-sm-12 placeholder">
                                 <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="text-decoration: none;">
-                                    <img src="../img/registrar2.png" class="img-responsive" title="Relatórios" width="45" height="45">
+                                    <img src="../img/registrar2.png" class="img-responsive" title="Registro" width="45" height="45">
                                     <h5 style='font-weight: bold;'>
                                         Registro
                                     </h5>
@@ -456,8 +777,8 @@ $a = new atividades();
                                                 </td>
                                                 <td>
                                                 <a href="inicio.php?m=para" class="acesso">
-                                                    <img src="../img/colaboradores.png" class="img-responsive" title="Paragem Presenças" width="43" height="43">
-                                                    <h5 style="font-weight: bold;">Paragem Presenças</h5>
+                                                    <img src="../img/colaboradores.png" class="img-responsive" title="Presença-Paragens" width="43" height="43">
+                                                    <h5 style="font-weight: bold;">Presença-Paragens</h5>
                                                 </a>
                                                 </td>
                                                 <td>
@@ -508,18 +829,6 @@ $a = new atividades();
 
                             <?php
                                         break;
-                                    case "perf":    $perfil->telaPerfilPrincipal();
-                                                    break;
-                                    case "perfsv":  $perfil->telaPerfil();
-                                                    break;
-                                    case "perfend": $endereco->preencheEndereco();
-                                                    break;
-                                    case "perftel": $telefone->telaTelefone(); 
-                                                    break;
-                                    case "trocasenha":  
-                                                    $trocaSenha = new modelConfig();
-                                                    $trocaSenha->telaTrocaSenha();
-                                                    break;
                                     case "config":  
                                         
                                         if($tarefa == ""){
@@ -530,18 +839,36 @@ $a = new atividades();
                                             
                                             switch ($funcao){
                                                 default :
-                                                    $usuario_class->tabelaUsuarioSistema("SISTEMA");
+                                                    $usuario_class->tabelaUsuarioSistema();
                                                     break;
-/*                                                case "n":
+                                                case "n":
                                                     $usuario_class->telaNovoUsuario();
-                                                    break;*/
+                                                    break;
                                                 case "a":
                                                     $usuario_class->telaAlteraUsuario();
                                                     break;
+                                                case "e":
+                                                    $usuario_class->deleteUsuario();
+                                                    break;
                                             }
                                             
-                                        }else if ($tarefa == "usit"){
-                                            $usuario_class->tabelaUsuarioSistema("SITE");
+/*                                        }else if ($tarefa == "usit"){
+                                            $funcao = filter_input(INPUT_GET, 'f');
+                                            
+                                            switch ($funcao){
+                                                default :
+                                                    $usuario_class->tabelaUsuarioSistema("SITE");
+                                                    break;
+                                                case "n":
+                                                    $usuario_class->telaNovoUsuario("SITE");
+                                                    break;
+                                                case "a":
+                                                    $usuario_class->telaAlteraUsuario();
+                                                    break;
+                                                case "e":
+                                                    $usuario_class->deleteUsuario();
+                                                    break;
+                                            }*/
                                         }else if($tarefa === "set"){
                                             $setenio->tabelaSetenio();
                                         }else if($tarefa === "tipotelefone"){
@@ -553,9 +880,9 @@ $a = new atividades();
                                         }else if($tarefa === "perfsv"){
                                             $perfil->telaPerfil();
                                         }else if($tarefa === "perfend"){
-                                            $perfil->preencheEndereco();
+                                            $endereco->preencheEndereco();
                                         }else if($tarefa === "perftel"){
-                                            $perfil->telaTelefone();
+                                            $telefone->telaTelefone();
                                         }else if($tarefa === "trocasenha"){
                                             $perfil->telaTrocaSenha();
                                         }else if($tarefa === "ativ"){
@@ -564,6 +891,22 @@ $a = new atividades();
                                         }else if($tarefa === "xb"){
                                             $a->setUsuario($_SESSION['usuario']);
                                             $a->telaConfigBonus();
+                                        }else if($tarefa === "perf"){
+                                            $perfil->telaPerfilPrincipal();
+                                        }else if ($tarefa === "perfsv"){
+                                            $perfil->telaPerfil();   
+                                        }else if($tarefa === "perfend"){
+                                            $endereco->preencheEndereco();   
+                                        }else if($tarefa === "perftel"){
+                                            $telefone->telaTelefone();
+//                                        }else if($tarefa === "trocasenha"){
+                                            //$trocaSenha = new modelConfig();
+//                                            $trocaSenha = new configuracao();
+//                                            $trocaSenha->telaTrocaSenha();
+                                        }else if($tarefa === "bon"){
+                                            $bonus->telaBonificacao();
+                                        }else if($tarefa === "grupos"){
+                                            $grupos->telaGrupos();
                                         }
 
                                         break;
@@ -603,13 +946,32 @@ $a = new atividades();
                                     case "rela":   
                                             $r = new relatorios();
                                             $r->setCodusuario($_SESSION['idusuario']);
+                                            $r->setNomeUsuario($_SESSION['usuario']);
                                             switch ($tarefa){
                                                 default :
                                                     $r->telaRelatorios();
                                                 break;
                                             
-                                                case "pp":
-                                                    $r->telaOpcoes("pp");
+                                                case "medit":
+                                                    $r->telaOpcoes("relmedit");
+                                                break;
+                                                case "port":
+                                                    $r->telaOpcoes("relport");
+                                                break;
+                                                case "para":
+                                                    $r->telaOpcoes("relpara");
+                                                break;
+                                                case "tare":
+                                                    $r->telaOpcoes("reltare");
+                                                break;
+                                                case "serv":
+                                                    $r->telaOpcoes("relserv");
+                                                break;
+                                                case "usu":
+                                                    $r->telaOpcoes("relusu");
+                                                break;
+                                                case "ind":
+                                                    $r->telaOpcoes("relind");
                                                 break;
                                                 
                                         }
@@ -678,6 +1040,14 @@ $a = new atividades();
                                                     $servExtras->setCodusuario($_SESSION['idusuario']); 
                                                     $cal->configuracaoCalendario("servicos");
                                                     break;
+                                    case "pesq":
+                                                    $pesquisa->setId_usuario($_SESSION['idusuario']); 
+                                                    $pesquisa->telaPesquisas();
+                                                    break;
+                                    case "import":
+                                                    $i = new import();
+                                                    $i->telaImport();
+                                                    break;
                                     
                                 }//fecha o switch
                             
@@ -705,8 +1075,8 @@ $a = new atividades();
 </footer>
 
 
-<div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
-    <img src="../../images/up.png" style="width:30px; height:30px"></div>
+<!-- <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
+    <img src="../../images/up.png" style="width:30px; height:30px"></div> -->
 <div id="topcontrol" title="Voltar ao topo" style="position: fixed; bottom: 55px; right: 4px; opacity: 0; cursor: pointer;">
     <img src="../../images/up.png" style="width:30px; height:30px">
 </div>
@@ -725,7 +1095,7 @@ $a = new atividades();
             });
     </script>
 
-    
+
     
 </body>
 </html>

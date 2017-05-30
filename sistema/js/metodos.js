@@ -17,6 +17,10 @@ function pegaIdAltera(id){
 	window.location.href="inicio.php?m=config&t=usis&f=a&id="+id;
 }
 
+function pegaIdExclui(id){
+	window.location.href="inicio.php?m=config&t=usis&f=e&id="+id;
+}
+
 function pegaParagemPP(paragem){
     document.getElementById('idpp').value = paragem;
     $('#pp1').removeAttr('disabled');
@@ -209,6 +213,8 @@ function calculaTempo(){
         duracao.value = diferencaTempo;
     }
 //    alert(diferencaTempo);
+
+    //alert(min);
     calculaBonusMeditacao(min);
     conferePeriodo(hora1, min1);
 }
@@ -217,11 +223,23 @@ function calculaTempo(){
 
 function calculaBonusMeditacao(minuto){
     var inputBonus = document.getElementById('bonus');
+    var inputDuracao = document.getElementById('duracao');
 
-    if(minuto >= 40){
-        inputBonus.value = 1;
-    }else if (minuto < 40){
+    if(inputDuracao.value != ""){
+        minuto = inputDuracao.value;
+    }
+    //alert(minuto);// está vindo minuto corretamente.
+
+    if(minuto < 5){
         inputBonus.value = 0;
+    }else if(minuto >= 5 && minuto < 20){
+        inputBonus.value = 1;
+    }else if(minuto >= 20 && minuto < 40){
+        inputBonus.value = 2;
+    }else if(minuto >= 40 && minuto < 80){
+        inputBonus.value = 3;
+    }else if(minuto >= 80){
+        inputBonus.value = 4;
     }
 
 }
@@ -387,6 +405,8 @@ function calculaPortal(){
         vCorpo.value = 2;
     }
 
+    //alert(corpo);
+
 /*
         vSonho.value = sSonho;
         vCompSonho.value = compSonho;
@@ -443,6 +463,48 @@ function mascara(t){
 
  function mascaraSemana(t){
     var mask = "_-___";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
+ function mascaraDataRuv(t){
+    var mask = "_-___._";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
+
+ function selecionaTipoTelefone(tipo){
+//    if(tipo == "1"){
+        document.location.href="inicio.php?m=config&t=perftel&tp=" + tipo;
+//    }else if(tipo == "2"){
+//        document.location.href="inicio.php?m=config&t=perftel&tp="+tipo;
+//    }else if(tipo == "3"){
+//        document.location.href="inicio.php?m=config&t=perftel&tp=3";
+//    }
+ }
+
+ function mascaraTelefone(t){
+    var mask = "____-____";
+    var i = t.value.length;
+    var saida = mask.substring(1,0);
+    var texto = mask.substring(i)
+    
+    if (texto.substring(0,1) != saida){
+        t.value += texto.substring(0,1);
+    }
+ }
+
+ function mascaraCelular(t){
+    var mask = "_____-____";
     var i = t.value.length;
     var saida = mask.substring(1,0);
     var texto = mask.substring(i)
@@ -536,7 +598,6 @@ function selecionaPortalBonus(semana, pp){
         window.location.href='inicio.php?m=port&tab=bonus';
     }
 }
-
 function selecionaTarefaBonus(semana, pp){
     if(semana !== "todos"){
         window.location.href='inicio.php?m=taref&tab=bonus&p='+pp+'&sem='+semana;
@@ -553,6 +614,14 @@ function selecionaPresParagemBonus(semana, pp){
     }
 }
 
+function selecionaServExtras(semana, pp){
+    if(semana !== "todos"){
+        window.location.href='inicio.php?m=serv&tab=bonus&p='+pp+'&sem='+semana;
+    }else{
+        window.location.href='inicio.php?m=serv&tab=bonus';
+    }
+}
+
 function preencheAutoManualPortal(){
     var auto = document.getElementById('auto');
     var manual = document.getElementById('manual');
@@ -565,39 +634,218 @@ function preencheAutoManualPortal(){
     
 }
 
-function preencheDataRuv(campo, id){
+function preencheDataRuv(campo, id, classe){
+
 
     var semanaRuv = document.getElementById('semana');
+    var semanaMed = document.getElementById('semanaRuvMed');
     var diaRuvCampo = document.getElementById('dia');
     var dataRuv = document.getElementById('dataRuv');
+
+//dataRuvPort    var novoMesRuv = null;
 
     var diaRuv = null;
     var mesRuv = null;
     var anoRuv = null;
     var estacao = null;
     var semana = null;
-    
+    var novoAno = null;
+
+//    anoRuv = campo.substring(0, 1); // Ano correto
+//    mesRuv = campo.substring(3, 4); // Mês correto
+//    diaRuv = campo.substring(6, 7); // Dia correto
+//    estacao = campo.substring(2, 3); // Estação correto
+//    semana = campo.substring(4, 5); // Semana correta
+
+
+    if(id === "dataRuv"){
+
+        anoRuv = campo.substring(0, 1); // Ano correto
+        mesRuv = campo.substring(3, 4); // Mês correto
+        diaRuv = campo.substring(6, 7); // Dia correto
+        estacao = campo.substring(2, 3); // Estação correto
+        semana = campo.substring(4, 5); // Semana correta
+
+        if (classe === "meditacao"){
+            semanaMed.value = anoRuv + "-" + estacao + mesRuv + semana;
+        }else if(classe === "portal"){
+            semanaRuv.value =  anoRuv + "-" + estacao + mesRuv + semana;
+        }else if(classe === "tarefas"){
+            semanaRuv.value =  anoRuv + "-" + estacao + mesRuv + semana;
+        }else if(classe === "servicos"){
+            semanaRuv.value =  anoRuv + "-" + estacao + mesRuv + semana;
+        }
+
+        //semanaRuv.value = anoRuv + "-" + estacao + mesRuv + semana;
+        diaRuvCampo.value = diaRuv;
+
+    }else if(id === "dia"){
+
+        anoRuv = dataRuv.value.substring(0, 1); // Ano correto
+        mesRuv = dataRuv.value.substring(3, 4); // Mês correto
+        estacao = dataRuv.value.substring(2, 3); // Estação correto
+        semana = dataRuv.value.substring(4, 5); // Semana correta
+        //alert(anoRuv);
+        dataRuv.value = anoRuv + "-" + estacao + mesRuv + semana + "." + diaRuvCampo.value;
+
+    }else if(id === "semana"){
+
+        anoRuv = campo.substring(0, 1); // Ano correto
+        mesRuv = campo.substring(3, 4); // Mês correto
+        estacao = campo.substring(2, 3); //Estação correta
+        semana = campo.substring(4, 5); // Semana correta
+
+        dataRuv.value = anoRuv + "-" + estacao + mesRuv + semana + "." + diaRuvCampo.value;
+
+    }
+
+//    var mesReal = null;
+    /*
     if(id === "dataRuv"){
 //        alert("É dataRuv"); //Funciona perfeitamente
+
         anoRuv = campo.substring(9, 10);
         mesRuv = campo.substring(4, 5);
         diaRuv = campo.substring(1, 2);
 
+        var dataPreenchida = campo.split("/"); //dataRuv.value;
+
+        var diasemana = new Date(dataPreenchida[0], dataPreenchida[1], dataPreenchida[2]);//.toString()
+
+
+        var diaData = diasemana.getDay();
+
+//        alert(diaData);
+
+        var semanaReal = new Array(7);
+            semanaReal[0] = "1";
+            semanaReal[1] = "2"; 
+            semanaReal[2] = "3"; 
+            semanaReal[3] = "4"; 
+            semanaReal[4] = "5"; 
+            semanaReal[5] = "6"; 
+            semanaReal[6] = "7";
+
+//        alert(semanaReal[diaData]);
+
         estacao = semanaRuv.value.substring(2, 3);
         semana = semanaRuv.value.substring(4, 5);
 
-        diaRuvCampo.value = diaRuv;
-        semanaRuv.value = anoRuv + "-" + estacao + mesRuv + semana;
+        novoAno = parseInt(anoRuv) - 1;
+
+        if(mesRuv >= 1 && mesRuv <=3){
+            if(mesRuv == 1){
+                novoMesRuv = 1;
+            }else if(mesRuv == 2){
+                novoMesRuv = 2;
+            }else if(mesRuv == 3){
+                novoMesRuv = 3;
+            }
+        }else if(mesRuv >= 4 && mesRuv <= 6){
+            if(mesRuv == 4){
+                novoMesRuv = 1;
+
+            }else if(mesRuv == 5){
+                novoMesRuv = 2;
+
+            }else if(mesRuv == 6){
+                novoMesRuv = 3;
+
+            }
+        }else if(mesRuv >= 7 && mesRuv <= 9){
+            if(mesRuv == 7){
+                novoMesRuv = 1;
+            }else if(mesRuv == 8){
+                novoMesRuv = 2;
+            }else if(mesRuv == 9){
+                novoMesRuv = 3;
+            }
+        }else if(mesRuv >= 10 && mesRuv <= 12){
+            if(mesRuv == 10){
+                novoMesRuv = 1;
+            }else if(mesRuv == 11){
+                novoMesRuv = 2;
+            }else if(mesRuv == 12){
+                novoMesRuv = 3;
+            }
+        }
+
+        //alert(novoMesRuv);
+
+        diaRuvCampo.value = semanaReal[diaData];
+        semanaRuv.value = novoAno + "-" + estacao + novoMesRuv + semana;
 
 //Ok. Preenchido corretamente.
     }else if(id === "semana"){
 
+        var time = new Date();
+
+        var mes = time.getMonth() + 1;
+
         mesRuv = campo.substring(3, 4);
         anoRuv = campo.substring(0, 1);
 
-        diaRuv = diaRuvCampo.value;
 
-        dataRuv.value = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv;
+        if(mes >= 1 && mes <=3){
+            if(mesRuv == 1){
+                novoMesRuv = 1;
+            }else if(mesRuv == 2){
+                novoMesRuv = 2;
+            }else if(mesRuv == 3){
+                novoMesRuv = 3;
+            }
+        }else if(mes >= 4 && mes <= 6){
+            if(mesRuv == 1){
+                novoMesRuv = 4;
+
+            }else if(mesRuv == 2){
+                novoMesRuv = 5;
+
+            }else if(mesRuv == 3){
+                novoMesRuv = 6;
+
+            }
+        }else if(mes >= 7 && mes <= 9){
+            if(mesRuv == 1){
+                novoMesRuv = 7;
+            }else if(mesRuv == 2){
+                novoMesRuv = 8;
+            }else if(mesRuv == 3){
+                novoMesRuv = 9;
+            }
+        }else if(mesRuv >= 10 && mesRuv <= 12){
+            if(mesRuv == 1){
+                novoMesRuv = 10;
+            }else if(mesRuv == 2){
+                novoMesRuv = 11;
+            }else if(mesRuv == 3){
+                novoMesRuv = 12;
+            }
+        }
+
+//        alert("Passou pelo mês");
+
+        dataRuvDia = dataRuv.value;
+
+        diaRuvNovo = dataRuvDia.substring(0, 2);
+
+        novoAno = parseInt(anoRuv) + 1;
+
+        if(novoMesRuv.length > 1){
+            if(diaRuvNovo.length > 1){
+                dataRuv.value = diaRuvNovo + "/" + novoMesRuv + "/201" + novoAno;
+            }else{
+                dataRuv.value = "0" + diaRuvNovo + "/" + novoMesRuv + "/201" + novoAno;
+            }
+        }else{
+            if(diaRuvNovo.length > 1){
+                dataRuv.value = diaRuvNovo + "/0" + novoMesRuv + "/201" + novoAno;
+            }else{
+                dataRuv.value = "0" + diaRuvNovo + "/0" + novoMesRuv + "/201" + novoAno;
+
+            }
+        }
+
 
     }else if(id === "dia"){
 
@@ -605,9 +853,15 @@ function preencheDataRuv(campo, id){
         anoRuv = dataRuv.value.substring(9, 10);//Correto
         diaRuv = campo;
 
-        dataRuv.value = "0" + diaRuv + "/0" + mesRuv + "/201" + anoRuv;
+        var mudaCampo = parseInt(diaRuv) + 8;
 
-    }
+        if (mudaCampo.length > 1 || mesRuv.length > 1){
+            dataRuv.value = mudaCampo + "/" + mesRuv + "/201" + anoRuv;
+        }else{
+            dataRuv.value = "0" + mudaCampo + "/0" + mesRuv + "/201" + anoRuv;
+        }
+
+    }*/
 
 
 /*
@@ -631,15 +885,29 @@ function preencheDataRuv(campo, id){
 
     }
 
-    function validaServicos(valor){
-        
+    function validaServicos(servidor, valor){
+
+        var link = null;
+
+        if(valor == "focalizacao"){
+            link = "focal";
+        }else if(valor == "presenca"){
+            link = "pres";
+        }
+
+/*        var url = null;
+        url = window.location;
+
+        url = url.toString();
+        url = url.split("#");
+
+        var link = "inicio." + url[1];*/
 
         if(valor === "focalizacao"){
-            document.location.href="inicio.php?m=serv&tipo=focal";
+            document.location.href = servidor + "&tipo=" + link;
+//            document.location.href= "inicio." + url[1] + "&tipo=focal";
         }else if(valor === "presenca"){
-            document.location.href="inicio.php?m=serv&tipo=pres";
-        }else{
-            document.location.href="inicio.php?m=serv";
+            document.location.href = servidor + "&tipo=" + link;
         }
 
     }
@@ -653,4 +921,1073 @@ function preencheDataRuv(campo, id){
         }else{
             campoBonus.value = 0;
         }
+    }
+    function calculaBonusServ(valor){
+        //alert(valor);
+        var campoBonus = document.getElementById('bonusServ');
+
+        if(valor === "Sim"){
+            campoBonus.value = 3;
+        }else{
+            campoBonus.value = 0;
+        }
+
+        if(valor === "Individual"){
+            campoBonus.value = 0;
+        }else{
+            campoBonus.value = 0;
+        }
+    }
+
+    function directRelServExtras(link){
+        window.location.href="inicio.php?m=rela&t=serv&tipo="+link;
+    }
+
+
+    function direcionaPesquisa(){
+
+    var meditacao = document.getElementById('med');
+    var portal = document.getElementById('por');
+    var parpres = document.getElementById('prp');
+    var tarefa = document.getElementById('tar');
+    var servicos = document.getElementById('ser');
+
+        if(meditacao.checked){
+            document.location.href='inicio.php?m=pesq&p=med';
+        }else if(portal.checked){
+            document.location.href='inicio.php?m=pesq&p=por';
+        }else if(parpres.checked){
+            document.location.href='inicio.php?m=pesq&p=prp';
+        }else if(tarefa.checked){
+            document.location.href='inicio.php?m=pesq&p=tar';
+        }else if(servicos.checked){
+            document.location.href='inicio.php?m=pesq&p=ser';
+        }
+
+;
+    }
+
+    function enterTab(inputId, evento){
+
+        evento = evento || window.event;
+
+        var key = evento.keyCode || evento.which;
+
+        if(key == '13'){
+            document.getElementById(inputId).focus();
+            document.getElementById(inputId).select();
+        }
+
+    }
+
+    function somenteNumeros(input){
+        var er = /[^0-9-/:.]/;
+        er.lastIndex = 0;
+        var campo = input;
+        if(er.test(campo.value)){
+            campo.value = "";
+        }
+    }
+
+    function enviaForm(form){
+        //alert(form);
+ 
+        if(form == "formMeditacao"){
+            if(confereMeditacao()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formPortal"){
+            if(conferePortal()){
+                //alert(form);
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formParPres"){
+            if(confereParPres()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formTarefas"){
+            if(confereTarefas()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formServExtras"){
+            if(confereServ()){
+                //alert(form);
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formTrocaSenha"){
+            if(confereTrocaSenha()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formPerfilEnd"){
+            if(confereEndereco()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formPerfil"){
+            if(conferePerfil()){
+                document.getElementById(form).submit();
+//            }else{
+//                alert("Houve um problema.");
+            }
+        }else if(form == "novoUsuario"){
+            if(confereUsuario()){
+                document.getElementById(form).submit();
+//            }else{
+//                alert("Houve um problema.");
+            }
+        }else if(form == "formAlteraUsuario"){
+            if(confereUsuario()){
+                document.getElementById(form).submit();
+            }else{
+                alert("Houve um problema.");
+            }
+        }else if(form == "formConfigBonus"){
+//            alert("Está no formConfigBonus");
+            if(confereConfigBonus()){
+                document.getElementById(form).submit();
+            }else{
+                alert("Houve um problema.");
+            }
+        }else if(form == "formGrupos"){
+            if(confereGrupos()){
+                document.getElementById(form).submit();
+            }
+        }
+
+    }
+
+    function confereGrupos(){
+        return true;
+    }
+    function confereConfigBonus(){
+        return true;
+    }
+
+    function confereUsuario(){
+        var email = document.getElementById('email');
+
+        return true;
+    }
+
+    function conferePerfil(){
+        var email = document.getElementById('email');
+        var dataNascimetno = document.getElementById('dataNascimento');
+        var descricao = document.getElementById('descricao');
+
+        return true;
+    }
+    function confereEndereco(){
+        var endereco = document.getElementById('endereco');
+        var complemento = document.getElementById('complemento');
+        var bairro = document.getElementById('bairro');
+        var cidade = document.getElementById('cidade');
+        var estado = document.getElementById('estado');
+
+        return true;
+    }
+
+    function confereTrocaSenha(){
+        var senhaAntiga = document.getElementById('senhaantiga');
+        var senhaNova = document.getElementById('senhanova');
+
+        if(senhaAntiga.value == ""){
+            senhaAntiga.focus();
+            senhaAntiga.select();
+            return false;
+        }
+
+        if(senhaNova.value == ""){
+            senhaNova.focus();
+            senhaNova.select();
+            return false;
+        }
+
+        return true;
+
+    }
+
+    function confereMeditacao(){
+
+        var error1 = document.getElementById('erro1').style;
+        var error2 = document.getElementById('erro2').style;
+        var error3 = document.getElementById('erro3').style;
+        var error4 = document.getElementById('erro4').style;
+        var error5 = document.getElementById('erro5').style;
+        var error6 = document.getElementById('erro6').style;
+        var error7 = document.getElementById('erro7').style;
+        var error8 = document.getElementById('erro8').style;
+        var error9 = document.getElementById('erro9').style;
+        var error10 = document.getElementById('erro10').style;
+
+        var cal = document.getElementById('calendario');
+        var dataRuv = document.getElementById('dataRuv');
+        var semanaRuv = document.getElementById('semanaRuvMed');
+        var diaRuv = document.getElementById('dia');
+        var inicio = document.getElementById('inicio');
+        var termino = document.getElementById('termino');
+        var duracao = document.getElementById('duracao');
+        var nivel = document.getElementById('nivel');
+        var bonus = document.getElementById('bonus');
+        var periodo = document.getElementById('periodo');
+
+        if(cal.value == ""){
+            error1.display = "block";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            cal.focus();
+            cal.select();
+            return false;
+        }
+
+        if(dataRuv.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "block";
+
+            dataRuv.focus();
+            dataRuv.select();
+            return false;
+        }
+
+        if(semanaRuv.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "block";
+            error9.display = "none";
+            error10.display = "none";
+
+            semanaRuv.focus();
+            semanaRuv.select();
+            return false;
+        }
+
+        if(diaRuv.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "block";
+            error10.display = "none";
+
+
+            diaRuv.focus();
+            diaRuv.select();
+            return false;
+        }
+
+        if(inicio.value === ""){
+            error1.display = "none";
+            error2.display = "block";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            inicio.focus();
+            inicio.select();
+            return false;
+        }
+        if(termino.value === ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "block";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            termino.focus();
+            termino.select();
+            return false;
+        }
+        if(duracao.value === ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "block";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            duracao.focus();
+            duracao.select();
+            return false;
+        }
+        if(nivel.value === ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "block";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            nivel.focus();
+            nivel.select();
+            return false;
+        }
+        if(bonus.value === ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "block";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            bonus.focus();
+            bonus.select();
+            return false;
+        }
+        if(periodo.value === ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "block";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            periodo.focus();
+            periodo.select();
+            return false;
+        }
+//            alert("Passou pelos campos. retorno true");
+
+        return true;
+
+    }
+
+    function conferePortal(){
+        var error1 = document.getElementById('erro1').style;
+        var error2 = document.getElementById('erro2').style;
+        var error3 = document.getElementById('erro3').style;
+        var error4 = document.getElementById('erro4').style;
+        var error5 = document.getElementById('erro5').style;
+        var error6 = document.getElementById('erro6').style;
+        var error7 = document.getElementById('erro7').style;
+        var error8 = document.getElementById('erro8').style;
+        var error9 = document.getElementById('erro9').style;
+        var error10 = document.getElementById('erro10').style;
+
+        var cal = document.getElementById('calendario');
+        var dataRuv = document.getElementById('dataRuv');
+        var semanaRuv = document.getElementById('semana');
+        var diaRuv = document.getElementById('dia');
+
+        var sonho = document.getElementById('sonho');
+        var compSonho = document.getElementById('compSonho');
+        var corpo = document.getElementById('corpo');
+        var retro = document.getElementById('retrospectiva');
+        var compRetro = document.getElementById('compRetrospectiva');
+        var bonus = document.getElementById('bonusPortais');
+
+        if(cal.value == ""){
+            error1.display = "block";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            cal.focus();
+            cal.select();
+            return false;
+        }
+
+        if(dataRuv.value == ""){
+//            alert("Está na data ruv");
+            error1.display = "none";
+            error2.display = "block";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            dataRuv.focus();
+            dataRuv.select();
+            return false;
+        }
+
+        if(semanaRuv.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "block";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            semanaRuv.focus();
+            semanaRuv.select();
+            return false;
+        }
+
+        if(diaRuv.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "block";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            diaRuv.focus();
+            diaRuv.select();
+            return false;
+        }
+
+        if(sonho.value == ""){
+            //alert(sonho.value);
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "block";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            sonho.focus();
+            sonho.select();
+            return false;
+        }
+        if(compSonho.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "block";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            compSonho.focus();
+            compSonho.select();
+            return false;
+        }
+        if(corpo.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "block";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "none";
+
+            corpo.focus();
+            corpo.select();
+            return false;
+        }
+        if(retro.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "block";
+            error9.display = "none";
+            error10.display = "none";
+
+            retro.focus();
+            retro.select();
+            return false;
+        }
+        if(compRetro.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "block";
+            error10.display = "none";
+
+            compRetro.focus();
+            compRetro.select();
+            return false;
+        }
+        if(bonus.value == ""){
+            error1.display = "none";
+            error2.display = "none";
+            error3.display = "none";
+            error4.display = "none";
+            error5.display = "none";
+            error6.display = "none";
+            error7.display = "none";
+            error8.display = "none";
+            error9.display = "none";
+            error10.display = "block";
+
+            compRetro.focus();
+            compRetro.select();
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+    function confereParPres(){
+        var cal = document.getElementById('calendario');
+        var dataRuv = document.getElementById('dataRuv');
+        var semanaRuv = document.getElementById('semana');
+        var diaRuv = document.getElementById('dia');
+
+        var tarefas = document.getElementById('tarefas');
+        var opcao = document.getElementById('opcao');
+        var bonus = document.getElementById('bonus');
+
+        if(cal.value == ""){
+            cal.focus();
+            cal.select();
+            return false;
+        }
+
+        if(dataRuv.value == ""){
+            dataRuv.focus();
+            dataRuv.select();
+            return false;
+        }
+
+        if(semanaRuv.value == ""){
+            semanaRuv.focus();
+            semanaRuv.select();
+            return false;
+        }
+
+        if(diaRuv.value == ""){
+            diaRuv.focus();
+            diaRuv.select();
+            return false;
+        }
+
+        if (tarefas.value == ""){
+            tarefas.focus();
+            tarefas.select();
+            return false;
+        }
+
+        if (opcao.checked == false){
+            opcao.focus();
+            opcao.select();
+            return false;
+        }
+
+        if (bonus.value == ""){
+            opcao.focus();
+            opcao.select();
+            return false;
+        }
+
+//        alert(opcao.value);
+        return true;
+    }
+
+    function confereTarefas(){
+
+        var erro1 = document.getElementById('erro1').style;
+        var erro2 = document.getElementById('erro2').style;
+        var erro3 = document.getElementById('erro3').style;
+        var erro4 = document.getElementById('erro4').style;
+        var erro5 = document.getElementById('erro5').style;
+        var erro6 = document.getElementById('erro6').style;
+
+        //alert("Chegou ao form tarefas");
+        var dataHoje = document.getElementById('calendario');
+        var dataRuv = document.getElementById('dataRuv');
+        var semanaRuv = document.getElementById('semana');
+//        var diaRuv = document.getElementById('dia');
+
+        var descricao = document.getElementById('descricaoTarefas');
+        var status = document.getElementById('status');
+        var bonus = document.getElementById('bonus');
+
+//        alert("Estou na conferência");
+
+        if(dataHoje.value == ""){
+            erro1.display = 'block';
+            erro2.display = 'none';
+            erro3.display = 'none';
+            erro4.display = 'none';
+            erro5.display = 'none';
+            erro6.display = 'none';
+
+            dataHoje.focus();
+            dataHoje.select();
+            return false;
+        }
+
+        if(dataRuv.value == ""){
+            erro1.display = 'none';
+            erro2.display = 'block';
+            erro3.display = 'none';
+            erro4.display = 'none';
+            erro5.display = 'none';
+            erro6.display = 'none';
+
+            dataRuv.focus();
+            dataRuv.select();
+            return false;
+        }
+
+        if(semanaRuv.value == ""){
+            erro1.display = 'none';
+            erro2.display = 'none';
+            erro3.display = 'block';
+            erro4.display = 'none';
+            erro5.display = 'none';
+            erro6.display = 'none';
+
+            semanaRuv.focus();
+            semanaRuv.select();
+            return false;
+        }
+
+        if(descricao.value === ""){
+            erro1.display = 'none';
+            erro2.display = 'none';
+            erro3.display = 'none';
+            erro4.display = 'block';
+            erro5.display = 'none';
+            erro6.display = 'none';
+
+            descricao.focus();
+            descricao.select();
+            return false;
+        }
+
+        if(status.checked == false){
+            erro1.display = 'none';
+            erro2.display = 'none';
+            erro3.display = 'none';
+            erro4.display = 'none';
+            erro5.display = 'block';
+            erro6.display = 'none';
+
+            status.focus();
+            status.select();
+            return false;
+        }
+        
+        if(bonus.value === ""){
+            erro1.display = 'none';
+            erro2.display = 'none';
+            erro3.display = 'none';
+            erro4.display = 'none';
+            erro5.display = 'none';
+            erro6.display = 'block';
+
+            status.focus();
+            status.select();
+            return false;
+        }
+        return true;
+    }
+
+    function confereServ(){
+
+//        alert("Chegou no confere Serviços");
+
+        var erro1 = document.getElementById('erro1').style;
+//        alert("Erro1 localizado");
+        var erro2 = document.getElementById('erro2').style;
+//        alert("Erro 2 localizado");
+        var erro3 = document.getElementById('erro3').style;
+//        alert("Erro 3 localizado");
+        var erro4 = document.getElementById('erro4').style;
+//        alert("Erro 4 localizado");
+        var erro5 = document.getElementById('erro5').style;
+//        alert("Erro 5 localizado");
+        var erro6 = document.getElementById('erro6').style;
+//        alert("Erro 6 localizado");
+        var erro7 = document.getElementById('erro7').style;
+//        alert("Erro 7 localizado");
+        var erro8 = document.getElementById('erro8').style;
+//        alert("Erro 8 localizado");
+        var erro9 = document.getElementById('erro9').style;
+//        alert("Erro 9 localizado");
+        var erro10 = document.getElementById('erro10').style;
+//        alert("Erro 10 localizado");
+
+        var dataRegistro = document.getElementById('calendario');
+//        alert("Calendário localizado");
+        var dataRuv = document.getElementById('dataRuv');
+//        alert("Data ruv localizada");
+        var semanaRuv = document.getElementById('semana');
+//        alert("Semana ruv localizada");
+        var diaRuv = document.getElementById('dia');
+//        alert("Dia ruv localizado");
+
+        var tipo = document.getElementById('tipo');
+//        alert("Tipo localizado");
+        var servico = document.getElementById('servico');
+//        alert("Serviço localizado");
+        var opcao = document.getElementById('opcaoServ');
+//        alert("Opção localizado");
+        var outros = document.getElementById('outros');
+//        alert("Outros localizado");
+        var bonus = document.getElementById('bonusServ');
+//        alert("Bônus localizado");
+//        var status = document.getElementById('');
+//        alert("Status localizado");
+
+        //alert("Estou na conferência");
+
+        if(dataRegistro.value == ""){
+//            alert("Chegou data registro");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "block";
+
+            dataRegistro.focus();
+            dataRegistro.select();
+            return false;
+        }
+
+        if(dataRuv.value == ""){
+//            alert("Chegou data ruv");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "block";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            dataRuv.focus();
+            dataRuv.select();
+            return false;
+        }
+
+        if(semanaRuv.value == ""){
+//            alert("Chegou semana ruv");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "block";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            semanaRuv.focus();
+            semanaRuv.select();
+            return false;
+        }
+
+        if(diaRuv.value == ""){
+//            alert("Chegou dia ruv");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "block";
+            erro10.display = "none";
+
+            diaRuv.focus();
+            diaRuv.select();
+            return false;
+        }
+
+        if(tipo.value == ""){
+//            alert("Chegou tipo");
+            erro1.display = "block";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            tipo.focus();
+            tipo.select();
+            return false;
+        }
+        if(servico.value == ""){
+//            alert("Chegou serviço");
+            erro1.display = "none";
+            erro2.display = "block";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            servico.focus();
+            servico.select();
+            return false;
+        }
+        if(opcao.value == ""){
+//            alert("Chegou status");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "block";
+            erro4.display = "none";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            opcao.focus();
+            opcao.select();
+            return false;
+
+        }
+
+        if(bonus.value == ""){
+//            alert("Chegou bonus");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "none";
+            erro5.display = "block";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            opcao.focus();
+            opcao.select();
+            return false;
+        }
+        if(outros.value == ""){
+//            alert("Chegou outros");
+            erro1.display = "none";
+            erro2.display = "none";
+            erro3.display = "none";
+            erro4.display = "block";
+            erro5.display = "none";
+            erro6.display = "none";
+            erro7.display = "none";
+            erro8.display = "none";
+            erro9.display = "none";
+            erro10.display = "none";
+
+            outros.focus();
+            outros.select();
+            return false;
+        }
+
+        return true;
+
+
+    }
+
+    function registroSelecao(dataruv, classe){
+
+        if(dataruv === ""){
+            window.location.href='inicio.php?m=' + classe + '&tab=registros';
+        }else{
+            window.location.href='inicio.php?m=' + classe + '&tab=registros&s=' + dataruv;
+        }
+    }
+
+    function ordemSQL (selecao, link, classe){
+
+                window.location.href = link + "&o=" + selecao;
+
+    }
+
+    function registroSelecaoServ(dataruv, classe){
+
+        if(dataruv === "todos"){
+            window.location.href='inicio.php?m=serv&tab=registros';
+        }else{
+            window.location.href='inicio.php?m=serv&tab=registros$c=' + classe + '&s=' + dataruv;
+        }
+    }
+
+    function preencheConsultaUsuario(usuario, classe){
+
+    }
+
+    function preencheTipoPesquisa(tipo, classe){
+        window.location.href="inicio.php?m=" + classe + "&tab=pesquisas&tpesq=" + tipo;
+    }
+
+    function enterTabData(inputId, link, data, evento){
+
+        evento = evento || window.event;
+
+        var key = evento.keyCode || evento.which;
+
+        if(key == '13'){
+            document.getElementById(inputId).focus();
+            document.getElementById(inputId).select();
+        }
+
+        //mascaraData(data);
+
+        document.location.href="inicio.php?m=" + link + "&d=" + data;
+
+    }
+
+    function enterTabDataNominal(inputId, link, data){ //, dataruv, evento
+
+        evento = evento || window.event;
+
+        var key = evento.keyCode || evento.which;
+
+        if(key == '13'){
+            document.getElementById(inputId).focus();
+            document.getElementById(inputId).select();
+        }
+        document.location.href="inicio.php?m=" + link + "&d=" + data;
+
+    }
+
+    function enterCampoRuv(input, link, campo){
+        //alert(campo);
+
+        switch(input){
+
+            case "data":
+                if (campo != ""){
+                    window.location.href="inicio.php?m=" + link + "&d=" + campo;
+                }
+                break;
+
+            case "dia":
+            //alert("Dia, a trabalhar");
+                if(link === "pp"){
+                    var semanaruv = document.getElementById('semanaRuvMed');
+                }else if(link === "port"){
+                    var semanaruv = document.getElementById('semana');
+                }else{
+                    var semanaruv = document.getElementById('semana');
+                }
+
+                var dataRuv = semanaruv.value + "." + campo;
+
+                if(campo != ""){
+                        window.location.href="inicio.php?m=" + link + "&dr=" + dataRuv;
+                }
+                break;
+
+            case "semana":
+                var diaruv = document.getElementById('dia');
+
+                var dataRuv = campo + "." + diaruv.value
+
+                if(campo != ""){
+                        window.location.href="inicio.php?m=" + link + "&dr=" + dataRuv;
+                }
+            break;
+
+            case "dataRuv":
+                    document.location.href="inicio.php?m=" + link + "&dr=" + campo;
+                break;
+
+
+        }
+
+    }
+
+    function habilitaBotao(){
+        document.getElementById('salvar').disabled = false;
+
+    }
+
+    function selectUser(usuario, classe, menu){
+        window.location.href="inicio.php?m="+menu+"&t="+classe+"&u="+usuario;
+    }
+
+    function selectUsuarios(caminho){
+
+        window.location.href="inicio.php?m=config&t=usis&tpu="+caminho;
+
     }

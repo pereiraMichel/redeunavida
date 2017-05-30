@@ -29,9 +29,9 @@
         
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap-submenu.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/docs.css">
+    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    	<link rel="stylesheet" href="css/bootstrap.css">
+    	<link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="css/estilo.css">
 	<!--<link rel="stylesheet" href="css/style.css">-->
         

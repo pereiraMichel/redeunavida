@@ -7,10 +7,8 @@ class servExtras{
 	private $dataRegistro;
 	private $diaRuv;
 	private $semanaRuv;
-	private $focalizacao;
-	private $opcaofocalizacao;
-	private $presenca;
-	private $opcaopresenca;
+	private $servico;
+	private $opcao;
 	private $outros;
 	private $bonus;
 	private $codusuario;
@@ -73,36 +71,20 @@ class servExtras{
 		$this->semanaRuv = $semanaruv;
 	}
 
-	function getFocalizacao(){
-		return $this->focalizacao;
+	function getServico(){
+		return $this->servico;
 	}
 
-	function setFocalizacao($focalizacao){
-		$this->focalizacao = $focalizacao;
+	function setServico($servico){
+		$this->servico = $servico;
 	}
 
-	function getOpcaofocalizacao(){
-		return $this->opcaofocalizacao;
+	function getOpcao(){
+		return $this->opcao;
 	}
 
-	function setOpcaofocalizacao($opcaofocalizacao){
-		$this->opcaofocalizacao = $opcaofocalizacao;
-	}
-
-	function getPresenca(){
-		return $this->presenca;
-	}
-
-	function setPresenca($presenca){
-		$this->presenca = $presenca;
-	}
-
-	function getOpcaopresenca(){
-		return $this->opcaopresenca;
-	}
-
-	function setOpcaopresenca($opcaopresenca){
-		$this->opcaopresenca = $opcaopresenca;
+	function setOpcao($opcao){
+		$this->opcao = $opcao;
 	}
 
 	function getOutros(){
@@ -142,6 +124,7 @@ class servExtras{
                 $serv = "btn-primary";
                 $reg = "btn-default";
                 $bns = "btn-default";
+                $pes = "btn-default";
                 break;
                 
             case "tarefa":
@@ -152,6 +135,7 @@ class servExtras{
                 $serv = "btn-primary";
                 $reg = "btn-default";
                 $bns = "btn-default";
+                $pes = "btn-default";
                 break;
             
             case "registros":
@@ -162,16 +146,29 @@ class servExtras{
                 $serv = "btn-default";
                 $reg = "btn-primary";
                 $bns = "btn-default";
+                $pes = "btn-default";
                 break;
             
             case "bonus":
-            	$servActive = "";
+                $servActive = "";
                 $regActive = "";
                 $bonusActive = "class = 'active'";
 
                 $serv = "btn-default";
                 $reg = "btn-default";
                 $bns = "btn-primary";
+                $pes = "btn-default";
+                break;
+
+            case "pesquisas":
+                $servActive = "";
+                $regActive = "";
+                $bonusActive = "class = 'active'";
+
+                $serv = "btn-default";
+                $reg = "btn-default";
+                $bns = "btn-default";
+                $pes = "btn-primary";
                 break;
                 
         }
@@ -186,6 +183,9 @@ class servExtras{
             echo "          </a>";
             echo "          <a href='inicio.php?m=serv&tab=bonus' class='btn $bns' style='width: 90px;'>";
             echo "              Bônus";
+            echo "          </a>";
+            echo "          <a href='inicio.php?m=serv&tab=pesquisas' class='btn $pes' style='width: 90px;'>";
+            echo "              Pesquisas";
             echo "          </a>";
             echo "  </div>";
             echo "  <p style='height: 20px;'>&nbsp;</p>";
@@ -208,6 +208,10 @@ class servExtras{
                     $b->telaBonusServExtras();
                     break;
                     
+                case "pesquisas":
+                    $pesq = new Pesquisas();
+                    $pesq->telaPesquisas('servicos');
+                    break;
             }
             echo "</div>";//fecha o col-sm-12
 
@@ -215,11 +219,15 @@ class servExtras{
 
 	public function telaServExtras(){
 
+        //define('', $_SERVER[]);
+
         //echo "<meta http-equiv='refresh' content='5;inicio.php?m=serv'>";
 
 		//echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=serv'>";
 		$con = new conectaBanco();
 		$con->conecta();
+
+        $a = new atividades();
 
 		echo "<div class='col-sm-12'>";
         $tar = filter_input(INPUT_GET, "t");
@@ -263,35 +271,54 @@ class servExtras{
                 $marcaInicio = "";
             }
             
-            //$semana = $this->anoRuv."-".$this->semanaRuv;
+        $data = filter_input(INPUT_GET, 'd');
+        $dataruv_selecionada = filter_input(INPUT_GET, 'dr');
+        $dia_selecionado = filter_input(INPUT_GET, 'dia');
+        $semana_selecionada = filter_input(INPUT_GET, 'sem');
 
-            echo "<form name='formTarefas' action='inicio.php?m=serv' method='post'>";
-            echo "          <table class='table' style='text-align: justify; border: none;'>";
+
+        if(!empty($data)){
+            $this->setDataRegistro($data);
+            $this->validaData($this->dataRegistro);
+        }
+        if(!empty($dataruv_selecionada)){
+            $this->setDataRuv($dataruv_selecionada);
+            $this->validaDiaDataRuv($this->dataRuv);
+        }
+
+            echo "<form name='formServExtras' id='formServExtras' action='inicio.php?m=serv' method='post'>";
+
+            echo "          <table class='table'>";
             echo "              <tr>";
-            echo "                  <td width='30'>";
-            echo "                      <label>Data RUV</label>";
-            echo "					</td>";
-            echo "					<td width='100'>";
-            echo "                      <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onchange='preencheDataRuv(this.value, \"dataRuv\" )' onkeypress='mascaraData(this)'>";
-//            echo "                      <input type='hidden' name='diaRuv' id='diaRuv' value='".$this->diaRuv."' class='form-control' style='width: 120px;' required>";
-            echo "                      <input type='hidden' name='dataHoje' id='dataHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required>";
+            echo "                  <td style='width: 160px;'>";
+            echo "                      <label>Data";
+            echo "                          <div class='input-group'>";
+            echo "                              <input type='text' name='calendario' id='calendario' value='".$this->dataRegistro."' class='form-control' $desativaData placeholder='DD/MM/AAAA' required onkeyup='somenteNumeros(this)' onkeydown='enterTab(\"dataRuv\", event)' onchange='enterCampoRuv(\"data\", \"serv\", this.value);'><div class='input-group-addon'><i class='fa fa-calendar'></i></div>";
 
-            echo "                  </td>";
-            echo "                  <td width='30'>";
-            echo "                      <label>Semana RUV</label>";
-            echo "                  </td>";
-            echo "                  <td width='100'>";
-            echo "                      <input type='text' name='semana' id='semana' class='form-control' value='".$this->semanaRuv."' style='width: 80px;' required onchange='preencheDataRuv(this.value, \"semana\")'>";
-            echo "                  </td>";
-            echo "                  <td width='20'>";
-            echo "                      <label>Dia RUV</label>";
-            echo "                  </td>";
-            echo "                  <td width='100'>";
-            echo "                      <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' required onchange='preencheDataRuv(this.value, \"dia\")'>";
-            echo "                  </td>";
+            echo "                          </div>";
 
-            echo "				</tr>";
+//            echo "                          <input type='text' name='dataPortalHoje' id='dataPortalHoje' value='".date('d/m/Y')."' class='form-control' style='width: 120px;' $desativaData placeholder='DD/MM/AAAA' required onkeypress='mascaraData(this)' onkeydown='enterTab(\"dataRuv\", event)' onkeyup='somenteNumeros(this)' maxlength='10' $marcaAuto>";
+            echo "                      </label>";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      <label>Data RUV";
+            echo "                          <input type='text' name='dataRuv' id='dataRuv' value='".$this->dataRuv."' class='form-control' style='width: 120px;' $desativaData placeholder='A-EMS.D' required onchange='enterCampoRuv(\"dataRuv\", \"serv\", this.value);' onkeypress='mascaraDataRuv(this)' onkeydown='enterTab(\"semana\", event)' onkeyup='somenteNumeros(this)' maxlength='7'>";
+            echo "                      </label>";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      <label>Semana";
+            echo "                          <input type='text' name='semana' id='semana' class='form-control' value='".$this->semanaRuv."' style='width: 80px;' required onkeypress='mascaraSemana(this)' onkeydown='enterTab(\"dia\", event)' onchange='enterCampoRuv(\"semana\", \"serv\", this.value);' onkeyup='somenteNumeros(this)' maxlength='5'>";
+            echo "                      </label>";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      <label>Dia";
+            echo "                          <input type='text' name='dia' id='dia' class='form-control' value='".$this->diaRuv."' style='width: 50px;' onchange='enterCampoRuv(\"dia\", \"serv\", this.value);' required onkeydown='enterTab(\"sonho\", event)' onkeyup='somenteNumeros(this)'>"; // 
+            echo "                      </label>";
+            echo "                  </td>";
+            echo "              </tr>";
             echo "          </table>";
+            
+//            echo "          <hr size='2'>";
 
             echo "          <table class='table' style='text-align: justify;'>";
             echo "				<tr>";
@@ -314,7 +341,11 @@ class servExtras{
 
             echo "              <tr style='text-align: center;'>";
             echo "                  <td>";
-           	echo "						<select name='tipo' class='form-control' onchange='validaServicos(this.value)'>";
+            //echo "Servidor: ".$_SERVER['REQUEST_URI'];
+            //echo "Servidor: ".$_SERVER['SCRIPT_FILENAME'];
+            $servidor = $_SERVER['REQUEST_URI'];
+//            $servidor = $_SERVER['SERVER_NAME'];
+           	echo "						<select name='tipo' id='tipo' class='form-control' onchange='validaServicos(\"$servidor\", this.value)'>";
            	echo "							<option value=''></option>";
            	echo "							<option value='focalizacao' $selectFocal>Focalização</option>";
            	echo "							<option value='presenca' $selectPres>Presença</option>";
@@ -327,7 +358,7 @@ class servExtras{
             echo "                      <input type='hidden' name='tipoServico' id='tipoServico' value='".$escolhaTipo."'>";
             echo "                  </td>";
             echo "                  <td>";
-           	echo "						<select name='servico' class='form-control'>";
+           	echo "						<select name='servico' id='servico' class='form-control'>";
            	echo "							<option value=''></option>";
 
            	switch ($serv) {
@@ -367,90 +398,170 @@ class servExtras{
             echo "                  </td>";
             echo "                  <td>";
             echo "						<div id='foca' style='display: $bloFocal;'>";
-           	echo "						<input type='radio' name='opcao' value='individual'> Individual   |   ";
-           	echo "						<input type='radio' name='opcao' value='dupla'> Dupla";
+           	echo "						<input type='radio' name='opcaoServ' id='opcaoServ' value='Individual' onchange='calculaBonusServ(this.value)'> Individual   |   ";
+           	echo "						<input type='radio' name='opcaoServ' id='opcaoServ' value='Dupla' onchange='calculaBonusServ(this.value)'> Dupla";
            	echo "						</div>";
 
             echo "						<div id='pres' style='display: $bloPres;'>";
-           	echo "						<input type='radio' name='opcao' value='sim'> Sim   |   ";
-           	echo "						<input type='radio' name='opcao' value='nao'> Não";
+           	echo "						<input type='radio' name='opcaoServ' id='opcaoServ' value='Sim' onchange='calculaBonusServ(this.value)'> Sim   |   ";
+           	echo "						<input type='radio' name='opcaoServ' id='opcaoServ' value='Não' onchange='calculaBonusServ(this.value)'> Não";
            	echo "						</div>";
             echo "                  </td>";
 
             echo "                  <td>";
-            echo "                      <input type='text' name='outros' id='outros' class='form-control' style='width: 300px;' required>";
+            echo "                      <input type='text' name='outros' id='outros' class='form-control' style='width: 300px;' required onkeydown='enterTab(\"salvar\", event)'>";
             echo "                  </td>";
             echo "                  <td>";
-            echo "                      <input type='text' name='bonus' id='bonus' class='form-control' style='width: 80px;' required>";
+            echo "                      <input type='text' name='bonusServ' id='bonusServ' readonly class='form-control' style='width: 80px;' required>";
+            echo "                  </td>";
+            echo "              </tr>";
+
+            echo "              <tr>";
+            echo "                  <td colspan='3'>";
+            echo "                      <input type='hidden' id='codusuario' name='codusuario' value='".$_SESSION['idusuario']."'>";
+//            echo "                      &nbsp;";
+            echo "                  </td>";
+            echo "                  <td style='text-align: right;'>";
+            echo "                      <a href='inicio.php' class='btn btn-default' title='Voltar' alt='Voltar'>";
+            echo "                          <img src='../img/btn_back.png' width='25' height='25'>";
+            echo "                      </a>";
+            echo "                  </td>";
+            echo "                  <td style='text-align: left;'>";
+            echo "                      <button type='button' class='btn btn-default' href='#' id='salvar' name='salvar' onclick='enviaForm(\"formServExtras\")'>";
+            echo "                          <img src='../img/save2.png' width='25' height='25'>";
+            echo "                      </button>";
             echo "                  </td>";
             echo "              </tr>";
             echo "              <tr>";
-            echo "                  <td colspan='5' style='text-align: right;'>";
-            echo "                      <input type='hidden' id='codusuario' name='codusuario' value='".$_SESSION['idusuario']."'>";
-            echo "                      <a href='inicio.php' class='btn btn-default'>Cancelar</a> ";
-            echo "                      <button class='btn btn-primary' type='submit' style='width: 80px;'>Salvar</button>";
+            echo "                  <td colspan='3'>";
+            echo "                      &nbsp;";
+            echo "                  </td>";
+            echo "                  <td style='text-align: right;'>";
+            echo "                      <a href='inicio.php' title='Voltar' alt='Voltar'>";
+            echo "                          <label>Voltar</label>";
+            echo "                      </a>";
+            echo "                  </td>";
+            echo "                  <td style='text-align: left;'>";
+            echo "                      <a href='#' onclick='enviaForm(\"formServExtras\")' title='Salvar' alt='Salvar'>";
+            echo "                          <label>Salvar</label>";
+            echo "                      </a>";
             echo "                  </td>";
             echo "              </tr>";
+
+            /*
+            echo "              <tr>";
+            echo "                  <td colspan='5' style='text-align: right;'>";
+            echo "                      <a href='inicio.php' class='btn btn-default'>Cancelar</a> ";
+            echo "                      <button class='btn btn-primary' type='button' id='salvar' name='salvar' onclick='enviaForm(\"formServExtras\")' style='width: 80px;'>Salvar</button>";
+            echo "                  </td>";
+            echo "              </tr>";
+            */
             echo "              <tr>";
             echo "                  <td colspan='5'>";
             echo "                      <div id='erro1' name='erro1' class='alert alert-danger' style='display: none;'>";
-            echo "                          Hora do Início superior a Hora do Término";
+            echo "                          Tipo Inválido";
             echo "                      </div>";
-            echo "                      <div id='erro1' name='erro2' class='alert alert-danger' style='display: none;'>Não é permitido duração acima de 1 hora</div>";
+            echo "                      <div id='erro2' name='erro2' class='alert alert-danger' style='display: none;'>";
+            echo "                          Serviço Inválido";
+            echo "                      </div>";
+            echo "                      <div id='erro3' name='erro3' class='alert alert-danger' style='display: none;'>";
+            echo "                          Status Inválido. Selecione o serviço.";
+            echo "                      </div>";
+            echo "                      <div id='erro4' name='erro4' class='alert alert-danger' style='display: none;'>";
+            echo "                          Outros/ Extras inválido.";
+            echo "                      </div>";
+            echo "                      <div id='erro5' name='erro5' class='alert alert-danger' style='display: none;'>";
+            echo "                          Bônus Inválido. Favor selecionar as opções para preenchimento.";
+            echo "                      </div>";
+            echo "                      <div id='erro6' name='erro6' class='alert alert-danger' style='display: none;'>";
+            echo "                          Data Inválida.";
+            echo "                      </div>";
+            echo "                      <div id='erro7' name='erro7' class='alert alert-danger' style='display: none;'>";
+            echo "                          Data RUV Inválida.";
+            echo "                      </div>";
+            echo "                      <div id='erro8' name='erro8' class='alert alert-danger' style='display: none;'>";
+            echo "                          Semana RUV inválida. Preencha da Data-Ruv para completar a semana RUV, e somente números.";
+            echo "                      </div>";
+            echo "                      <div id='erro9' name='erro9' class='alert alert-danger' style='display: none;'>";
+            echo "                          Dia RUV Inválido. Preencha corretamente e somente números.";
+            echo "                      </div>";
+            echo "                      <div id='erro10' name='erro10' class='alert alert-danger' style='display: none;'>";
+            echo "                          Data de Registro inválida. Selecione ou digite, em números, a data para registro.";
+            echo "                      </div>";
+            if($error = filter_input(INPUT_GET, 'e')){
+                if($error === "11"){
+                    echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=serv'>";
+            echo "                      <div id='erro11' name='erro11' class='alert alert-danger'>";
+            echo "                          O dia não pode ser maior que 8.";
+            echo "                      </div>";
+                }
+            }
             echo "                  </td>";
             echo "              </tr>";
             echo "          </table>";
             echo "</form>";
 
         if($_POST){
+            $a = new atividades();
+
 //            $novoNivel = str_replace(",",".", filter_input(INPUT_POST, 'nivel'));
-            $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataHoje'))));
+            $dataConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'calendario'))));
             $dataRuvConvertida = implode("-", array_reverse(explode("/", filter_input(INPUT_POST, 'dataRuv'))));
 
             $this->dataRegistro = addslashes($dataConvertida);
             $this->dataRuv = $dataRuvConvertida;
             $this->semanaRuv = addslashes(filter_input(INPUT_POST, 'semana'));
-            $this->bonus = addslashes(filter_input(INPUT_POST, 'bonus'));
+            $this->bonus = addslashes(filter_input(INPUT_POST, 'bonusServ'));
             $this->codusuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
             $this->diaRuv = addslashes(filter_input(INPUT_POST, 'dia'));
             $this->outros = addslashes(filter_input(INPUT_POST, 'outros'));
+            $this->servico = addslashes(filter_input(INPUT_POST, 'tipoServico'));
+            $this->opcao = addslashes(filter_input(INPUT_POST, 'opcaoServ'));
 
-            $tipoServico = addslashes(filter_input(INPUT_POST, 'tipoServico'));
-
-            //echo "Tipo de Serviço: ".$tipoServico;
-
-            if($tipoServico === "Focalização"){
-                $this->focalizacao = addslashes(filter_input(INPUT_POST, 'tipoServico'));
-                $this->opcaofocalizacao = addslashes(filter_input(INPUT_POST, 'opcao'));
-
-                if($this->insereFocalizacao()){
-                    echo "<label class='alert alert-success'>Incluso com sucesso!</label>";
-                    echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=serv'>";
-                }
-
-            }else if($tipoServico === "Presença"){
-                $this->presenca = addslashes(filter_input(INPUT_POST, 'tipoServico'));
-                $this->opcaopresenca = addslashes(filter_input(INPUT_POST, 'opcao'));
-
-                if($this->inserePresenca()){
-                    echo "<label class='alert alert-success'>Incluso com sucesso!</label>";
-                    echo "<meta http-equiv='refresh' content='3;url=inicio.php?m=serv'>";
-                }
-                
-
+            if ($this->insereServicos()){
+                $a->writeLog($_SESSION['usuario'], "Inclusão de Serviços e Extras Data RUV: ".$this->dataRuv, "../controller/");
+                echo "<label class='alert alert-success'>Serviço salvo com sucesso! Aguarde 2 segundos.</label>";
+                echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=serv'>";
             }
 
         }
 		echo "</div>";//fecha a div col-sm-12
 	}
 
-    public function insereFocalizacao(){
+    public function insereServicos(){
+        $con = new conectaBanco();
+        $con->conecta();
+
+        $this->idservicos = ultimoId::ultimoIdBanco("idservicos", "servicos");
+
+        $sqlInsereServicos = " INSERT INTO servicos (idservicos, dataRuv, dataRegistro, diaRuv, semanaRuv, servico, opcao, outros, bonus, codusuario) 
+                            VALUES (".$this->idservicos.", '".$this->dataRuv."', '".$this->dataRegistro."', ".$this->diaRuv.", '".$this->semanaRuv."', '".$this->servico."', '".$this->opcao."', '".$this->outros."', ".$this->bonus.", ".$this->codusuario.")";
+
+        try{
+            //echo "SQL: ".$sqlInsereServicos;
+
+            $resultadoInsereServicos = mysql_query($sqlInsereServicos) or die("Erro no comando SQL de inserir serviços. Erro: ".mysql_error());
+
+            if($resultadoInsereServicos){
+                return true;
+            }
+            
+            return false;
+
+
+        }catch(Exception $ex){
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
+        }
+
+    }
+
+/*    public function insereFocalizacao(){
         $con = new conectaBanco();
         $con->conecta();
 
         $this->idservicos = ultimoId::ultimoIdBanco("idservicos", "servfocalizacao");
 
-        $sqlInsereFocal = " INSERT INTO servfocalizacao (idservicos, dataRuv, dataRegistro, diaRuv, semanaRuv, focalizacao, opcaofocalizacao, outros, bonus, codusuario) 
+        $sqlInsereFocal = " INSERT INTO servfocalizacao (idservicos, dataRuv, dataRegistro, diaRuv, semanaRuv, servico, opcaofocalizacao, outros, bonus, codusuario) 
                             VALUES (".$this->idservicos.", '".$this->dataRuv."', '".$this->dataRegistro."', ".$this->diaRuv.", '".$this->semanaRuv."', '".$this->focalizacao."', '".$this->opcaofocalizacao."', '".$this->outros."', ".$this->bonus.", ".$this->codusuario.")";
 
         try{
@@ -477,7 +588,7 @@ class servExtras{
 
         $this->idservicos = ultimoId::ultimoIdBanco("idpresenca", "servpresenca");
 
-        $sqlInserePresenca = "  INSERT INTO servpresenca (idpresenca, dataRuv, dataregistro, semanaRuv, presenca, opcaopresenca, outros, bonus, codusuario)
+        $sqlInserePresenca = "  INSERT INTO servpresenca (idpresenca, dataRuv, dataregistro, semanaRuv, servico, opcaopresenca, outros, bonus, codusuario)
                                 VALUES (".$this->idservicos.", '".$this->dataRuv."', '".$this->dataRegistro."', '".$this->semanaRuv."', '".$this->presenca."', '".$this->opcaopresenca."', '".$this->outros."', ".$this->bonus.", ".$this->codusuario.")";
 
         try{
@@ -495,10 +606,8 @@ class servExtras{
         }
         
     }
-
+*/
 	public function telaRegistroServ(){
-
-        //echo "<meta http-equiv='refresh' content='5;inicio.php?m=serv&tab=registros'>";
 
 
         $this->setCodusuario($_SESSION['idusuario']);
@@ -506,210 +615,199 @@ class servExtras{
         $con = new conectaBanco();
 		$con->conecta();
 
-        //echo "SQL: ".$sqlFocalizacao."<br>";
+        $s = filter_input(INPUT_GET, 's');
+
+        $ordem = filter_input(INPUT_GET, 'o');
+
+        if(!empty($s)){
+            if($s == "Todos"){
+                $selecionaDataRuv = "";
+            }else{
+                $selecionaDataRuv = " AND dataRuv = '".$s."' ";
+            }
+        }else{
+            $selecionaDataRuv = " AND dataRuv = '".$this->dataRuv."'";
+        }
+
+//        if(!empty($ordem)){
+
+            switch ($ordem) {
+                case 'dataregistro':
+                        $selecionaOrdem = " ORDER BY dataRegistro";
+                    break;
+                case 'dataruv':
+                        $selecionaOrdem = " ORDER BY dataRuv";
+                    break;
+                case 'servico':
+                        $selecionaOrdem = " ORDER BY servico";
+                    break;
+                case 'status':
+                        $selecionaOrdem = " ORDER BY opcao";
+                    break;
+                case 'outros':
+                        $selecionaOrdem = " ORDER BY outros";
+                    break;
+                case 'bonus':
+                        $selecionaOrdem = " ORDER BY bonus";
+                    break;
+                
+                default:
+                        $selecionaOrdem = " ORDER BY dataRuv";
+                    break;
+            }//fim do switch
+//        }
 
         echo "<div class='col-sm-12'>";
 
-        echo "  <ul class='nav nav-tabs' role='tablist'>";
-        echo "      <li role='presentation'>";
-        echo "          <a href='#focal' aria-controls='focal' role='tab' data-toggle='tab'>";
-        echo "              Focalização";
-        echo "          </a>";
-        echo "      </li>";
-        echo "      <li role='presentation'>";
-        echo "          <a href='#pres' aria-controls='pres' role='tab' data-toggle='tab'>";
-        echo "              Presença";
-        echo "          </a>";
-        echo "      </li>";
-        echo "  </ul>";
 
-        echo "<div class='tab-content'>";
-        echo "  <div role='tabpanel' class='tab-pane fade active' id='focal'>";
+        $sqlServicos = "SELECT *, DATE_FORMAT(dataRegistro, '%d/%m/%Y') as dataRegFormatada FROM servicos WHERE codusuario=".$this->codusuario.$selecionaDataRuv.$selecionaOrdem;
 
-        $sqlFocalizacao = "SELECT *, DATE_FORMAT(dataRuv, '%d/%m/%Y') as dataRuvFormatada FROM servfocalizacao WHERE codusuario=".$this->codusuario;
+        $sqlResumoServicos = "SELECT dataRuv, diaRuv FROM servicos WHERE codusuario = ".$this->codusuario." GROUP BY dataRuv ORDER BY diaRuv";
 
-        echo "          <table class='table'>";
-        echo "              <tr>";
-        echo "                  <td>";
-        echo "                      Data RUV";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Semana RUV";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Serviço";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Status";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Outros/ Extras";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Bônus";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      &nbsp;";
-        echo "                  </td>";
-        echo "              </tr>";
-
-        // COMEÇA O CONTEÚDO DO BANCO DE DADOS DE FOCALIZAÇÃO
+        //echo "SQL: ".$sqlServicos."<br>";
 
         try{
 
-            $resultadoSQLFocalizacao = mysql_query($sqlFocalizacao) or die("Erro no comando SQL. Descrição: ".mysql_error());
+        $resultadoSQLServicos = mysql_query($sqlServicos) or die("Erro no comando SQL. Descrição: ".mysql_error());
 
-            if(mysql_num_rows($resultadoSQLFocalizacao) > 0){
+        $resultadoResumoServicos = mysql_query($sqlResumoServicos) or die("Erro na execução do comando SQL do resumo. Descrição: ".mysql_error());
 
-                while($dadosFocal = mysql_fetch_array($resultadoSQLFocalizacao)){
+            echo "<table class='table table-striped'>";
+            echo "  <tr>";
+            echo "      <td>";
+            echo "          <label>Selecionar Data-RUV</label>";
+            echo "      </td>";
+            echo "      <td>";
+            echo "          <select name='sDataRuv' id='sDataRuv' class='form-control' onchange='registroSelecao(this.value, \"serv\")'>";
+/*                if(!empty($s)){
+                    echo "<option value='".$s."'>".$s."</option>";
+                }*/
+            echo "              <option value='Todos'></option>";
+            echo "              <option value='Todos'>Todos</option>";
+
+            while($dadosResumoServicos = mysql_fetch_array($resultadoResumoServicos)){
+                echo "          <option value='".$dadosResumoServicos['dataRuv']."'>".$dadosResumoServicos['dataRuv']."</option>";
+            }
+            echo "          </select>";
+            echo "      </td>";
+                    echo "      <td>";
+                    echo "          <label>Classificar por: </label>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    //$dominio = null;
+                    $servidor = $_SERVER['REQUEST_URI'];
+                    echo "          <select name='classificacao' class='form-control' onchange='ordemSQL(this.value, \"$servidor\", \"meditacao\")'>"; // disabled
+                    if(!empty($ordem)){
+                        if($ordem == "dataregistro"){
+                            echo "<option value='diaruv'>Data Registro</option>";
+                        }
+                        else if($ordem == "dataruv"){
+                            echo "<option value='sonho'>Data RUV</option>";
+                        }
+                        else if($ordem == "servico"){
+                            echo "<option value='servico'>Serviço</option>";
+                        }
+                        else if($ordem == "status"){
+                            echo "<option value='status'>Status</option>";
+                        }else 
+                        if($ordem == "outros"){
+                            echo "<option value='outros'>Outros/ Extras</option>";
+                        }else 
+                        if($ordem == "bonus"){
+                            echo "<option value='bonus'>Bônus</option>";
+                        }
+                    }
+                    echo "              <option value=''></option>";
+                    echo "              <option value='dataregistro'>Data Registro</option>";
+                    echo "              <option value='dataruv'>Data RUV</option>";
+                    echo "              <option value='servico'>Serviço</option>";
+                    echo "              <option value='status'>Status</option>";
+                    echo "              <option value='outros'>Outros/ Extras</option>";
+                    echo "              <option value='bonus'>Bônus</option>";
+                    echo "          </select>";
+                    echo "      </td>";
+                    echo "  </tr>";
+                    echo "</table>";
+
+        if(mysql_num_rows($resultadoSQLServicos) > 0){
+
+            echo "          <table class='table'>";
+            echo "              <tr style='font-weight: bold;'>";
+            echo "                  <td>";
+            echo "                      Data RUV";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      Data Registro";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      Serviço";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      Status";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      Outros/ Extras";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      Bônus";
+            echo "                  </td>";
+            echo "                  <td>";
+            echo "                      &nbsp;";
+            echo "                  </td>";
+            echo "              </tr>";
+
+                while($dadosServicos = mysql_fetch_array($resultadoSQLServicos)){
                     echo "              <tr>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['dataRuvFormatada'];
+                    echo                        $dadosServicos['dataRuv'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['semanaRuv'];
+                    echo                        $dadosServicos['dataRegFormatada'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['focalizacao'];
+                    echo                        $dadosServicos['servico'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['opcaofocalizacao'];
+                    echo                        $dadosServicos['opcao'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['outros'];
+                    echo                        $dadosServicos['outros'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    echo                        $dadosFocal['bonus'];
+                    echo                        $dadosServicos['bonus'];
                     echo "                  </td>";
                     echo "                  <td>";
-                    $idfocalizacao = $dadosFocal['idservicos'];
-                    echo "      <a href='inicio.php?m=serv&tab=registros&e=s&id=".$idfocalizacao."&s=focal' alt='Excluir' title='Excluir'>";
+                    $idservicos = $dadosServicos['idservicos'];
+                    echo "      <a href='inicio.php?m=serv&tab=registros&e=s&id=".$idservicos."' alt='Excluir' title='Excluir'>";//&s=focal
                     echo "          <img src='../../images/botaoexcluir.png' id='excluir' title='Excluir'>";
                     echo "      </a>";
-                    echo "      <input type='hidden' name='idfocalizacao' id='idfocalizacao' value='".$idfocalizacao."'>";
+                    echo "      <input type='hidden' name='idservicos' id='idservicos' value='".$idservicos."'>";
                     echo "                  </td>";
                     echo "              </tr>";
                 }
 
+                    echo "          </table>";
+
             }else{
-                echo "<tr>";
-                echo "  <td colspan='7'>";
-                echo "      Não possui informações de registros.";
-                echo "  </td>";
-                echo "</tr>";
+                        echo "<label class='alert alert-warning' style='text-align: center; width: 600px;'>";
+                        echo "  Ops! Sem Serviços do dia ".date('d/m/Y').". Selecione a data RUV acima, para demais consultas.";
+                        echo "  <button type='button' class='close' data-dismiss='alert' aria-label='Fechar'>";
+                        echo "      <span aria-hidden='true'> &times;</span>";
+                        echo "  </button>";
+                        echo "</label><br>";
+            }
+
+            if($this->excluiServ()){
+                echo "<br><br>";
+                echo "<label class='alert alert-success'>Serviço excluído com sucesso! Aguarde 2 segundos.</label>";
+                echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=serv&tab=registros'>";
             }
 
         }catch(Exception $ex){
             echo "Exception ativado. Descrição: ".$ex->getMessage();
         }
 
-        echo "          </table>";
         echo "  </div>";
-
-// ////////////////////////////////////////////////////////////////////// TAB PRESENÇA
-
-        echo "  <div role='tabpanel' class='tab-pane fade' id='pres'>";
-
-        $sqlPresenca = "SELECT *, DATE_FORMAT(dataRuv, '%d/%m/%Y') as dataRuvFormatada FROM servpresenca WHERE codusuario=".$this->codusuario;
-
-        echo "          <table class='table'>";
-        echo "              <tr>";
-        echo "                  <td>";
-        echo "                      Data RUV";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Semana RUV";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Serviço";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Status";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Outros/ Extras";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      Bônus";
-        echo "                  </td>";
-        echo "                  <td>";
-        echo "                      &nbsp;";
-        echo "                  </td>";
-        echo "              </tr>";
-
-        // COMEÇA O CONTEÚDO DO BANCO DE DADOS DE PRESENÇA
-
-        try{
-
-            $resultadoSQLPresenca = mysql_query($sqlPresenca) or die("Erro no comando SQL. Descrição: ".mysql_error());
-
-            if(mysql_num_rows($resultadoSQLPresenca) > 0){
-
-                while($dadosPresenca = mysql_fetch_array($resultadoSQLPresenca)){
-                    echo "              <tr>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['dataRuvFormatada'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['semanaRuv'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['presenca'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['opcaopresenca'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['outros'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    echo                        $dadosPresenca['bonus'];
-                    echo "                  </td>";
-                    echo "                  <td>";
-                    $idpresenca = $dadosPresenca['idpresenca'];
-                    echo "      <a href='inicio.php?m=serv&tab=registros&e=s&id=".$idpresenca."&s=pres' alt='Excluir' title='Excluir'>";
-                    echo "          <img src='../../images/botaoexcluir.png' id='excluir' title='Excluir'>";
-                    echo "      </a>";
-                    echo "      <input type='hidden' name='idpresenca' id='idpresenca' value='".$idpresenca."'>";
-                    echo "                  </td>";
-                    echo "              </tr>";
-                    
-                }
-
-            }else{
-                echo "<tr>";
-                echo "  <td colspan='7'>";
-                echo "      Não possui informações de registros.";
-                echo "  </td>";
-                echo "</tr>";
-            }
-
-        }catch(Exception $ex){
-            echo "Exception ativado. Descrição: ".$ex->getMessage();
-        }
-
-
-
-        echo "          </table>";
-
-        echo "  </div>";
-
-
-        echo "</div>"; // FECHA O TAB-CONTENT
-
-
-
-//        echo "</div>";
-
-
-        if($this->excluiServ()){
-            echo "<br><br>";
-            echo "<label class='alert alert-success'>Excluído com sucesso!.</label>";
-            echo "<meta http-equiv='refresh' content='1;url=inicio.php?m=serv&tab=registros'>";
-        }
-
-        echo "</div>";//fecha a div col-sm-12*/
-
 	}
 
 	public function telaBonusServ(){
@@ -734,13 +832,13 @@ class servExtras{
 
         if(!empty($id)){
 
-            if($t === "focal"){
-                $tabela = "servfocalizacao";
+//            if($t === "focal"){
+                $tabela = "servicos";
                 $idTabela = "idservicos";
-            }else if($t === "pres"){
-                $tabela = "servpresenca";
-                $idTabela = "idpresenca";
-            }
+//            }else if($t === "pres"){
+//                $tabela = "servpresenca";
+//                $idTabela = "idpresenca";
+//            }
 
             $sqlExcluiParPres = "DELETE FROM ".$tabela." WHERE ".$idTabela." = ".$id;
 
@@ -759,5 +857,166 @@ class servExtras{
 
 
 	}
+
+    public function validaDiaDataRuv($dataruv_selecionada){
+
+        $dataRuvS = explode("-", implode("", explode(".", $dataruv_selecionada)));
+
+        $ano = $dataRuvS[0];
+        $estacao = substr($dataRuvS[1], -4, -3); 
+        $diaSemana = substr($dataRuvS[1], -2, -1); 
+        $diaDoMes = substr($dataRuvS[1], -3, -2);
+        $semana = substr($dataRuvS[1], -1); 
+//        $semana = $dataRuvS[1]; 
+
+
+        $con = new conectaBanco();
+        $con->conecta();
+
+        $semanaMes = array(
+            "01" => 'Domingo',
+            "02" => 'Segunda-feira',
+            "03" => 'Terça-feira',
+            "04" => 'Quarta-feira',
+            "05" => 'Quinta-feira',
+            "06" => 'Sexta-feira',
+            "07" => 'Sábado'
+        );
+
+        //echo "Mês: ".$mes."<br>";
+
+        $mesInverso = array(
+            "Janeiro" => "01",
+            "Fevereiro" => "02",
+            "Março" => "03",
+            "Abril" => "04",
+            "Maio" => "05",
+            "Junho" => "06",
+            "Julho" => "07",
+            "Agosto" => "08",
+            "Setembro" => "09",
+            "Outubro" => "10",
+            "Novembro" => "11",
+            "Dezembro" => "12"
+
+            );
+
+        if($semana > 7){
+            echo "<script> window.location.href='inicio.php?m=serv&".$dataruv_selecionada."&e=11' </script>";
+            //echo "Retorna true";
+        }
+
+        $sqlData = "SELECT * FROM 
+                    calendario 
+                    WHERE 
+                    estacao = ".$estacao."
+                    AND diaSemana = ".$diaSemana." 
+                    AND ano = ".$ano."
+                    AND diaDoMes = ".$diaDoMes."
+                    AND semana = ".$semana." 
+                    ";
+
+        //echo $sqlData;
+
+        try{
+
+            $resultadoCalendario = mysql_query($sqlData) or die("Houve um erro no comando SQL de calendario. Erro: ".mysql_error());
+
+            if(mysql_num_rows($resultadoCalendario) > 0){
+                $dadosCalendario = mysql_fetch_array($resultadoCalendario);
+
+                $mes = $dadosCalendario['mesExtenso'];
+                //echo "Mês pesquisado: ".$mes."<br>";
+                $mesLetivo = $mesInverso[$mes];
+
+                $diaCalendario = $dadosCalendario['diaMes'];
+                $anoCalendario = $dadosCalendario['anoCompleto'];
+
+                $this->setDataRuv($dadosCalendario['ano']."-".$dadosCalendario['estacao'].$dadosCalendario['diaDoMes'].$dadosCalendario['diaSemana'].".".$dadosCalendario['semana']);
+                $this->setSemanaRuv($dadosCalendario['ano']."-".$dadosCalendario['estacao'].$dadosCalendario['diaDoMes'].$dadosCalendario['diaSemana']);
+                $this->setDiaRuv($dadosCalendario['semana']);
+                if(strlen($diaCalendario) < 2){
+                    $diaCalendario = "0".$diaCalendario;
+                }
+                $this->setDataRegistro($diaCalendario."/".$mesLetivo."/".$anoCalendario);
+                //echo "<script>document.getElementById('inicio').focus();</script>";
+            }
+
+        }catch(Exception $ex){
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
+        }
+
+    }
+
+
+    public function validaData($dataRuv_select){
+
+        $dataS = explode("/", $dataRuv_select);
+//        $semanaS = preg_split("/ (-|.) /", $semana_select);
+
+        $dia = $dataS[0];
+        $mes = $dataS[1];
+        $ano = $dataS[2];
+
+        $con = new conectaBanco();
+        $con->conecta();
+
+        $semanaMes = array(
+            "01" => 'Domingo',
+            "02" => 'Segunda-feira',
+            "03" => 'Terça-feira',
+            "04" => 'Quarta-feira',
+            "05" => 'Quinta-feira',
+            "06" => 'Sexta-feira',
+            "07" => 'Sábado'
+        );
+
+        $mesSelecionado = array(
+            "01" => 'Janeiro',
+            "02" => 'Fevereiro',
+            "03" => 'Março',
+            "04" => 'Abril',
+            "05" => 'Maio',
+            "06" => 'Junho',
+            "07" => 'Julho',
+            "08" => 'Agosto',
+            "09" => 'Setembro',
+            "10" => 'Outubro',
+            "11" => 'Novembro',
+            "12" => 'Dezembro'
+
+            );
+        $mesLetivo = $mesSelecionado[$mes];
+
+        $sqlData = "SELECT * FROM 
+                    calendario 
+                    WHERE 
+                    diaMes = ".$dia." 
+                    AND mesExtenso = '".$mesLetivo."' 
+                    AND anoCompleto = '".$ano."' 
+                    ";
+
+        //echo $sqlData;
+
+        try{
+
+            $resultadoCalendario = mysql_query($sqlData) or die("Houve um erro no comando SQL de calendario. Erro: ".mysql_error());
+
+            if(mysql_num_rows($resultadoCalendario) > 0){
+                $dadosCalendario = mysql_fetch_array($resultadoCalendario);
+
+                $this->setDataRuv($dadosCalendario['ano']."-".$dadosCalendario['estacao'].$dadosCalendario['diaDoMes'].$dadosCalendario['diaSemana'].".".$dadosCalendario['semana']);
+                $this->setSemanaRuv($dadosCalendario['ano']."-".$dadosCalendario['estacao'].$dadosCalendario['diaDoMes'].$dadosCalendario['diaSemana']);
+                $this->setDiaRuv($dadosCalendario['semana']);
+                //echo "<script>document.getElementById('inicio').focus();</script>";
+            }
+
+        }catch(Exception $ex){
+            echo "Exception ativado. Descrição: ".$ex->getMessage();
+        }
+
+
+    }
+
 
 }
