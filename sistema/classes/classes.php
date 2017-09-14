@@ -50,6 +50,18 @@ class classes {
         echo "      <button type='submit' class='btn-submit'>Acessar</button>";
         echo "  </div>";
         echo "</form>";
+/*
+        echo "<div class='col-sm-12'>";
+        echo "  &nbsp;";
+        echo "</div>";
+*/
+        echo "<div class='col-sm-12'>";
+        echo "  <a href='view/esqueciSenha.php' class='label label-primary'>Esqueceu sua senha ?</a>";
+        echo "</div>";
+
+        echo "<div class='col-sm-12'>";
+        echo "  &nbsp;";
+        echo "</div>";
 
     }
     

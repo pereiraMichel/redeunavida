@@ -192,6 +192,12 @@ class usuario {
             $sqlDeleteUsuario = "DELETE FROM tblusuario WHERE idUsuario=".$id;
             $sqlDeletePerfil = "DELETE FROM perfil WHERE codUsuario = ".$id;
 
+            $sqlDeleteMeditacao = "DELETE FROM pp WHERE codusuario = ".$id;
+            $sqlDeletePortais = "DELETE FROM portal WHERE codusuario = ".$id;
+            $sqlDeletePresParagem = "DELETE FROM presparagem WHERE codusuario = ".$id;
+            $sqlDeleteTarefas = "DELETE FROM tarefa WHERE codusuario = ".$id;
+            $sqlDeleteServicos = "DELETE FROM servicos WHERE codusuario = ".$id;
+
             $sqlConsultaUsuario = "SELECT * FROM tblusuario WHERE idUsuario = ".$id;
         
             try{
@@ -199,13 +205,26 @@ class usuario {
 
                 $dataUser = mysql_fetch_array($r);
 
+                $resultadoDeleteMeditacao = mysql_query($sqlDeleteMeditacao) or die("Deleta Meditação. ".RETURN_SQL.mysql_error());
+                $resultadoDeletePortal = mysql_query($sqlDeletePortais) or die("Deleta Portal. ".RETURN_SQL.mysql_error());
+                $resultadoDeletePresParagem = mysql_query($sqlDeletePresParagem) or die("Deleta Presença-Paragem. ".RETURN_SQL.mysql_error());
+                $resultadoDeleteTarefas = mysql_query($sqlDeleteTarefas) or die("Deleta Tarefas. ".RETURN_SQL.mysql_error());
+                $resultadoDeleteServicos = mysql_query($sqlDeleteServicos) or die("Deleta Serviços. ".RETURN_SQL.mysql_error());
+
                 $resultadoDeletePerfil = mysql_query($sqlDeletePerfil) or die("Deleta perfil. ".RETURN_SQL.mysql_error());
                 $resultadoDeleteUsuario = mysql_query($sqlDeleteUsuario) or die("Deleta usuário. ".RETURN_SQL.mysql_error());
 
+
                 if($resultadoDeleteUsuario){
                     echo "<div class='col-sm-12'>";
-                    echo "  <label class='alert alert-success'>Excluindo perfil e usuário...</label><br>";
-                    echo "  <label class='alert alert-success'>Excluído com sucesso !</label><br>";
+                    echo "  <label class='alert alert-success'>Excluindo...</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Meditação</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Portal</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Presença-Paragem</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Tarefas</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Serviços</label><br>";
+                    echo "  <label style='font-weight: bold;'>- Dados de Perfil</label><br>";
+                    echo "  <label style='font-weight: bold;'>Excluído os dados com sucesso !</label><br>";
                     $a->writeLog($_SESSION['usuario'], "Exclusão do Usuário ".$dataUser['nomeUsuario'], "../controller/");
                     echo "  <meta http-equiv='refresh' content='2;url=inicio.php?m=config&t=usis'>";
                     echo "</div>";
@@ -769,7 +788,7 @@ class usuario {
     public function validaUser($usuario){ // função para validar o usuário e a senha
 
         $conecta = new conectaBanco();
-        $pdo = $conecta->conectaBancoPDO();
+        $pdo = $conecta->conecta();
 
 
 //        $conecta->conecta();
@@ -795,7 +814,7 @@ try {
     echo 'ERROR: ' . $e->getMessage();
 }
 */
-
+/*
         $statement = $pdo->query("
                 SELECT u.*, tp.nomeTipo
                 FROM tblusuario u 
@@ -804,20 +823,21 @@ try {
                 OR u.email = '".$usuario."') 
                 AND u.senha = '".$this->senha."'
             ");
-/*
+            */
+
             $sql = "SELECT u.*, tp.nomeTipo "
                     . "FROM tblusuario u "
                     . "INNER JOIN tipousuario tp ON u.codTipo = tp.idtipo "
                     . "WHERE (u.nomeUsuario = '".$usuario."' "
                     . "OR u.email = '".$usuario."') "
                     . "AND u.senha = '".$this->senha."'";
-*/
+
                     //echo "SQL comando Usuário: ".$sql;
 
-//            $resultado = mysql_query($sql) or die("Problemas no SQL. Verifique sob o erro: ".mysql_error()." |");
-//            $dados = mysql_fetch_array($resultado);
+            $resultado = mysql_query($sql) or die("Problemas no SQL. Verifique sob o erro: ".mysql_error()." |");
+            $dados = mysql_fetch_array($resultado);
 
-                    $dados = $statement->fetch(PDO::FETCH_ASSOC);
+                    //$dados = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($dados > 0){
                 session_start();

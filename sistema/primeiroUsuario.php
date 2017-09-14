@@ -2,12 +2,12 @@
 
 <?php
 
-require_once "../classes/usuario.class.php";
+require_once "classes/usuario.class.php";
 
     $identificacao = $_GET['usuario'];
 
     if($identificacao == ""){
-        header("Location: ../index.php");
+        header("Location: ../sistema/index.php");
     }
     
     if($identificacao == '001001110'){
