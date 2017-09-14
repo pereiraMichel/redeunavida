@@ -1588,3 +1588,30 @@
 [29-May-2017 13:03:17 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
 [29-May-2017 13:03:17 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
 [29-May-2017 13:03:17 UTC] PHP   3. mysql_query() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:779
+[19-Jul-2017 23:01:59 UTC] PHP Warning:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu.
+' in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:53
+Stack trace:
+#0 C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php(53): PDO->__construct('mysql:host=mysq...', 'redeunaviva', 'y9kwbLCk')
+#1 C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php(772): conectaBanco->conectaBancoPDO()
+#2 C:\wamp\www\redeunaviva\sistema\index.php(38): usuario->validaUser('mapti')
+#3 {main}
+  thrown in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 53
+[19-Jul-2017 23:01:59 UTC] PHP Stack trace:
+[19-Jul-2017 23:01:59 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[19-Jul-2017 23:01:59 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
+[19-Jul-2017 23:01:59 UTC] PHP   3. conectaBanco->conectaBancoPDO() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:772
+[19-Jul-2017 23:02:00 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 53
+[19-Jul-2017 23:02:00 UTC] PHP Stack trace:
+[19-Jul-2017 23:02:00 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[19-Jul-2017 23:02:00 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
+[19-Jul-2017 23:02:00 UTC] PHP   3. conectaBanco->conectaBancoPDO() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:772
+[19-Jul-2017 23:03:11 UTC] PHP Fatal error:  Undefined class constant 'FETCH_ARRAY' in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 800
+[19-Jul-2017 23:03:11 UTC] PHP Stack trace:
+[19-Jul-2017 23:03:11 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[19-Jul-2017 23:03:11 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
+[31-Aug-2017 17:06:54 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php on line 806
+[31-Aug-2017 17:06:54 UTC] PHP Stack trace:
+[31-Aug-2017 17:06:55 UTC] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[31-Aug-2017 17:06:55 UTC] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38

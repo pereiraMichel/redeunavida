@@ -246,7 +246,7 @@ class calendarioRuv {
                     $semana = 2;
                 }else if($calculoData >= 288 and $calculoData <= 294){
                     $semana = 3;
-                }else if($calculoData >= 297 and $calculoData <= 301){
+                }else if($calculoData >= 295 and $calculoData <= 301){
                     $semana = 4;
                 }
                 else if($calculoData >= 302 and $calculoData <= 308){

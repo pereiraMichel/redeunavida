@@ -873,7 +873,7 @@ function preencheDataRuv(campo, id, classe){
 }
 
     function preencheAutoManualTarefas(){
-        alert("Chamou a função");
+        //alert("Chamou a função");
         var auto = document.getElementById('auto');
         var manual = document.getElementById('manual');
 
@@ -1051,8 +1051,193 @@ function preencheDataRuv(campo, id, classe){
             if(confereGrupos()){
                 document.getElementById(form).submit();
             }
+        }else if(form == "form_adesao"){
+            if(confereAdesao()){
+                document.getElementById(form).submit();
+            }
+        }else if(form == "formRelatorio"){
+            if(confereRelIndice()){
+                alert("O retorno foi true");
+                //document.getElementById(form).submit();
+            }
         }
 
+    }
+
+    function confereRelIndice(){
+        var carregando = document.getElementById("carregaRuv").style;
+
+        carregando.display = 'block';
+
+        return false;
+
+    }
+
+    function confereAdesao(){
+        var error1 = document.getElementById("error1").style;
+        var error2 = document.getElementById("error2").style;
+        var error3 = document.getElementById("error3").style;
+        var error4 = document.getElementById("error4").style;
+        var error5 = document.getElementById("error5").style;
+        var error6 = document.getElementById("error6").style;
+        var error7 = document.getElementById("error7").style;
+        var error8 = document.getElementById("error8").style;
+        var error9 = document.getElementById("error9").style;
+        var error10 = document.getElementById("error10").style;
+
+        var nome = document.getElementById('nome');
+        var dataNascimento = document.getElementById('calendario');
+        var estadoCivil = document.getElementById('estadoCivil');
+        var profissao = document.getElementById('profissao');
+        var endereco = document.getElementById('enderecoAdesao');
+        var telefone = document.getElementById('telefone');
+        var email = document.getElementById('email');
+        var dataCadastro = document.getElementById('dataCadastro');
+        var resumo = document.getElementById('resumo');
+        var motivacao = document.getElementById('motivacao');
+
+            if(nome.value == ""){
+                nome.focus();
+                nome.select();
+                error1.display = "block";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(dataNascimento.value == ""){
+                dataNascimento.focus();
+                dataNascimento.select();
+                error1.display = "none";
+                error2.display = "block";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(estadoCivil.value == ""){
+                estadoCivil.focus();
+                estadoCivil.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "block";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(profissao.value == ""){
+                profissao.focus();
+                profissao.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "block";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(endereco.value == ""){
+                endereco.focus();
+                endereco.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "block";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(telefone.value == ""){
+                telefone.focus();
+                telefone.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "block";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(email.value == ""){
+                email.focus();
+                email.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "block";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(dataCadastro.value == ""){
+                dataCadastro.focus();
+                dataCadastro.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "block";
+                error9.display = "none";
+                error10.display = "none";
+                return false;
+            }else if(resumo.value == ""){
+                resumo.focus();
+                resumo.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "block";
+                error10.display = "none";
+                return false;
+            }else if(motivacao.checked == false){
+                motivacao.focus();
+                motivacao.select();
+                error1.display = "none";
+                error2.display = "none";
+                error3.display = "none";
+                error4.display = "none";
+                error5.display = "none";
+                error6.display = "none";
+                error7.display = "none";
+                error8.display = "none";
+                error9.display = "none";
+                error10.display = "block";
+                return false;
+            }
+            return true;
     }
 
     function confereGrupos(){
@@ -1991,3 +2176,149 @@ function preencheDataRuv(campo, id, classe){
         window.location.href="inicio.php?m=config&t=usis&tpu="+caminho;
 
     }
+
+    function selecionaUsuarioIndice(user){
+        window.location.href="inicio.php?m=rela&t=ind&u="+user;
+
+    }
+    function selectGrupo(grupo){
+        //alert(grupo.value);
+
+        if(grupo.value == null || grupo.value == ""){
+            window.location.href= "inicio.php?m=rela&t=ind&g=sg";
+
+        }else{
+            window.location.href= "inicio.php?m=rela&t=ind&g=" + grupo.value;
+        }
+
+
+    }
+
+    function preencheTipoRelAuto(){
+
+        var checkUsuario = document.getElementById('usuario').checked;
+        var checkSemana = document.getElementById('semanaruv').checked;
+        var checkGrupos = document.getElementById('grupos').checked;
+
+        var usuario = document.getElementById('user').style;
+        var semana = document.getElementById('select_semana').style;
+//        var semanas = document.getElementById('select_semanas').style;
+        var grupos = document.getElementById('select_grupos').style;
+        var aguardando = document.getElementById('aguarda').style;
+        var carregando = document.getElementById('carregando').style;
+
+        if(checkUsuario){
+            carregando.display='none';
+            aguardando.display='none';
+            usuario.display = "block";
+            grupos.display = "none";
+            semana.display = "none";
+//            semanas.display = "none";
+            nulo.display = "none";
+            //checkUsuario.selected();
+        }
+        else if(checkSemana){
+            carregando.display='none';
+            aguardando.display='none';
+            usuario.display = "none";
+            grupos.display = "none";
+            semana.display = "block";
+//            semanas.display = "block";
+            nulo.display = "none";
+        }
+        else if(checkGrupos){
+            carregando.display='none';
+            aguardando.display='none';
+            usuario.display = "none";
+            grupos.display = "block";
+            semana.display = "none";
+//            semanas.display = "none";
+            nulo.display = "none";
+        }
+//        else{
+//            usuario.display = "none";
+//            semana.display = "none";
+//            grupos.display = "none";
+//            nulo.display = "block";
+//        }
+    }
+
+    function preencheTipoRel(){
+
+        var checkSemana = document.getElementById('semanaruv').checked;
+        var checkGrupos = document.getElementById('grupos').checked;
+
+        var semana = document.getElementById('select_semana').style;
+//        var semana = document.getElementById('select_semanas').style;
+        var grupos = document.getElementById('select_grupos').style;
+        var aguardando = document.getElementById('aguarda').style;
+        var carregando = document.getElementById('carregando').style;
+        
+        if(checkSemana){
+            carregando.display='none';
+            aguardando.display='none';
+            semana.display = "block";
+            grupos.display = "none";
+            semana.display = "none";
+            nulo.display = "none";
+        }
+        else if(checkGrupos){
+            carregando.display='none';
+            aguardando.display='none';
+            semana.display = "none";
+            grupos.display = "block";
+            semana.display = "none";
+            nulo.display = "none";
+        }
+//        else{
+//            usuario.display = "none";
+//            semana.display = "none";
+//            grupos.display = "none";
+//            nulo.display = "block";
+//        }
+    }
+
+    function direcionaPagina(){
+        window.location.href='inicio.php?m=rela&t=ind&tempo=1';
+    }
+
+    function direcionaUsuario(link){
+        window.location.href="inicio.php?m=rela&t=ind&us=" + link;
+    }
+
+    function direcionaGrupo(link){
+        window.location.href="inicio.php?m=rela&t=ind&gs=" + link;
+    }
+
+    function direcionaSemana(link){
+        window.location.href="inicio.php?m=rela&t=ind&ss=" + link;
+    }
+
+    function direcionaLink(link, opcao, valor){
+
+        var campo_link = "&tempo=1";
+
+        if (opcao == "ano"){
+            window.location.href = link + "&a=" + valor;
+        }else if(opcao == "estacao"){
+            window.location.href = link + "&e=" + valor;
+        }else if(opcao == "mes"){
+            window.location.href = link + "&mes=" + valor;
+        }else if(opcao = "semana"){
+            window.location.href = link + "&s=" + valor;
+        }
+    }
+
+    function limpaBuscaSemana(){
+        window.location.href="inicio.php?m=rela&t=ind&tempo=1";
+    }
+
+/*
+
+        var ano = document.getElementById('select_ano').style;
+        var estacao = document.getElementById('select_estacao').style;
+        var mes = document.getElementById('select_mes').style;
+        var sem = document.getElementById('select_semana').style;
+
+
+*/

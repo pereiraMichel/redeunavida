@@ -16,7 +16,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo TITULORUV; ?></title>
+        <meta name="description" content="Convite para a Jornada de Meditação. Bem-vindo !">
+        <title>Jornada de Meditação</title>
 
         <link rel="stylesheet" href="css/font-awesome.min.css">
         

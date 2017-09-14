@@ -148,38 +148,68 @@ class classformAdesao {
         
     }
     public function telaFormAdesao(){
-        echo "<form name='form_adesao' action='formAdesao.php' method='post' class='form-horizontal'>";
+        echo "<form name='form_adesao' id='form_adesao' action='formAdesao.php' method='post' class='form-horizontal'>";
 //        echo "  <span aria-hidden='true'>&times;</span>";
         echo "      <h3 style='text-align: center; padding-left: 0; padding-right: 0;'>";
-        echo "          <img src='images/logoJrGraficoColor.png' width='32' height='32'/> FORMULÁRIO DE ADESÃO";
+        echo "          <img src='images/JR_Image.png' width='32' height='32'/> FORMULÁRIO DE ADESÃO";
+//        echo "          <img src='images/logoJrGraficoColor.png' width='32' height='32'/> FORMULÁRIO DE ADESÃO";
         echo "      </h3>";
-        echo "<p class='alert alert-danger' style='text-align: center;'>Momentaneamente, o formulário não está disponível. Grato pela atenção e compreensão.</p>";
+
+        echo "<div id='erro' style='display: none; text-align: center;'>";
+        echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jornadameditacao@redeunaviva.rio. Grato pela compreensão.</label>";
+        echo "</div>";
+        echo "<div id='erro2' style='display: none; text-align: center;'>";
+        echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jrp@redeunaviva.rio. Grato pela compreensão.</label>";
+        echo "</div>";
+        echo "<div id='erro3' style='display: none; text-align: center;'>";
+        echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jornadareal@redeunaviva.rio. Grato pela compreensão.</label>";
+        echo "</div>";
+
+        echo "<div id='sucesso' style='display: none; text-align: center;'>";
+        echo "  <label class='alert alert-success'>Formulário enviado com sucesso.</label>";
+        echo "</div>";
+
+
+//        echo "<p class='alert alert-warning' style='text-align: center;'>Momentaneamente, o formulário está disponível para cadastro na Jornada de Meditação e Jornada Real preliminar. Grato pela atenção e compreensão.</p>";
         echo "      <p style='height: 30px;'>&nbsp;</p>";
         $this->formularioAdesao();
         echo "<div align='right'>";
-        echo "  <a href='javascript: history.go(-1);'><button type='button' class='btn btn-default'>Sair</button></a>";
-        echo "  <button type='submit' class='btn btn-primary'>Enviar</button>";
+        echo "  <a href='http://www.redeunaviva.rio'><button type='button' class='btn btn-default'>Sair</button></a>";
+        echo "  <button type='button' class='btn btn-primary' onclick='enviaForm(\"form_adesao\")'>Enviar</button>";
         echo "</div>";
         echo "      <p style='height: 30px;'>&nbsp;</p>";
         echo "</form>";
-        
+
         
         if($_POST){
+            $opcao = filter_input(INPUT_POST, 'jornada');
             $dataFormatada = filter_input(INPUT_POST, 'dataFormatada');
             $nome = filter_input(INPUT_POST, 'nome');
-            $senha = filter_input(INPUT_POST, 'senha');
-            $dataNascimento = filter_input(INPUT_POST, 'dataNascimento');
-            $setenio = filter_input(INPUT_POST, 'setenio');
+//            $senha = filter_input(INPUT_POST, 'senha');
+            $dataNascimento = filter_input(INPUT_POST, 'calendario');
+//            $setenio = filter_input(INPUT_POST, 'setenio');
             $estadoCivil = filter_input(INPUT_POST, 'estadoCivil');
             $profissao = filter_input(INPUT_POST, 'profissao');
-            $endereco = filter_input(INPUT_POST, 'endereco');
+            $endereco = filter_input(INPUT_POST, 'enderecoAdesao');
             $telefone = filter_input(INPUT_POST, 'telefone');
             $email = filter_input(INPUT_POST, 'email');
             $dataCadastro = filter_input(INPUT_POST, 'dataCadastro');
             $resumo = filter_input(INPUT_POST, 'resumo');
             $motivacao = filter_input(INPUT_POST, 'motivacao');
             
-            $this->enviarFormAdesao($dataFormatada, $nome, $senha, $dataNascimento, $setenio, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao);
+//            echo "Data: ".$dataFormatada."<br>";
+/*            echo "Nome: ".$nome."<br>";
+            echo "Data de Nascimento: ".$dataNascimento."<br>";
+            echo "Estado Civil: ".$estadoCivil."<br>";
+            echo "Profissão: ".$profissao."<br>";
+            echo "Endereço: ".$endereco."<br>";
+            echo "E-mail: ".$email."<br>";
+            echo "Data Cadastro: ".$dataCadastro."<br>";
+            echo "Resumo: ".$resumo."<br>";
+            echo "Motivação: ".$motivacao."<br><br><br>";
+*/
+            $this->enviarFormAdesao($opcao, $nome, $dataNascimento, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao);
+//            $this->enviarFormAdesao($dataFormatada, $nome, $senha, $dataNascimento, $setenio, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao);
             
         }
     }
@@ -203,7 +233,8 @@ class classformAdesao {
     
     public function configuracaoSMTP(){
         $pop = new POP3();
-        $pop->authorise("mbox.redeunaviva.rio", 110, 30, "formulario.adesao=redeunaviva.rio", "redeunaviva", 1);
+        $pop->authorise("mbox.redeunaviva.rio", 110, 30, "contato=redeunaviva.rio", "redeunaviva", 1);
+        
         $mail = new PHPMailer();
         $mail->SetLanguage("br");
         $mail->IsSMTP();
@@ -212,24 +243,25 @@ class classformAdesao {
         $mail->SMTPAuth = "true";
         $mail->Host = "smtp.redeunaviva.rio"; //Seu servidor SMTP
         $mail->Mailer = "smtp";     //Usando protocolo SMTP
-//        $mail->SMTPDebug = 1;
-        $mail->Username = "formulario.adesao=redeunaviva.rio";
+        $mail->Username = "contato=redeunaviva.rio";
         $mail->Password = "redeunaviva";
         $mail->Port = 587;
 
-        $to = 'formulario.adesao@redeunaviva.rio'; //seu e-mail
+        $to = 'jornadameditacao@redeunaviva.rio'; //seu e-mail
         $mail->From = $to;  //email do remetente
         $mail->Sender = $to;  //email do remetente
         $mail->FromName = "RedeUnaViva";   //Nome de formatado do remetente
 
         $mail->AddAddress($to);     //O destino do email
         $mail->AddBCC($this->email);      //Envio com cópia oculta
-        $mail->Subject = "RedeUnaViva - Formulário de Adesão - Web ";// . $this->titulo; //Assunto do email
+        $mail->Subject = "RedeUnaViva | Jornada Real - Formulário de Adesão - Jornada de Meditação ";// . $this->titulo; //Assunto do email
         $mail->CharSet = "UTF-8";
         
     }
     
-    public function enviarFormAdesao($dataFormatada, $nome, $senha, $dataNascimento, $setenio, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao){
+    public function enviarFormAdesao($opcao, $nome, $dataNascimento, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao){
+//    public function enviarFormAdesao($dataFormatada, $nome, $senha, $dataNascimento, $setenio, $estadoCivil, $profissao, $endereco, $telefone, $email, $dataCadastro, $resumo, $motivacao){
+
 
         $font = "arial";
         $tamanho = 2;
@@ -237,21 +269,161 @@ class classformAdesao {
 
         $this->geraProtocolo();
         
-        $this->configuracaoSMTP();
+        $pop = new POP3();
+        //mboxf.f1.ultramail.com.br
+        if($opcao === "JornadaRealPreliminar"){
+            $pop->authorise("mboxf.f1.ultramail.com.br", 110, 30, "jrp=redeunaviva.rio", "r3d3un4v1v4", 1);
+//            $pop->authorise("mbox.redeunaviva.rio", 110, 30, "jrp=redeunaviva.rio", "r3d3un4v1v4", 1);
+
+        }else if ($opcao === "JornadaReal"){
+            $pop->authorise("mboxf.f1.ultramail.com.br", 110, 30, "jornadareal=redeunaviva.rio", "r3d3un4v1v4", 1);
+//            $pop->authorise("mbox.redeunaviva.rio", 110, 30, "jornadareal=redeunaviva.rio", "r3d3un4v1v4", 1);
+
+        }else{
+            $pop->authorise("mboxf.f1.ultramail.com.br", 110, 30, "jornadameditacao=redeunaviva.rio", "r3d3un4v1v4", 1);
+//            $pop->authorise("mbox.redeunaviva.rio", 110, 30, "jornadameditacao=redeunaviva.rio", "r3d3un4v1v4", 1);
+
+        }
+        
+        $mail = new PHPMailer();
+        $mail->SetLanguage("br");
+        $mail->IsSMTP();
+        $mail->IsHTML(true);
+        $mail->SMTPDebug = 0;
+        $mail->SMTPSecure = "tls";
+        $mail->SMTPAuth = true;
+        //smtpr.f1.ultramail.com.br | smtp.redeunaviva.rio
+        $mail->Host = "smtpr.f1.ultramail.com.br"; //Seu servidor SMTP
+//        $mail->Mailer = "smtp";     //Usando protocolo SMTP
+
+        if($opcao === "JornadaRealPreliminar"){
+            $mail->Username = "jrp=redeunaviva.rio";
+        }else if($opcao === "JornadaReal"){
+            $mail->Username = "jornadareal=redeunaviva.rio";
+        }else{
+            $mail->Username = "jornadameditacao=redeunaviva.rio";
+        }
+
+        $mail->Password = "r3d3un4v1v4";
+        $mail->Port = 587;
+//        $mail->Port = 587;
+
+        if($opcao === "JornadaRealPreliminar"){
+            $to = 'jrp@redeunaviva.rio';
+        }else if($opcao === "JornadaReal"){
+            $to = 'jornadareal@redeunaviva.rio';
+        }else{
+            $to = 'jornadameditacao@redeunaviva.rio';
+        }
+
+//        $to = 'jornadameditacao@redeunaviva.rio'; //seu e-mail
+        $mail->From = $to;  //email do remetente
+        $mail->Sender = $to;  //email do remetente
+        $mail->FromName = "RedeUnaViva | Jornada Real";   //Nome de formatado do remetente
+
+        $mail->AddAddress($to);     //O destino do email
+        $mail->AddBCC($email);      //Envio com cópia oculta
+        if($opcao === "JornadaRealPreliminar"){
+            $mail->Subject = "RedeUnaViva | Jornada Real On-line - Jornada Real preliminar ";// . $this->titulo; //Assunto do email
+        }else if($opcao === "JornadaReal"){
+            $mail->Subject = "RedeUnaViva | Jornada Real On-line - Jornada Real ";// . $this->titulo; //Assunto do email
+        }else{
+            $mail->Subject = "RedeUnaViva | Jornada Real On-line - Jornada de Meditação ";// . $this->titulo; //Assunto do email
+        }
+        $mail->CharSet = "UTF-8";
         
         $mail->Body = "<br>"; //Body of the message
         $mail->Body .= "<font face=$font size='$tamanho'>";
-        $mail->Body .= "<font face=$font size='3'><b>RedeUnaViva - Formulário de Adesão";// . $this->titulo . "</b></font>";
+        $mail->Body .= "<font face=$font size='3'><b>RedeUnaViva | Jornada Real - Formulário de Adesão On-line";// . $this->titulo . "</b></font>";
         $mail->Body .= "<br/><hr>";
         $mail->Body .= "<div align='right'><font face='$font' size='".$tamanhoSub."'>Protocolo: ".$this->protocolo."</font></div>";
         $mail->Body .= "<br/><br/>";
-        $mail->Body .= "Prezado Sr(a) " . $this->nome.", ";
+        $mail->Body .= "Prezado Sr(a) " . $nome.", ";
         $mail->Body .= "<br/><br/>";
-        $mail->Body .= "Agradecemos pelo seu contato. Retornaremos o mais rápido possível. Segue abaixo os dados informados: ";
+        $mail->Body .= "Agradecemos o seu cadastro. Segue abaixo os dados informados: ";
         $mail->Body .= "<br/><br/>";
-        $mail->Body .= "<br/><font face=$font size='$tamanho'><b>Nome</b>: " . $this->nome . "</font><br>";
-        $mail->Body .= "<br/><font face=$font size='$tamanho'><b>E-mail</b>: " . $this->email . "</font><br>";
-        $mail->Body .= "<br/><font face=$font size='$tamanho'><b>Mensagem</b>: <br/><br/>" . $this->mensagem . "</font><br>";
+        $mail->Body .= "<table>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Data do Formulário</b>:</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $dataCadastro . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Nome</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $nome . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Data de Nascimento</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $dataNascimento . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Estado Civil</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $estadoCivil . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Profissão</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $profissao . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Endereço</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $endereco . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Telefone</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $telefone . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>E-mail</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $email . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Resumo</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $resumo . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "    <tr>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'><b>Motivação</b>: </font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "        <td>";
+        $mail->Body .= "            <font face=$font size='$tamanho'>" . $motivacao . "</font>";
+        $mail->Body .= "        </td>";
+        $mail->Body .= "    </tr>";
+        $mail->Body .= "</table>";
         $mail->Body .= "<br><br>";
         $mail->Body .= "<font face=$font size='$tamanho'>Atenciosamente,</font><br><br>";
         $mail->Body .= "<br><hr size='2'>";
@@ -260,7 +432,7 @@ class classformAdesao {
         $mail->Body .= "        <a href='http://www.redeunaviva.rio' target='_blank' title='Acesse o site'><img src='http://www.redeunaviva.rio/images/logoRUV350x250.png' width='80' height='50'></a>";
         $mail->Body .= "    </td>";
         $mail->Body .= "    <td valign='top'>";
-        $mail->Body .= "<font face=$font size='$tamanho'>RedeUnaViva / Jornada Real</font><br>";
+        $mail->Body .= "<font face=$font size='$tamanho'>RedeUnaViva / Jornada de Meditação</font><br>";
         $mail->Body .= "    </td>";
         $mail->Body .= "</tr>";
         $mail->Body .= "<tr>";
@@ -275,18 +447,109 @@ class classformAdesao {
         $mail->Body .= "<br><br>";
         $mail->Body.='</font>';
 
+//        echo "<br>Opção: ".$opcao."<br>";
+
         if (!$mail->Send()) {
             echo "<script>document.getElementById('sucesso').style.display='none'</script>";
-            echo "<script>document.getElementById('erro').style.display='block'</script>";
-            $this->geraLogErro($mail->ErrorInfo, "error");
+
+            if($opcao === "JornadaRealPreliminar"){
+                echo "<script>document.getElementById('erro2').style.display='block'</script>";
+            }else if($opcao === "JornadaReal"){
+                echo "<script>document.getElementById('erro3').style.display='block'</script>";
+            }else{
+                echo "<script>document.getElementById('erro').style.display='block'</script>";
+            }
+            //echo "<br>Erro: ".$mail->ErrorInfo."<br>";
+//            echo "<br>Para: ".$to;
+
+            echo "<meta http-equiv='refresh' content='5;url=formAdesao.php'>";
+            //$this->geraLogErro($mail->ErrorInfo, "error");
 
         } else {
-            echo "<script>document.getElementById('erro').style.display='none'</script>";
-            echo "<script>document.getElementById('sucesso').style.display='block'</script>";
-            echo "<meta http-equiv='refresh' content='5;url=contato.php'>";
-//            echo "<meta http-equiv='refresh' content='5;url=http://www.redeunaviva.rio/'>";
+            $this->enviandoRespostaAutomatica($this->protocolo);
             
         }
+        $mail->ClearAllRecipients();
+        die;
+    }
+
+    public function enviandoRespostaAutomatica($protocolo){
+
+        $hora = date('H:i');
+
+        if($hora >= strtotime('06:00') and $hora <= strtotime('11:59')){
+            $saudacao = "Bom dia.";
+        }else if($hora > strtotime('12:00') and $hora <= strtotime('17:59')){
+            $saudacao = "Boa tarde.";
+        }else if($hora >= strtotime('18:00') and $hora <= strtotime('05:59')){
+            $saudacao = "Boa noite.";
+        }
+
+        $font = "arial";
+        $tamanho = 2;
+        $tamanhoSub = 1;
+
+        $pop = new POP3();
+        $pop->authorise("mboxf.f1.ultramail.com.br", 110, 30, "jornadareal=redeunaviva.rio", "r3d3un4v1v4", 1);
+
+        $mail = new PHPMailer();
+        $mail->SetLanguage("br");
+        $mail->IsSMTP();
+        $mail->IsHTML(true);
+        $mail->SMTPDebug = 0;
+        $mail->SMTPSecure = "tls";
+        $mail->SMTPAuth = true;
+        $mail->Host = "smtpr.f1.ultramail.com.br"; //Seu servidor SMTP
+        $mail->Username = "jornadareal=redeunaviva.rio";
+
+        $mail->Password = "r3d3un4v1v4";
+        $mail->Port = 587;
+
+        $to = 'jornadareal@redeunaviva.rio';
+        $email = "luiz.bernal@gmail.com";
+        $ccopia = "fernandacappelli@hotmail.com";
+//$mail->AddCC('ciclano@site.net', 'Ciclano'); // Copia
+//$mail->AddBCC('fulano@dominio.com.br', 'Fulano da Silva'); // Cópia Oculta        
+
+        $mail->From = $to;  //email do remetente
+        $mail->Sender = $to;  //email do remetente
+        $mail->FromName = "RedeUnaViva | Jornada Real";   //Nome de formatado do remetente
+
+        $mail->AddAddress($email);     //O destino do email
+        $mail->AddCC($ccopia);      //Envio com cópia oculta
+        $mail->Subject = "MSG AUTORUV: RedeUnaViva | Jornada Real On-line - Jornada Real - Não responder";// . $this->titulo; //Assunto do email
+        $mail->CharSet = "UTF-8";
+        
+        $mail->Body = "<br>"; //Body of the message
+        $mail->Body .= "<font face=$font size='$tamanho'>";
+        $mail->Body .= "<font face=$font size='3'><b>RedeUnaViva | Jornada Real - Formulário de Adesão On-line";// . $this->titulo . "</b></font>";
+        $mail->Body .= "<br/><hr>";
+        $mail->Body .= "<div align='right'><font face='$font' size='".$tamanhoSub."'>Protocolo: ".$protocolo."</font></div>";
+        $mail->Body .= "<br/>";
+//        $mail->Body .= "<font face=$font size='2'>".$saudacao." </font>";
+//        $mail->Body .= "<br/>";
+        $mail->Body .= "<font face=$font size='2'>Prezados Senhores, </font>";
+        $mail->Body .= "<br/><br/>";
+        $mail->Body .= "<font face=$font size='2'>Informo que há uma mensagem no e-mail jornadareal@redeunaviva.rio.</font>";
+        $mail->Body .= "<br><br>";
+        $mail->Body .= "<font face=$font size='$tamanho'>Atenciosamente,</font><br><br>";
+        $mail->Body .= "<br><hr size='2'>";
+        $mail->Body .= "<font face=$font size='$tamanho'>AutoRUV - Mensagem Automática</font><br><br>";
+        $mail->Body .= "<br><hr size='2'>";
+        $mail->Body.='</font>';
+
+        if($mail->Send()){
+            echo "<script>document.getElementById('erro').style.display='none'</script>";
+            echo "<script>document.getElementById('sucesso').style.display='block'</script>";
+            echo "<meta http-equiv='refresh' content='5;url=formAdesao.php'>";
+        }
+/*
+        if(!$mail->Send()){
+            echo "<br>Problemas no envio automático. Erro: ".$mail->ErrorInfo;
+        }else{
+            echo "<br>Sucesso!";
+        }
+        */
         $mail->ClearAllRecipients();
         die;
     }
@@ -301,8 +564,12 @@ class classformAdesao {
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . OPCAOJORNADA . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
         echo "      <label class='radio'>";
-        echo "          <input type='radio' name='jornada' id='jornada' value='JornadaReal' />";
+        echo "          <input type='radio' name='jornada' id='jornada' value='JornadaReal' checked='checked' />";
         echo "              Jornada Real";
+        echo "      </label>";
+        echo "      <label class='radio'>";
+        echo "          <input type='radio' name='jornada' id='jornada' value='JornadaRealPreliminar' />";
+        echo "              Jornada Real preliminar";
         echo "      </label>";
         echo "      <label class='radio'>";
         echo "          <input type='radio' name='jornada' id='jornada' value='JornadaMeditacao' />";
@@ -314,25 +581,38 @@ class classformAdesao {
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . NOME . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='text' name='nome' id='nome'  placeholder='Nome' class='form-control' />";
+        echo "      <input type='text' name='nome' id='nome' class='form-control' onkeydown='enterTab(\"calendario\", event)' />";
         echo "   </div>";
+        echo "  <div id='error1' name='error1' style='display: none;'>";
+        echo "      <label class='label label-danger'>O Nome não pode ser vazio</label>";
+        echo "  </div>";
         echo "</div>";
-        
+
+/*        
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . SENHA . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
         echo "      <input type='password' name='senha' id='senha' class='form-control' maxlength='8' readonly />";
         echo "   </div>";
         echo "</div>";
-        
+*/        
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . NASCIMENTO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
+        echo "                  <div class='input-group'>";
+        echo "                      <input type='text' id='calendario' name='calendario' class='form-control' onkeypress='mascaraData(this)' onkeydown='enterTab(\"estadoCivil\", event)'><div class='input-group-addon'><i class='fa fa-calendar'></i></div>";
+        echo "                  </div>";
+/*
+
         echo "      <input type='date' name='dataNascimento' id='dataNascimento' class='form-control' onkeyup='javascript:calculaIdade(this.value)' onmouseout='javascript:calculaIdade(this.value)' />";
         echo "      <input type='hidden' name='idade' id='idade' class='form-control' />";
+        */
         echo "   </div>";
+        echo "  <div id='error2' name='error2' style='display: none;'>";
+        echo "      <label class='label label-danger'>A Data de Nascimento não poderá ficar vazia</label>";
+        echo "  </div>";
         echo "</div>";
-
+/*
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . SETENIO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
@@ -340,7 +620,7 @@ class classformAdesao {
         echo "      <input type='hidden' name='codSetenio' id='codSetenio' class='form-control'/>";
         echo "   </div>";
         echo "</div>";
-        
+*/        
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . ESTCIVIL . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
@@ -353,34 +633,49 @@ class classformAdesao {
         echo "      </select>";
 //        echo "      <input type='hiden' name='estcivil' id='estcivil'  placeholder='Estado Civil' class='form-control' />";
         echo "   </div>";
+        echo "  <div id='error3' name='error3' style='display: none;'>";
+        echo "      <label class='label label-danger'>Selecione o Estado Civil</label>";
+        echo "  </div>";
         echo "</div>";
         
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . PROFISSAO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='text' name='profissao' id='profissao'  placeholder='Profissão' class='form-control' />";
+        echo "      <input type='text' name='profissao' id='profissao' class='form-control' onkeydown='enterTab(\"enderecoAdesao\", event)' />";
         echo "   </div>";
+        echo "  <div id='error4' name='error4' style='display: none;'>";
+        echo "      <label class='label label-danger'>Profissão ou ocupação não pode(m) ser vazio(s)</label>";
+        echo "  </div>";
         echo "</div>";
         
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . ENDERECO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='text' name='enderecoAdesao' id='enderecoAdesao'  placeholder='Endereço' class='form-control' />";
+        echo "      <input type='text' name='enderecoAdesao' id='enderecoAdesao' class='form-control' onkeydown='enterTab(\"telefone\", event)' />";
         echo "   </div>";
+        echo "  <div id='error5' name='error5' style='display: none;'>";
+        echo "      <label class='label label-danger'>Endereço não poderá ser vazio</label>";
+        echo "  </div>";
         echo "</div>";
 
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . TELEFONE . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='tel' name='telefone' id='telefone' placeholder='Telefone' class='form-control' />";
+        echo "      <input type='tel' name='telefone' id='telefone' class='form-control' onkeypress='mascaraTelefone(this)' onkeydown='enterTab(\"email\", event)' />";
         echo "   </div>";
+        echo "  <div id='error6' name='error6' style='display: none;'>";
+        echo "      <label class='label label-danger'>Telefone não pode ser vazio</label>";
+        echo "  </div>";
         echo "</div>";
 
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . EMAIL . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <input type='email' name='email' id='email' placeholder='E-mail' class='form-control' />";
+        echo "      <input type='email' name='email' id='email' class='form-control' onkeydown='enterTab(\"resumo\", event)' />";
         echo "   </div>";
+        echo "  <div id='error7' name='error7' style='display: none;'>";
+        echo "      <label class='label label-danger'>O E-mail não pode ser vazio</label>";
+        echo "  </div>";
         echo "</div>";
 
         echo "<div class='form-group'>";
@@ -388,13 +683,16 @@ class classformAdesao {
         echo "   <div class='col-sm-".$medidaDireita."'>";
         echo "      <input type='text' name='dataCadastro' id='dataCadastro' value='".date("d/m/Y")."' class='form-control' readonly />";
         echo "   </div>";
+        echo "  <div id='error8' name='error8' style='display: none;'>";
+        echo "      <label class='label label-danger'>A Data não pode ser vazia</label>";
+        echo "  </div>";
         echo "</div>";
 
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . ASSINATURA . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
 //        echo "      <textarea name='mensagem' id='mensagem' rows = '5' cols='50' class='form-control'></textarea>";
-        echo "<label style='font-size:10px; text-align: justify;'><i>(dispensável no caso de inscrição via e-mail)</i></label>";
+        echo "      <label style='font-size:10px; text-align: justify;'><i>(dispensável no caso de inscrição via e-mail)</i></label>";
         echo "   </div>";
         echo "</div>";
 
@@ -404,7 +702,7 @@ class classformAdesao {
         echo "      <label style='font-size:10px; text-align: justify;'><i>* O ano do nascimento serve para definir a idade e com isto relacioná-la com o setênio, o que será útil, posteriormente, na elaboração da sua Roda das Estações da Vida.  Mas se você não quiser revelar sua idade o ano do nascimento é dispensável.</i></label>";
         echo "   </div>";
         echo "</div>";
-
+/*
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . VAZIO . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
@@ -526,25 +824,60 @@ class classformAdesao {
         echo "      </div>";
         echo "  </div>";
         echo "</div>";
-
+*/
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . PERGUNTA1 . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
-        echo "      <textarea name='resumo' cols='50' rows='5'></textarea>";
+        echo "      <table>";
+        echo "          <tr>";
+        echo "              <td>";
+        echo "      <textarea name='resumo' id='resumo' cols='50' rows='6'></textarea>";
+        echo "              </td>";
+        echo "              <td>";
+        echo "      <label control-label' style='font-size: 10px; padding-left: 10px;'>Se preferir, use as seguintes referências:<br>- Qual é o seu interesse pelo conhecimento e prátida da meditação?<br>- Qual é a sua relação com as tradições espirituais?<br>- Você tem alguma prática religiosa?<br>- Há interesse profissional para fazer esta jornada de meditação?<br>- Submete-se ou já se submeteu a alguma psicoterapia? Qual(is)?</label>";
+        echo "              <td>";
+        echo "          </tr>";
+        echo "      </table>";
         echo "   </div>";
+        echo "  <div id='error9' name='error9' style='display: none;'>";
+        echo "      <label class='label label-danger'>Resumo não pode ser vazio</label>";
+        echo "  </div>";
         echo "</div>";
 
         echo "<div class='form-group'>";
         echo "   <label class='col-sm-".$medidaEsquerda." control-label' style='font-size: 11px;'>" . PERGUNTA2 . "</label>";
         echo "   <div class='col-sm-".$medidaDireita."'>";
         echo "      <label class='radio-inline'>";
-        echo "          <input type='radio' name='motivacao' id='muitomotivado' value='Muito motivado'> Muito motivado<br/>";
-        echo "          <input type='radio' name='motivacao' id='motivado' value='Motivado'> Motivado<br/>";
-        echo "          <input type='radio' name='motivacao' id='interessado' value='Interessado'> Interessado<br/>";
-        echo "          <input type='radio' name='motivacao' id='porcuriosidade' value='Por curiosidade'> Por curiosidade<br/>";
+        echo "          <input type='radio' name='motivacao' id='motivacao' value='Muito motivado'> Muito motivado<br/>";
+        echo "          <input type='radio' name='motivacao' id='motivacao' value='Motivado'> Motivado<br/>";
+        echo "          <input type='radio' name='motivacao' id='motivacao' value='Interessado'> Interessado<br/>";
+        echo "          <input type='radio' name='motivacao' id='motivacao' value='Por curiosidade'> Por curiosidade<br/>";
         echo "      </label>";
         echo "   </div>";
+        echo "  <div id='error10' name='error10' style='display: none;'>";
+        echo "      <label class='label label-danger'>Selecione a Motivação</label>";
+        echo "  </div>";
+
         echo "</div>";
+
+//        $m = filter_input(INPUT_GET, 'm');
+//        if(!empty($m)){
+        /*
+            echo "<div id='erro' style='display: none; text-align: center;'>";
+            echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jornadameditacao@redeunaviva.rio. Grato pela compreensão.</label>";
+            echo "</div>";
+            echo "<div id='erro2' style='display: none; text-align: center;'>";
+            echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jrp@redeunaviva.rio. Grato pela compreensão.</label>";
+            echo "</div>";
+            echo "<div id='erro3' style='display: none; text-align: center;'>";
+            echo "  <label class='alert alert-danger'>Formulário não enviado. Favor enviar as informações para o e-mail jornadareal@redeunaviva.rio. Grato pela compreensão.</label>";
+            echo "</div>";
+
+            echo "<div id='sucesso' style='display: none; text-align: center;'>";
+            echo "  <label class='alert alert-success'>Formulário enviado com sucesso.</label>";
+            echo "</div>";
+//        }
+*/
 
         echo "</div>";
         

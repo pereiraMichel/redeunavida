@@ -3,6 +3,9 @@
 
 $temp_dir = '../../lib/mpdf/ttfonts';
 define('_MPDF_TTFONTDATAPATH',$temp_dir);
+header("Cache-control: no-cache, must-revalidate");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+clearstatcache();
 //define('_MPDF_TTFONTDATAPATH',Yii::getAlias('@runtime/mpdf'));
 //define('__ROOT__', dirname(dirname(__FILE__)));
 //
@@ -46,6 +49,8 @@ include_once '../classes/usuario.class.php';
 require_once 'telas.php';
 require_once '../../controller/calendarioRuv.php';
 require_once '../../lib/mpdf/mpdf.php';
+require_once '../../lib/phplot-6.2.0/phplot.php';
+require_once '../../lib/fpdf/fpdf.php';
 
 //error_reporting(0);
 
@@ -120,13 +125,13 @@ $grupos = new grupos();
 
         <link rel="stylesheet" href="../../assets/css/font-awesome.min.css"> <!-- Responsável por emitir figuras -->
         <link rel="stylesheet" href="../../css/font-awesome.min.css"> <!-- Responsável por emitir figuras -->
-        
+        <link rel="stylesheet" href="http://fontawesome.io/icons/">
         
         <link rel="shortcut icon" href="../../icon/ruv.ico">
         <link rel="icon" type="image/png" href="../../images/ruvicon.png">
         
         <link rel="stylesheet" href="../../css/bootstrap-responsive_1.css">
-	<!--<link rel="stylesheet" href="../../css/bootstrap.min.css">-->
+	    <!--<link rel="stylesheet" href="../../css/bootstrap.min.css">-->
 	    <link rel="stylesheet" href="../../css/docs.css">
 	    <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../css/dashboard.css">
@@ -139,7 +144,7 @@ $grupos = new grupos();
         <link rel="stylesheet" href="../css/jquery-ui.structure.css">
         <!--<link rel="stylesheet" href="../../css/bootstrap-submenu.css">-->
         
-<!--        <script src="../../js/jquery.js" defer=""></script>-->
+        <!--<script src="../../js/jquery.js" defer=""></script>-->
         <!--<script src="../../js/highlight.min.js" defer=""></script>-->
         <!--<script src="../../js/docs.js" defer=""></script>-->
         <script src="../js/validaCampos.js" defer=""></script>
@@ -225,7 +230,14 @@ $grupos = new grupos();
 
             }        
         </script>
-       
+<!--
+        <style type="text/css">
+            body {
+                /*overflow-x:hidden;
+                overflow-y:hidden;*/
+            }
+        <style>        
+       -->
 </head>
 <body onload="hora()">
 <!-- <meta http-equiv="refresh" content="5;url=inicio.php"> -->

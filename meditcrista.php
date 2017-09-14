@@ -124,8 +124,63 @@ if($_GET){
             $texto->downloaPdf("MC139Paragem331.pdf");
             break;
         case "140":
-            $texto->downloaPdf("MC140Paragem333.pdf");
+            $texto->downloaPdf("MC140Paragem332.pdf");
             break;
+        case "141":
+            $texto->downloaPdf("MC141Paragem333.pdf");
+            break;
+        case "142":
+            $texto->downloaPdf("MC142Paragem334.pdf");
+            break;
+        case "143":
+            $texto->downloaPdf("MC143Paragem335.pdf");
+            break;
+        case "144":
+            $texto->downloaPdf("MC144Paragem411.pdf");
+            break;
+        case "145":
+            $texto->downloaPdf("MC145Paragem412.pdf");
+            break;
+        case "146":
+            $texto->downloaPdf("MC146Paragem413.pdf");
+            break;
+/*        case "147":
+            $texto->downloaPdf("MC147Paragem414.pdf");
+            break;
+*/
+/*        case "148":
+            $texto->downloaPdf("MC148Paragem421.pdf");
+            break;
+*/
+        case "149":
+            $texto->downloaPdf("MC149Paragem422.pdf");
+            break;
+
+        case "150":
+            $texto->downloaPdf("MC150Paragem423.pdf");
+            break;
+
+        case "151":
+            $texto->downloaPdf("MC151Paragem424.pdf");
+            break;
+
+        case "152":
+            $texto->downloaPdf("MC152Paragem431.pdf");
+            break;
+
+        case "153":
+            $texto->downloaPdf("MC153Paragem432.pdf");
+            break;
+
+        case "154":
+            $texto->downloaPdf("MC154Paragem433.pdf");
+            break;
+
+/*
+        case "155":
+            $texto->downloaPdf("MC155Paragem434.pdf");
+            break;
+*/
     }
             echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
     
@@ -206,6 +261,12 @@ if($_GET){
                 {
                     height: 30px;
                 }
+            }
+
+            #tdHover:hover{
+                background-color: rgba(255,255,255,0.5);
+                
+            }
             
         </style>   
     </head>

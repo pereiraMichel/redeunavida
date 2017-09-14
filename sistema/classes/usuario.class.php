@@ -609,7 +609,12 @@ class usuario {
             //$this->codAlteraUsuario = addslashes(filter_input(INPUT_POST, 'codusuario'));
             $this->setEmail(addslashes(filter_input(INPUT_POST, 'email')));
             $this->setCodTipoUsuario(addslashes(filter_input(INPUT_POST, 'tipousuario')));
-            $this->setSenha(addslashes(filter_input(INPUT_POST, 'senha')));
+
+            $senhaInformada = filter_input(INPUT_POST, 'senha');
+
+            if(!empty($senhaInformada)){
+                $this->setSenha(addslashes(filter_input(INPUT_POST, 'senha')));
+            }
 
 /*            echo "Data Alteração: ".$this->dataAlteracao."<br>";
             echo "Código Usuário: ".$this->codAlteraUsuario."<br>";
@@ -619,7 +624,7 @@ class usuario {
 
 
             if($this->alteraUsuario()){
-                echo "<label class='alert alert-success'>Usuário alterado com sucesso!</label>";
+                echo "<label class='alert alert-success'>Usuário alterado com sucesso! Aguarde 2 segundos...</label>";
                 echo "<meta http-equiv='refresh' content='2;url='inicio.php?m=config&t=usis'>";
             }else{
                 echo "<label class='alert alert-danger'>Erro ao alterar o usuário.</label>";
@@ -631,10 +636,10 @@ class usuario {
     }
 
     public function alteraUsuario(){
-        if(!empty($this->senha)){
-            $alteraSenha = ", senha = '".$this->senha."'";
-        }else{
+        if(empty($this->senha) or $this->senha === null or $this->senha === ""){
             $alteraSenha = "";
+        }else{
+            $alteraSenha = ", senha = '".$this->senha."'";
         }
 
 
@@ -764,20 +769,55 @@ class usuario {
     public function validaUser($usuario){ // função para validar o usuário e a senha
 
         $conecta = new conectaBanco();
-        $conecta->conecta();
+        $pdo = $conecta->conectaBancoPDO();
+
+
+//        $conecta->conecta();
         
         try{
+
+/*
+
+ //Melhor prática usando Prepared Statements
+ 
+$id = 5;
+try {
+    $conn = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
+     
+    $stmt = $conn->prepare('SELECT * FROM minhaTabela WHERE id = :id');
+    $stmt->execute(array('id' => $id));
+ 
+    while($row = $stmt->fetch()) {
+        print_r($row);
+    }
+} catch(PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
+*/
+
+        $statement = $pdo->query("
+                SELECT u.*, tp.nomeTipo
+                FROM tblusuario u 
+                INNER JOIN tipousuario tp ON u.codTipo = tp.idtipo 
+                WHERE (u.nomeUsuario = '".$usuario."' 
+                OR u.email = '".$usuario."') 
+                AND u.senha = '".$this->senha."'
+            ");
+/*
             $sql = "SELECT u.*, tp.nomeTipo "
                     . "FROM tblusuario u "
                     . "INNER JOIN tipousuario tp ON u.codTipo = tp.idtipo "
                     . "WHERE (u.nomeUsuario = '".$usuario."' "
                     . "OR u.email = '".$usuario."') "
                     . "AND u.senha = '".$this->senha."'";
-
+*/
                     //echo "SQL comando Usuário: ".$sql;
 
-            $resultado = mysql_query($sql) or die("Problemas no SQL. Verifique sob o erro: ".mysql_error()." |||");
-            $dados = mysql_fetch_array($resultado);
+//            $resultado = mysql_query($sql) or die("Problemas no SQL. Verifique sob o erro: ".mysql_error()." |");
+//            $dados = mysql_fetch_array($resultado);
+
+                    $dados = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($dados > 0){
                 session_start();

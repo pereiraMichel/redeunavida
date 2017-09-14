@@ -244,7 +244,7 @@ class Pesquisas{
 		switch ($classe) {
 			case 'meditacao':
 			echo "					<option value='dataRuv'>Data RUV</option>";
-			echo "					<option value='paragem'>Semana RUV</option>";
+			echo "					<option value='semana'>Semana RUV</option>";
 			echo "					<option value='dataRegistro'>Data Registro</option>";
 			echo "					<option value='inicio'>Início</option>";
 			echo "					<option value='termino'>Término</option>";

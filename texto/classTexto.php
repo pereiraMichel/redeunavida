@@ -2,6 +2,44 @@
 
 
 class classTexto {
+
+    public function modalJRPreliminar(){
+        echo "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
+        echo "  <div class='modal-dialog' role='document' style='width: 900px;'>";
+        echo "      <div class='modal-content'>";
+        echo "          <div class='modal-header'>";
+        echo "              <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+        echo "              <h3 class='modal-title' id='myModalLabel' style='font-weight: bold; text-align: center;'>Convite Jornada Real preliminar</h3>";
+        echo "          </div>";
+        echo "          <div class='modal-body'>";
+//        echo "              ...";
+        echo "<p style='text-align: center; font-weight: bold;'>Jornada Real Preliminar</p>";
+        echo "<p style='text-align: center; font-weight: bold;'>Inverno</p>";
+        echo " 
+        <p style='text-align: justify'>
+            Cada ser humano no decorrer da existência empreende uma jornada que   pode ser vivenciada em diferentes graus de consciência; de forma mais sonambúlica, até as percepções que demonstram maior lucidez.  Vai depender da disponibilidade e do investimento nas pequenas jornadas do cotidiano. De uma maneira ou de outra, a vida acaba por nos apresentar algumas provações que provocam o nosso despertar.<br>
+                A maneira como iniciamos a jornada, não é tão importante quanto o modo como nos comprometemos e nos responsabilizamos pela sua realização. E nisso, só a experiência conta.<br>
+                Se você reconhece a necessidade de tentar mudanças pessoais que devem afetar a coletividade, venha refletir conosco sobre a importância do autoconhecimento e da prática meditativa nesse processo.<br>
+                Este programa será apresentado em 8 encontros semanais.<br>
+                Para participar é preciso preencher a ficha de inscrição (solicite-a através do email <a href='mailto:jrp@redeunaviva.rio'>Fernanda Cappelli (jrp@redeunaviva.rio)</a><br><br>
+Informações:<br><br>
+Início desta Jornada:  <label style='color: red'>em 12 de julho de 2017</label>.<br>
+Dia e horário: <label style='color: red'>4ªs feiras, de 15:00h ás 16:30</label>.<br>
+Endereço: <label style='color: red'>sede da RedeUnaViva: Rua Mário Pederneiras, 31</label>.<br>
+Somos um grupo de voluntários que não recebe por qualquer serviço prestado. A cobrança visa unicamente a cobrir as despesas de aluguel da sala e gastos para o nosso desenvolvimento.<br>
+<label style='color: red'>Investimento: R$120,00(por mês, a cada 4 semanas) ou R$150,00, a ser pago juntamente, com a sua inscrição.</label>
+        </p>
+";
+        echo "          </div>";
+        echo "          <div class='modal-footer'>";
+        echo "              <button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>";
+//        echo "              <button type='button' class='btn btn-primary'>Save changes</button>";
+        echo "          </div>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "</div>";
+
+    }
     
 
     public function textoJornadaReal(){
@@ -9,7 +47,14 @@ class classTexto {
         $fonteTamanho = "font-size: 20px"; // Antes da garamond, 14px
         
         //Primeira parte =======================================================================
-        
+/*
+
+
+        echo "  <div class='tab-content' style='padding-left: 20px; padding-top: 15px;'>";
+        echo "      <div role='tabpanel' class='tab-pane active' id='JornadaReal'>";
+
+*/        
+
         echo "<div class='row' style='color: #1f226d;'>";
         echo "<div style='height: 20px;'></div>";
         echo "<div class='col-xs-6 col-sm-5' style='padding-right: 0; margin-right: 0; width: 50%;'>";
@@ -143,6 +188,7 @@ class classTexto {
 //        echo "          </ul>";
 //        echo "  </div>";
 //        echo "</div>";//Fecha a div row
+
     }
     
     public function textoQuemSomos(){
@@ -498,12 +544,12 @@ class classTexto {
         echo "              <li style='font-size: 20px;'>";
         echo "              <br><br>";
 //        echo "                  <b>Texto do Evangelho desta semana - 28/08/2016</b><br>";
-        echo "                  <b>Texto do Evangelho desta semana - domingo - 21.05.2017<br>";
-        echo "                  MC 332</b><br>";
+        echo "                  <b>Texto do Evangelho desta semana - domingo - 27.08.2017<br>";
+        echo "                  MC 433</b><br>";
         echo "              <br><br>";
-        echo "                  <a role='button' href='downloads/meditacaocrista/MC141Paragem333Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (28.05.2017).";
+        echo "                  <a role='button' href='downloads/meditacaocrista/MC156Paragem435Convite.pdf' aria=expanded='false' target='_blank' style='".$margem.";'>Clique aqui</a> a partir da 5ª feira anterior para ler o convite da MC do próximo domingo (10.09.2017).";
         echo "              <br><br>";
-        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC140Paragem332.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (21.05.2017).";
+        echo "                  <a role='button' target='_blank' href='downloads/meditacaocrista/MC154Paragem433.pdf' aria=expanded='false' aria-controls='' style='".$margem.";'>Clique aqui</a> a partir da 3ª feira posterior para ler a MC do domingo passado (27.08.2017).";
         echo "              <br><br>";
         echo "                  Clique na tabela ao lado para fazer download da MC.";
         echo "              <br><br>";
@@ -513,7 +559,7 @@ class classTexto {
 
         echo "      <div class='col-xs-6 col-sm-6' align='center'>";
         echo "          <div style='height: 5px;'>&nbsp;</div>";
-        echo "          <img src='images/meditacaoCrista.jpg' width='550' height='500' class='img-responsive'>";
+        echo "          <img src='images/meditacaoCrista.jpg' width='550' height='500' alt='Meditação Cristã' title='Meditação Cristã' class='img-responsive'>";
         echo "          <p style='height: 20px;'>&nbsp;</p>";
         echo "          <div style='height: 10px; font-family: garamond; font-size: 20px;'>&nbsp;</div>";
         echo "              <table class='table' style='height: 10px; font-family: garamond; font-size: 16px;'>";
@@ -528,34 +574,34 @@ class classTexto {
         echo "                      </td>";
         echo "                  </tr>";
         echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          1";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          2";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          3";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          4";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          5";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          6";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          7";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          8";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          9";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          10";
         echo "                      </td>";
         echo "                  </tr>";
@@ -592,136 +638,202 @@ class classTexto {
         echo "                      </td>";
         echo "                  </tr>";
         echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          101";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          102";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          103";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          104";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          105";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90'>";
         echo "                          106";
         echo "                      </td>";
-        echo "                      <td width='55' title='MC 107 Paragem 113 - 02/10/2016'>";
+        echo "                      <td width='90' id='tdHover' title='MC 107 Paragem 113 - 02/10/2016'>";
         echo "                          <a href='meditcrista.php?s=107' id='linkDownloads'>107<p style='font-size: 13px;'>02.10.2016</p></a>";//style='background-color: #FFA07A;'
         echo "                      </td>";
-        echo "                      <td width='55' title='MC 108 Paragem 114 - 09/10/2016'>";
+        echo "                      <td width='90' id='tdHover' title='MC 108 Paragem 114 - 09/10/2016'>";
 //        echo "                          <a href='/downloads/meditacaocrista/MC108Paragem114.pdf' id='linkDownloads'>108<p style='font-size: 13px;'>09.10.2016</p></a>";//style='background-color: #FFA07A;'
         echo "                          <a href='meditcrista.php?s=108' id='linkDownloads'>108<p style='font-size: 13px;'>09.10.2016</p></a>";//style='background-color: #FFA07A;'
         echo "                      </td>";
-        echo "                      <td width='55' title='MC 109 Paragem 121 - 16/10/2016'>";
+        echo "                      <td width='90' id='tdHover' title='MC 109 Paragem 121 - 16/10/2016'>";
         echo "                          <a href='meditcrista.php?s=109' id='linkDownloads'>109<p style='font-size: 13px;'>16.10.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='90' id='tdHover'>";
         echo "                          <a href='meditcrista.php?s=110' id='linkDownloads'>110<p style='font-size: 13px;'>23.10.2016</p></a>";
         echo "                      </td>";
         echo "                  </tr>";
         echo "                  <tr style='text-align: center; background-color: #E0FFFF; height: 60px;'>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=111' id='linkDownloads'>111<p style='font-size: 13px;'>30.10.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=112' id='linkDownloads'>112<p style='font-size: 13px;'>06.11.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=113' id='linkDownloads'>113<p style='font-size: 13px;'>13.11.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=114' id='linkDownloads'>114<p style='font-size: 13px;'>20.11.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=115' id='linkDownloads'>115<p style='font-size: 13px;'>27.11.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=116' id='linkDownloads'>116<p style='font-size: 13px;'>04.12.2016</p></a>";
         echo "                      </td>";
         echo "                      <td width='55'>";
         echo "                           <a href='meditcrista.php?s=117' id='linkDownloads'>117<p style='font-size: 13px;'>11.12.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=118' id='linkDownloads'>118<p style='font-size: 13px;'>18.12.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=119' id='linkDownloads'>119<p style='font-size: 13px;'>25.12.2016</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=120' id='linkDownloads'>120<p style='font-size: 13px;'>01.01.2017</p></a>";
         echo "                      </td>";
         echo "                  </tr>";
         echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=121' id='linkDownloads'>121<p style='font-size: 13px;'>08.01.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=122' id='linkDownloads'>122<p style='font-size: 13px;'>15.01.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=123' id='linkDownloads'>123<p style='font-size: 13px;'>22.01.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=124' id='linkDownloads'>124<p style='font-size: 13px;'>29.01.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=125' id='linkDownloads'>125<p style='font-size: 13px;'>05.02.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=126' id='linkDownloads'>126<p style='font-size: 13px;'>12.02.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='55' id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=127' id='linkDownloads'>127<p style='font-size: 13px;'>19.02.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=128' id='linkDownloads'>128<p style='font-size: 13px;'>26.02.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=129' id='linkDownloads'>129<p style='font-size: 13px;'>05.03.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=130' id='linkDownloads'>130<p style='font-size: 13px;'>12.03.2017</p></a>";
         echo "                      </td>";
         echo "                  </tr>";
 
         echo "                  <tr style='text-align: center; background-color: #E0FFFF; height: 60px;'>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=131' id='linkDownloads'>131<p style='font-size: 13px;'>19.03.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=132' id='linkDownloads'>132<p style='font-size: 13px;'>26.03.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=133' id='linkDownloads'>133<p style='font-size: 13px;'>02.04.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=134' id='linkDownloads'>134<p style='font-size: 13px;'>09.04.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=135' id='linkDownloads'>135<p style='font-size: 13px;'>16.04.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=136' id='linkDownloads'>136<p style='font-size: 13px;'>23.04.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td width='55'>";
+        echo "                      <td width='55' id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=137' id='linkDownloads'>137<p style='font-size: 13px;'>30.04.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=138' id='linkDownloads'>138<p style='font-size: 13px;'>07.05.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=139' id='linkDownloads'>139<p style='font-size: 13px;'>14.05.2017</p></a>";
         echo "                      </td>";
-        echo "                      <td>";
+        echo "                      <td id='tdHover'>";
         echo "                           <a href='meditcrista.php?s=140' id='linkDownloads'>140<p style='font-size: 13px;'>21.05.2017</p></a>";
         echo "                      </td>";
         echo "                  </tr>";
+        echo "                  <tr style='text-align: center; background-color: #FFEFD5; height: 60px;'>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=141' id='linkDownloads'>141<p style='font-size: 13px;'>28.05.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=142' id='linkDownloads'>142<p style='font-size: 13px;'>04.06.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=143' id='linkDownloads'>143<p style='font-size: 13px;'>11.06.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=144' id='linkDownloads'>144<p style='font-size: 13px;'>18.06.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=145' id='linkDownloads'>145<p style='font-size: 13px;'>25.06.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=146' id='linkDownloads'>146<p style='font-size: 13px;'>02.07.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           147";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           148";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=149' id='linkDownloads'>149<p style='font-size: 13px;'>23.07.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=150' id='linkDownloads'>150<p style='font-size: 13px;'>30.07.2017</p></a>";
+        echo "                      </td>";
+        echo "                  </tr>";
         
+        echo "                  <tr style='text-align: center; background-color: #E0FFFF; height: 60px;'>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=151' id='linkDownloads'>151<p style='font-size: 13px;'>06.08.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=152' id='linkDownloads'>152<p style='font-size: 13px;'>13.08.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=153' id='linkDownloads'>153<p style='font-size: 13px;'>20.08.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td id='tdHover'>";
+        echo "                           <a href='meditcrista.php?s=154' id='linkDownloads'>154<p style='font-size: 13px;'>27.08.2017</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='#' id='linkDownloads'>155<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='#' id='linkDownloads'>156<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                      <td width='55'>";
+        echo "                           <a href='#' id='linkDownloads'>157<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='#' id='linkDownloads'>158<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='#' id='linkDownloads'>159<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                      <td>";
+        echo "                           <a href='#' id='linkDownloads'>160<p style='font-size: 13px;'>&nbsp;</p></a>";
+        echo "                      </td>";
+        echo "                  </tr>";
+
+
         echo "              </table>";
         
 //                    echo "<meta HTTP-EQUIV='refresh' CONTENT='5;URL=meditcrista.php'>";
@@ -1331,11 +1443,13 @@ class classTexto {
         echo "<div class='col-xs-12 col-sm-12 col-md-12'>";
         echo "  <div class='text-center' style='font-family: garamond; color: #1f226d;'>";
 //        echo "  <div class='text-center' style='font-family: garamond; color: #3F6CA1;'>";
+        echo "      <img src='images/JR_Image.png' width='60' height='60'/><br>";
         echo "      <span style='color: #1f226d; font-size: 30px;'>";
         echo "          <b>Jornada de Meditação</b><br>";
         echo "      </span>";
         echo "      <span style='color: #1f226d; ".$tamanhoFonte.";'>";
-        echo "          <b>Primavera e Outono</b><br><br>";
+        echo "          <b>Inverno</b><br><br>";
+//        echo "          <b>Primavera e Outono</b><br><br>";
         echo "      </span>";
         echo "      <span style='".$tamanhoFonte.";'>";
         echo "          12 encontros para habilitar um modo especial <br>";
@@ -1368,10 +1482,12 @@ class classTexto {
         echo "          Informações:<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Início da próxima Jornada de Meditação, em <b>21 de setembro de 2016</b>.<br><br>";
+        echo "          Início da próxima Jornada de Meditação, em <b>26 de junho de 2017</b>.<br><br>";
+//        echo "          Início da próxima Jornada de Meditação, em <b>21 de setembro de 2016</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
-        echo "          Dia e horário: <b>4as feiras, de 14:30h às 16h</b>.<br><br>";
+        echo "          Dia e horário: <b>2as feiras, de 19:00h às 20:30h</b>.<br><br>";
+//        echo "          Dia e horário: <b>4as feiras, de 14:30h às 16h</b>.<br><br>";
         echo "      </span>";
         echo "      <span style='font-size: 20px;'>";//antes, era 14, fora da fonte garamond ".$espacamento.";
         echo "          Endereço: <a href='contato.php#mapa' target='_self'>sede da RedeUnaViva</a> (ver à esquerda da barra horizontal, na base desta página ou no mapa, na aba “Contato”).<br><br>";
