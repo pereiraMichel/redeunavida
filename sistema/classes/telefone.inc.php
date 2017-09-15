@@ -232,7 +232,7 @@ class telefone {
         echo "                                  <label for='telefone' class='col-sm-2 control-label'>Telefone:</label>";
         echo "                              </td>";
         echo "                              <td>";
-        echo "                                  <input type='tel' class='form-control' id='telefone' name='telefone' $mascara $desabilita onkeyup='somenteNumeros(this)' onkeydown='enterTab(\"btok\", event)' maxlength='9'>";
+        echo "                                  <input type='tel' class='form-control' id='telefone' name='telefone' $mascara $desabilita onkeyup='somenteNumeros(this)' onkeydown='enterTab(\"btok\", event)' maxlength='13'>";
         echo "                              </td>";
         echo "                              <td>";
         echo "                                  <button class='btn btn-default' id='btok' name='btok'>Ok</button>";
