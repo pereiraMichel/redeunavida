@@ -493,7 +493,7 @@ function mascara(t){
  }
 
  function mascaraTelefone(t){
-    var mask = "____-____";
+    var mask = "__-____-____";
     var i = t.value.length;
     var saida = mask.substring(1,0);
     var texto = mask.substring(i)
@@ -504,7 +504,7 @@ function mascara(t){
  }
 
  function mascaraCelular(t){
-    var mask = "_____-____";
+    var mask = "__-_____-____";
     var i = t.value.length;
     var saida = mask.substring(1,0);
     var texto = mask.substring(i)

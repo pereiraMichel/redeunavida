@@ -22,6 +22,11 @@ class usuario {
     private $dataAlteracao;
     private $codTipoUsuario;
     private $codAlteraUsuario;
+    private $confereEmail;
+
+    function setConfereEmail($confereEmail){
+        $this->confereEmail = $confereEmail;
+    }
 
     function getCodAlteraUsuario(){
         return $this->codAlteraUsuario;
@@ -94,6 +99,26 @@ class usuario {
 
     function setCodTipoUsuario($codTipoUsuario) {
         $this->codTipoUsuario = (int) $codTipoUsuario;
+    }
+
+    public function consultaEmailUsuario(){
+        $con = new conectaBanco();
+        $con->conecta();
+
+        $sqlConsultaEmail = "SELECT email FROM tblusuario WHERE email = '".$this->confereEmail."'";
+        try{
+
+            $resultadoConfere = mysql_query($sqlConsultaEmail) or die("Erro no comando SQL: ".mysql_error().". SQL: ".$sqlConsultaEmail);
+
+            if(mysql_num_rows($resultadoConfere) > 0){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch(Exception $ex){
+            echo "Exception: ".$ex->getMessage();
+        }
     }
 
     public function verificaUsuario(){
