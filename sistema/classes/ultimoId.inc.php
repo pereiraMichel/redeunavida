@@ -9,7 +9,7 @@ class ultimoId{
         
         try{
             
-            $resultUltimoNum = mysql_query($sqlUltimoNumero) or die ("Último ID. ".RETURN_SQL.mysl_error());
+            $resultUltimoNum = mysql_query($sqlUltimoNumero) or die ("Último ID. ".RETURN_SQL.mysql_error());
 
             $dados = mysql_fetch_array($resultUltimoNum);
 

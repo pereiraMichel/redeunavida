@@ -15,28 +15,30 @@ class configuracao {
 
     
     public function telaInicialConfig(){
+
+        //echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=config'>";
         
         echo "<div class='row' id='telaEscolha'>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=usis' target='_self'>";
-        echo "              <img src='../img/groupIcon2.png' title='Usuários do Sistema' width='90' height='90' class='img-rounded'>";
-        echo "              <h5>Usuários do Sistema</h5>";
+        echo "              <img src='../img/groupIcon2.png' title='Usuários' width='40' height='40' class='img-rounded'>";
+        echo "              <h5>Usuários</h5>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+/*        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=usit' target='_self'>";
         echo "              <img src='../img/groupIcon1.png' title='Usuários do Site' width='90' height='90' class='img-rounded'>";
         echo "              <h5>Usuários do Site</h5>";
         echo "          </a>";
         echo "      </div>";
-        echo "  </div>";
+        echo "  </div>";*/
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=set' target='_self'>";
-        echo "              <img src='../../images/setenio2.jpg' title='Setênio' width='90' height='90' class='img-rounded'>";
+        echo "              <img src='../../images/setenio2.jpg' title='Setênio' width='40' height='40' class='img-rounded'>";
         echo "              <h5>Setênio</h5>";
         echo "          </a>";
         echo "      </div>";
@@ -44,20 +46,20 @@ class configuracao {
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=tipotelefone' target='_self'>";
-        echo "              <img src='../img/telefone.png' title='Tipos de Telefone' width='90' height='90' class='img-rounded'>";
+        echo "              <img src='../img/telefone.png' title='Tipos de Telefone' width='40' height='40' class='img-rounded'>";
         echo "              <h5>Tipos de Telefone</h5>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "  <div class='col-xs-12 col-sm-12 col-md-12' style='height: 30px;'>&nbsp;</div>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=tipousuario' target='_self'>";
-        echo "              <img src='../img/User-blue.png' title='Usuários do Sistema' width='90' height='90' class='img-rounded'>";
+        echo "              <img src='../img/User-blue.png' title='Usuários do Sistema' width='40' height='40' class='img-rounded'>";
         echo "              <h5>Tipos de Usuário</h5>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12' style='height: 30px;'>&nbsp;</div>";
 //        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
 //        echo "      <div class='text-center'>";
 //        echo "          <a href='inicio.php?m=config&t=atividade' target='_self'>";
@@ -69,29 +71,74 @@ class configuracao {
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          <a href='inicio.php?m=config&t=perf'>";
-        echo "              <img src='../img/usuario.png' title='Perfil' class='img-rounded' width='90' height='90'>";
+        echo "              <img src='../img/usuario.png' title='Perfil' class='img-rounded' width='40' height='40'>";
         echo "              <h5>Seu Perfil</h5>";
         echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "</div>";
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=ativ' target='_self'>";
+        echo "              <img src='../img/registro1.jpg' title='Atividades' width='40' height='40' class='img-rounded'>";
+        echo "              <h5>Atividades</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=bon' target='_self'>";
+        echo "              <img src='../img/estatistica6.png' title='Bonificação' alt='Bonificação' width='40' height='40' class='img-rounded'>";
+        echo "              <h5>Bonificação</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+        $nomeTipoUsuario = $_SESSION['nomeTipo'];
+
+        if(($nomeTipoUsuario === "ADMINISTRADOR") OR ($nomeTipoUsuario === "ANALISTA")){
+
+
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=xb' target='_self'>";
+        echo "              <img src='../img/servicos.png' title='Configurações de Bônus' alt='Configurações de Bônus' width='40' height='40' class='img-rounded'>";
+        echo "              <h5>Configurações de Bônus</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "      &nbsp;";
+        echo "  </div>";
+
+        echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
+        echo "      <div class='text-center'>";
+        echo "          <a href='inicio.php?m=config&t=grupos' target='_self'>";
+        echo "              <img src='../img/groupIcon1.png' title='Configurações de Grupos' alt='Configurações de Grupos' width='40' height='40' class='img-rounded'>";
+        echo "              <h5>Grupos</h5>";
+        echo "          </a>";
+        echo "      </div>";
+        echo "  </div>";
+
+        }
+        
+        echo "  <div class='col-xs-12 col-sm-12 col-md-12'>";
+        echo "      &nbsp;";
+        echo "  </div>";
+
+        echo "<br/><br/>";
         echo "  <div class='col-xs-3 col-sm-3 col-md-3'>";
         echo "      <div class='text-center'>";
         echo "          &nbsp;";
-//        echo "          <a href='inicio.php?menu=configuracoes&tarefa=setenio' target='_self'>";
-//        echo "              <img src='../img/groupIcon1.png' title='Setênio' width='90' height='90' class='img-rounded'>";
-//        echo "              <h5>Setênio</h5>";
-//        echo "          </a>";
         echo "      </div>";
         echo "  </div>";
-        echo "<br/><br/>";
+        echo "</div>";
+        echo "<div class='col-xs-12 col-sm-12 col-md-12' style='height: 30px;'>&nbsp;</div>";
         echo "<div class='row'>";
         echo "  <div class='col-xs-12 col-sm-12 col-md-12' id='btnSairEscolha'>";
-        echo "      <a href='inicio.php' target='_self'>";
-        echo "          <button class='btn btn-default'>";
-        echo "              Voltar";
-        echo "          </button>";
+        echo "      <a href='inicio.php' class='btn btn-default' target='_self' title='Voltar' alt='Voltar'>";
+        echo "          <img src='../img/btn_back.png' width='25' height='25'>";
         echo "      </a>";
+        echo "          <br><label>Voltar</label>";
         echo "  </div>";
         echo "</div>";
         

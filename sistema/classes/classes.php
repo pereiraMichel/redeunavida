@@ -37,12 +37,12 @@ class classes {
         echo "  <div class='row wow fadeInUp' data-wow-duration='1000ms' data-wow-delay='300ms'>";
         echo "      <div class='col-sm-6' style='color: #fff'>";
         echo "          <div class='form-group'>";
-        echo "              <input type='text' name='login' class='form-control' placeholder='Login' required='required' style='color: #fff'>";
+        echo "              <input type='text' name='login' id='login' class='form-control' placeholder='Login' required='required' style='color: #000; background-color: #fff;'>";
         echo "          </div>";
         echo "      </div>";
         echo "      <div class='col-sm-6' style='color: #fff'>";
         echo "          <div class='form-group'>";
-        echo "              <input type='password' name='senha' class='form-control' placeholder='senha' required='required' style='color: #fff'>";
+        echo "              <input type='password' name='senha' class='form-control' placeholder='senha' required='required' style='color: #000; background-color: #fff;'>";
         echo "          </div>";
         echo "      </div>";
         echo "  </div>";
@@ -50,6 +50,18 @@ class classes {
         echo "      <button type='submit' class='btn-submit'>Acessar</button>";
         echo "  </div>";
         echo "</form>";
+/*
+        echo "<div class='col-sm-12'>";
+        echo "  &nbsp;";
+        echo "</div>";
+*/
+        echo "<div class='col-sm-12'>";
+        echo "  <a href='view/esqueciSenha.php' class='label label-primary'>Esqueceu sua senha ?</a>";
+        echo "</div>";
+
+        echo "<div class='col-sm-12'>";
+        echo "  &nbsp;";
+        echo "</div>";
 
     }
     

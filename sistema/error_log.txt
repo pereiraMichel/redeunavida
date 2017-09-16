@@ -1,0 +1,18 @@
+[25-Feb-2017 04:00:02 Europe/Paris] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 22
+[25-Feb-2017 04:00:02 Europe/Paris] PHP Stack trace:
+[25-Feb-2017 04:00:02 Europe/Paris] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[25-Feb-2017 04:00:02 Europe/Paris] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:35
+[25-Feb-2017 04:00:02 Europe/Paris] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:497
+[25-Feb-2017 04:00:02 Europe/Paris] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:22
+[15-Sep-2017 20:45:31 Europe/Paris] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 28
+[15-Sep-2017 20:45:31 Europe/Paris] PHP Stack trace:
+[15-Sep-2017 20:45:31 Europe/Paris] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Sep-2017 20:45:31 Europe/Paris] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
+[15-Sep-2017 20:45:31 Europe/Paris] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:791
+[15-Sep-2017 20:45:31 Europe/Paris] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:28
+[15-Sep-2017 20:45:38 Europe/Paris] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php on line 28
+[15-Sep-2017 20:45:38 Europe/Paris] PHP Stack trace:
+[15-Sep-2017 20:45:38 Europe/Paris] PHP   1. {main}() C:\wamp\www\redeunaviva\sistema\index.php:0
+[15-Sep-2017 20:45:38 Europe/Paris] PHP   2. usuario->validaUser() C:\wamp\www\redeunaviva\sistema\index.php:38
+[15-Sep-2017 20:45:38 Europe/Paris] PHP   3. conectaBanco->conecta() C:\wamp\www\redeunaviva\sistema\classes\usuario.class.php:791
+[15-Sep-2017 20:45:38 Europe/Paris] PHP   4. mysql_connect() C:\wamp\www\redeunaviva\sistema\conexao\conectaBanco.php:28

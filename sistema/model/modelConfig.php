@@ -634,7 +634,7 @@ class modelConfig {
         echo "  <div class='col-xs-2 col-md-2'>";
         echo "  </div>";
         echo "  <div class='col-xs-8 col-md-8'>";
-        echo "      <form class='form-horizontal' action='inicio.php?menu=trocasenha' method='post'>";
+        echo "      <form class='form-horizontal' action='inicio.php?menu=trocasenha' id='formTrocaSenha' name='formTrocaSenha' method='post'>";
         echo "          <div class='form-group'>";
         echo "              <label for='senhaantiga' class='col-sm-4 control-label'>";
         echo "                  Senha antiga:";
@@ -660,12 +660,45 @@ class modelConfig {
         echo "              </div>";
         echo "          </div>";
         echo "          <div class='form-group'>";
-        echo "              <a href='inicio.php' style='text-decoration: none;'>";
+
+        echo "              <table class='table'>";
+        echo "              <tr>";
+        echo "                  <td>";
+        echo "                      <a href='inicio.php?m=config&t=perftel' class='btn btn-default' title='Voltar' alt='Voltar'>";
+        echo "                          <img src='../img/btn_back.png' width='25' height='25'>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <button type='button' class='btn btn-default' id='salvar' name='salvar' disabled onclick='enviaForm(\"formTrocaSenha\")'>";
+        echo "                          <img src='../img/save2.png' width='25' height='25'>";
+        echo "                      </button>";
+        echo "                  </td>";
+        echo "              </tr>";
+        echo "              <tr>";
+        echo "                  <td colspan='5'>";
+        echo "                      &nbsp;";
+        echo "                  </td>";
+        echo "                  <td style='text-align: right;'>";
+        echo "                      <a href='inicio.php?config&t=perftel' title='Voltar' alt='Voltar'>";
+        echo "                          <label>Voltar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "                  <td style='text-align: left;'>";
+        echo "                      <a href='#' onclick='enviaForm(\"formTrocaSenha\")' title='Salvar' alt='Salvar' disabled>";
+        echo "                          <label>Salvar</label>";
+        echo "                      </a>";
+        echo "                  </td>";
+        echo "               </tr>";
+        echo "               </table>";
+
+/*        echo "              <a href='inicio.php' style='text-decoration: none;'>";
         echo "                  <button type='button' class='btn btn-default'>Voltar</button>";
         echo "              </a>";
         echo "              <a href='#' style='text-decoration: none;'>";
         echo "                  <button type='submit' class='btn btn-primary' disabled>Salvar</button>";
-        echo "              </a>";
+        echo "              </a>";*/
+
+
         echo "          </div>";
         echo "          <div style='height: 40px'>&nbsp;</div>";
         echo "          <div class='form-group' align='left'>";

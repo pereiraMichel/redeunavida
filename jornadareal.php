@@ -9,6 +9,10 @@ require_once './view/classFormAdesao.php';
 require_once './texto/classTexto.php';
 
 $formulario = new formulario();
+
+$textoJR = new classTexto();
+
+
 ?>
 
 <html lang="pt-br">
@@ -22,7 +26,7 @@ $formulario = new formulario();
         <meta name="author" content="Michel Pereira">
         <meta name="robots" content="nofollow">
         <meta name="google" content="notranslate">        
-        <title><?php echo TITULORUV; ?></title>
+        <title>Jornada Real</title>
 
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -110,8 +114,10 @@ $formulario = new formulario();
                             <div class="col-md-3"></div>
                             <div class="col-md-6 text-center">
                                 <table class="table">
-                                    <tr colspan="2">
-                                        <td style="border-color: #1874CD;">Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.</td>
+                                    <tr>
+                                        <td style="border-color: #1874CD;" colspan="2">
+                                            Jornada Real é um programa de autoconhecimento transmitido através de encontros semanais em grupo no período de um ano.
+                                        </td>
                                     </tr>
                                     <tr class="warning">
                                         <td colspan="2" style="background-color: #fff; border-color: #1874CD;">
@@ -123,7 +129,22 @@ $formulario = new formulario();
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <table>
+                                    <tr>
+                                        <td style="text-align: center; background-color: #fff; height: 90px; width: 350px;">
+                                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                                <img src="images/imgJRP.png" title="Convite Jornada Real preliminar" alt="Convite Jornada Real preliminar" class="img-responsive">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <?php
+                                $textoJR->modalJRPreliminar();
+                                ?>
+
+                            </div>
 
                         </div>
                     </div>
@@ -146,7 +167,6 @@ $formulario = new formulario();
                     <div class="col-md-12">
                         <p style="text-align: justify;">
                             <?php
-                            $textoJR = new classTexto();
 
                             $textoJR->textoJornadaReal();
 //                        $filename = "texto/quemsomos.xml";

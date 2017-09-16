@@ -69,7 +69,10 @@ private $nomeTipo;
             echo "      <div style='height: 40px'>&nbsp;</div>";
             echo "      <div class='form-group'>";
             echo "              <div class='col-sm-10' style='text-align:right'>";
-            echo "                  <button class='btn btn-default' onclick='javascript: history.go(-1)'>Voltar</button>";
+            echo "      <a href='inicio.php?m=config' class='btn btn-default' target='_self' title='Voltar' alt='Voltar'>";
+            echo "          <img src='../img/btn_back.png' width='25' height='25'>";
+            echo "      </a>";
+            echo "          <br><label style='padding-right: 8px;'>Voltar</label>";
             echo "              </div>";
             echo "      </div>";
 
