@@ -93,8 +93,6 @@ class calendarioRuv {
 - Primavera: de 23 de setembro a 21 de dezembro
 - Verão: de 21 de dezembro a 21 de março
 */
-        //echo $calculoData;
-
         if($calculoData >= 1 and $calculoData <= 91){
             $estacao = "Primavera";
             $codEstacao = 1;
@@ -131,7 +129,7 @@ class calendarioRuv {
                 $mesRuv = 3;
             }
         }
-        else if($calculoData >= 274 and $calculoData <= 365){ //era 364
+        else if($calculoData >= 274 and $calculoData <= 364){
             $estacao = "Inverno";
             $codEstacao = 4;
 
@@ -139,7 +137,7 @@ class calendarioRuv {
                 $mesRuv = 1;
             }else if($calculoData > 302 and $calculoData <= 330){
                 $mesRuv = 2;
-            }else if($calculoData > 330 and $calculoData <= 365){ // era 364
+            }else if($calculoData > 330 and $calculoData <= 364){
                 $mesRuv = 3;
             }
         }
@@ -268,7 +266,7 @@ class calendarioRuv {
                     $semana = 3;
                 }else if($calculoData >= 351 and $calculoData <= 357){
                     $semana = 4;
-                }else if($calculoData >= 358 and $calculoData <= 365){ //aqui era 364
+                }else if($calculoData >= 358 and $calculoData <= 364){
                     $semana = 5;
                 }
 
@@ -279,8 +277,7 @@ class calendarioRuv {
         $dataMarcadaFim = date("17/09/2017");
 //        echo $calculoData;
 //        if ((date('y') >= "15" || $mes >= "09") || (date('y') == "16" || $mes <= "09")){
-//        if ((date('d/m/Y') >= $dataMarcadaInicio) and (date('d/m/Y') <= $dataMarcadaFim)){ //aqui erar $dataMarcadaFim
-        if ((date('d/m/Y') >= $dataMarcadaInicio)){ //aqui erar $dataMarcadaFim
+        if ((date('d/m/Y') >= $dataMarcadaInicio) and (date('d/m/Y') <= $dataMarcadaFim)){
 //        if ((date('d') >= "18" || $mes >= "09")){
             $anoLetivo = $anoLetivo{1};
         }else{
@@ -539,14 +536,6 @@ class calendarioRuv {
         
         echo "<div class='table-responsive' style='padding-left: 10px;' id='helpCalendario'>";
         echo "  <table class='table' style='text-decoration: none; border: #f1cd8b 2px solid;'>";
-/*        echo "      <tr style='background-color: #00BFFF; border: #f1cd8b 2px solid;'>";
-        echo "          <td colspan='3'>";
-        echo "              <div id='tituloPaginas' style='font-weight: bold; font-size: 18px;'>Estação: ".$estacao."</div><br>";
-        echo "              <div id='tituloPaginas' style='font-weight: bold; font-size: 18px;'>Mês: ".$mes."</div><br>";
-        echo "              <div id='tituloPaginas' style='font-weight: bold; font-size: 18px;'>Semana: ".$semana."</div><br>";
-        echo "              <div id='tituloPaginas' style='font-weight: bold; font-size: 18px;'>Dia da Semana: ".$diaSemana."</div><br>";
-        echo "          </td>";
-        echo "      </tr>";*/
         echo "      <tr style='background-color: #00BFFF; border: #f1cd8b 2px solid;'>";
         echo "          <td colspan='3'>";
         echo "              <div id='tituloPaginas' style='font-weight: bold; font-size: 18px;'>Os números do Calendário-RUV</div>";

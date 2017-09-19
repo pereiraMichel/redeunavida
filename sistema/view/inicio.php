@@ -781,6 +781,12 @@ $help = new help();
                                         case 'relServicos':
                                                 echo "  <h5><b>Ajuda - Relatório de Serviços e Extras</b></h5>";
                                             break;
+                                        case 'relUsuarios':
+                                                echo "  <h5><b>Ajuda - Relatório de Usuários (ADM)</b></h5>";
+                                            break;
+                                        case 'relIndice':
+                                                echo "  <h5><b>Ajuda - Relatório de Índice</b></h5>";
+                                            break;
                                         case 'configUsuarios':
                                                 echo "  <h5><b>Ajuda - Configuração de Usuários (ADM)</b></h5>";
                                             break;

@@ -720,7 +720,7 @@ class ParagemPresenca {
 
                 $sqlTabPP = "SELECT * FROM tabpresparagem";
 
-                $resultTabPP = mysql_query($sqlTabPP) or die ("Erro no comando SQL de consulta Tarefas do Sistema. Erro: ".mysql_error());
+                $resultTabPP = mysql_query($sqlTabPP) or die ("Erro no comando SQL de consulta Paragem-Presença do Sistema. Erro: ".mysql_error());
 
                 if(mysql_num_rows($resultTabPP) > 0){
 
