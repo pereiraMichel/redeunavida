@@ -178,17 +178,22 @@ class bonus {
                 $multiplica = $somaPercentual * 100;
                 $formatPercentual = number_format($multiplica, 2, ",", ".");
 
-                echo "<table class='table'>";
+                echo "<table class='table' style='text-align: justify;'>";
+                /*
                 echo "  <tr>";
                 echo "      <td>";
-                echo "          <label>Total Bônus: ".$dadosTotal['totalBonus']."</label>";
+                echo "          <label>Total Bônus (Geral): ".$dadosTotal['totalBonus']."</label>";
                 echo "      </td>";
                 echo "      <td>";
                 echo "          <label>Percentual: ".$formatPercentual."%</label>";
                 echo "      </td>";
+                echo "      <td>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
                 echo "  </tr>";
+*/
                 echo "  <tr>";
-                echo "      <td><label>Data RUV: </label></td>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Data RUV: </label></td>";
                 echo "      <td>";
 
                 $tipoMenu = filter_input(INPUT_GET, 'm');
@@ -212,14 +217,101 @@ class bonus {
                 }
 
                 echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
                 echo "  </tr>";
+
                 echo "  <tr>";
-                echo "      <td colspan='2'>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Semana: </label></td>";
+                echo "      <td>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"med\")'>";
+                echo "              <option>&nbsp;</option>";
+                echo "              <option>Teste</option>";
+                echo "          </select>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
+                echo "  </tr>";
+
+                echo "  <tr>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Mês: </label></td>";
+                echo "      <td>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"med\")'>";
+                echo "              <option>&nbsp;</option>";
+                echo "              <option>Teste</option>";
+                echo "          </select>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
+                echo "  </tr>";
+
+                echo "  <tr>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Estação: </label></td>";
+                echo "      <td>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"med\")'>";
+                echo "              <option>&nbsp;</option>";
+                echo "              <option>Teste</option>";
+                echo "          </select>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
+                echo "  </tr>";
+
+                echo "  <tr>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Dia: </label></td>";
+                echo "      <td>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"med\")'>";
+                echo "              <option>&nbsp;</option>";
+                echo "              <option>Teste</option>";
+                echo "          </select>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
+                echo "  </tr>";
+
+                echo "  <tr>";
+                echo "      <td width='120'><label style='font-size: 12px;'>Por Grupo: </label></td>";
+                echo "      <td>";
+                echo "          <select name='semana' class='form-control' onchange='selecionaPPBonus(this.value, \"med\")'>";
+                echo "              <option>&nbsp;</option>";
+                echo "              <option>Teste</option>";
+                echo "          </select>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>Bônus: </label>";
+                echo "      </td>";
+                echo "      <td style='font-size: 12px;'>";
+                echo "          <label>&nbsp;</label>";
+                echo "      </td>";
+                echo "  </tr>";
+
+                echo "  <tr>";
+                echo "      <td colspan='4'>";
                 echo "          &nbsp;";
                 echo "      </td>";
                 echo "  </tr>";
                 echo "  <tr>";
-                echo "      <td colspan='2'>";
+                echo "      <td colspan='4'>";
                 echo "          <div class='progress'>";
                 echo "              <div class='progress-bar' role='progressbar' aria-valuenow='".$formatPercentual."' aria-valuemin='0' aria-valuemax='100' style='width: ".$formatPercentual."%; min-width: 3em;'>";
                 echo                    $formatPercentual."%";

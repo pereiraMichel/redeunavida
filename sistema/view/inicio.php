@@ -151,6 +151,7 @@ $help = new help();
         <!--<script src="../../js/docs.js" defer=""></script>-->
         <script src="../js/validaCampos.js" defer=""></script>
         <script src="../js/bootstrap-tab.js" defer=""></script>
+        <script src="../../js/tab.js" defer=""></script>
         <script src="../../js/modal.js" defer=""></script>
         <script src="../../js/bootstrap-submenu.js" defer=""></script>
         <script src="../js/metodos.js" defer=""></script>

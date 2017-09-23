@@ -319,15 +319,20 @@ class calendarioRuv {
         }else if($pagina === "estedia"){
             $this->preencheTempo($anoLetivo, $codEstacao, $mesRuv, $semana, $dias);
         }else if($pagina === "ppMeditacao"){
-            $this->calendarioPP($anoLetivo, $mesRuv, $codEstacao, $semana, $dias, $logica);
+            $this->calendarioPP($anoLetivo, "0", "0", "0", $dias, $logica);
+//            $this->calendarioPP($anoLetivo, $mesRuv, $codEstacao, $semana, $dias, $logica);
         }else if($pagina === "ppPortal"){
-            $this->calendarioPortal($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
+            $this->calendarioPortal($anoLetivo, "0", "0", "0", $dias);
+//            $this->calendarioPortal($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }else if($pagina === "paragempresenca"){
-            $this->calendarioParagem($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
+            $this->calendarioParagem($anoLetivo, "0", "0", "0", $dias);
+//            $this->calendarioParagem($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }else if($pagina === "tarefas"){
-            $this->calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao);
+            $this->calendarioTarefas($anoLetivo, "0", "0", "0");
+//            $this->calendarioTarefas($anoLetivo, $semana, $mesRuv, $codEstacao);
         }else if($pagina === "servicos"){
-            $this->calendarioServicos($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
+            $this->calendarioServicos($anoLetivo, "0", "0", "0", $dias);
+//            $this->calendarioServicos($anoLetivo, $mesRuv, $codEstacao, $semana, $dias);
         }
     }
     

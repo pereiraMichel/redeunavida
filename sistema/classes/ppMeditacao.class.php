@@ -170,21 +170,38 @@ class ppMeditacao {
     public function incluiPP(){
         $conecta = new conectaBanco();
         $conecta->conecta();
-        
+
+        $sqlConsultaQuantidade = "SELECT COUNT(idpp) as quantidade FROM pp WHERE codusuario = ".$this->codusuario." AND semana='".$this->paragem."' AND dataRegistro = '".$this->dataRegistro."'";
+
+
         $this->idpp = ultimoId::ultimoIdBanco("idpp", "pp");
         
         $sqlInserePP = "INSERT INTO pp (idpp, diaAnoRuv, diaRuv, semana, dataRegistro, duracao, nivel, bonus, periodo, inicio, termino, codusuario, dataRuv) 
                         VALUES (".$this->idpp.", ".$this->diaAnoRuv.", ".$this->diaRuv.", '".$this->paragem."', '".$this->dataRegistro."', ".$this->duracao.", ".$this->nivel.", ".$this->bonus.", '".$this->periodo."', '".$this->inicio."', '".$this->termino."', ".$this->codusuario.", '".$this->dataRuv."')";
 //        echo $sqlInserePP."<br>";
         try{
-            $resultadoInserePP = mysql_query($sqlInserePP) or die ("Erro comando SQL (Inclusão PP). Descrição: ".mysql_error());
-            if($resultadoInserePP){
-                echo "<label class='alert alert-success'>Meditação salvo com sucesso! Aguarde 2 segundos.</label>";
-                echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=pp&tab=meditacao'>";
-                $atividade = new atividades();
-                $atividade->writeLog($_SESSION['usuario'], "Inclusão da Meditação. Data RUV: ".$this->dataRuv, "../controller/");
-                return true;
+            //echo $sqlConsultaQuantidade;
+
+            $resultadoConsultaQuantidade = mysql_query($sqlConsultaQuantidade) or die("Erro no comando SQL. Descrição: ".mysql_error().". SQL: ".$sqlConsultaQuantidade);
+
+            $dadosQuantidade = mysql_fetch_array($resultadoConsultaQuantidade);
+
+            if($dadosQuantidade['quantidade'] > 4){
+                echo "<label class='alert alert-danger'>Só é permitido 4 entradas diárias.</label>";
+                echo "<meta http-equiv='refresh' content='5;url=inicio.php?m=pp&tab=meditacao'>";
+                return false;
+
+            }else{
+                $resultadoInserePP = mysql_query($sqlInserePP) or die ("Erro comando SQL (Inclusão PP). Descrição: ".mysql_error());
+                if($resultadoInserePP){
+                    echo "<label class='alert alert-success'>Meditação salvo com sucesso! Aguarde 2 segundos.</label>";
+                    echo "<meta http-equiv='refresh' content='2;url=inicio.php?m=pp&tab=meditacao'>";
+                    $atividade = new atividades();
+                    $atividade->writeLog($_SESSION['usuario'], "Inclusão da Meditação. Data RUV: ".$this->dataRuv, "../controller/");
+                    return true;
+                }
             }
+
             return false;
         } catch (Exception $ex) {
             echo "Chamada de exception ativada. Não foi possível inserir. Exepction: ".$ex->getMessage();
@@ -272,6 +289,24 @@ class ppMeditacao {
                 
         }
             echo "<p style='height: 20px;'>&nbsp;</p>";
+            echo "  <ul class='nav nav-tabs nav-justified' role='tablist'>";
+            echo "      <li width='150'>";
+            echo "          <a href='inicio.php?m=pp&tab=meditacao' class='btn $med' style='width: 90px;'>";
+            echo "              Meditação";
+            echo "          </a>";
+            echo "      </li>";
+            echo "      <li width='150'>";
+            echo "          <a href='inicio.php?m=pp&tab=bonus' class='btn $bns' style='width: 90px;'>";
+            echo "              Bônus";
+            echo "          </a>";
+            echo "      </li>";
+            echo "      <li width='150'>";
+            echo "          <a href='inicio.php?m=pp&tab=pesquisas' class='btn $pes' style='width: 90px;'>";
+            echo "              Pesquisas";
+            echo "          </a>";
+            echo "      </li>";
+            echo "  </ul>";
+            echo "<br><br>";
             echo "<div class='col-sm-12'>";
             echo "  <div class='btn-group btn-group-justified' role='group'>";
             echo "          <a href='inicio.php?m=pp&tab=meditacao' class='btn $med' style='width: 90px;'>";
@@ -437,18 +472,38 @@ class ppMeditacao {
         $s = filter_input(INPUT_GET, 's');
         $ordem = filter_input(INPUT_GET, 'o');
 
+        $semana_meditacao = filter_input(INPUT_GET, 'sem');
+        $mes_meditacao = filter_input(INPUT_GET, 'mes');
+        $estacao_meditacao = filter_input(INPUT_GET, 'est');
+        $diaRuv_meditacao = filter_input(INPUT_GET, 'dia');
 
-        if(!empty($s)){
-            if($s == "Todos"){
+
+        if(!empty($s))
+        {
+            if($s == "Todos")
+            {
                 $selecionaDataRuv = "";
-            }else{
+            }
+            else
+            {
                 $selecionaDataRuv = " AND dataRuv = '".$s."' ";
             }
+
+        }
+        else if(!empty($semana_meditacao)){
+            $selecionaDataRuv = " AND dataRuv LIKE '__".$semana_meditacao."____%'";
+        }
+        else if(!empty($mes_meditacao)){
+            $selecionaDataRuv = " AND dataRuv LIKE '___".$mes_meditacao."___%'";
+        }
+        else if(!empty($estacao_meditacao)){
+            $selecionaDataRuv = " AND dataRuv LIKE '____".$estacao_meditacao."__%'";
+        }
+        else if(!empty($diaRuv_meditacao)){
+            $selecionaDataRuv = " AND dataRuv LIKE '______".$diaRuv_meditacao."%'";
         }else{
             $selecionaDataRuv = " AND dataRuv = '".$this->dataRuv."'";
         }
-
-//        if(!empty($ordem)){
 
             switch ($ordem) {
                 case 'diaruv':
@@ -484,11 +539,14 @@ class ppMeditacao {
 
         echo "<div class='col-sm-12'>";
 
+
         $sqlPP = "SELECT *, DATE_FORMAT(`dataRegistro`, '%d/%m/%Y') AS dataMeditacao
                   FROM pp
                   WHERE codusuario = ".$this->codusuario.$selecionaDataRuv.$selecionaOrdem; // DATE_FORMAT(`dataRuv`, '%d/%m/%Y') AS dataRuvFormnat
 //" AND dataRegistro = ".date('Y-m-d').
         $sqlResumoDataRuv = "SELECT dataRuv, diaRuv FROM pp WHERE codusuario = ".$this->codusuario." GROUP BY dataRuv ORDER BY dataRuv";
+
+        $sqlBuscaSemana = "SELECT substring(dataRuv, 3, 1) as semana, substring(dataRuv, 3, 1) as mes, substring(dataRuv, 3, 1) as estacao, substring(dataRuv, 3, 1) as dia FROM pp WHERE codusuario = ".$this->codusuario." ".$compSemana." GROUP BY semana ORDER BY dataRuv";
         
         //echo "SQL: ".$sqlPP."<br>";
 
@@ -499,6 +557,7 @@ class ppMeditacao {
 
             $resultadoResumo = mysql_query($sqlResumoDataRuv) or die("Erro na execução do comando SQL do resumo. Descrição: ".mysql_error());
 
+            $resultadoBuscaSemana = mysql_query($sqlBuscaSemana) or die("Erro na execução do comando SQL da busca. SQL: ".$sqlBuscaSemana);
 /*                if($tipousuario === "1" or $tipousuario === "3"){
                     $sqlUsuario = "SELECT * FROM tblusuario";
 
@@ -533,10 +592,10 @@ class ppMeditacao {
 //                    echo "Tipo usuário: ".$tipousuario;
                 }
             */
-                    echo "<table class='table table-striped'>";
+                    echo "<table class='table table-responsive'>";//table-striped 
                     echo "  <tr>";
-                    echo "      <td>";
-                    echo "          <label>Selecionar Data RUV</label>";
+                    echo "      <td width='70px'>";
+                    echo "          <label style='font-size: 11px;'>Data RUV</label>";
                     echo "      </td>";
                     echo "      <td>";
                     echo "          <select name='sDataRuv' id='sDataRuv' class='form-control' onchange='registroSelecao(this.value, \"pp\")'>";
@@ -551,10 +610,85 @@ class ppMeditacao {
                     }
                     echo "          </select>";
                     echo "      </td>";
-//                    echo "  </tr>";
-//                    echo "  <tr>";
                     echo "      <td>";
-                    echo "          <label>Classificar por: </label>";
+                    echo "          <label style='font-size: 11px;'>Semana: </label>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <select name='semanaRuv' id='semanaRuv' class='form-control' onchange='registrosTab(\"pp\", \"registros\", \"sem\", this.value)'>";
+/*
+        $semana_meditacao
+        $mes_meditacao
+        $estacao_meditacao
+        $diaRuv_meditacao
+*/
+
+                    if (!empty($semana_meditacao))
+                    {
+                        echo "          <option value='".$semana_meditacao."'>".$semana_meditacao."</option>";
+                        echo "          <option value=''></option>";
+                    }
+                    echo "              <option value='1'>1</option>";
+                    echo "              <option value='2'>2</option>";
+                    echo "              <option value='3'>3</option>";
+                    echo "              <option value='4'>4</option>";
+                    echo "              <option value='5'>5</option>";
+                    echo "          </select>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <label style='font-size: 11px;'>Mês: </label>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <select name='mesruv' id='mesRuv' class='form-control' onchange='registrosTab(\"pp\", \"registros\", \"mes\", this.value)'>";
+                    if(!empty($mes_meditacao))
+                    {
+                        echo "          <option value='".$mes_meditacao."'>".$mes_meditacao."</option>";
+                        echo "          <option value=''></option>";
+
+                    }
+                    echo "              <option value='1'>1</option>";
+                    echo "              <option value='2'>2</option>";
+                    echo "              <option value='3'>3</option>";
+                    echo "          </select>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <label style='font-size: 11px;'>Estação: </label>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <select name='estacaoRuv' id='estacaoRuv' class='form-control' onchange='registrosTab(\"pp\", \"registros\", \"est\", this.value)'>";
+                    if(!empty($estacao_meditacao))
+                    {
+                        echo "          <option value='".$estacao_meditacao."'>".$estacao_meditacao."</option>";
+                        echo "          <option value=''></option>";
+
+                    }
+                    echo "              <option value='1'>1 - Primavera</option>";
+                    echo "              <option value='2'>2 - Verão</option>";
+                    echo "              <option value='3'>3 - Outono</option>";
+                    echo "              <option value='4'>4 - Inverno</option>";
+                    echo "          </select>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <label style='font-size: 11px;'>Dia: </label>";
+                    echo "      </td>";
+                    echo "      <td>";
+                    echo "          <select name='diaRuv' id='diaRuv' class='form-control' onchange='registrosTab(\"pp\", \"registros\", \"dia\", this.value)'>";
+                    if(!empty($dia_meditacao))
+                    {
+                        echo "          <option value='".$dia_meditacao."'>".$dia_meditacao."</option>";
+                        echo "          <option value=''></option>";
+
+                    }
+                    echo "              <option value='1'>1</option>";
+                    echo "              <option value='2'>2</option>";
+                    echo "              <option value='3'>3</option>";
+                    echo "              <option value='4'>4</option>";
+                    echo "              <option value='5'>5</option>";
+                    echo "              <option value='6'>6</option>";
+                    echo "              <option value='7'>7</option>";
+                    echo "          </select>";
+                    echo "      </td>";
+                    echo "      <td width='100px'>";
+                    echo "          <label style='font-size: 11px;'>Classificar por: </label>";
                     echo "      </td>";
                     echo "      <td>";
                     //$dominio = null;

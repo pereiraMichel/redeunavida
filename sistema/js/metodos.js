@@ -2052,6 +2052,11 @@ function preencheDataRuv(campo, id, classe){
 
     }
 
+    function registrosTab(classe, tab, selecao, valor){
+
+        window.location.href='inicio.php?m=' + classe + '&tab=' + tab + '&' + selecao + '=' + valor;
+    }
+
     function registroSelecao(dataruv, classe){
 
         if(dataruv === ""){
